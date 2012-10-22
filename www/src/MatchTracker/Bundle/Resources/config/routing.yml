@@ -1,0 +1,18 @@
+match_tracker_homepage:
+    pattern:  /
+    defaults: { _controller: MatchTrackerBundle:Home:index }
+    requirements:
+        _method:  GET
+
+match_tracker_competition_show:
+    pattern: /competities/detail/{name}
+    defaults: { _controller: MatchTrackerBundle:Competition:detail }
+    requirements:
+        _method:  GET
+
+match_tracker_competition:
+    pattern: /competities/{sport}
+    defaults: { _controller: MatchTrackerBundle:Competition:index, sport: alles }
+    requirements:
+        _method:  GET
+        

@@ -1,0 +1,30 @@
+*************************************************
+*			Symfony2 Tips & Tricks				*
+*************************************************
+
+# Clear cache (routes, templates & config)
+	./app/console --env=prod cache:clear
+
+# Route debug
+	./app/console router:debug
+	
+# Clean url (geen web/app.php/contact maar gewoon www.matchtracker.be/contact)
+	(-> Lokaal hostname instellen! bv. matchtracker.localhost)
+	-> .htaccess bestand aanmaken in root directory met volgende inhoud:
+	
+	<IfModule mod_rewrite.c>
+		RewriteEngine on
+		RewriteCond %{HTTP_HOST} ^matchtracker.localhost$ [NC,OR]
+		RewriteCond %{HTTP_HOST} ^www.matchtracker.localhost$
+		RewriteCond %{REQUEST_URI} !web/
+		RewriteRule (.*) /web/$1 [L]
+	</IfModule>
+	
+	
+	Beter is misschien om de map web te hernoemen naar public_html!! 
+	
+# Versio.be servers in PHP 5.3 modus?
+	-> .htaccess op root met daarin:
+		<FilesMatch "\.php$">
+			AddHandler x-httpd-php53 .php
+		</FilesMatch>
