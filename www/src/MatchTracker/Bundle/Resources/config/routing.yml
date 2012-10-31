@@ -15,4 +15,12 @@ match_tracker_competition:
     defaults: { _controller: MatchTrackerBundle:Competition:index, sport: alles }
     requirements:
         _method:  GET
+
+match_tracker_authentication_login:
+    pattern: /login
+    defaults: { _controller: MatchTrackerBundle:Authentication:login }
+    requirements:
+        _method:  GET
+
+
         
