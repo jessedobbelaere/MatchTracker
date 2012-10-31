@@ -1,5 +1,5 @@
 *************************************************
-*			Symfony2 Tips & Tricks				*
+*				Tips & Tricks					*
 *************************************************
 
 # Clear cache (routes, templates & config)
@@ -28,3 +28,8 @@
 		<FilesMatch "\.php$">
 			AddHandler x-httpd-php53 .php
 		</FilesMatch>
+		
+		
+# Github readme generator
+	Kopieer de inhoud van readme.md naar onderstaande website en pas aan :-)
+	http://homepage.univie.ac.at/werner.robitza/markdown/
