@@ -7,3 +7,5 @@
 /.settings
 .idea
 /.idea
+.idea/
+.idea/*
