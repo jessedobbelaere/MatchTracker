@@ -21,7 +21,6 @@
         {% block stylesheets %}
         <link href="{{ asset('bundles/matchtracker/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
         <link href="{{ asset('bundles/matchtracker/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet" />
-
         {% endblock %}
         
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
@@ -44,7 +43,7 @@
               <li {% if active_page == "home" %} class="active"{% endif%}><a href="{{ path('match_tracker_homepage') }}">Home</a></li>
               <li {% if active_page == "competition" %} class="active"{% endif%}><a href="{{ path('match_tracker_competition') }}">Competities</a></li>
               <li><a href="#contact">Wedstrijden</a></li>
-              <li><a href="#contact">Login/Registreer</a></li>
+              <li><a href="{{  path('match_tracker_authentication_login') }}">Login/Registreer</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

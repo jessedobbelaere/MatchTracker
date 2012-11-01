@@ -7,9 +7,18 @@ Login
 {% endblock %}
 
 {% block body %}
-      <div class="hero-unit">
+	<div class="container">
+		<h1>Login</h1>
 
-        <h1>Hello, Login!</h1>
+		{% if error %}
+			<span class="error">{{ error }}</span>
+		{% endif %}
 
-    </div>
+		<form action="{{ path('match_tracker_authentication_check') }}" method="post">
+			{{ form_widget(form) }}
+
+			<input type="submit" />
+		</form>
+
+	</div>
 {% endblock %}

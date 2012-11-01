@@ -1,9 +1,8 @@
+# Route to the matchtracker bundle
 match_tracker:
     resource: "@MatchTrackerBundle/Resources/config/routing.yml"
     prefix:   /
 
-   
-    
  
 # Internal routing configuration to handle ESI
 #_internal:
