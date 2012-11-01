@@ -17,7 +17,7 @@ use Symfony\Component\Security\Core\SecurityContext;
 class AuthenticationController extends Controller{
 
 	/**
-	 * Go to the login page
+	 * Show the login page
 	 *
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
@@ -42,6 +42,10 @@ class AuthenticationController extends Controller{
 	        'error' => $error
         ));
     }
+
+	public function loginCheckAction() {
+
+	}
 
 
     public function registerAction() {

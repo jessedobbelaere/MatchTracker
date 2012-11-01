@@ -14,7 +14,7 @@ Login
 			<span class="error">{{ error }}</span>
 		{% endif %}
 
-		<form action="{{ path('match_tracker_authentication_check') }}" method="post">
+		<form action="{{ path('match_tracker_authentication_login_check') }}" method="post">
 			{{ form_widget(form) }}
 
 			<input type="submit" />
