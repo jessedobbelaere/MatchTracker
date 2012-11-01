@@ -11,7 +11,7 @@ USE `MatchTracker` ;
 DROP TABLE IF EXISTS `MatchTracker`.`users` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`users` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NULL ,
   `email` VARCHAR(45) NULL ,
   `password` VARCHAR(45) NULL ,
@@ -25,7 +25,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`leagues` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`leagues` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NULL ,
   `place` VARCHAR(45) NULL ,
   `user_id` INT NOT NULL ,
@@ -45,7 +45,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`teams` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`teams` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NULL ,
   `teamusers_idteamusers` INT NOT NULL ,
   `users_id` INT NOT NULL ,
@@ -65,7 +65,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`players` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`players` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(65) NULL ,
   `age` INT NULL ,
   `teams_id` INT NOT NULL ,
@@ -109,7 +109,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`matches` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`matches` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `home_team` INT NOT NULL ,
   `away_team` INT NOT NULL ,
   `date` DATETIME NULL ,
@@ -136,7 +136,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`match_events` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`match_events` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NULL ,
   `text` TEXT NULL ,
   PRIMARY KEY (`id`) )
@@ -149,7 +149,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`matches_has_match_events` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`matches_has_match_events` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `matches_id` INT NOT NULL ,
   `match_events_id` INT NOT NULL ,
   `players_id` INT NOT NULL ,
@@ -189,7 +189,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`messages` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`messages` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `text` TEXT NULL ,
   `receiver_id` INT NOT NULL ,
   `sender_id` INT NOT NULL ,
