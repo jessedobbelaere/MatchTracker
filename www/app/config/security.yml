@@ -8,10 +8,11 @@ security:
     # How our password will be encoded.
     encoders:
         # We want to use the sha512 encoding algorithm, iterated 10 times and encode it as a base64 string.
-        MatchTracker\Bundle\Entity\Users:
-            algorithm: sha512
-            encode-as-base64: true
-            iterations: 10
+        #MatchTracker\Bundle\Entity\Users:
+            #algorithm: sha512
+            #encode-as-base64: true
+            #iterations: 10
+        Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -25,8 +26,8 @@ security:
                 users:
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
-        main:
-            entity: { class: MatchTracker\Bundle\Entity\Users, property username }
+        #main:
+            #entity: { class: MatchTracker\Bundle\Entity\Users, property username }
 
     # Authorization is managed by the firewall system. This system is made up of listeners that listen for
     # the core.security event and then redirect the request based on the credentials of the user if necessary.
@@ -41,17 +42,19 @@ security:
             security: false
 
         # We define a single firewall that listens to all routes and then we use the access_control lists!
-        main:
+        secured_area:
             pattern: /.*
             form_login: # We want to authenticate by logging into a form
                 check_path: /login_check
                 login_path: /login
                 default_target_path: /profile
-            logout: true
+            logout:
+                path:   /logout
+                target: /
             security: true
             anonymous: true
 
     # Routes that start with '/profile/' will need the ROLE_ADMIN. Every other page can be visited anonymously.
     access_control:
-        - { path: /profile/.*, role: ROLE_ADMIN }
-        - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: /profile/.*, role: ROLE_ADMIN }
+        #- { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }

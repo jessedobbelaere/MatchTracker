@@ -1,67 +1,74 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html"; charset=utf-8" />
-        <title>MatchTracker - {% block title %}{% endblock %}</title>
-        
-        <!--[if lt IE 9]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        
-        <style type="text/css">
-      		body {
-       			padding-top: 60px;
-        		padding-bottom: 40px;
-      		}
-      		.sidebar-nav {
-        		padding: 9px 0;
-      		}
-    	</style>
-    	
-        {% block stylesheets %}
-        <link href="{{ asset('bundles/matchtracker/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
-        <link href="{{ asset('bundles/matchtracker/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet" />
-        {% endblock %}
-        
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-    </head>
+<head>
+	<meta http-equiv="Content-Type" content="text/html"
+	; charset=utf-8" />
+	<title>MatchTracker - {% block title %}{% endblock %}</title>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<style type="text/css">
+		body {
+			padding-top: 60px;
+			padding-bottom: 40px;
+		}
+
+		.sidebar-nav {
+			padding: 9px 0;
+		}
+	</style>
+
+	{% block stylesheets %}
+		<link href="{{ asset('bundles/matchtracker/css/bootstrap.css') }}" type="text/css" rel="stylesheet"/>
+		<link href="{{ asset('bundles/matchtracker/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet"/>
+	{% endblock %}
+
+	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+</head>
 <body>
-	
-	<div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
 
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">MatchTracker</a>
-          <div class="nav-collapse collapse">
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
 
-            <ul class="nav">
-              <li {% if active_page == "home" %} class="active"{% endif%}><a href="{{ path('match_tracker_homepage') }}">Home</a></li>
-              <li {% if active_page == "competition" %} class="active"{% endif%}><a href="{{ path('match_tracker_competition') }}">Competities</a></li>
-              <li><a href="#contact">Wedstrijden</a></li>
-              <li><a href="{{  path('match_tracker_authentication_login') }}">Login/Registreer</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+		<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<a class="brand" href="#">MatchTracker</a>
 
+			<div class="nav-collapse collapse">
 
+				<ul class="nav">
+					<li {% if active_page == "home" %} class="active"{% endif %}><a href="{{ path('match_tracker_homepage') }}">Home</a></li>
+					<li {% if active_page == "competition" %} class="active"{% endif %}><a href="{{ path('match_tracker_competition') }}">Competities</a></li>
+					<li><a href="#contact">Wedstrijden</a></li>
+					<li {% if active_page == "login" %} class="active"{% endif %}><a href="{{ path('match_tracker_authentication_login') }}">Login/Registreer</a></li>
+				</ul>
 
-    <div class="container">
-        {% block body %}{% endblock %}
-        
-        
-    </div> 
+				{% block menu %}
 
-	<div class="footer container">
-        <p>&copy; MatchTracker 2012</p>
+				{% endblock %}
+			</div>
+			<!--/.nav-collapse -->
+		</div>
 	</div>
+</div>
 
-        {% block javascripts %}{% endblock %}
+
+<div class="container">
+	{% block body %}{% endblock %}
+
+
+</div>
+
+<div class="footer container">
+	<p>&copy; MatchTracker 2012</p>
+</div>
+
+{% block javascripts %}{% endblock %}
 </body>
 </html>

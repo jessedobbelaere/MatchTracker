@@ -6,7 +6,7 @@ _security_login:
 # We don't need a controller, because the security component listens to the core.security event and
 # intercepts the request and handles it.
 _security_check:
-    pattern:  /login_check
+    pattern: /login_check
 
 _security_logout:
     pattern:  /logout
@@ -15,8 +15,7 @@ profile_panel:
     pattern:  /profile/
     defaults: { _controller: MatchTrackerBundle:Profile:index }
 
-
-# Non-secure pages
+# Other pages
 match_tracker_homepage:
     pattern:  /
     defaults: { _controller: MatchTrackerBundle:Home:index }

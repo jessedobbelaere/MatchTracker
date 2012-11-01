@@ -46,8 +46,8 @@ class AuthenticationController extends Controller{
         ));
     }
 
-	public function loginCheckAction() {
-
+	public function login_checkAction() {
+		// Will be intercepted
 	}
 
 
