@@ -1,0 +1,52 @@
+<?php
+
+namespace MatchTracker\Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MatchTracker\Bundle\Entity\Messages
+ *
+ * @ORM\Table(name="messages")
+ * @ORM\Entity
+ */
+class Messages
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $text
+     *
+     * @ORM\Column(name="text", type="text", nullable=true)
+     */
+    private $text;
+
+    /**
+     * @var Users
+     *
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="receiver_id", referencedColumnName="id")
+     * })
+     */
+    private $receiver;
+
+    /**
+     * @var Users
+     *
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="sender_id", referencedColumnName="id")
+     * })
+     */
+    private $sender;
+
+
+}

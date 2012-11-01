@@ -2,7 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-DROP SCHEMA IF EXISTS `MatchTracker` ;
 CREATE SCHEMA IF NOT EXISTS `MatchTracker` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 USE `MatchTracker` ;
 
@@ -12,7 +11,7 @@ USE `MatchTracker` ;
 DROP TABLE IF EXISTS `MatchTracker`.`users` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`users` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
+  `id` INT NOT NULL ,
   `name` VARCHAR(45) NULL ,
   `email` VARCHAR(45) NULL ,
   `password` VARCHAR(45) NULL ,
@@ -26,11 +25,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`leagues` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`leagues` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
+  `id` INT NOT NULL ,
   `name` VARCHAR(45) NULL ,
   `place` VARCHAR(45) NULL ,
   `user_id` INT NOT NULL ,
-  PRIMARY KEY (`id`, `user_id`) ,
+  PRIMARY KEY (`id`) ,
   INDEX `fk_leagues_users1` (`user_id` ASC) ,
   CONSTRAINT `fk_leagues_users1`
     FOREIGN KEY (`user_id` )
@@ -46,9 +45,17 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`teams` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`teams` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
+  `id` INT NOT NULL ,
   `name` VARCHAR(45) NULL ,
-  PRIMARY KEY (`id`) )
+  `teamusers_idteamusers` INT NOT NULL ,
+  `users_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_teams_users1` (`users_id` ASC) ,
+  CONSTRAINT `fk_teams_users1`
+    FOREIGN KEY (`users_id` )
+    REFERENCES `MatchTracker`.`users` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -58,7 +65,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`players` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`players` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
+  `id` INT NOT NULL ,
   `name` VARCHAR(65) NULL ,
   `age` INT NULL ,
   `teams_id` INT NOT NULL ,
@@ -102,7 +109,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`matches` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`matches` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
+  `id` INT NOT NULL ,
   `home_team` INT NOT NULL ,
   `away_team` INT NOT NULL ,
   `date` DATETIME NULL ,
@@ -129,7 +136,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`match_events` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`match_events` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
+  `id` INT NOT NULL ,
   `name` VARCHAR(45) NULL ,
   `text` TEXT NULL ,
   PRIMARY KEY (`id`) )
@@ -142,7 +149,8 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `MatchTracker`.`matches_has_match_events` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`matches_has_match_events` (
-  `matches_id` INT NOT NULL AUTO_INCREMENT ,
+  `id` INT NOT NULL ,
+  `matches_id` INT NOT NULL ,
   `match_events_id` INT NOT NULL ,
   `players_id` INT NOT NULL ,
   `teams_id` INT NOT NULL ,
@@ -151,6 +159,7 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`matches_has_match_events` (
   INDEX `fk_matches_has_match_events_matches1` (`matches_id` ASC) ,
   INDEX `fk_matches_has_match_events_players1` (`players_id` ASC) ,
   INDEX `fk_matches_has_match_events_teams1` (`teams_id` ASC) ,
+  PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_matches_has_match_events_matches1`
     FOREIGN KEY (`matches_id` )
     REFERENCES `MatchTracker`.`matches` (`id` )
@@ -174,6 +183,32 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`matches_has_match_events` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `MatchTracker`.`messages`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `MatchTracker`.`messages` ;
+
+CREATE  TABLE IF NOT EXISTS `MatchTracker`.`messages` (
+  `id` INT NOT NULL ,
+  `text` TEXT NULL ,
+  `receiver_id` INT NOT NULL ,
+  `sender_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_messages_users1` (`receiver_id` ASC) ,
+  INDEX `fk_messages_users2` (`sender_id` ASC) ,
+  CONSTRAINT `fk_messages_users1`
+    FOREIGN KEY (`receiver_id` )
+    REFERENCES `MatchTracker`.`users` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_messages_users2`
+    FOREIGN KEY (`sender_id` )
+    REFERENCES `MatchTracker`.`users` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -184,7 +219,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `MatchTracker`;
-INSERT INTO `MatchTracker`.`users` (`id`, `name`, `email`, `password`) VALUES (NULL, 'Beeckman Bert', 'mail@beeckmanbert.be', 'test');
+INSERT INTO `MatchTracker`.`users` (`id`, `name`, `email`, `password`) VALUES (1, 'Beeckman Bert', 'mail@beeckmanbert.be', 'test');
 
 COMMIT;
 

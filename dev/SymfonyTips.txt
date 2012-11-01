@@ -33,3 +33,10 @@
 # Github readme generator
 	Kopieer de inhoud van readme.md naar onderstaande website en pas aan :-)
 	http://homepage.univie.ac.at/werner.robitza/markdown/
+
+# Generate the XML metadata files
+	php app/console doctrine:mapping:convert xml ./src/MatchTracker/Bundle/Resources/config/doctrine/metadata/orm --from-database --force
+
+# Import the schema and build related entity classes
+	php app/console doctrine:mapping:import MatchTrackerBundle annotation
+	php app/console doctrine:generate:entities MatchTrackerBundle

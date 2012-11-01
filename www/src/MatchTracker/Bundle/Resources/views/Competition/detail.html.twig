@@ -3,11 +3,12 @@
 {% set active_page = "competition" %}
 
 {% block title %}
-Home
+{{ league.name }}
 {% endblock %}
 
 {% block body %}
- <h1>{{ name }}</h1>
+ <h1>{{ league.name }}</h1>
+ <p>Gemaakt door: {{ league.user.name }}</p>
  <p>Detail pagina</p>
       
 {% endblock %}
