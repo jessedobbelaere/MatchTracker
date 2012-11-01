@@ -43,4 +43,10 @@ class AuthenticationController extends Controller{
         ));
     }
 
+
+    public function registerAction() {
+
+        return $this->render('MatchTrackerBundle:Authentication:register.html.twig');
+    }
+
 }

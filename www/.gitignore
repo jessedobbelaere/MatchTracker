@@ -1,3 +1,12 @@
 /app/cache/*
 /app/logs/*
+<<<<<<< HEAD
 /app/config/parameters.yml
+=======
+/app/config/parameters.yml
+
+.buildpath
+.project
+/.settings
+/.idea/
+>>>>>>> 62b4219acecb0eb89e9357ec0c3b421c62b33772

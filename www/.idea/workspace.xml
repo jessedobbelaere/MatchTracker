@@ -2,28 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="246d8ca0-9523-4a83-87d5-728b42a11151" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/MatchTracker.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/jsLinters/jslint.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/libraries/sass_stdlib.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../assets/MatchTracker.fw.png" afterPath="$PROJECT_DIR$/../assets/MatchTracker.fw.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../assets/logo/logo.ai" afterPath="$PROJECT_DIR$/../assets/logo/logo.ai" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore_global" afterPath="$PROJECT_DIR$/../.gitignore_global" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../README.md" afterPath="$PROJECT_DIR$/../README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dev/db/Project2.mwb.bak" afterPath="$PROJECT_DIR$/../dev/db/Project2.mwb.bak" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dev/db/Project2.mwb" afterPath="$PROJECT_DIR$/../dev/db/Project2.mwb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dev/db/db.sql" afterPath="$PROJECT_DIR$/../dev/db/db.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MatchTracker/Bundle/Controller/AuthenticationController.php" afterPath="$PROJECT_DIR$/src/MatchTracker/Bundle/Controller/AuthenticationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MatchTracker/Bundle/Controller/HomeController.php" afterPath="$PROJECT_DIR$/src/MatchTracker/Bundle/Controller/HomeController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MatchTracker/Bundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/MatchTracker/Bundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MatchTracker/Bundle/Resources/views/Authentication/login.html.twig" afterPath="$PROJECT_DIR$/src/MatchTracker/Bundle/Resources/views/Authentication/login.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MatchTracker/Bundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/MatchTracker/Bundle/Resources/views/layout.html.twig" />
     </list>
     <ignored path="www.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,7 +31,7 @@
       <file leaf-file-name="AuthenticationController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MatchTracker/Bundle/Controller/AuthenticationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="29" selection-start="1168" selection-end="1168" vertical-scroll-proportion="-25.92">
+            <state line="47" column="0" selection-start="1228" selection-end="1228" vertical-scroll-proportion="-25.92">
               <folding />
             </state>
           </provider>
@@ -64,7 +49,7 @@
       <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MatchTracker/Bundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="676" selection-end="710" vertical-scroll-proportion="0.0">
+            <state line="35" column="0" selection-start="941" selection-end="941" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -644,14 +629,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MatchTracker/Bundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="676" selection-end="710" vertical-scroll-proportion="0.0">
+        <state line="35" column="0" selection-start="941" selection-end="941" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MatchTracker/Bundle/Controller/AuthenticationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="29" selection-start="1168" selection-end="1168" vertical-scroll-proportion="-25.92">
+        <state line="47" column="0" selection-start="1228" selection-end="1228" vertical-scroll-proportion="-25.92">
           <folding />
         </state>
       </provider>
