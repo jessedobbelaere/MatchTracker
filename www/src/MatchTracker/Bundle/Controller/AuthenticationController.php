@@ -20,6 +20,7 @@ class AuthenticationController extends Controller{
 
 	/**
 	 * Show the login page
+	 * Useful link: http://www.dobervich.com/2011/03/21/symfony2-blog-application-tutorial-part-v-intro-to-security/
 	 *
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
@@ -28,19 +29,19 @@ class AuthenticationController extends Controller{
 		// Check for errors (redirect if so)
 	    if ($this->get('request')->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
 		    $error = $this->get('request')->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
-	    } else {
+	    }
+	    else {
 		    $error = $this->get('request')->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
 	    }
 
 		// Create the login form
-		$form = $this->createFormBuilder()
-			-> add('e-mail', 'email')
-			-> add('password', 'password')
-			->getForm();
+//		$form = $this->createFormBuilder()
+//			-> add('e-mail', 'email')
+//			-> add('password', 'password')
+//			->getForm();
 
 		// Render the login page
         return $this->render('MatchTrackerBundle:Authentication:login.html.twig', array(
-	        'form' => $form->createView(),
 	        'error' => $error
         ));
     }
