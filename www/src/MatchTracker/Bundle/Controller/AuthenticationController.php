@@ -13,6 +13,8 @@ namespace MatchTracker\Bundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 
+use Symfony\Component\HttpFoundation\Request;
+
 
 class AuthenticationController extends Controller{
 
@@ -44,9 +46,59 @@ class AuthenticationController extends Controller{
     }
 
 
-    public function registerAction() {
+    public function registerAction(Request $request) {
 
-        return $this->render('MatchTrackerBundle:Authentication:register.html.twig');
+        $errors = array();
+
+        // Create the form
+        $form = $this->createFormBuilder()
+            -> add('Gebruikersnaam', 'text')
+            -> add('E-mail', 'email')
+            -> add('Wachtwoord', 'password')
+            ->getForm();
+
+
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
+
+            $data = $form->getData(); // data is the array with "name", "mail", "password"
+
+            if ($form->isValid()) {
+                $ok = true;
+                $user = new \MatchTracker\Bundle\Entity\Users();
+
+                // check
+                if (($user->getName($data["Gebruikersnaam"]) !== '' )){
+                    $errors[] = "Er bestaat al een gebruiker met deze gebruikersnaam";
+                    $ok = false;
+                }
+                if ($user->getEmail($data["E-mail"]) !== '' ){
+                    $errors[] = "Er bestaat al een gebruiker met dit e-mailadres";
+                    $ok = false;
+                }
+
+                if ($ok){
+                    // add to database
+                    $user->setName($data["Gebruikersnaam"]);
+                    $user->setEmail($data["E-mail"]);
+                    $user->setPassword(md5($data["Wachtwoord"]));
+
+                    //fetches Doctrine's entity manager object, which is responsible for handling the process of persisting
+                    //and fetching objects to and from the database;
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($user);
+                    $em->flush(); //executes an insert
+                }
+
+            }
+        }
+
+
+        // Render the page & assign the form
+        return $this->render('MatchTrackerBundle:Authentication:register.html.twig', array(
+            "form" => $form->createView(),
+            "errors" => $errors
+        ));
     }
 
 }

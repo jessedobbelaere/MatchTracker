@@ -3,13 +3,25 @@
 {% set active_page = "home" %}
 
 {% block title %}
-    Login
+    Registreer
 {% endblock %}
 
 {% block body %}
-    <div class="hero-unit">
+    <div class="container" xmlns="http://www.w3.org/1999/html">
 
-        <h1>Hello, Register!</h1>
+        <h1>Registreer</h1>
+
+        <form action="{{ path('match_tracker_authentication_register_check') }}" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+
+            <input type="submit" />
+        </form>
+
+        {% if errors %}
+            {% for error in errors %}
+                - <span class="error">{{ error }}</span></br>
+            {% endfor %}
+        {% endif %}
 
     </div>
 {% endblock %}

@@ -25,8 +25,14 @@ match_tracker_authentication_login:
 match_tracker_authentication_check:
     pattern: /login_check
 
-match_tracker_authentication_register_show:
+match_tracker_authentication_register:
     pattern: /register
     defaults: { _controller: MatchTrackerBundle:Authentication:register }
     requirements:
         _method:  GET
+
+match_tracker_authentication_register_check:
+    pattern: /register
+    defaults: { _controller: MatchTrackerBundle:Authentication:register }
+    requirements:
+        _method:  POST
