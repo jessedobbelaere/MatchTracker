@@ -1,7 +1,3 @@
 /app/cache/*
 /app/logs/*
 /app/config/parameters.yml
-
-.buildpath
-.project
-/.settings

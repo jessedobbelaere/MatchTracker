@@ -8,3 +8,10 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# PHPStorm & ZEND #
+###################
+.buildpath
+.project
+/.settings
+.idea

@@ -22,5 +22,5 @@ match_tracker_authentication_login:
     requirements:
         _method:  GET
 
-
-        
+match_tracker_authentication_check:
+    pattern: /login_check

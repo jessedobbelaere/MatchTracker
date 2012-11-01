@@ -7,10 +7,10 @@
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
-          <root url="phar:///Users/stephane/Documents/MatchTracker/www/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
+          <root url="phar:///Users/jesse/Dropbox/www/matchtracker.be/www/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
         </CLASSES>
         <SOURCES>
-          <root url="phar:///Users/stephane/Documents/MatchTracker/www/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
+          <root url="phar:///Users/jesse/Dropbox/www/matchtracker.be/www/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
         </SOURCES>
       </library>
     </orderEntry>
