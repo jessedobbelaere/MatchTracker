@@ -20,4 +20,10 @@ class AuthenticationController extends Controller{
         return $this->render('MatchTrackerBundle:Authentication:login.html.twig');
     }
 
+
+    public function registerAction() {
+
+        return $this->render('MatchTrackerBundle:Authentication:register.html.twig');
+    }
+
 }
