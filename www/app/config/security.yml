@@ -2,42 +2,62 @@ jms_security_extra:
     secure_all_services: false
     expressions: true
 
+## Security Configuration
 security:
+
+    # How our password will be encoded.
     encoders:
+        # We want to use the sha512 encoding algorithm, iterated 10 times and encode it as a base64 string.
+        #MatchTracker\Bundle\Entity\Users:
+            #algorithm: sha512
+            #encode-as-base64: true
+            #iterations: 10
+        MatchTracker\Bundle\Entity\Users: plaintext
         Symfony\Component\Security\Core\User\User: plaintext
 
+
+    # The role hierarchy
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
+
+
+    # The providers is where we tell Symfony2 how to retrieve users. We use the entity entry
+    # because we have our users stored in the database.
     providers:
         in_memory:
             memory:
                 users:
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        main:
+            entity: { class: MatchTracker\Bundle\Entity\Users, property username }
 
+
+
+    # Authorization is managed by the firewall system. This system is made up of listeners that listen for
+    # the core.security event and then redirect the request based on the credentials of the user if necessary.
+    # The firewalls entry defines the routing pattern for which we want the security listeners to listen.
     firewalls:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
-
+        # We define a single firewall that listens to all routes and then we use the access_control lists!
         secured_area:
-            pattern:    ^/demo/secured/
-            form_login:
-                check_path: /demo/secured/login_check
-                login_path: /demo/secured/login
+            pattern: /.*
+            form_login: # We want to authenticate by logging into a form
+                check_path: /login_check
+                login_path: /login
+                default_target_path: /profile
             logout:
-                path:   /demo/secured/logout
-                target: /demo/
-            #anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
+                path:   /logout
+                target: /
+            security: true
+            anonymous: true
 
+    # Routes that start with '/profile/' will need the ROLE_ADMIN. Every other page can be visited anonymously.
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
+        - { path: /profile/.*, role: ROLE_ADMIN }
+        - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }

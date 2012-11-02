@@ -22,25 +22,32 @@ class Users
     private $id;
 
     /**
-     * @var string $name
+     * @var string $username
      *
-     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     * @ORM\Column(name="username", type="string", length=25, nullable=true)
      */
-    private $name;
+    private $username;
 
     /**
-     * @var string $email
+     * @var string $salt
      *
-     * @ORM\Column(name="email", type="string", length=45, nullable=true)
+     * @ORM\Column(name="salt", type="string", length=255, nullable=true)
      */
-    private $email;
+    private $salt;
 
     /**
      * @var string $password
      *
-     * @ORM\Column(name="password", type="string", length=45, nullable=true)
+     * @ORM\Column(name="password", type="string", length=255, nullable=true)
      */
     private $password;
+
+    /**
+     * @var string $email
+     *
+     * @ORM\Column(name="email", type="string", length=60, nullable=true)
+     */
+    private $email;
 
 
 }

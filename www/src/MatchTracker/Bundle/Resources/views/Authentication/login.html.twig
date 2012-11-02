@@ -11,11 +11,15 @@ Login
 		<h1>Login</h1>
 
 		{% if error %}
-			<span class="error">{{ error }}</span>
+			<div>{{ error }}</div>
 		{% endif %}
 
-		<form action="{{ path('match_tracker_authentication_check') }}" method="post">
-			{{ form_widget(form) }}
+		<form action="{{ path("_security_check") }}" method="post" id="login">
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="_username" />
+
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="_password" />
 
 			<input type="submit" />
 		</form>

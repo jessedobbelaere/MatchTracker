@@ -24,34 +24,42 @@ use Symfony\Component\Form\FormError;
 class AuthenticationController extends Controller{
 
 	/**
-	 * Go to the login page
+	 * Show the login page
 	 *
+	 * @
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
 	public function loginAction() {
 
-		// Check for errors (redirect if so)
+		// Check for errors
 	    if ($this->get('request')->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
 		    $error = $this->get('request')->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
-	    } else {
+	    }
+	    else {
 		    $error = $this->get('request')->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
 	    }
 
+
+		// TODO: use _name with form
 		// Create the login form
-		$form = $this->createFormBuilder()
-			-> add('e-mail', 'email')
-			-> add('password', 'password')
-			->getForm();
+//		$form = $this->createFormBuilder()
+//			-> add('e-mail', 'email')
+//			-> add('password', 'password')
+//			->getForm();
 
 		// Render the login page
         return $this->render('MatchTrackerBundle:Authentication:login.html.twig', array(
-	        'form' => $form->createView(),
 	        'error' => $error
         ));
     }
 
-
-    public function registerAction(Request $request) {
+	/**
+	 * The register action
+	 *
+	 * @param \Symfony\Component\HttpFoundation\Request $request
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function registerAction(Request $request) {
 
         $errors = array();
 

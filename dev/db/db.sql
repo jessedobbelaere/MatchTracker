@@ -2,6 +2,7 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
+DROP SCHEMA IF EXISTS `MatchTracker` ;
 CREATE SCHEMA IF NOT EXISTS `MatchTracker` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 USE `MatchTracker` ;
 
@@ -12,9 +13,12 @@ DROP TABLE IF EXISTS `MatchTracker`.`users` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT ,
+  `username` VARCHAR(25) NULL ,
+  `salt` VARCHAR(255) NULL ,
+  `password` VARCHAR(255) NULL ,
+  `email` VARCHAR(60) NULL ,
+  `surname` VARCHAR(45) NULL ,
   `name` VARCHAR(45) NULL ,
-  `email` VARCHAR(45) NULL ,
-  `password` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -219,7 +223,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `MatchTracker`;
-INSERT INTO `MatchTracker`.`users` (`id`, `name`, `email`, `password`) VALUES (1, 'Beeckman Bert', 'mail@beeckmanbert.be', 'test');
+INSERT INTO `MatchTracker`.`users` (`id`, `username`, `salt`, `password`, `email`, `surname`, `name`) VALUES (1, 'bertbeeckman', '04c2431cb360134747092d28944467b3', 'u8ROb6i6gzBq+Y/SKFtewvsyztu9xoTWuIdb6r1eVi51yFscCOqdT4BR7M9PSmx2EwQnky0oNLUqt264D34TVg==', 'mail@beeckmanbert.be', 'Bert', 'Beeckman');
 
 COMMIT;
 
