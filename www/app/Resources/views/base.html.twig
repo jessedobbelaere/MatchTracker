@@ -38,7 +38,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</a>
-			<a class="brand" href="#">MatchTracker</a>
+			<a class="brand" href="{{ path('match_tracker_homepage') }}">MatchTracker</a>
 
 			<div class="nav-collapse collapse">
 
@@ -46,7 +46,12 @@
 					<li {% if active_page == "home" %} class="active"{% endif %}><a href="{{ path('match_tracker_homepage') }}">Home</a></li>
 					<li {% if active_page == "competition" %} class="active"{% endif %}><a href="{{ path('match_tracker_competition') }}">Competities</a></li>
 					<li><a href="#contact">Wedstrijden</a></li>
-					<li {% if active_page == "login" %} class="active"{% endif %}><a href="{{ path('match_tracker_authentication_login') }}">Login/Registreer</a></li>
+
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+						<li><a href="{{ path('_security_logout') }}">Log out</a></li>
+					{% else %}
+						<li {% if active_page == "login" %} class="active"{% endif %}><a href="{{ path('match_tracker_authentication_login') }}">Login</a></li>
+					{% endif %}
 				</ul>
 
 				{% block menu %}

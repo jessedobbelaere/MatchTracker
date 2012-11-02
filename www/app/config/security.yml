@@ -12,11 +12,16 @@ security:
             #algorithm: sha512
             #encode-as-base64: true
             #iterations: 10
+        MatchTracker\Bundle\Entity\Users: plaintext
         Symfony\Component\Security\Core\User\User: plaintext
 
+
+    # The role hierarchy
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+
 
     # The providers is where we tell Symfony2 how to retrieve users. We use the entity entry
     # because we have our users stored in the database.
@@ -26,8 +31,10 @@ security:
                 users:
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
-        #main:
-            #entity: { class: MatchTracker\Bundle\Entity\Users, property username }
+        main:
+            entity: { class: MatchTracker\Bundle\Entity\Users, property username }
+
+
 
     # Authorization is managed by the firewall system. This system is made up of listeners that listen for
     # the core.security event and then redirect the request based on the credentials of the user if necessary.
@@ -35,10 +42,6 @@ security:
     firewalls:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
-        login:
-            pattern: ^/login$
             security: false
 
         # We define a single firewall that listens to all routes and then we use the access_control lists!
@@ -56,5 +59,5 @@ security:
 
     # Routes that start with '/profile/' will need the ROLE_ADMIN. Every other page can be visited anonymously.
     access_control:
-        #- { path: /profile/.*, role: ROLE_ADMIN }
-        #- { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /profile/.*, role: ROLE_ADMIN }
+        - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }

@@ -20,13 +20,13 @@ class AuthenticationController extends Controller{
 
 	/**
 	 * Show the login page
-	 * Useful link: http://www.dobervich.com/2011/03/21/symfony2-blog-application-tutorial-part-v-intro-to-security/
 	 *
+	 * @
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
 	public function loginAction() {
 
-		// Check for errors (redirect if so)
+		// Check for errors
 	    if ($this->get('request')->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
 		    $error = $this->get('request')->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
 	    }
@@ -34,6 +34,8 @@ class AuthenticationController extends Controller{
 		    $error = $this->get('request')->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
 	    }
 
+
+		// TODO: use _name with form
 		// Create the login form
 //		$form = $this->createFormBuilder()
 //			-> add('e-mail', 'email')
@@ -46,12 +48,13 @@ class AuthenticationController extends Controller{
         ));
     }
 
-	public function login_checkAction() {
-		// Will be intercepted
-	}
-
-
-    public function registerAction(Request $request) {
+	/**
+	 * The register action
+	 *
+	 * @param \Symfony\Component\HttpFoundation\Request $request
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function registerAction(Request $request) {
 
         $errors = array();
 
