@@ -11,17 +11,9 @@
 
         <h1>Registreer</h1>
 
-        <form action="{{ path('match_tracker_authentication_register_check') }}" method="post" {{ form_enctype(form) }}>
+        <form novalidate action="{{ path('match_tracker_authentication_register_check') }}" method="post" {{ form_enctype(form) }}>
             {{ form_widget(form) }}
-
             <input type="submit" />
         </form>
-
-        {% if errors %}
-            {% for error in errors %}
-                - <span class="error">{{ error }}</span></br>
-            {% endfor %}
-        {% endif %}
-
     </div>
 {% endblock %}
