@@ -19,6 +19,7 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`users` (
   `email` VARCHAR(60) NULL ,
   `surname` VARCHAR(45) NULL ,
   `name` VARCHAR(45) NULL ,
+  `isActive` TINYINT(1) NULL DEFAULT true ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -223,7 +224,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `MatchTracker`;
-INSERT INTO `MatchTracker`.`users` (`id`, `username`, `salt`, `password`, `email`, `surname`, `name`) VALUES (1, 'bertbeeckman', '04c2431cb360134747092d28944467b3', 'u8ROb6i6gzBq+Y/SKFtewvsyztu9xoTWuIdb6r1eVi51yFscCOqdT4BR7M9PSmx2EwQnky0oNLUqt264D34TVg==', 'mail@beeckmanbert.be', 'Bert', 'Beeckman');
+INSERT INTO `MatchTracker`.`users` (`id`, `username`, `salt`, `password`, `email`, `surname`, `name`, `isActive`) VALUES (1, 'jesse', 'b22b10216bdea19b0c72076de65472cb', 'hCImg030q5N6pfOmEb0HHjV8bHbW4swAixfWweu64l05VOm+cyeWo/BV9YqAoominOlXjSmj6otxPkS9OhsKKQ==', 'jesse@dobbelaere-ae.be', 'Jesse', 'Dobbelaere', 1);
 
 COMMIT;
 

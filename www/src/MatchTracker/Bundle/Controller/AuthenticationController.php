@@ -19,32 +19,19 @@ use Symfony\Component\HttpFoundation\Request;
 class AuthenticationController extends Controller{
 
 	/**
-	 * Show the login page
+	 * Show the login form
 	 *
-	 * @
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
 	public function loginAction() {
-
+		// @todo show errors on the login page
 		// Check for errors
 	    if ($this->get('request')->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
 		    $error = $this->get('request')->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
 	    }
-	    else {
-		    $error = $this->get('request')->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
-	    }
-
-
-		// TODO: use _name with form
-		// Create the login form
-//		$form = $this->createFormBuilder()
-//			-> add('e-mail', 'email')
-//			-> add('password', 'password')
-//			->getForm();
 
 		// Render the login page
         return $this->render('MatchTrackerBundle:Authentication:login.html.twig', array(
-	        'error' => $error
         ));
     }
 

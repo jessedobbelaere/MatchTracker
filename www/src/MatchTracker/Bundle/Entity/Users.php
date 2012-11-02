@@ -50,6 +50,27 @@ class Users implements UserInterface
      */
     private $email;
 
+    /**
+     * @var string $surname
+     *
+     * @ORM\Column(name="surname", type="string", length=45, nullable=true)
+     */
+    private $surname;
+
+    /**
+     * @var string $name
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var boolean $isactive
+     *
+     * @ORM\Column(name="isActive", type="boolean", nullable=true)
+     */
+    private $isActive;
+
 
 
     /**
@@ -154,35 +175,110 @@ class Users implements UserInterface
         return $this->email;
     }
 
+    /**
+     * Set surname
+     *
+     * @param string $surname
+     * @return Users
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+    
+        return $this;
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string 
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Users
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     * @return Users
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean 
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+
+
+	// ------------------------------------------
+	// I manually added these functions
+
 	/**
-	 * Returns the roles granted to the user.
-	 *
-	 * <code>
-	 * public function getRoles()
-	 * {
-	 *     return array('ROLE_USER');
-	 * }
-	 * </code>
-	 *
-	 * Alternatively, the roles might be stored on a ``roles`` property,
-	 * and populated in any number of different ways when the user object
-	 * is created.
-	 *
-	 * @return Role[] The user roles
+	 * Constructor of user
 	 */
-	public function getRoles() {
-		// TODO: Implement getRoles() method.
+	public function __construct() {
+		$this->isActive = true;
+		$this->salt = md5(uniqid(null, true));
 	}
 
 	/**
-	 * Removes sensitive data from the user.
+	 * Get the role of the user
 	 *
-	 * This is important if, at any given point, sensitive information like
-	 * the plain-text password is stored on this object.
-	 *
-	 * @return void
+	 * @return array|\Symfony\Component\Security\Core\User\Role[]
+	 */
+	public function getRoles() {
+		return array('ROLE_ADMIN');
+	}
+
+	/**
+	 * Implementation of to erase credentials
 	 */
 	public function eraseCredentials() {
-		// TODO: Implement eraseCredentials() method.
+	}
+
+	/**
+	 * Equals implementation
+	 *
+	 * @param \Symfony\Component\Security\Core\User\UserInterface $user
+	 * @return bool
+	 */
+	public function equals(UserInterface $user) {
+		return $this->username === $user->getUsername();
 	}
 }

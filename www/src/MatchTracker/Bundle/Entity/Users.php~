@@ -49,5 +49,26 @@ class Users
      */
     private $email;
 
+    /**
+     * @var string $surname
+     *
+     * @ORM\Column(name="surname", type="string", length=45, nullable=true)
+     */
+    private $surname;
+
+    /**
+     * @var string $name
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var boolean $isactive
+     *
+     * @ORM\Column(name="isActive", type="boolean", nullable=true)
+     */
+    private $isactive;
+
 
 }

@@ -10,9 +10,9 @@ Login
 	<div class="container">
 		<h1>Login</h1>
 
-		{% if error %}
+{#		{% if error %}
 			<div>{{ error }}</div>
-		{% endif %}
+		{% endif %}#}
 
 		<form action="{{ path("_security_check") }}" method="post" id="login">
 			<label for="username">Username:</label>
