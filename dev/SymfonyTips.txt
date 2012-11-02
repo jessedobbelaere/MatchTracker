@@ -3,7 +3,7 @@
 *************************************************
 
 # Clear cache (routes, templates & config)
-	./app/console --env=prod cache:clear
+	php app/console --env=prod cache:clear
 
 # Route debug
 	./app/console router:debug
@@ -22,13 +22,6 @@
 	
 	
 	Beter is misschien om de map web te hernoemen naar public_html!! 
-	
-# Versio.be servers in PHP 5.3 modus?
-	-> .htaccess op root met daarin:
-		<FilesMatch "\.php$">
-			AddHandler x-httpd-php53 .php
-		</FilesMatch>
-		
 		
 # Github readme generator
 	Kopieer de inhoud van readme.md naar onderstaande website en pas aan :-)

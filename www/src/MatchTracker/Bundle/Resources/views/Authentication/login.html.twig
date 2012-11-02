@@ -1,6 +1,6 @@
 {% extends 'MatchTrackerBundle::layout.html.twig' %}
 
-{% set active_page = "home" %}
+{% set active_page = 'login' %}
 
 {% block title %}
 Login
@@ -14,7 +14,7 @@ Login
 			<div>{{ error }}</div>
 		{% endif %}#}
 
-		<form action="{{ path("_security_check") }}" method="post" id="login">
+		<form action="{{ path("authentication_login_check") }}" method="post" id="login">
 			<label for="username">Username:</label>
 			<input type="text" id="username" name="_username" />
 

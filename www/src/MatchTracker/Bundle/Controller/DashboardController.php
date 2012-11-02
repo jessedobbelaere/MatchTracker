@@ -4,9 +4,9 @@ namespace MatchTracker\Bundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class ProfileController extends Controller {
+class DashboardController extends Controller {
 
 	public function indexAction() {
-		return $this->render('MatchTrackerBundle:Profile:index.html.twig');
+		return $this->render('MatchTrackerBundle:Dashboard:index.html.twig');
 	}
 }

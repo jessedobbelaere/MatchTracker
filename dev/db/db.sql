@@ -224,7 +224,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `MatchTracker`;
-INSERT INTO `MatchTracker`.`users` (`id`, `username`, `salt`, `password`, `email`, `surname`, `name`, `isActive`) VALUES (1, 'jesse', 'b22b10216bdea19b0c72076de65472cb', 'hCImg030q5N6pfOmEb0HHjV8bHbW4swAixfWweu64l05VOm+cyeWo/BV9YqAoominOlXjSmj6otxPkS9OhsKKQ==', 'jesse@dobbelaere-ae.be', 'Jesse', 'Dobbelaere', 1);
+INSERT INTO `MatchTracker`.`users` (`id`, `username`, `salt`, `password`, `email`, `surname`, `name`, `isActive`) VALUES (1, 'jesse', 'a7a4c70a965765ccebc6f4d30776db50', 'lqQPTMzaywQs02J+EIvLMExX9jXfaRy6kLlsvgqtFs/GW44SkmdyXsLXFriIlh1L0w6YiF/l7QMZHrHt4t/rQA==', 'jesse@dobbelaere-ae.be', 'Jesse', 'Dobbelaere', 1);
 
 COMMIT;
 

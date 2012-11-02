@@ -1,26 +1,20 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: stephane
- * Date: 1/11/12
- * Time: 00:07
- * To change this template use File | Settings | File Templates.
- */
 
 
 namespace MatchTracker\Bundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
-
 use Symfony\Component\HttpFoundation\Request;
 
-//use Symfony\Component\Validator\Constraints\Email;
-//use Symfony\Component\Validator\Constraints\Blank;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\FormError;
+use MatchTracker\Bundle\Entity\Users;
 
 
+/**
+ * Authentication controller used for logging in and to register a new user.
+ */
 class AuthenticationController extends Controller{
 
 	/**
@@ -39,6 +33,7 @@ class AuthenticationController extends Controller{
         return $this->render('MatchTrackerBundle:Authentication:login.html.twig', array(
         ));
     }
+
 
 	/**
 	 * The register action
@@ -66,43 +61,51 @@ class AuthenticationController extends Controller{
             ->getForm();
 
 
+		// If form is submitted
         if ($request->isMethod('POST')) {
-            $form->bind($request);
 
+	        // Bind the submitted form values to the form object
+	        $form->bind($request);
+
+	        // Get the data from the form
             $data = $form->getData(); // data is the array with "name", "mail", "password"
 
+	        // Get the Users doctrine
             $userDoc = $this->getDoctrine()
-                ->getRepository('MatchTrackerBundle:Users');
+                            ->getRepository('MatchTrackerBundle:Users');
 
-            // Check if username is unique
-            if ($userDoc->findOneBy(array('name' => $data['Gebruikersnaam'])) !== null){
+            // Check if username already exists
+            if ($userDoc->findOneBy(array('username' => $data['Gebruikersnaam'])) !== null){
                 $form->get('Gebruikersnaam')->addError(new FormError('Er bestaat al een gebruiker met deze naam'));
             }
 
-            // Check if e-mail is unique
+            // Check if e-mail already exists
             if ($userDoc->findOneBy(array('email' => $data['E-mail'])) !== null){
                 $form->get('E-mail')->addError(new FormError('Er bestaat al een e-mail met deze naam'));
             }
 
-                if ($form->isValid()) {
-                    $user = new \MatchTracker\Bundle\Entity\Users();
+	        // Form is valid, register the user and save it in the database
+            if ($form->isValid()) {
+	            $user = new Users();
 
-                    $user->setName($data["Gebruikersnaam"]);
-                    $user->setEmail($data["E-mail"]);
-                    $user->setPassword(md5($data["Wachtwoord"]));
+                $user->setUsername($data['Gebruikersnaam']);
+                $user->setEmail($data['E-mail']);
+                $user->setPassword($data['Wachtwoord']);
 
-                    //fetches Doctrine's entity manager object, which is responsible for handling the process of persisting
-                    //and fetching objects to and from the database;
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($user);
-                    $em->flush(); //executes an insert
+                // Fetches Doctrine's entity manager object, which is responsible for handling the process of persisting
+                // and fetching objects to and from the database;
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush(); // Executes the insert query
+
+	            // Show the registration succesful page
+	            return $this->render('MatchTrackerBundle:Authentication:register_success.html.twig');
             }
         }
 
-
         // Render the page & assign the form
         return $this->render('MatchTrackerBundle:Authentication:register.html.twig', array(
-            "form" => $form->createView(),
+            'form' => $form->createView()
         ));
     }
 

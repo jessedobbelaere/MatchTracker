@@ -1,53 +1,43 @@
-# Start with routing the security pages!
-_security_login:
+# Start by routing the security pages!
+authentication_login:
     pattern:  /login
     defaults: { _controller: MatchTrackerBundle:Authentication:login }
-
-# We don't need a controller, because the security component listens to the core.security event and
-# intercepts the request and handles it.
-_security_check:
-    pattern: /login_check
-
-_security_logout:
-    pattern:  /logout
-
-profile_panel:
-    pattern:  /profile/
-    defaults: { _controller: MatchTrackerBundle:Profile:index }
-
-# Other pages
-match_tracker_homepage:
-    pattern:  /
-    defaults: { _controller: MatchTrackerBundle:Home:index }
     requirements:
         _method:  GET
 
-match_tracker_competition_show:
+# We don't need a controller, because the core.security event intercepts the request and handles it.
+authentication_login_check:
+    pattern: /login_check
+
+authentication_logout:
+    pattern:  /logout
+
+
+# Other pages
+homepage:
+    pattern:  /
+    defaults: { _controller: MatchTrackerBundle:Page:index }
+    requirements:
+        _method:  GET
+
+competition_show:
     pattern: /competities/detail/{name}
     defaults: { _controller: MatchTrackerBundle:Competition:detail }
     requirements:
         _method:  GET
 
-match_tracker_competition:
+competition:
     pattern: /competities/{sport}
     defaults: { _controller: MatchTrackerBundle:Competition:index, sport: alles }
     requirements:
         _method:  GET
 
-match_tracker_authentication_login:
-    pattern: /login
-    defaults: { _controller: MatchTrackerBundle:Authentication:login }
-    requirements:
-        _method:  GET
-
-match_tracker_authentication_register:
+authentication_register:
     pattern: /register
     defaults: { _controller: MatchTrackerBundle:Authentication:register }
     requirements:
-        _method:  GET
+        _method:  GET|POST
 
-match_tracker_authentication_register_check:
-    pattern: /register
-    defaults: { _controller: MatchTrackerBundle:Authentication:register }
-    requirements:
-        _method:  POST
+dashboard:
+    pattern:  /dashboard
+    defaults: { _controller: MatchTrackerBundle:Dashboard:index }

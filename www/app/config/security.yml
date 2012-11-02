@@ -52,7 +52,7 @@ security:
             form_login: # We want to authenticate by logging into a form
                 check_path: /login_check
                 login_path: /login
-                default_target_path: /profile
+                default_target_path: /dashboard
             logout:
                 path:   /logout
                 target: /
@@ -61,5 +61,5 @@ security:
 
     # Routes that start with '/profile/' will need the ROLE_ADMIN. Every other page can be visited anonymously.
     access_control:
-        - { path: /profile/.*, role: ROLE_ADMIN }
+        - { path: /dashboard/.*, role: ROLE_ADMIN }
         - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }

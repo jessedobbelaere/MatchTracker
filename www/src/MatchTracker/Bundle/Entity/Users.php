@@ -4,6 +4,7 @@ namespace MatchTracker\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 
 /**
  * MatchTracker\Bundle\Entity\Users
@@ -130,19 +131,6 @@ class Users implements UserInterface
     }
 
     /**
-     * Set password
-     *
-     * @param string $password
-     * @return Users
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    
-        return $this;
-    }
-
-    /**
      * Get password
      *
      * @return string 
@@ -247,14 +235,36 @@ class Users implements UserInterface
 
 
 	// ------------------------------------------
-	// I manually added these functions
+	// Manually added these functions
+
 
 	/**
-	 * Constructor of user
+	 * Constructor of the User entity
+	 *
+	 * @param string $password
 	 */
-	public function __construct() {
+	public function __construct($password = null) {
 		$this->isActive = true;
-		$this->salt = md5(uniqid(null, true));
+
+		// Create a unique salt from the current time
+		$this->salt = md5(time());
+
+		// Encrypt the password
+		if($password !== null) {
+			$this->setPassword($password);
+		}
+	}
+
+	/**
+	 * Set and encrypt the password
+	 *
+	 * @param string $password
+	 * @return Users
+	 */
+	public function setPassword($password) {
+		$encoder = new MessageDigestPasswordEncoder('sha512', true, 10);
+		$this->password = $encoder->encodePassword($password, $this->salt);
+		return $this;
 	}
 
 	/**
