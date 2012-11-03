@@ -59,6 +59,9 @@ security:
             fos_facebook:
                 app_url: "http://apps.facebook.com/matchtracker/"
                 server_url: "http://matchtracker.localhost/"
+                login_path: /login
+                check_path: /login_facebook_check
+                default_target_path: /
             security: true
             anonymous: true
             remember_me:

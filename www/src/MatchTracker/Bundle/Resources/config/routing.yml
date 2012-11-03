@@ -9,6 +9,9 @@ authentication_login:
 authentication_login_check:
     pattern: /login_check
 
+authentication_login_facebook_check:
+    pattern: /login_facebook_check
+
 authentication_logout:
     pattern:  /logout
 
