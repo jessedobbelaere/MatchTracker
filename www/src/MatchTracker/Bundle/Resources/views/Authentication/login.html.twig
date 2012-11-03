@@ -30,7 +30,25 @@ Login
 				<label for="remember_me">Keep me logged in</label>
 			</p>
 
-			<input type="submit" />
+			<input type="submit" /> <br> <br>
+
+
+			{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
+			{{ facebook_login_button({'autologoutlink': false}) }}
+
+			<script>
+				function goLogIn(){
+					window.location = "{{ path('authentication_login_check') }}";
+				}
+
+				function onFbInit() {
+					if (typeof(FB) != 'undefined' && FB != null ) {
+						FB.Event.subscribe('auth.statusChange', function(response) {
+							setTimeout(goLogIn, 500);
+						});
+					}
+				}
+			</script>
 		</form>
 
 	</div>
