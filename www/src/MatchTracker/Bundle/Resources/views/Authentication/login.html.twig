@@ -15,11 +15,20 @@ Login
 		{% endif %}#}
 
 		<form action="{{ path("authentication_login_check") }}" method="post" id="login">
-			<label for="username">Username:</label>
-			<input type="text" id="username" name="_username" />
+			<p>
+				<label for="username">Username of E-mail:</label>
+				<input type="text" id="username" name="_username" />
+			</p>
 
-			<label for="password">Password:</label>
-			<input type="password" id="password" name="_password" />
+			<p>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="_password" />
+			</p>
+
+			<p>
+				<input type="checkbox" id="remember_me" name="_remember_me" />
+				<label for="remember_me">Keep me logged in</label>
+			</p>
 
 			<input type="submit" />
 		</form>

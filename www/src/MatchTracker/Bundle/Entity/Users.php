@@ -9,8 +9,9 @@ use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 /**
  * MatchTracker\Bundle\Entity\Users
  *
+ * MatchTracker\Bundle\Entity\Users
  * @ORM\Table(name="users")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MatchTracker\Bundle\Entity\UserRepository")
  */
 class Users implements UserInterface
 {

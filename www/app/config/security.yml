@@ -34,7 +34,7 @@ security:
                     #user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     #admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
         user_db:
-            entity: { class: MatchTracker\Bundle\Entity\Users, property username }
+            entity: { class: MatchTracker\Bundle\Entity\Users }
 
 
 
@@ -58,6 +58,11 @@ security:
                 target: /
             security: true
             anonymous: true
+            remember_me:
+                key:      "%secret%"
+                lifetime: 604800 # 1 week in seconds
+                path:     /
+                domain:   ~ # Defaults to the current domain from $_SERVER
 
     # Routes that start with '/profile/' will need the ROLE_ADMIN. Every other page can be visited anonymously.
     access_control:
