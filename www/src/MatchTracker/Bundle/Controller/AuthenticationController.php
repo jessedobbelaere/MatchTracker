@@ -30,9 +30,7 @@ class AuthenticationController extends Controller{
 	    }
 
 		// Render the login page
-        return $this->render('MatchTrackerBundle:Authentication:login.html.twig', array(
-	        'facebookAppId' => $this->container->getParameter('facebookAppId')
-        ));
+        return $this->render('MatchTrackerBundle:Authentication:login.html.twig');
     }
 
 

@@ -10,6 +10,7 @@
     <field name="email" type="string" column="email" length="60" nullable="true"/>
     <field name="surname" type="string" column="surname" length="45" nullable="true"/>
     <field name="name" type="string" column="name" length="45" nullable="true"/>
+    <field name="facebookid" type="string" column="facebookId" length="45" nullable="true"/>
     <field name="isactive" type="boolean" column="isActive" nullable="true"/>
   </entity>
 </doctrine-mapping>

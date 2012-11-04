@@ -64,6 +64,13 @@ class Users
     private $name;
 
     /**
+     * @var string $facebookid
+     *
+     * @ORM\Column(name="facebookId", type="string", length=45, nullable=true)
+     */
+    private $facebookid;
+
+    /**
      * @var boolean $isactive
      *
      * @ORM\Column(name="isActive", type="boolean", nullable=true)

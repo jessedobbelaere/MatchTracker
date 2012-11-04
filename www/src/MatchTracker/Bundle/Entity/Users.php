@@ -67,7 +67,14 @@ class Users implements UserInterface
     private $name;
 
     /**
-     * @var boolean $isactive
+     * @var string $facebookid
+     *
+     * @ORM\Column(name="facebookId", type="string", length=45, nullable=true)
+     */
+    private $facebookid;
+
+    /**
+     * @var boolean $isActive
      *
      * @ORM\Column(name="isActive", type="boolean", nullable=true)
      */
@@ -211,29 +218,50 @@ class Users implements UserInterface
     }
 
     /**
-     * Set isActive
+     * Set facebookid
      *
-     * @param boolean $isActive
+     * @param string $facebookid
      * @return Users
      */
-    public function setIsActive($isActive)
+    public function setFacebookid($facebookid)
     {
-        $this->isActive = $isActive;
+        $this->facebookid = $facebookid;
     
         return $this;
     }
 
     /**
-     * Get isActive
+     * Get facebookid
      *
-     * @return boolean 
+     * @return string 
      */
-    public function getIsActive()
+    public function getFacebookid()
     {
-        return $this->isActive;
+        return $this->facebookid;
     }
 
+	/**
+	 * Set isActive
+	 *
+	 * @param boolean $isActive
+	 * @return Users
+	 */
+	public function setIsActive($isActive)
+	{
+		$this->isActive = $isActive;
 
+		return $this;
+	}
+
+	/**
+	 * Get isActive
+	 *
+	 * @return boolean
+	 */
+	public function getIsActive()
+	{
+		return $this->isActive;
+	}
 
 	// ------------------------------------------
 	// Manually added these functions
