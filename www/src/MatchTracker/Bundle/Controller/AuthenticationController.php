@@ -74,11 +74,7 @@ class AuthenticationController extends Controller{
             $userDoc = $this->getDoctrine()
                             ->getRepository('MatchTrackerBundle:Users');
 
-<<<<<<< HEAD
-            // Check if username is unique
-=======
             // Check if username already exists
->>>>>>> 58fc9dc6268231c60b3c8f9ed60d4254efddc512
             if ($userDoc->findOneBy(array('username' => $data['Gebruikersnaam'])) !== null){
                 $form->get('Gebruikersnaam')->addError(new FormError('Er bestaat al een gebruiker met deze naam'));
             }
@@ -96,7 +92,6 @@ class AuthenticationController extends Controller{
                 $user->setEmail($data['E-mail']);
                 $user->setPassword($data['Wachtwoord']);
 
-<<<<<<< HEAD
                     $user->setUserName($data["Gebruikersnaam"]);
                     $user->setEmail($data["E-mail"]);
                     $user->setPassword(md5($data["Wachtwoord"]));
@@ -109,7 +104,7 @@ class AuthenticationController extends Controller{
 
                     //redirect
                     return new RedirectResponse($this->generateUrl('match_tracker_authentication_register_succes'));
-=======
+
                 // Fetches Doctrine's entity manager object, which is responsible for handling the process of persisting
                 // and fetching objects to and from the database;
                 $em = $this->getDoctrine()->getManager();
@@ -118,7 +113,6 @@ class AuthenticationController extends Controller{
 
 	            // Show the registration succesful page
 	            return $this->render('MatchTrackerBundle:Authentication:register_success.html.twig');
->>>>>>> 58fc9dc6268231c60b3c8f9ed60d4254efddc512
             }
         }
 
