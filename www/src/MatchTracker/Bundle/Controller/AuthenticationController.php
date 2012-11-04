@@ -92,19 +92,6 @@ class AuthenticationController extends Controller{
                 $user->setEmail($data['E-mail']);
                 $user->setPassword($data['Wachtwoord']);
 
-                    $user->setUserName($data["Gebruikersnaam"]);
-                    $user->setEmail($data["E-mail"]);
-                    $user->setPassword(md5($data["Wachtwoord"]));
-
-                    //fetches Doctrine's entity manager object, which is responsible for handling the process of persisting
-                    //and fetching objects to and from the database;
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($user);
-                    $em->flush(); //executes an insert
-
-                    //redirect
-                    return new RedirectResponse($this->generateUrl('match_tracker_authentication_register_succes'));
-
                 // Fetches Doctrine's entity manager object, which is responsible for handling the process of persisting
                 // and fetching objects to and from the database;
                 $em = $this->getDoctrine()->getManager();
