@@ -51,3 +51,10 @@ match_tracker_authentication_register_check:
     defaults: { _controller: MatchTrackerBundle:Authentication:register }
     requirements:
         _method:  POST
+
+
+match_tracker_authentication_register_succes:
+    pattern: /register/succes
+    defaults: { _controller: MatchTrackerBundle:Authentication:show }
+    requirements:
+        _method:  GET

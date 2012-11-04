@@ -14,9 +14,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
-//use Symfony\Component\Validator\Constraints\Email;
-//use Symfony\Component\Validator\Constraints\Blank;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\FormError;
 
@@ -88,7 +87,7 @@ class AuthenticationController extends Controller{
                 ->getRepository('MatchTrackerBundle:Users');
 
             // Check if username is unique
-            if ($userDoc->findOneBy(array('name' => $data['Gebruikersnaam'])) !== null){
+            if ($userDoc->findOneBy(array('username' => $data['Gebruikersnaam'])) !== null){
                 $form->get('Gebruikersnaam')->addError(new FormError('Er bestaat al een gebruiker met deze naam'));
             }
 
@@ -100,7 +99,7 @@ class AuthenticationController extends Controller{
                 if ($form->isValid()) {
                     $user = new \MatchTracker\Bundle\Entity\Users();
 
-                    $user->setName($data["Gebruikersnaam"]);
+                    $user->setUserName($data["Gebruikersnaam"]);
                     $user->setEmail($data["E-mail"]);
                     $user->setPassword(md5($data["Wachtwoord"]));
 
@@ -109,6 +108,9 @@ class AuthenticationController extends Controller{
                     $em = $this->getDoctrine()->getManager();
                     $em->persist($user);
                     $em->flush(); //executes an insert
+
+                    //redirect
+                    return new RedirectResponse($this->generateUrl('match_tracker_authentication_register_succes'));
             }
         }
 
@@ -117,6 +119,13 @@ class AuthenticationController extends Controller{
         return $this->render('MatchTrackerBundle:Authentication:register.html.twig', array(
             "form" => $form->createView(),
         ));
+    }
+
+
+    public function showAction(){
+        // Render the page & assign the form
+        return $this->render('MatchTrackerBundle:Authentication:succes.html.twig');
+
     }
 
 }
