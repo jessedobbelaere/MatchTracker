@@ -1,0 +1,18 @@
+{% extends 'MatchTrackerBundle::layout.html.twig' %}
+
+{% set active_page = 'register' %}
+
+{% block title %}
+	Registration successful
+{% endblock %}
+
+{% block body %}
+	<div class="container" xmlns="http://www.w3.org/1999/html">
+
+		<h1>Registration successful</h1>
+
+		<p>
+			Thank you for registering! You can now <a href="{{ path('authentication_login') }}">login</a> into your MatchTracker account.
+		</p>
+	</div>
+{% endblock %}

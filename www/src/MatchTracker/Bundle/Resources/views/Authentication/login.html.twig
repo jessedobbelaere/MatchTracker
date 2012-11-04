@@ -1,6 +1,10 @@
 {% extends 'MatchTrackerBundle::layout.html.twig' %}
 
+<<<<<<< HEAD
 {% set active_page = "login" %}
+=======
+{% set active_page = 'login' %}
+>>>>>>> 58fc9dc6268231c60b3c8f9ed60d4254efddc512
 
 {% block title %}
 Login
@@ -10,18 +14,45 @@ Login
 	<div class="container">
 		<h1>Login</h1>
 
-		{% if error %}
+{#		{% if error %}
 			<div>{{ error }}</div>
-		{% endif %}
+		{% endif %}#}
 
-		<form action="{{ path("_security_check") }}" method="post" id="login">
-			<label for="username">Username:</label>
-			<input type="text" id="username" name="_username" />
+		<form action="{{ path("authentication_login_check") }}" method="post" id="login">
+			<p>
+				<label for="username">Username of E-mail:</label>
+				<input type="text" id="username" name="_username" />
+			</p>
 
-			<label for="password">Password:</label>
-			<input type="password" id="password" name="_password" />
+			<p>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="_password" />
+			</p>
 
-			<input type="submit" />
+			<p>
+				<input type="checkbox" id="remember_me" name="_remember_me" />
+				<label for="remember_me">Keep me logged in</label>
+			</p>
+
+			<input type="submit" /> <br> <br>
+
+
+			{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
+			{{ facebook_login_button({'autologoutlink': false}) }}
+
+			<script>
+				function goLogIn(){
+					window.location = "{{ path('authentication_login_facebook_check') }}";
+				}
+
+				function onFbInit() {
+					if (typeof(FB) != 'undefined' && FB != null ) {
+						FB.Event.subscribe('auth.statusChange', function(response) {
+							setTimeout(goLogIn, 500);
+						});
+					}
+				}
+			</script>
 		</form>
 
 	</div>

@@ -1,5 +1,5 @@
 {
-    "hash": "a3f680a8180b65073d97927f93318583",
+    "hash": "d00bb676ecc6c15f849054de2518034a",
     "packages": [
         {
             "name": "doctrine/common",
@@ -266,6 +266,99 @@
             "keywords": [
                 "database",
                 "orm"
+            ]
+        },
+        {
+            "name": "facebook/php-sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/facebook/facebook-php-sdk.git",
+                "reference": "v3.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/facebook/facebook-php-sdk/zipball/v3.2.0",
+                "reference": "v3.2.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0",
+                "ext-curl": "*",
+                "ext-json": "*"
+            },
+            "time": "1344965300",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/facebook-php-sdk/contributors"
+                }
+            ],
+            "description": "Facebook PHP SDK",
+            "homepage": "https://github.com/facebook/facebook-php-sdk",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ]
+        },
+        {
+            "name": "friendsofsymfony/facebook-bundle",
+            "version": "dev-master",
+            "target-dir": "FOS/FacebookBundle",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/FriendsOfSymfony/FOSFacebookBundle.git",
+                "reference": "11faaa0ef98e6d9845033bade823901e1e5b4509"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/FriendsOfSymfony/FOSFacebookBundle/zipball/11faaa0ef98e6d9845033bade823901e1e5b4509",
+                "reference": "11faaa0ef98e6d9845033bade823901e1e5b4509",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "facebook/php-sdk": "dev-master",
+                "symfony/framework-bundle": ">=2.1,<2.3-dev",
+                "symfony/security-bundle": ">=2.1,<2.3-dev",
+                "symfony/twig-bundle": ">=2.1,<2.3-dev"
+            },
+            "time": "1350166689",
+            "type": "symfony-bundle",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "FOS\\FacebookBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                },
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/friendsofsymfony/FOSFacebookBundle/contributors"
+                }
+            ],
+            "description": "Integrate the Facebook Platform into your Symfony2 application.",
+            "homepage": "http://friendsofsymfony.github.com",
+            "keywords": [
+                "facebook"
             ]
         },
         {
@@ -1180,8 +1273,8 @@
     "aliases": [
 
     ],
-    "minimum-stability": "alpha",
-    "stability-flags": [
-
-    ]
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "friendsofsymfony/facebook-bundle": 20
+    }
 }

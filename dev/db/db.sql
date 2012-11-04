@@ -19,6 +19,8 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`users` (
   `email` VARCHAR(60) NULL ,
   `surname` VARCHAR(45) NULL ,
   `name` VARCHAR(45) NULL ,
+  `facebookId` VARCHAR(45) NULL ,
+  `isActive` TINYINT(1) NULL DEFAULT true ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -223,7 +225,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `MatchTracker`;
-INSERT INTO `MatchTracker`.`users` (`id`, `username`, `salt`, `password`, `email`, `surname`, `name`) VALUES (1, 'bertbeeckman', '04c2431cb360134747092d28944467b3', 'u8ROb6i6gzBq+Y/SKFtewvsyztu9xoTWuIdb6r1eVi51yFscCOqdT4BR7M9PSmx2EwQnky0oNLUqt264D34TVg==', 'mail@beeckmanbert.be', 'Bert', 'Beeckman');
+INSERT INTO `MatchTracker`.`users` (`id`, `username`, `salt`, `password`, `email`, `surname`, `name`, `facebookId`, `isActive`) VALUES (1, 'jesse', 'a7a4c70a965765ccebc6f4d30776db50', 'lqQPTMzaywQs02J+EIvLMExX9jXfaRy6kLlsvgqtFs/GW44SkmdyXsLXFriIlh1L0w6YiF/l7QMZHrHt4t/rQA==', 'jesse@dobbelaere-ae.be', 'Jesse', 'Dobbelaere', '1382515393', 1);
 
 COMMIT;
 

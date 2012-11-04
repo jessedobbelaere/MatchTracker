@@ -1,6 +1,6 @@
 {% extends 'MatchTrackerBundle::layout.html.twig' %}
 
-{% set active_page = "competition" %}
+{% set active_page = 'competition' %}
 
 {% block title %}
 Home
@@ -14,9 +14,9 @@ Home
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li {% if sport == "voetbal" %}class="active"{% endif %}><a href="{{ path('match_tracker_competition', {'sport': "voetbal"}) }}">Voetbal</a></li>
-              <li {% if sport == "tennis" %}class="active"{% endif %}><a href="{{ path('match_tracker_competition', {'sport': "tennis"}) }}">Tennis</a></li>
-              <li {% if sport == "bowling" %}class="active"{% endif %}><a href="{{ path('match_tracker_competition', {'sport': "bowling"}) }}">Bowling</a></li>
+              <li {% if sport == "voetbal" %}class="active"{% endif %}><a href="{{ path('competition', {'sport': "voetbal"}) }}">Voetbal</a></li>
+              <li {% if sport == "tennis" %}class="active"{% endif %}><a href="{{ path('competition', {'sport': "tennis"}) }}">Tennis</a></li>
+              <li {% if sport == "bowling" %}class="active"{% endif %}><a href="{{ path('competition', {'sport': "bowling"}) }}">Bowling</a></li>
 
             </ul>
 

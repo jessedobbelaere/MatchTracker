@@ -57,3 +57,20 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+
+# Facebook Authentication
+fos_facebook:
+    file: %kernel.root_dir%/../vendor/facebook/php-sdk/src/base_facebook.php
+    alias: facebook
+    app_id: 514261705251002
+    secret: 5e453a116dff635d9d2ad827f5b6fedf
+    cookie: true
+    permissions: [email, user_birthday, user_location]
+
+# Twitter Authentication
+#fos_twitter:
+    #file: %kernel.root_dir%/../vendor/twitteroauth/twitteroauth/twitteroauth.php
+    #consumer_key: wPL8volCNy3jVGMyGDGPg
+    #consumer_secret: l9JjgA85lYmooc6wrXzDh42iRJ62ZTUDyZYxhUdJHA
+    #callback_url: http://www.matchtracker.be/login_check

@@ -26,6 +26,7 @@
 	{% endblock %}
 
 	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+
 </head>
 <body>
 
@@ -38,20 +39,22 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</a>
-			<a class="brand" href="{{ path('match_tracker_homepage') }}">MatchTracker</a>
+			<a class="brand" href="{{ path('homepage') }}">MatchTracker</a>
 
 			<div class="nav-collapse collapse">
 
 				<ul class="nav">
-					<li {% if active_page == "home" %} class="active"{% endif %}><a href="{{ path('match_tracker_homepage') }}">Home</a></li>
-					<li {% if active_page == "competition" %} class="active"{% endif %}><a href="{{ path('match_tracker_competition') }}">Competities</a></li>
-					<li><a href="#contact">Wedstrijden</a></li>
+					<li {% if active_page == "home" %} class="active"{% endif %}><a href="{{ path('homepage') }}">Home</a></li>
+					<li {% if active_page == "competition" %} class="active"{% endif %}><a href="{{ path('competition') }}">Competities</a></li>
+					<li><a href="#">Wedstrijden</a></li>
 
 					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-						<li><a href="{{ path('_security_logout') }}">Log out</a></li>
+						<li><a href="{{ path('authentication_logout') }}">Log out</a></li>
 					{% else %}
-						<li {% if active_page == "login" %} class="active"{% endif %}><a href="{{ path('match_tracker_authentication_login') }}">Login</a></li>
+						<li {% if active_page == "login" %} class="active"{% endif %}><a href="{{ path('authentication_login') }}">Login</a></li>
+						<li {% if active_page == "register" %} class="active"{% endif %}><a href="{{ path('authentication_register') }}">Register</a></li>
 					{% endif %}
+
 				</ul>
 
 				{% block menu %}
