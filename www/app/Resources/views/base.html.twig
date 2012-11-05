@@ -24,6 +24,10 @@
 		<link href="{{ asset('bundles/matchtrackerapp/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet"/>
 	{% endblock %}
 
+    {% block javascripts %}
+        <script src="{{ asset('bundles/matchtrackerapp/js/bootstrap-alert.js') }}"></script>
+    {% endblock %}
+
 	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
 
 </head>
@@ -78,6 +82,5 @@
 	<p>&copy; MatchTracker 2012</p>
 </div>
 
-{% block javascripts %}{% endblock %}
 </body>
 </html>

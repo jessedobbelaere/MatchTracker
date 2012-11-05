@@ -59,3 +59,4 @@ competition:
 dashboard:
     pattern:  /dashboard
     defaults: { _controller: MatchTrackerAppBundle:Dashboard:index }
+

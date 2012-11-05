@@ -9,9 +9,24 @@
 {% block body %}
 	<div class="container">
 		<h1>Dashboard</h1>
-		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-			<p>Succesvol ingelogd!</p>
-		{% endif %}
+
+        <div class="row-fluid">
+            <div class="span8">
+                {% for user in users %}
+                    {{ user.name }}
+                {% else %}
+                    <div class="alert alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <h4>Ga van Start!</h4>
+                        U hebt nog geen competities gemaakt. <a href="{{ path('competition_maker') }}">Maak Competitie</a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="span4">
+                <!--Sidebar-->
+                <a class="btn btn-primary" href="{{ path('competition_maker') }}">Maak Competitie</a>
+            </div>
+        </div>
 
 	</div>
 {% endblock %}
