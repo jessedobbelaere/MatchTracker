@@ -29,11 +29,25 @@ class Teams
     private $name;
 
     /**
-     * @var integer $teamusersIdteamusers
+     * @var string $gameday
      *
-     * @ORM\Column(name="teamusers_idteamusers", type="integer", nullable=false)
+     * @ORM\Column(name="gameday", type="string", length=45, nullable=true)
      */
-    private $teamusersIdteamusers;
+    private $gameday;
+
+    /**
+     * @var string $gamehour
+     *
+     * @ORM\Column(name="gamehour", type="string", length=45, nullable=true)
+     */
+    private $gamehour;
+
+    /**
+     * @var string $gameplace
+     *
+     * @ORM\Column(name="gameplace", type="string", length=255, nullable=true)
+     */
+    private $gameplace;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
@@ -95,26 +109,72 @@ class Teams
     }
 
     /**
-     * Set teamusersIdteamusers
+     * Set gameday
      *
-     * @param integer $teamusersIdteamusers
+     * @param string $gameday
      * @return Teams
      */
-    public function setTeamusersIdteamusers($teamusersIdteamusers)
+    public function setGameday($gameday)
     {
-        $this->teamusersIdteamusers = $teamusersIdteamusers;
+        $this->gameday = $gameday;
     
         return $this;
     }
 
     /**
-     * Get teamusersIdteamusers
+     * Get gameday
      *
-     * @return integer 
+     * @return string 
      */
-    public function getTeamusersIdteamusers()
+    public function getGameday()
     {
-        return $this->teamusersIdteamusers;
+        return $this->gameday;
+    }
+
+    /**
+     * Set gamehour
+     *
+     * @param string $gamehour
+     * @return Teams
+     */
+    public function setGamehour($gamehour)
+    {
+        $this->gamehour = $gamehour;
+    
+        return $this;
+    }
+
+    /**
+     * Get gamehour
+     *
+     * @return string 
+     */
+    public function getGamehour()
+    {
+        return $this->gamehour;
+    }
+
+    /**
+     * Set gameplace
+     *
+     * @param string $gameplace
+     * @return Teams
+     */
+    public function setGameplace($gameplace)
+    {
+        $this->gameplace = $gameplace;
+    
+        return $this;
+    }
+
+    /**
+     * Get gameplace
+     *
+     * @return string 
+     */
+    public function getGameplace()
+    {
+        return $this->gameplace;
     }
 
     /**

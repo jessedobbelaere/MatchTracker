@@ -1,0 +1,18 @@
+{% extends 'MatchTrackerAppBundle::layout.html.twig' %}
+
+{% set active_page = "dashboard" %}
+
+{% block title %}
+Competitie Maker
+{% endblock %}
+
+{% block body %}
+
+ <h1>Competitie maker</h1>
+ 
+<form  novalidate action="{{ path('competition_maker') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
+    {{ form_widget(form) }}
+
+    <input type="submit" value="Aanmaken" class="btn btn-primary btn-large"/>
+</form>
+{% endblock %}

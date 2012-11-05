@@ -55,5 +55,15 @@ class Matches
      */
     private $awayTeam;
 
+    /**
+     * @var Leagues
+     *
+     * @ORM\ManyToOne(targetEntity="Leagues")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="leagues_id", referencedColumnName="id")
+     * })
+     */
+    private $leagues;
+
 
 }

@@ -29,11 +29,25 @@ class Teams
     private $name;
 
     /**
-     * @var integer $teamusersIdteamusers
+     * @var string $gameday
      *
-     * @ORM\Column(name="teamusers_idteamusers", type="integer", nullable=false)
+     * @ORM\Column(name="gameday", type="string", length=45, nullable=true)
      */
-    private $teamusersIdteamusers;
+    private $gameday;
+
+    /**
+     * @var string $gamehour
+     *
+     * @ORM\Column(name="gamehour", type="string", length=45, nullable=true)
+     */
+    private $gamehour;
+
+    /**
+     * @var string $gameplace
+     *
+     * @ORM\Column(name="gameplace", type="string", length=255, nullable=true)
+     */
+    private $gameplace;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
