@@ -12,16 +12,26 @@ USE `MatchTracker` ;
 DROP TABLE IF EXISTS `MatchTracker`.`users` ;
 
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`users` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `username` VARCHAR(25) NULL ,
-  `salt` VARCHAR(255) NULL ,
-  `password` VARCHAR(255) NULL ,
-  `email` VARCHAR(60) NULL ,
-  `surname` VARCHAR(45) NULL ,
-  `name` VARCHAR(45) NULL ,
-  `facebookId` VARCHAR(45) NULL ,
-  `isActive` TINYINT(1) NULL DEFAULT true ,
-  PRIMARY KEY (`id`) )
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `username` VARCHAR(255) NOT NULL ,
+  `username_canonical` VARCHAR(255) NOT NULL ,
+  `email` VARCHAR(255) NOT NULL ,
+  `email_canonical` VARCHAR(255) NOT NULL ,
+  `enabled` TINYINT(1) NOT NULL ,
+  `salt` VARCHAR(255) NOT NULL ,
+  `password` VARCHAR(255) NOT NULL ,
+  `last_login` DATETIME NULL DEFAULT NULL ,
+  `locked` TINYINT(1) NOT NULL ,
+  `expired` TINYINT(1) NOT NULL ,
+  `expires_at` DATETIME NULL DEFAULT NULL ,
+  `confirmation_token` VARCHAR(255) NULL DEFAULT NULL ,
+  `password_requested_at` DATETIME NULL DEFAULT NULL ,
+  `roles` LONGTEXT NOT NULL COMMENT '(DC2Type:array)' ,
+  `credentials_expired` TINYINT(1) NOT NULL ,
+  `credentials_expire_at` DATETIME NULL DEFAULT NULL ,
+  PRIMARY KEY (`id`) ,
+  UNIQUE INDEX `UNIQ_957A647992FC23A8` (`username_canonical` ASC) ,
+  UNIQUE INDEX `UNIQ_957A6479A0D96FBF` (`email_canonical` ASC) )
 ENGINE = InnoDB;
 
 
@@ -219,15 +229,6 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
--- -----------------------------------------------------
--- Data for table `MatchTracker`.`users`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `MatchTracker`;
-INSERT INTO `MatchTracker`.`users` (`id`, `username`, `salt`, `password`, `email`, `surname`, `name`, `facebookId`, `isActive`) VALUES (1, 'jesse', 'a7a4c70a965765ccebc6f4d30776db50', 'lqQPTMzaywQs02J+EIvLMExX9jXfaRy6kLlsvgqtFs/GW44SkmdyXsLXFriIlh1L0w6YiF/l7QMZHrHt4t/rQA==', 'jesse@dobbelaere-ae.be', 'Jesse', 'Dobbelaere', '1382515393', 1);
-
-COMMIT;
 
 -- -----------------------------------------------------
 -- Data for table `MatchTracker`.`match_events`

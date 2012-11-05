@@ -1,9 +1,0 @@
-[submodule "vendor/bundles/FOS/TwitterBundle"]
-	path = vendor/bundles/FOS/TwitterBundle
-	url = git://github.com/FriendsOfSymfony/FOSTwitterBundle.git
-[submodule "www/vendor/bundles/FOS/TwitterBundle"]
-	path = www/vendor/bundles/FOS/TwitterBundle
-	url = git://github.com/FriendsOfSymfony/FOSTwitterBundle.git
-[submodule "www/vendor/twitteroauth"]
-	path = www/vendor/twitteroauth
-	url = git://github.com/kertz/twitteroauth.git

@@ -1,17 +1,45 @@
 *************************************************
-*				Tips & Tricks					*
+*			Symfony2 Cheatsheet					*
 *************************************************
 
+# Get Composer
+	curl -s http://getcomposer.org/installer | php
+	
+# Update/Install vendors
+	php composer.phar install
+	php composer.phar update
+	
+# Generate new bundle
+	php app/console generate:bundle --namespace=MatchTracker/AppBundle --format=yml
+
 # Clear cache (routes, templates & config)
-	php app/console --env=prod cache:clear
+	php app/console cache:clear
 
 # Route debug
 	./app/console router:debug
-	
+
+# Generate the XML metadata files
+	php app/console doctrine:mapping:convert xml ./src/MatchTracker/AppBundle/Resources/config/doctrine/metadata/orm --from-database --force
+
+# Import the schema and build related entity classes
+	php app/console doctrine:mapping:import MatchTrackerAppBundle annotation
+	php app/console doctrine:generate:entities MatchTrackerAppBundle
+
+
+
+
+*************************************************
+*					MISC						*
+*************************************************
+
+# Github readme generator
+	Kopieer de inhoud van readme.md naar onderstaande website en pas aan :-)
+	http://homepage.univie.ac.at/werner.robitza/markdown/
+
 # Clean url (geen web/app.php/contact maar gewoon www.matchtracker.be/contact)
 	(-> Lokaal hostname instellen! bv. matchtracker.localhost)
 	-> .htaccess bestand aanmaken in root directory met volgende inhoud:
-	
+
 	<IfModule mod_rewrite.c>
 		RewriteEngine on
 		RewriteCond %{HTTP_HOST} ^matchtracker.localhost$ [NC,OR]
@@ -19,17 +47,6 @@
 		RewriteCond %{REQUEST_URI} !web/
 		RewriteRule (.*) /web/$1 [L]
 	</IfModule>
-	
-	
-	Beter is misschien om de map web te hernoemen naar public_html!! 
-		
-# Github readme generator
-	Kopieer de inhoud van readme.md naar onderstaande website en pas aan :-)
-	http://homepage.univie.ac.at/werner.robitza/markdown/
 
-# Generate the XML metadata files
-	php app/console doctrine:mapping:convert xml ./src/MatchTracker/Bundle/Resources/config/doctrine/metadata/orm --from-database --force
 
-# Import the schema and build related entity classes
-	php app/console doctrine:mapping:import MatchTrackerBundle annotation
-	php app/console doctrine:generate:entities MatchTrackerBundle
+	Beter is misschien om de map web te hernoemen naar public_html!!
