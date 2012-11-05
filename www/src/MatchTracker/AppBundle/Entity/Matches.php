@@ -55,6 +55,16 @@ class Matches
      */
     private $awayTeam;
 
+    /**
+     * @var Leagues
+     *
+     * @ORM\ManyToOne(targetEntity="Leagues")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="leagues_id", referencedColumnName="id")
+     * })
+     */
+    private $leagues;
+
 
 
     /**
@@ -157,5 +167,28 @@ class Matches
     public function getAwayTeam()
     {
         return $this->awayTeam;
+    }
+
+    /**
+     * Set leagues
+     *
+     * @param MatchTracker\AppBundle\Entity\Leagues $leagues
+     * @return Matches
+     */
+    public function setLeagues(\MatchTracker\AppBundle\Entity\Leagues $leagues = null)
+    {
+        $this->leagues = $leagues;
+    
+        return $this;
+    }
+
+    /**
+     * Get leagues
+     *
+     * @return MatchTracker\AppBundle\Entity\Leagues 
+     */
+    public function getLeagues()
+    {
+        return $this->leagues;
     }
 }

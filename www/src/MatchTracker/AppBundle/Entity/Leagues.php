@@ -29,9 +29,51 @@ class Leagues
     private $name;
 
     /**
+     * @var integer $fields
+     *
+     * @ORM\Column(name="fields", type="integer", nullable=true)
+     */
+    private $fields;
+
+    /**
+     * @var string $description
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var integer $numberOfTeams
+     *
+     * @ORM\Column(name="number_of_teams", type="integer", nullable=true)
+     */
+    private $numberOfTeams;
+
+    /**
+     * @var \DateTime $startdate
+     *
+     * @ORM\Column(name="startdate", type="date", nullable=true)
+     */
+    private $startdate;
+
+    /**
+     * @var \DateTime $enddate
+     *
+     * @ORM\Column(name="enddate", type="date", nullable=true)
+     */
+    private $enddate;
+
+    /**
+     * @var integer $playersOnField
+     *
+     * @ORM\Column(name="players_on_field", type="integer", nullable=true)
+     */
+    private $playersOnField;
+
+    /**
      * @var string $place
      *
-     * @ORM\Column(name="place", type="string", length=45, nullable=true)
+     * @ORM\Column(name="place", type="string", length=255, nullable=true)
      */
     private $place;
 
@@ -59,6 +101,16 @@ class Leagues
      * })
      */
     private $user;
+
+    /**
+     * @var SportTypes
+     *
+     * @ORM\ManyToOne(targetEntity="SportTypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="sport_types_id", referencedColumnName="id")
+     * })
+     */
+    private $sportTypes;
 
     /**
      * Constructor
@@ -100,6 +152,144 @@ class Leagues
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set fields
+     *
+     * @param integer $fields
+     * @return Leagues
+     */
+    public function setFields($fields)
+    {
+        $this->fields = $fields;
+    
+        return $this;
+    }
+
+    /**
+     * Get fields
+     *
+     * @return integer 
+     */
+    public function getFields()
+    {
+        return $this->fields;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Leagues
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set numberOfTeams
+     *
+     * @param integer $numberOfTeams
+     * @return Leagues
+     */
+    public function setNumberOfTeams($numberOfTeams)
+    {
+        $this->numberOfTeams = $numberOfTeams;
+    
+        return $this;
+    }
+
+    /**
+     * Get numberOfTeams
+     *
+     * @return integer 
+     */
+    public function getNumberOfTeams()
+    {
+        return $this->numberOfTeams;
+    }
+
+    /**
+     * Set startdate
+     *
+     * @param \DateTime $startdate
+     * @return Leagues
+     */
+    public function setStartdate($startdate)
+    {
+        $this->startdate = $startdate;
+    
+        return $this;
+    }
+
+    /**
+     * Get startdate
+     *
+     * @return \DateTime 
+     */
+    public function getStartdate()
+    {
+        return $this->startdate;
+    }
+
+    /**
+     * Set enddate
+     *
+     * @param \DateTime $enddate
+     * @return Leagues
+     */
+    public function setEnddate($enddate)
+    {
+        $this->enddate = $enddate;
+    
+        return $this;
+    }
+
+    /**
+     * Get enddate
+     *
+     * @return \DateTime 
+     */
+    public function getEnddate()
+    {
+        return $this->enddate;
+    }
+
+    /**
+     * Set playersOnField
+     *
+     * @param integer $playersOnField
+     * @return Leagues
+     */
+    public function setPlayersOnField($playersOnField)
+    {
+        $this->playersOnField = $playersOnField;
+    
+        return $this;
+    }
+
+    /**
+     * Get playersOnField
+     *
+     * @return integer 
+     */
+    public function getPlayersOnField()
+    {
+        return $this->playersOnField;
     }
 
     /**
@@ -179,5 +369,28 @@ class Leagues
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set sportTypes
+     *
+     * @param MatchTracker\AppBundle\Entity\SportTypes $sportTypes
+     * @return Leagues
+     */
+    public function setSportTypes(\MatchTracker\AppBundle\Entity\SportTypes $sportTypes = null)
+    {
+        $this->sportTypes = $sportTypes;
+    
+        return $this;
+    }
+
+    /**
+     * Get sportTypes
+     *
+     * @return MatchTracker\AppBundle\Entity\SportTypes 
+     */
+    public function getSportTypes()
+    {
+        return $this->sportTypes;
     }
 }

@@ -2,7 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-DROP SCHEMA IF EXISTS `MatchTracker` ;
 CREATE SCHEMA IF NOT EXISTS `MatchTracker` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 USE `MatchTracker` ;
 
@@ -36,6 +35,38 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `MatchTracker`.`sports`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `MatchTracker`.`sports` ;
+
+CREATE  TABLE IF NOT EXISTS `MatchTracker`.`sports` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MatchTracker`.`sport_types`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `MatchTracker`.`sport_types` ;
+
+CREATE  TABLE IF NOT EXISTS `MatchTracker`.`sport_types` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  `players_on_field` INT NULL ,
+  `sports_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_sport_types_sports1` (`sports_id` ASC) ,
+  CONSTRAINT `fk_sport_types_sports1`
+    FOREIGN KEY (`sports_id` )
+    REFERENCES `MatchTracker`.`sports` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `MatchTracker`.`leagues`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `MatchTracker`.`leagues` ;
@@ -43,13 +74,26 @@ DROP TABLE IF EXISTS `MatchTracker`.`leagues` ;
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`leagues` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NULL ,
-  `place` VARCHAR(45) NULL ,
   `user_id` INT NOT NULL ,
+  `fields` INT NULL ,
+  `description` TEXT NULL ,
+  `number_of_teams` INT NULL ,
+  `startdate` DATE NULL ,
+  `enddate` DATE NULL ,
+  `players_on_field` INT NULL ,
+  `place` VARCHAR(255) NULL ,
+  `sport_types_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_leagues_users1` (`user_id` ASC) ,
+  INDEX `fk_leagues_sport_types1` (`sport_types_id` ASC) ,
   CONSTRAINT `fk_leagues_users1`
     FOREIGN KEY (`user_id` )
     REFERENCES `MatchTracker`.`users` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_leagues_sport_types1`
+    FOREIGN KEY (`sport_types_id` )
+    REFERENCES `MatchTracker`.`sport_types` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -63,8 +107,10 @@ DROP TABLE IF EXISTS `MatchTracker`.`teams` ;
 CREATE  TABLE IF NOT EXISTS `MatchTracker`.`teams` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NULL ,
-  `teamusers_idteamusers` INT NOT NULL ,
   `users_id` INT NOT NULL ,
+  `gameday` VARCHAR(45) NULL ,
+  `gamehour` VARCHAR(45) NULL ,
+  `gameplace` VARCHAR(255) NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_teams_users1` (`users_id` ASC) ,
   CONSTRAINT `fk_teams_users1`
@@ -130,9 +176,11 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`matches` (
   `away_team` INT NOT NULL ,
   `date` DATETIME NULL ,
   `start_time` DATETIME NULL ,
+  `leagues_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_matches_teams1` (`home_team` ASC) ,
   INDEX `fk_matches_teams2` (`away_team` ASC) ,
+  INDEX `fk_matches_leagues1` (`leagues_id` ASC) ,
   CONSTRAINT `fk_matches_teams1`
     FOREIGN KEY (`home_team` )
     REFERENCES `MatchTracker`.`teams` (`id` )
@@ -141,6 +189,11 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`matches` (
   CONSTRAINT `fk_matches_teams2`
     FOREIGN KEY (`away_team` )
     REFERENCES `MatchTracker`.`teams` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_matches_leagues1`
+    FOREIGN KEY (`leagues_id` )
+    REFERENCES `MatchTracker`.`leagues` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -229,6 +282,26 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `MatchTracker`.`sports`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `MatchTracker`;
+INSERT INTO `MatchTracker`.`sports` (`id`, `name`) VALUES (1, 'Voetbal');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `MatchTracker`.`sport_types`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `MatchTracker`;
+INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (1, 'Veldvoetbal', 11, 1);
+INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (2, 'Zaalvoetbal', 5, 1);
+INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (3, 'Aangepast', NULL, 1);
+
+COMMIT;
 
 -- -----------------------------------------------------
 -- Data for table `MatchTracker`.`match_events`

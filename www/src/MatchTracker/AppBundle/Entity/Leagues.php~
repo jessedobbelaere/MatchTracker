@@ -29,9 +29,51 @@ class Leagues
     private $name;
 
     /**
+     * @var integer $fields
+     *
+     * @ORM\Column(name="fields", type="integer", nullable=true)
+     */
+    private $fields;
+
+    /**
+     * @var string $description
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var integer $numberOfTeams
+     *
+     * @ORM\Column(name="number_of_teams", type="integer", nullable=true)
+     */
+    private $numberOfTeams;
+
+    /**
+     * @var \DateTime $startdate
+     *
+     * @ORM\Column(name="startdate", type="date", nullable=true)
+     */
+    private $startdate;
+
+    /**
+     * @var \DateTime $enddate
+     *
+     * @ORM\Column(name="enddate", type="date", nullable=true)
+     */
+    private $enddate;
+
+    /**
+     * @var integer $playersOnField
+     *
+     * @ORM\Column(name="players_on_field", type="integer", nullable=true)
+     */
+    private $playersOnField;
+
+    /**
      * @var string $place
      *
-     * @ORM\Column(name="place", type="string", length=45, nullable=true)
+     * @ORM\Column(name="place", type="string", length=255, nullable=true)
      */
     private $place;
 
@@ -59,6 +101,16 @@ class Leagues
      * })
      */
     private $user;
+
+    /**
+     * @var SportTypes
+     *
+     * @ORM\ManyToOne(targetEntity="SportTypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="sport_types_id", referencedColumnName="id")
+     * })
+     */
+    private $sportTypes;
 
     /**
      * Constructor
