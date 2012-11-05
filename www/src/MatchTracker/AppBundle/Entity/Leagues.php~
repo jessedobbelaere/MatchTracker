@@ -1,0 +1,71 @@
+<?php
+
+namespace MatchTracker\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MatchTracker\AppBundle\Entity\Leagues
+ *
+ * @ORM\Table(name="leagues")
+ * @ORM\Entity
+ */
+class Leagues
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $name
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string $place
+     *
+     * @ORM\Column(name="place", type="string", length=45, nullable=true)
+     */
+    private $place;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Teams", inversedBy="leagues")
+     * @ORM\JoinTable(name="leagues_has_teams",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="leagues_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="teams_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $teams;
+
+    /**
+     * @var Users
+     *
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+}

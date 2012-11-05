@@ -9,4 +9,9 @@ Installation
 -----------
 Since we use the [Symfony Framework](http://symfony.com), you need at least PHP version 5.3.
 
-To use MatchTracker, just clone the repository to your local webserver and make a new `/app/config/parameters.yml` file that corresponds to your db settings or just run the config wizard at `/web/config.php`, resolve any issues that occur, and then choose "Configure your Symfony Application online" to configure your database settings.
+ * Clone this GIT repository to your webserver
+ * Go to your the config wizard, e.g. `matchtracker.localhost/web/config.php` to generate a new `/app/config/parameters.yml` with your database settings.
+ * If composer (`composer.phar`) isn't already installed, run `curl -s http://getcomposer.org/installer | php`to install it. 
+ * Install the vendors: `php composer.phar install`
+ * Import the `dev/db.sql` database dump to your database.
+ * Run MatchTracker: `matchtracker.localhost/web/app_dev.php`

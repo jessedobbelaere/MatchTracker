@@ -33,11 +33,9 @@
 *************************************************
 
 # Github readme generator
-	Kopieer de inhoud van readme.md naar onderstaande website en pas aan :-)
 	http://homepage.univie.ac.at/werner.robitza/markdown/
 
 # Clean url (geen web/app.php/contact maar gewoon www.matchtracker.be/contact)
-	(-> Lokaal hostname instellen! bv. matchtracker.localhost)
 	-> .htaccess bestand aanmaken in root directory met volgende inhoud:
 
 	<IfModule mod_rewrite.c>
@@ -49,4 +47,4 @@
 	</IfModule>
 
 
-	Beter is misschien om de map web te hernoemen naar public_html!!
+	Tip: just rename the web folder to public_html!
