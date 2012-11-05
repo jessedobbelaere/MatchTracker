@@ -32,5 +32,22 @@
 	<p>
         <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
 	</p>
+
+
+	{{ facebook_login_button({'autologoutlink': false}) }}
+
+	<script>
+		function goLogIn(){
+			window.location = "{{ path('authentication_facebook_login') }}";
+		}
+
+		function onFbInit() {
+			if (typeof(FB) != 'undefined' && FB != null ) {
+				FB.Event.subscribe('auth.statusChange', function(response) {
+					setTimeout(goLogIn, 500);
+				});
+			}
+		}
+	</script>
 </form>
 {% endblock fos_user_content %}

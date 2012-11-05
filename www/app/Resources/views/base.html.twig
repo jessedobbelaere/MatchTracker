@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset=utf-8" />
 	<title>MatchTracker - {% block title %}{% endblock %}</title>
@@ -28,6 +28,8 @@
 
 </head>
 <body>
+
+{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
 
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">

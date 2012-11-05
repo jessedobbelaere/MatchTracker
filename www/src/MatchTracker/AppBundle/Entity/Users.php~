@@ -36,6 +36,27 @@ class Users
     private $usernameCanonical;
 
     /**
+     * @var string $firstname
+     *
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
+     */
+    private $firstname;
+
+    /**
+     * @var string $lastname
+     *
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
+     */
+    private $lastname;
+
+    /**
+     * @var string $facebookid
+     *
+     * @ORM\Column(name="facebookId", type="string", length=255, nullable=true)
+     */
+    private $facebookid;
+
+    /**
      * @var string $email
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)

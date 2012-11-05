@@ -21,6 +21,9 @@ fos_user_change_password:
 authentication_login:
     pattern:  /login
 
+authentication_facebook_login:
+    pattern:  /login_facebook_check
+
 authentication_register:
     pattern: /register
 

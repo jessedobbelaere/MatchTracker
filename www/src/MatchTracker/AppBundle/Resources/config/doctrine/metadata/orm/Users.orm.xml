@@ -6,6 +6,9 @@
     </id>
     <field name="username" type="string" column="username" length="255" nullable="false"/>
     <field name="usernameCanonical" type="string" column="username_canonical" length="255" nullable="false"/>
+    <field name="firstname" type="string" column="firstname" length="255" nullable="true"/>
+    <field name="lastname" type="string" column="lastname" length="255" nullable="true"/>
+    <field name="facebookid" type="string" column="facebookId" length="255" nullable="true"/>
     <field name="email" type="string" column="email" length="255" nullable="false"/>
     <field name="emailCanonical" type="string" column="email_canonical" length="255" nullable="false"/>
     <field name="enabled" type="boolean" column="enabled" nullable="false"/>
