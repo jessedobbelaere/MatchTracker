@@ -1,5 +1,5 @@
 {
-    "hash": "4be5a380c066910eaa9b291fd2866cc9",
+    "hash": "154cd7c36538c7924d3f116882bc4e51",
     "packages": [
         {
             "name": "doctrine/common",
@@ -365,6 +365,50 @@
             ]
         },
         {
+            "name": "friendsofsymfony/twitter-bundle",
+            "version": "dev-master",
+            "target-dir": "FOS/TwitterBundle",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/FriendsOfSymfony/FOSTwitterBundle.git",
+                "reference": "c5be5648cb4b5f22d4d89936c6eed8218fa937d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/FriendsOfSymfony/FOSTwitterBundle/zipball/c5be5648cb4b5f22d4d89936c6eed8218fa937d8",
+                "reference": "c5be5648cb4b5f22d4d89936c6eed8218fa937d8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "2.*",
+                "kertz/twitteroauth": "*",
+                "symfony/security-bundle": "2.1.*"
+            },
+            "time": "1337117398",
+            "type": "symfony-bundle",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "FOS\\TwitterBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/FriendsOfSymfony/FOSTwitterBundle/contributors"
+                }
+            ],
+            "description": "Symfony FOSTwitterBundle",
+            "homepage": "http://friendsofsymfony.github.com",
+            "keywords": [
+                "Twitter authentication"
+            ]
+        },
+        {
             "name": "friendsofsymfony/user-bundle",
             "version": "dev-master",
             "target-dir": "FOS/UserBundle",
@@ -688,6 +732,32 @@
                 "expression"
             ],
             "time": "1346947943"
+        },
+        {
+            "name": "kertz/twitteroauth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kertz/twitteroauth",
+                "reference": "30d9fba685516cfeee12bdf0aa50d803f112214b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/kertz/twitteroauth/archive/30d9fba685516cfeee12bdf0aa50d803f112214b.zip",
+                "reference": "30d9fba685516cfeee12bdf0aa50d803f112214b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "1343917478",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "classmap": [
+                    "twitteroauth"
+                ]
+            }
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1370,6 +1440,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "friendsofsymfony/facebook-bundle": 20
+        "friendsofsymfony/facebook-bundle": 20,
+        "friendsofsymfony/twitter-bundle": 20
     }
 }

@@ -47,6 +47,23 @@ class Users extends BaseUser
 	 */
 	protected $facebookId;
 
+	/**
+	 * @var string $twitterid
+	 *
+	 * @ORM\Column(name="twitterId", type="string", length=255, nullable=true)
+	 */
+	private $twitterid;
+
+	/**
+	 * @var string $twitterUsername
+	 *
+	 * @ORM\Column(name="twitter_username", type="string", length=255, nullable=true)
+	 */
+	private $twitterUsername;
+
+
+
+
 	public function serialize()
 	{
 		return serialize(array($this->facebookId, parent::serialize()));
@@ -116,6 +133,52 @@ class Users extends BaseUser
 	public function getFacebookId()
 	{
 		return $this->facebookId;
+	}
+
+	/**
+	 * Set twitterid
+	 *
+	 * @param string $twitterid
+	 * @return Users
+	 */
+	public function setTwitterid($twitterid)
+	{
+		$this->twitterid = $twitterid;
+
+		return $this;
+	}
+
+	/**
+	 * Get twitterid
+	 *
+	 * @return string
+	 */
+	public function getTwitterid()
+	{
+		return $this->twitterid;
+	}
+
+	/**
+	 * Set twitterUsername
+	 *
+	 * @param string $twitterUsername
+	 * @return Users
+	 */
+	public function setTwitterUsername($twitterUsername)
+	{
+		$this->twitterUsername = $twitterUsername;
+
+		return $this;
+	}
+
+	/**
+	 * Get twitterUsername
+	 *
+	 * @return string
+	 */
+	public function getTwitterUsername()
+	{
+		return $this->twitterUsername;
 	}
 
 	/**
