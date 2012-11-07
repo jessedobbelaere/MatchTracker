@@ -24,6 +24,13 @@ authentication_login:
 authentication_facebook_login:
     pattern:  /login_facebook_check
 
+authentication_connect_twitter:
+    pattern: /login_twitter_connect
+    defaults: { _controller: MatchTrackerAppBundle:Twitter:connectTwitter }
+
+authentication_twitter_login:
+    pattern:  /login_twitter_check
+
 authentication_register:
     pattern: /register
 
@@ -47,6 +54,12 @@ competition_show:
 competition_maker:
     pattern: /competities/maker
     defaults: { _controller: MatchTrackerAppBundle:Competition:maker }
+    requirements:
+        _method:  GET|POST
+
+competition_maker_details:
+    pattern: /competities/maker/{sport}/{type}
+    defaults: { _controller: MatchTrackerAppBundle:Competition:makerDetail, sport: null, type: null }
     requirements:
         _method:  GET|POST
 

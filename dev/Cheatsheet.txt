@@ -25,7 +25,8 @@
 	php app/console doctrine:mapping:import MatchTrackerAppBundle annotation
 	php app/console doctrine:generate:entities MatchTrackerAppBundle
 
-
+# Make form from entity
+    php app/console generate:doctrine:form MatchTrackerAppBundle:Leagues
 
 
 *************************************************

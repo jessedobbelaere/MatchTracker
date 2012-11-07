@@ -34,6 +34,7 @@
 	</p>
 
 
+	<!-- Facebook login -->
 	{{ facebook_login_button({'autologoutlink': false}) }}
 
 	<script>
@@ -49,5 +50,16 @@
 			}
 		}
 	</script>
+
+	<!-- Twitter login -->
+{#	<span id="twitter_connect"></span>
+	{{ twitter_anywhere_setConfig('callbackURL', 'http://matchtracker.localhost/app_dev.php/login_twitter_check') }}
+	{{ twitter_anywhere_queue('T("#twitter_connect").connectButton()') }}#}
+
+	<a href="{{ path ('authentication_connect_twitter')}}"> <img src="/images/twitterLoginButton.png"></a>
+
+
+	{{ twitter_anywhere_initialize() }}
+
 </form>
 {% endblock fos_user_content %}

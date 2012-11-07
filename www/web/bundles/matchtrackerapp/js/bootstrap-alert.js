@@ -17,7 +17,10 @@
  * limitations under the License.
  * ========================================================== */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c8286b0229620d3682b11b7a31527de83fa0a396
 !function ($) {
 
   "use strict"; // jshint ;_;

@@ -32,6 +32,8 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`users` (
   `roles` LONGTEXT NOT NULL COMMENT '(DC2Type:array)' ,
   `credentials_expired` TINYINT(1) NOT NULL ,
   `credentials_expire_at` DATETIME NULL DEFAULT NULL ,
+  `twitterID` VARCHAR(45) NULL DEFAULT NULL ,
+  `twitter_username` VARCHAR(45) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `UNIQ_957A647992FC23A8` (`username_canonical` ASC) ,
   UNIQUE INDEX `UNIQ_957A6479A0D96FBF` (`email_canonical` ASC) )
@@ -293,6 +295,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `MatchTracker`;
 INSERT INTO `MatchTracker`.`sports` (`id`, `name`) VALUES (1, 'Voetbal');
+INSERT INTO `MatchTracker`.`sports` (`id`, `name`) VALUES (2, 'Tennis');
 
 COMMIT;
 
@@ -304,6 +307,8 @@ USE `MatchTracker`;
 INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (1, 'Veldvoetbal', 11, 1);
 INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (2, 'Zaalvoetbal', 5, 1);
 INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (3, 'Aangepast', NULL, 1);
+INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (4, 'Enkel', 1, 2);
+INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (5, 'Gemengd dubbel', 2, 2);
 
 COMMIT;
 

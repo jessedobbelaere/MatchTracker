@@ -23,6 +23,7 @@ class AppKernel extends Kernel
 	        new MatchTracker\AppBundle\MatchTrackerAppBundle(),
 			new FOS\UserBundle\FOSUserBundle(),
 	        new FOS\FacebookBundle\FOSFacebookBundle(),
+	        new FOS\TwitterBundle\FOSTwitterBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

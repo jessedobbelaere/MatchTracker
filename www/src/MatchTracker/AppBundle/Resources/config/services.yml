@@ -2,11 +2,6 @@ parameters:
 #    match_tracker_app.example.class: MatchTracker\AppBundle\Example
 
 services:
-#    match_tracker_app.example:
-#        class: %match_tracker_app.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
-
-services:
     my.facebook.user:
         class: MatchTracker\AppBundle\Security\User\Provider\FacebookProvider
         arguments:
@@ -14,3 +9,11 @@ services:
             userManager: "@fos_user.user_manager"
             validator: "@validator"
             container: "@service_container"
+
+    my.twitter.user:
+        class: MatchTracker\AppBundle\Security\User\Provider\TwitterProvider
+        arguments:
+            twitter_oauth: "@fos_twitter.api"
+            userManager: "@fos_user.user_manager"
+            validator: "@validator"
+            session: "@session"
