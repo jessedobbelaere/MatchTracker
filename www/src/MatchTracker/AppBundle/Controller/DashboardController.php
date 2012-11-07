@@ -35,7 +35,8 @@ class DashboardController extends Controller {
 
 
     public function settingsAction(){
-        return $this->render('MatchTrackerAppBundle:Dashboard:profile.html.twig');
+        return $this->render('MatchTrackerAppBundle:Profile:edit.html.twig');
+        //return $this->render('MatchTrackerAppBundle:Dashboard:profile.html.twig');
     }
 	
 	
