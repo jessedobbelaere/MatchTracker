@@ -188,7 +188,7 @@ class Users extends BaseUser
 	{
 		if (isset($fbdata['id'])) {
 			$this->setFacebookId($fbdata['id']);
-			$this->addRole('ROLE_ADMIN');
+			$this->addRole('ROLE_USER');
 		}
 		if (isset($fbdata['first_name'])) {
 			$this->setFirstname($fbdata['first_name']);

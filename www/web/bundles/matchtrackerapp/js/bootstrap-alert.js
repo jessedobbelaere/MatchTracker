@@ -17,8 +17,6 @@
  * limitations under the License.
  * ========================================================== */
 
-alert('included');
-
 !function ($) {
 
   "use strict"; // jshint ;_;

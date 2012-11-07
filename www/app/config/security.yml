@@ -54,6 +54,6 @@ security:
             #    realm: "Secured Demo Area"
 
     access_control:
-        - { path: /dashboard/.*, role: ROLE_ADMIN }
+        - { path: /dashboard/.*, role: ROLE_USER }
         - { path: /competities/maker.*, role: ROLE_USER }
         #- { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
