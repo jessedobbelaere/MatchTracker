@@ -13,21 +13,29 @@ class DashboardController extends Controller {
 
     public function indexAction() {
 
-        $request = $this->container->get('request');
-        /* @var $request \Symfony\Component\HttpFoundation\Request */
-        $session = $request->getSession();
-        /* @var $session \Symfony\Component\HttpFoundation\Session */
-        $foo = $session->get('foo');
 
-        // get the error if any (works with forward and redirect -- see below)
-        if ($session === null){
-            HttpResponse::redirect('authentication_login');
+        if( $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
+            // user is authenticated
         }
+        else{
+            return $this->redirect($this->generateUrl('authentication_login'));
+        }
+
+
+        // fetch the competitions related to the user
+
 
         $user = null;
         return $this->render('MatchTrackerAppBundle:Dashboard:index.html.twig',
             array('users' => $user)
         );
+
+    }
+
+
+
+    public function settingsAction(){
+        return $this->render('MatchTrackerAppBundle:Dashboard:profile.html.twig');
     }
 	
 	

@@ -60,3 +60,9 @@ dashboard:
     pattern:  /dashboard
     defaults: { _controller: MatchTrackerAppBundle:Dashboard:index }
 
+
+accountSettings:
+    pattern:  /dashboard/settings
+    defaults: { _controller: MatchTrackerAppBundle:Dashboard:settings }
+
+
