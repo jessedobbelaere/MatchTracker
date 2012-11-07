@@ -1,0 +1,80 @@
+{% extends 'MatchTrackerAppBundle::layout.html.twig' %}
+
+{% set active_page = "dashboard" %}
+
+{% block title %}
+Competitie Maker
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3">
+
+            <div class="well sidebar-nav">
+                <h4>Kies sport</h4>
+                <ul class="nav nav-list">
+                    {%  for key, sportType in sportTypes %}
+                    <li class="nav-header">{{ key }}</li>
+
+                        {% for value in sportType %}
+                            <li {% if (key|lower|replace({' ':''}) == sport and value|lower|replace({' ':''}) == type)  %}class="active"{% endif %}><a href="{{ path('competition_maker_details', {'sport': key|lower|replace({' ':''}), 'type':value|lower|replace({' ':''})}) }}">{{ value }}</a></li>
+                        {% endfor %}
+
+                    {% endfor %}
+                </ul>
+
+            </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+
+            <div class="row-fluid">
+                <h1>Competitie maker</h1>
+
+                {% if type != null %}
+                <h2>Details</h2>
+                <form  novalidate action="{{ path('competition_maker_details', {'sport': sport|lower|replace({' ':''}), 'type':type|lower|replace({' ':''})})  }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
+                    {{ form_row(form.location) }}
+                    <div id="location">
+                    {{ form_row(form.field) }}
+                    {{ form_row(form.place) }}
+                    </div>
+                    {{ form_row(form.numberOfTeams) }}
+                    {{ form_widget(form) }}
+                    <input type="submit" value="Aanmaken" class="btn btn-primary btn-large"/>
+                </form>
+
+                {% else %}
+                <p>Gelieve een sport te kiezen</p>
+
+                {% endif %}
+            </div><!--/row-->
+
+        </div><!--/span-->
+    </div><!--/row-->
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        window.onload=function(){
+            if (document.getElementById("matchtracker_appbundle_leaguestype_location").value == "more") {
+                document.getElementById("location").style.display = 'none';
+            }
+        };
+
+        function myFunction()
+        {
+            if (document.getElementById("matchtracker_appbundle_leaguestype_location").value == "more") {
+                document.getElementById("location").style.display = 'none';
+
+                document.getElementById("matchtracker_appbundle_leaguestype_field").value = "0";
+                document.getElementById("matchtracker_appbundle_leaguestype_place").value = "null";
+            } else {
+                document.getElementById("location").style.display = 'block';
+                document.getElementById("matchtracker_appbundle_leaguestype_field").value = "";
+                document.getElementById("matchtracker_appbundle_leaguestype_place").value = "";
+            }
+        }
+    </script>
+{% endblock %}

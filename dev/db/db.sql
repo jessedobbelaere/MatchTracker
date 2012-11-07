@@ -295,6 +295,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `MatchTracker`;
 INSERT INTO `MatchTracker`.`sports` (`id`, `name`) VALUES (1, 'Voetbal');
+INSERT INTO `MatchTracker`.`sports` (`id`, `name`) VALUES (2, 'Tennis');
 
 COMMIT;
 
@@ -306,6 +307,8 @@ USE `MatchTracker`;
 INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (1, 'Veldvoetbal', 11, 1);
 INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (2, 'Zaalvoetbal', 5, 1);
 INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (3, 'Aangepast', NULL, 1);
+INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (4, 'Enkel', 1, 2);
+INSERT INTO `MatchTracker`.`sport_types` (`id`, `name`, `players_on_field`, `sports_id`) VALUES (5, 'Gemengd dubbel', 2, 2);
 
 COMMIT;
 

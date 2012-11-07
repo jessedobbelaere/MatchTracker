@@ -57,6 +57,12 @@ competition_maker:
     requirements:
         _method:  GET|POST
 
+competition_maker_details:
+    pattern: /competities/maker/{sport}/{type}
+    defaults: { _controller: MatchTrackerAppBundle:Competition:makerDetail, sport: null, type: null }
+    requirements:
+        _method:  GET|POST
+
 competition:
     pattern: /competities/{sport}
     defaults: { _controller: MatchTrackerAppBundle:Competition:index, sport: alles }
