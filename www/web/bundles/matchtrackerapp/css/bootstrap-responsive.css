@@ -1,5 +1,5 @@
 /*!
- * Bootstrap Responsive v2.2.0
+ * Bootstrap Responsive v2.2.1
  *
  * Copyright 2012 Twitter, Inc
  * Licensed under the Apache License v2.0
@@ -441,6 +441,9 @@
   }
 }
 
+
+
+/*
 @media (min-width: 768px) and (max-width: 979px) {
   .row {
     margin-left: -20px;
@@ -782,6 +785,8 @@
   }
 }
 
+
+
 @media (max-width: 767px) {
   body {
     padding-right: 20px;
@@ -1085,4 +1090,6 @@
     height: auto !important;
     overflow: visible !important;
   }
+  
+  */
 }

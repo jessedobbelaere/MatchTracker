@@ -33,7 +33,7 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`users` (
   `credentials_expired` TINYINT(1) NOT NULL ,
   `credentials_expire_at` DATETIME NULL DEFAULT NULL ,
   `twitterID` VARCHAR(45) NULL DEFAULT NULL ,
-  `twitter_username` VARCHAR(45) NULL DEFAULT NULL ,
+  `twitterUsername` VARCHAR(45) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `UNIQ_957A647992FC23A8` (`username_canonical` ASC) ,
   UNIQUE INDEX `UNIQ_957A6479A0D96FBF` (`email_canonical` ASC) )

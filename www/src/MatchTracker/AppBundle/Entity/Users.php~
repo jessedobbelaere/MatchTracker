@@ -50,6 +50,13 @@ class Users
     private $lastname;
 
     /**
+     * @var string $facebookid
+     *
+     * @ORM\Column(name="facebookId", type="string", length=255, nullable=true)
+     */
+    private $facebookid;
+
+    /**
      * @var string $email
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
@@ -83,27 +90,6 @@ class Users
      * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
     private $password;
-
-    /**
-     * @var string $facebookid
-     *
-     * @ORM\Column(name="facebookId", type="string", length=255, nullable=true)
-     */
-    private $facebookid;
-
-    /**
-     * @var string $twitterid
-     *
-     * @ORM\Column(name="twitterId", type="string", length=255, nullable=true)
-     */
-    private $twitterid;
-
-    /**
-     * @var string $twitterUsername
-     *
-     * @ORM\Column(name="twitter_username", type="string", length=255, nullable=true)
-     */
-    private $twitterUsername;
 
     /**
      * @var \DateTime $lastLogin
@@ -167,6 +153,20 @@ class Users
      * @ORM\Column(name="credentials_expire_at", type="datetime", nullable=true)
      */
     private $credentialsExpireAt;
+
+    /**
+     * @var string $twitterid
+     *
+     * @ORM\Column(name="twitterID", type="string", length=255, nullable=true)
+     */
+    private $twitterid;
+
+    /**
+     * @var string $twitterUsername
+     *
+     * @ORM\Column(name="twitter_username", type="string", length=255, nullable=true)
+     */
+    private $twitterUsername;
 
 
 }

@@ -6,35 +6,60 @@
 Home
 {% endblock %}
 
-{% block body %}
-      <div class="hero-unit">
+{% block bodyBlock %}
+	<!-- Container -->
+	<div class="container">
+		<!-- Headline -->
+		<div id="headline" class="row-fluid">
+			<div class="span7">
+				<h1>Organiseer. Track de match. <br />Deel met vrienden.</h1>
+				<p class="subHeadline">
+					MatchTracker biedt u alles om snel en gemakkelijk een competitie organiseren, deze live te beheren en eenvoudig te delen.
+				</p>
+			</div>
 
-        <h1>Hello!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-      </div>
+			<div class="span5">
+				<a class="button-green-large buttonHeadline" href="{{ path('authentication_register') }}">Maak een account aan</a>
+			</div>
+		</div><!-- End headline -->
+	</div><!-- End container -->
 
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="span4">
 
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+	<!-- Hero -->
+	<div class="hero-unit">
+		<div class="container">
+			<!-- Features -->
+			<ul class="features span5">
+				<li>
+					<a href="#" class="featuresIcons icon-match">
+						<h4>Organiseer competities</h4>
+						<p>
+							Zet snel en gemakkelijk een competitie op touw voor uw sportclub.
+						</p>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="featuresIcons icon-track">
+						<h4>Track de match</h4>
+						<p>
+							Leg elk moment van de match live vast.
+						</p>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="featuresIcons icon-share">
+						<h4>Deel met vrienden</h4>
+						<p>
+							Nodig vrienden uit voor je competitie of deel je matchpagina.
+						</p>
+					</a>
+				</li>
+			</ul><!-- End features -->
 
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-
-      </div>
-      
-    </div>
+			<!-- Macbook Air image -->
+			<div class="span7">
+				<div class="macbook"></div>
+			</div><!-- End Macbook air image -->
+		</div>
+	</div><!-- End hero -->
 {% endblock %}

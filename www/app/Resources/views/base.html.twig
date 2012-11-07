@@ -1,34 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<html lang="nl" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html" charset=utf-8" />
-	<title>MatchTracker - {% block title %}{% endblock %}</title>
-
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-	<style type="text/css">
-		body {
-			padding-top: 60px;
-			padding-bottom: 40px;
-		}
-
-		.sidebar-nav {
-			padding: 9px 0;
-		}
-	</style>
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock %} - MatchTracker</title>
+	<meta content="Online platform om een eigen competitie of match te organiseren en deze te delen met deelnemers" name="description">
+	<meta content="MatchTracker" name="author">
 
 	{% block stylesheets %}
 		<link href="{{ asset('bundles/matchtrackerapp/css/bootstrap.css') }}" type="text/css" rel="stylesheet"/>
 		<link href="{{ asset('bundles/matchtrackerapp/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet"/>
+		<link href="{{ asset('bundles/matchtrackerapp/css/screen.css') }}" type="text/css" rel="stylesheet"/>
 	{% endblock %}
 
-    {% block javascripts %}
-        <script src="{{ asset('bundles/matchtrackerapp/js/bootstrap-alert.js') }}"></script>
-    {% endblock %}
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 
 	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+	<link href="{{ asset('bundles/matchtrackerapp/img/favicon.ico') }}" rel="shortcut icon">
 
 	{{ twitter_anywhere_setup() }}
 </head>
@@ -36,52 +27,112 @@
 
 {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
 
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
 
+	<!-- Navigation bar -->
+	<div class="navbar navbar-fixed-top">
 		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			<a class="brand" href="{{ path('homepage') }}">MatchTracker</a>
+			<h2><a href="{{ path('homepage') }}" title="MatchTracker">MatchTracker</a></h2>
 
-			<div class="nav-collapse collapse">
-
+			<nav id="mainNavigation">
 				<ul class="nav">
 					<li {% if active_page == "home" %} class="active"{% endif %}><a href="{{ path('homepage') }}">Home</a></li>
 					<li {% if active_page == "competition" %} class="active"{% endif %}><a href="{{ path('competition') }}">Competities</a></li>
-					<li><a href="#">Wedstrijden</a></li>
+					<li {% if active_page == "leagues" %} class="active"{% endif %}><a href="">Wedstrijden</a></li>
 
 					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-						<li><a href="{{ path('authentication_logout') }}">Log out</a></li>
+					<li {% if active_page == "dashboard" %} class="active"{% endif %}><a href="{{ path('dashboard') }}">Dashboard</a></li>
+					<li><a href="{{ path('authentication_logout') }}">Log out</a></li>
 					{% else %}
-						<li {% if active_page == "login" %} class="active"{% endif %}><a href="{{ path('authentication_login') }}">Login</a></li>
-						<li {% if active_page == "register" %} class="active"{% endif %}><a href="{{ path('authentication_register') }}">Register</a></li>
+					<li {% if active_page == "login" %} class="active"{% endif %}><a href="{{ path('authentication_login') }}">Login</a></li>
+					<li {% if active_page == "register" %} class="active"{% endif %}><a class="button-green-small" href="{{ path('authentication_register') }}">Registreren</a></li>
 					{% endif %}
-
 				</ul>
+			</nav>
 
-				{% block menu %}
-
-				{% endblock %}
-			</div>
-			<!--/.nav-collapse -->
+			{% block menu %}
+			{% endblock %}
 		</div>
+	</div><!-- End navigation bar -->
+
+	{% block bodyBlock %}
+
+	<!-- Container -->
+	<div class="container">
+	{% block body %}
+	{% endblock %}
 	</div>
-</div>
+
+	{% endblock %}
+
+	<!-- Footer signupbar -->
+	<footer class="signupbar">
+		<div class="container">
+			<p class="span6 offset2">
+				<strong>Ben je klaar om je competitie te organiseren?</strong><br />
+				Registreer nu, en organiseer een volledige sportcompetitie vanaf je pc!
+			</p>
+			<a class="span2 button-green-mid" href="{{ path('authentication_register') }}">Maak een account</a>
+		</div>
+	</footer><!-- End footer signupbar -->
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<!-- Logo -->
+				<a href="#top" class="footerLogo"></a>
+
+				<div class="span4">
+					<hgroup>
+						<h1>Credits</h1>
+						<h2>Wij bouwden dit</h2>
+					</hgroup>
+					<p>
+						Deze website kwam tot stand voor het vak Projecten2 aan de <a href="http://www.kahosl.be" title="Kaho Sint-Lieven">KAHO Sint-Lieven Hogeschool</a> (prof. bach Elektronica-ICT).
+					</p>
+					<p>
+						Bert Beeckman &mdash; <a href="http://twitter.com/Burtck">Twitter</a>, <a href="http://www.beeckmanbert.be">website</a> &amp; <a href="mailto:mail@beeckmanbert.be">email</a> <br />
+						Jesse Dobbelaere &mdash; <a href="http://twitter.com/JesseDobbelaere">Twitter</a>, <a href="http://www.djss.be">website</a> &amp; <a href="mailto:jesse@dobbelaere-ae.be">email</a> <br />
+						Stephane Poppe &mdash; <a href="http://twitter.com/Stephane_Poppe">Twitter</a>, <a href="http://www.stephanepoppe.com">website</a> &amp; <a href="mailto:stephanepoppe@gmail.com">email</a>
+					</p>
+				</div>
+
+				<div class="span4 middle">
+					<hgroup>
+						<h1>Sitemap</h1>
+						<h2>Navigatie</h2>
+					</hgroup>
+					<p>
+					<ul>
+						<li><a href="{{ path('homepage') }}">Home</a></li>
+						<li><a href="{{ path('competition') }}">Competities</a></li>
+						<li><a href="">Wedstrijden</a></li>
+						<li><a href="{{ path('authentication_register') }}">Registreren</a></li>
+						<li><a href="{{ path('authentication_login') }}">Inloggen</a></li>
+					</ul>
+					</p>
+				</div>
+
+				<div class="span4">
+					<hgroup>
+						<h1>Beschrijving</h1>
+						<h2>Wat is MatchTracker</h2>
+					</hgroup>
+					<p>
+						MatchTracker is een online platform om een eigen competitie of match te organiseren en deze te delen met deelnemers of geinteresseerden over de bekende sociale mediakanalen. Achteraf kan wedstrijd informatie en statistieken bekeken worden.
+					</p>
+				</div>
+			</div>
+		</div class="container">
+	</footer><!-- End footer -->
 
 
-<div class="container">
-	{% block body %}{% endblock %}
-
-
-</div>
-
-<div class="footer container">
-	<p>&copy; MatchTracker 2012</p>
-</div>
+	<!-- Javascript
+	================================================== -->
+	{% block javascripts %}
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="{{ asset('bundles/matchtrackerapp/js/bootstrap.js') }}"></script>
+	{% endblock %}
 
 </body>
 </html>

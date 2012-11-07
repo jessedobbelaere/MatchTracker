@@ -63,6 +63,9 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: MatchTracker\AppBundle\Entity\Users
+    registration:
+        form:
+            type: matchtracker_registration_form
 
 # Facebook configuration
 fos_facebook:

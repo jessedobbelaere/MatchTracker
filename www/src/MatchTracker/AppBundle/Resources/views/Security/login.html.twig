@@ -7,59 +7,82 @@
 {% endblock %}
 
 {% block fos_user_content %}
-{% if error %}
-    <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
-{% endif %}
+<div class="containerCenter">
+	<div class="row-fluid">
+		<div class="span6 offset3">
+			<h1>Login</h1>
+			<h3>Log in en organiseer uw eigen competitie!</h3>
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+			<div class="socialButtons">
+				<a class="buttonTwitter">Inloggen met <i>&#62217;</i></a>
+				<a class="buttonFacebook">Inloggen met <i>&#62220;</i></a>
+			</div>
 
-	<p>
-	    <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-	    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-	</p>
-
-	<p>
-        <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-        <input type="password" id="password" name="_password" required="required" />
-	</p>
-
-	<p>
-		<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-        <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-	</p>
-
-	<p>
-        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-	</p>
+			<div class="lineText">
+				<p>of login met uw account</p>
+			</div>
 
 
-	<!-- Facebook login -->
-	{{ facebook_login_button({'autologoutlink': false}) }}
+			{% if error %}
+			    <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+			{% endif %}
 
-	<script>
-		function goLogIn(){
-			window.location = "{{ path('authentication_facebook_login') }}";
-		}
+			<form action="{{ path("fos_user_security_check") }}" class="span8 offset2 centeredForm" method="post">
+			    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-		function onFbInit() {
-			if (typeof(FB) != 'undefined' && FB != null ) {
-				FB.Event.subscribe('auth.statusChange', function(response) {
-					setTimeout(goLogIn, 500);
-				});
-			}
-		}
-	</script>
+				<p>
+				    <input type="text" id="username" class="largeInput" name="_username" value="{{ last_username }}" placeholder="Email"  />
+				</p>
 
-	<!-- Twitter login -->
-{#	<span id="twitter_connect"></span>
-	{{ twitter_anywhere_setConfig('callbackURL', 'http://matchtracker.localhost/app_dev.php/login_twitter_check') }}
-	{{ twitter_anywhere_queue('T("#twitter_connect").connectButton()') }}#}
+				<p>
+			        <input type="password" id="password" name="_password" class="largeInput" placeholder="Password" />
+					<p class="formSmallTxt alignRight"><a href="#">Paswoord vergeten?</a></p>
+				</p>
 
-	<a href="{{ path ('authentication_connect_twitter')}}"> <img src="/images/twitterLoginButton.png"></a>
+				<p class="formBottom clearfix">
+					<label class="checkbox alignLeft">
+						<input type="checkbox" id="remember_me" name="_remember_me" value="on">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+					</label>
+
+					<input type="submit" id="_submit" class="button-green-mid alignRight" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}">
+				</p>
+
+				<p class="formEndTxt">
+					Heeft u nog geen account? <a href="#">Registreer dan hier</a>
+				</p>
+
+				<!-- Facebook login -->
+				{{ facebook_login_button({'autologoutlink': false}) }}
+
+				<script>
+					function goLogIn(){
+						window.location = "{{ path('authentication_facebook_login') }}";
+					}
+
+					function onFbInit() {
+						if (typeof(FB) != 'undefined' && FB != null ) {
+							FB.Event.subscribe('auth.statusChange', function(response) {
+								setTimeout(goLogIn, 500);
+							});
+						}
+					}
+				</script>
 
 
-	{{ twitter_anywhere_initialize() }}
 
-</form>
+{#				<!-- Twitter login -->
+				<span id="twitter_connect"></span>
+				{{ twitter_anywhere_setConfig('callbackURL', 'http://matchtracker.localhost/app_dev.php/login_twitter_check') }}
+				{{ twitter_anywhere_queue('T("#twitter_connect").connectButton()') }}
+
+				<a href="{{ path ('authentication_connect_twitter')}}"> <img src="/images/twitterLoginButton.png"></a>
+
+
+				{{ twitter_anywhere_initialize() }}#}
+
+			</form>
+
+		</div>
+	</div>
+</div>
 {% endblock fos_user_content %}

@@ -50,7 +50,7 @@ class Users extends BaseUser
 	/**
 	 * @var string $twitterid
 	 *
-	 * @ORM\Column(name="twitterId", type="string", length=255, nullable=true)
+	 * @ORM\Column(name="twitterID", type="string", length=255, nullable=true)
 	 */
 	private $twitterid;
 
@@ -123,8 +123,8 @@ class Users extends BaseUser
 	public function setFacebookId($facebookId)
 	{
 		$this->facebookId = $facebookId;
-		$this->setUsername($facebookId);
-		$this->salt = '';
+		//$this->setUsername($facebookId);
+		//$this->salt = '';
 	}
 
 	/**
@@ -186,10 +186,10 @@ class Users extends BaseUser
 	 */
 	public function setFBData($fbdata)
 	{
-		if (isset($fbdata['id'])) {
+/*		if (isset($fbdata['id'])) {
 			$this->setFacebookId($fbdata['id']);
 			$this->addRole('ROLE_USER');
-		}
+		}*/
 		if (isset($fbdata['first_name'])) {
 			$this->setFirstname($fbdata['first_name']);
 		}

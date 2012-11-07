@@ -17,3 +17,9 @@ services:
             userManager: "@fos_user.user_manager"
             validator: "@validator"
             session: "@session"
+
+    matchtracker_registration_form:
+        class: MatchTracker\AppBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            -  { name: form.type }

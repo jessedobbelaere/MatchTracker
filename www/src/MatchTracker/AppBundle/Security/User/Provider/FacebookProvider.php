@@ -32,13 +32,16 @@ class FacebookProvider implements UserProviderInterface
 
 	public function findUserByFbId($fbId)
 	{
-		return $this->userManager->findUserBy(array('facebookId' => $fbId));
+		$user = $this->userManager->findUserBy(array('facebookId' => $fbId));
+		return $user;
 	}
 
 	public function loadUserByUsername($username)
 	{
+		// Try to find a user in the db with fbId already set
 		$user = $this->findUserByFbId($username);
 
+		// pull the facebook data
 		try {
 			$fbdata = $this->facebook->api('/me');
 		} catch (FacebookApiException $e) {
@@ -46,12 +49,31 @@ class FacebookProvider implements UserProviderInterface
 		}
 
 		if (!empty($fbdata)) {
+
+			// No user with fbid was found in the db
 			if (empty($user)) {
-				$user = $this->userManager->createUser();
-				$user->setEnabled(true);
-				$user->setPassword('');
+
+				// Search user in db by email?
+				$userByMail = $this->userManager->findUserByEmail($fbdata['email']);
+
+				if(!empty($userByMail)) {
+					$user = $userByMail;
+
+					// Set the facebookId from this user
+					$user->setFacebookId($username);
+				} else {
+
+					// We couldn't find a user, let's make one!
+					$user = $this->userManager->createUser();
+					$user->setEnabled(true);
+					$user->setPassword('');
+					$user->setUsername($username);
+					$user->setFacebookId($username);
+				}
 			}
 
+
+			// Add missing information
 			// TODO use http://developers.facebook.com/docs/api/realtime
 			$user->setFBData($fbdata);
 
