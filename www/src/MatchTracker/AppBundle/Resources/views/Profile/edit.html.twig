@@ -6,8 +6,10 @@
 	Profiel bewerken
 {% endblock %}
 
-<h1>Profiel</h1>
 
-{% block fos_user_content %}
-{% include "FOSUserBundle:Profile:edit_content.html.twig" %}
-{% endblock fos_user_content %}
+{% block body %}
+    <h1>Profiel</h1>
+    {% block fos_user_content %}
+        {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+    {% endblock fos_user_content %}
+{% endblock %}
