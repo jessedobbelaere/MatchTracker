@@ -48,4 +48,5 @@ security:
 
     access_control:
         - { path: /dashboard/.*, role: ROLE_ADMIN }
+        - { path: /competities/maker.*, role: ROLE_USER }
         #- { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
