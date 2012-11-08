@@ -19,7 +19,7 @@ class RegistrationFormType extends BaseType
 			'type' => 'password',
 			'options' => array('translation_domain' => 'FOSUserBundle'),
 			'first_options' => array('label' => ' ', 'attr' => array('placeholder' => 'Paswoord', 'class' => 'largeInput')),
-			'second_options' => array('label' => ' ', 'attr' => array('placeholder' => 'Paswoord', 'class' => 'largeInput')),
+			'second_options' => array('label' => ' ', 'attr' => array('placeholder' => 'Paswoord herhaling', 'class' => 'largeInput')),
 			'invalid_message' => 'fos_user.password.mismatch',
 		))
 		;

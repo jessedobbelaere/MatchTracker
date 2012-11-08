@@ -3,7 +3,7 @@
 {% set active_page = "login" %}
 
 {% block title %}
-	Login
+Login
 {% endblock %}
 
 {% block fos_user_content %}
@@ -73,6 +73,8 @@
 {% endblock fos_user_content %}
 
 {% block javascripts %}
+	{{ parent() }}
+
 	<script>
 		window.fbAsyncInit = function() {
 			FB.init({
