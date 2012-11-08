@@ -138,6 +138,7 @@ div.navbar h2 a {
 	font: 0/0 a;
 	text-shadow: none;
 	color: transparant;
+	text-indent: -9999px;
 }
 div.navbar h2 a:hover { text-decoration: none; }
 

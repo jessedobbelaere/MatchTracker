@@ -8,9 +8,11 @@
 	<meta content="MatchTracker" name="author">
 
 	{% block stylesheets %}
-		<link href="{{ asset('bundles/matchtrackerapp/css/bootstrap.css') }}" type="text/css" rel="stylesheet"/>
-		<link href="{{ asset('bundles/matchtrackerapp/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet"/>
-		<link href="{{ asset('bundles/matchtrackerapp/css/screen.css') }}" type="text/css" rel="stylesheet"/>
+
+	<link href="{{ asset('bundles/matchtrackerapp/css/bootstrap.css') }}" type="text/css" rel="stylesheet"/>
+	<link href="{{ asset('bundles/matchtrackerapp/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet"/>
+	<link href="{{ asset('bundles/matchtrackerapp/css/screen.css') }}" type="text/css" rel="stylesheet"/>
+
 	{% endblock %}
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -18,15 +20,15 @@
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
-	<link href="{{ asset('bundles/matchtrackerapp/img/favicon.ico') }}" rel="shortcut icon">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{{ asset('bundles/matchtrackerapp/img/favicon.ico') }}">
+	<link rel="apple-touch-icon" sizes="57x57" href="{{ asset('bundles/matchtrackerapp/img/apple-touch-icon.png') }}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('bundles/matchtrackerapp/img/apple-touch-icon-72x72.png') }}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('bundles/matchtrackerapp/img/apple-touch-icon-114x114.png') }}">
 
 	{{ twitter_anywhere_setup() }}
 </head>
 <body>
-
-{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
-
 
 	<!-- Navigation bar -->
 	<div class="navbar navbar-fixed-top">
@@ -46,11 +48,13 @@
 					<li {% if active_page == "login" %} class="active"{% endif %}><a href="{{ path('authentication_login') }}">Login</a></li>
 					<li {% if active_page == "register" %} class="active"{% endif %}><a class="button-green-small" href="{{ path('authentication_register') }}">Registreren</a></li>
 					{% endif %}
+
 				</ul>
 			</nav>
 
 			{% block menu %}
 			{% endblock %}
+
 		</div>
 	</div><!-- End navigation bar -->
 
@@ -58,8 +62,10 @@
 
 	<!-- Container -->
 	<div class="container">
+
 	{% block body %}
 	{% endblock %}
+
 	</div>
 
 	{% endblock %}
@@ -80,7 +86,7 @@
 		<div class="container">
 			<div class="row">
 				<!-- Logo -->
-				<a href="#top" class="footerLogo"></a>
+				<a href="#" id="goTop" class="footerLogo"></a>
 
 				<div class="span4">
 					<hgroup>
@@ -103,13 +109,13 @@
 						<h2>Navigatie</h2>
 					</hgroup>
 					<p>
-					<ul>
-						<li><a href="{{ path('homepage') }}">Home</a></li>
-						<li><a href="{{ path('competition') }}">Competities</a></li>
-						<li><a href="">Wedstrijden</a></li>
-						<li><a href="{{ path('authentication_register') }}">Registreren</a></li>
-						<li><a href="{{ path('authentication_login') }}">Inloggen</a></li>
-					</ul>
+						<ul>
+							<li><a href="{{ path('homepage') }}">Home</a></li>
+							<li><a href="{{ path('competition') }}">Competities</a></li>
+							<li><a href=" ">Wedstrijden</a></li>
+							<li><a href="{{ path('authentication_register') }}">Registreren</a></li>
+							<li><a href="{{ path('authentication_login') }}">Inloggen</a></li>
+						</ul>
 					</p>
 				</div>
 
@@ -130,8 +136,11 @@
 	<!-- Javascript
 	================================================== -->
 	{% block javascripts %}
+
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="{{ asset('bundles/matchtrackerapp/js/bootstrap.js') }}"></script>
+	<script src="{{ asset('bundles/matchtrackerapp/js/scripts.js') }}"></script>
+
 	{% endblock %}
 
 </body>

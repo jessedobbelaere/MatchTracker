@@ -41,7 +41,7 @@ security:
                 server_url: "http://matchtracker.localhost/"
                 login_path: /login
                 check_path: /login_facebook_check
-                default_target_path: /
+                default_target_path: /dashboard
                 provider: my_fos_facebook_provider
             fos_twitter:
                 login_path: /twitter/login

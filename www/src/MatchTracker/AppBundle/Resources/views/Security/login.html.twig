@@ -7,6 +7,9 @@
 {% endblock %}
 
 {% block fos_user_content %}
+
+<div id="fb-root"></div>
+
 <div class="containerCenter">
 	<div class="row-fluid">
 		<div class="span6 offset3">
@@ -15,7 +18,7 @@
 
 			<div class="socialButtons">
 				<a class="buttonTwitter">Inloggen met <i>&#62217;</i></a>
-				<a class="buttonFacebook">Inloggen met <i>&#62220;</i></a>
+				<a class="buttonFacebook" href="#" onclick="fb_login();">Inloggen met <i>&#62220;</i></a>
 			</div>
 
 			<div class="lineText">
@@ -51,24 +54,6 @@
 					Heeft u nog geen account? <a href="#">Registreer dan hier</a>
 				</p>
 
-				<!-- Facebook login -->
-				{{ facebook_login_button({'autologoutlink': false}) }}
-
-				<script>
-					function goLogIn(){
-						window.location = "{{ path('authentication_facebook_login') }}";
-					}
-
-					function onFbInit() {
-						if (typeof(FB) != 'undefined' && FB != null ) {
-							FB.Event.subscribe('auth.statusChange', function(response) {
-								setTimeout(goLogIn, 500);
-							});
-						}
-					}
-				</script>
-
-
 
 {#				<!-- Twitter login -->
 				<span id="twitter_connect"></span>
@@ -86,3 +71,54 @@
 	</div>
 </div>
 {% endblock fos_user_content %}
+
+{% block javascripts %}
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId   : '514261705251002',
+				oauth   : true,
+				status  : true, // check login status
+				cookie  : true, // enable cookies to allow the server to access the session
+				xfbml   : true // parse XFBML
+			});
+
+		};
+
+		function goLogIn(){
+			window.location = "{{ path('authentication_facebook_login') }}";
+		}
+
+		function fb_login(){
+			FB.login(function(response) {
+
+				if (response.authResponse) {
+					console.log('Welcome!  Fetching your information.... ');
+					//console.log(response); // dump complete info
+					access_token = response.authResponse.accessToken; //get access token
+					user_id = response.authResponse.userID; //get FB UID
+
+					FB.api('/me', function(response) {
+						user_email = response.email; //get user email
+						// you can store this data into your database
+
+						setTimeout(goLogIn, 500);
+					});
+
+				} else {
+					//user hit cancel button
+					console.log('User cancelled login or did not fully authorize.');
+
+				}
+			}, {
+				scope: 'email'
+			});
+		}
+		(function() {
+			var e = document.createElement('script');
+			e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+			e.async = true;
+			document.getElementById('fb-root').appendChild(e);
+		}());
+	</script>
+{% endblock %}
