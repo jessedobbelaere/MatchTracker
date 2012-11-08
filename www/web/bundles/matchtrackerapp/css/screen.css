@@ -214,6 +214,21 @@ div.macbook {
 	right: -122px;
 }
 
+div.macbook-container {
+	position: relative;
+}
+
+div.macbook-screen {
+	background: url(../img/macbook-screen.jpg) no-repeat 0 0;
+	background-size: auto 100%;
+	height: 359px;
+	width: 573px;
+	display: block;
+	position: absolute;
+	top: 37px;
+	left: 157px;
+}
+
 /* Features */
 ul.features {
 	margin: 10px 0 0 0;
@@ -511,6 +526,13 @@ footer#footer {
 		height: 400px;
 		top: -50px;
 		right: -290px;
+	}
+
+	div.macbook-screen {
+		height: 305px;
+		width: 573px;
+		top: 32px;
+		left: 134px;
 	}
 	
 	#footer .middle { margin: 10px 0 !important; }
