@@ -1,0 +1,69 @@
+{% extends 'MatchTrackerAppBundle::layout.html.twig' %}
+
+{% set active_page = 'home' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block bodyBlock %}
+	<!-- Container -->
+	<div class="container">
+		<!-- Headline -->
+		<div id="headline" class="row-fluid">
+			<div class="span7">
+				<h1>Organiseer. Track de match. <br />Deel met vrienden.</h1>
+				<p class="subHeadline">
+					MatchTracker biedt u alles om snel en gemakkelijk een competitie te organiseren, deze live te beheren en eenvoudig te delen.
+				</p>
+			</div>
+
+			<div class="span5">
+				<a class="button-green-large buttonHeadline" href="{{ path('authentication_register') }}">Maak een account aan</a>
+			</div>
+		</div><!-- End headline -->
+	</div><!-- End container -->
+
+
+	<!-- Hero -->
+	<div class="hero-unit">
+		<div class="container">
+			<!-- Features -->
+			<ul class="features span5">
+				<li>
+					<a href="#" class="featuresIcons icon-match">
+						<h4>Organiseer competities en wedstrijden</h4>
+						<p>
+							Zet snel en gemakkelijk een competitie op touw voor uw sportclub.
+						</p>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="featuresIcons icon-track">
+						<h4>Track de match</h4>
+						<p>
+							Leg elk moment van de match live vast.
+						</p>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="featuresIcons icon-share">
+						<h4>Deel met vrienden</h4>
+						<p>
+							Nodig vrienden uit voor je competitie of deel je matchpagina.
+						</p>
+					</a>
+				</li>
+			</ul><!-- End features -->
+
+			<!-- Macbook Air image -->
+			<div class="span7">
+				<div class="macbook">
+					<div class="macbook-container">
+						<div class="macbook-screen"></div>
+					</div>
+				</div>
+			</div><!-- End Macbook air image -->
+		</div>
+	</div><!-- End hero -->
+{% endblock %}

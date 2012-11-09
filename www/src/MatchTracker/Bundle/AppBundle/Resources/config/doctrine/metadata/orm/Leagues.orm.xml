@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Leagues" table="leagues">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="45" nullable="true"/>
+    <field name="fields" type="integer" column="fields" nullable="true"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="numberOfTeams" type="integer" column="number_of_teams" nullable="true"/>
+    <field name="startdate" type="date" column="startdate" nullable="true"/>
+    <field name="enddate" type="date" column="enddate" nullable="true"/>
+    <field name="playersOnField" type="integer" column="players_on_field" nullable="true"/>
+    <field name="place" type="string" column="place" length="255" nullable="true"/>
+    <many-to-one field="sportTypes" target-entity="SportTypes">
+      <join-columns>
+        <join-column name="sport_types_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="user" target-entity="Users">
+      <join-columns>
+        <join-column name="user_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="teams" target-entity="Teams" inversed-by="leagues">
+      <join-table name="leagues_has_teams">
+        <join-columns>
+          <join-column name="leagues_id" referenced-column-name="id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="teams_id" referenced-column-name="id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,126 @@
+<div class="containerCenter">
+	<div class="row-fluid">
+		<div class="span6 offset3">
+			<h1>Registreren</h1>
+			<h3>Maak een account aan en ga van start met MatchTracker !</h3>
+
+			<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register span8 offset2 centeredForm">
+				{{ form_widget(form) }}
+				<p class="formSmallTxt"><br >Door op “registreren” te klikken gaat u akkoord met onze <a href="#toa" data-toggle="modal">gebruikersovereenkomst</a>.</p>
+				<p class="clearfix">
+					<input type="submit" class="button-green-mid alignRight" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+				</p>
+
+				<p class="formEndTxt">
+					Heeft u nog geen account? <a href="#">Registreer dan hier</a>
+				</p>
+			</form>
+
+			<!-- Popup screen -->
+			<div id="toa" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h1 id="myModalLabel">Gebruikersovereenkomst</h1>
+				</div>
+				<div class="modal-body">
+					<h2>1. Voorwerp</h2>
+
+					<p>Deze gebruikersovereenkomst bevat de bepalingen en de voorwaarden die
+						van toepassing zijn op het gebruik van de informatie en diensten aangeboden
+						door de site. De gebruiker (zij het lid, bezoeker of adverteerder) van de
+						site en van de diensten die door de site aangeboden worden, wordt geacht
+						ingestemd te hebben met de bepalingen van deze gebruikersovereenkomst.
+						MatchTracker.be behoudt zich het recht voor op elk ogenblik deze
+						gebruikersovereenkomst te wijzigen. De geamendeerde gebruikersovereenkomst
+						zal bekend gemaakt worden op de site en zal automatisch van kracht worden
+						dertig dagen na de initiële bekendmaking.</p>
+
+					<h2>2. Aansprakelijkheid</h2>
+
+					<p>MatchTracker.be kan niet verantwoordelijk gesteld worden voor de
+						onjuistheden of tekortkomingen in de gegevens zoals die vermeld staan op de
+						site. Dit geldt zowel voor informatie die door MatchTracker.be zelf op de
+						site werd geplaatst, alsook voor informatie afkomstig van gebruikers
+						(leden, bezoekers en adverteerders). Incorrecte gegevens of tekortkomingen
+						op de site geven geen recht op een financiële compensatie.</p>
+
+					<p>MatchTracker.be is niet verantwoordelijk t.a.v. gebruikers of derden
+						voor mogelijk geleden directe, indirecte, incidentele schade, winstderving
+						of voor eender welke schade veroorzaakt door haar nalatigheid of
+						vergetelheid in het verschaffen, compileren, monteren, schrijven en
+						interpreteren van informatie.</p>
+
+					<p>MatchTracker.be biedt de website uitdrukkelijk aan "zoals ze is". Voor
+						de technische realisatie ervan wordt een beroep gedaan op de meest
+						geavanceerde technieken. MatchTracker.be kan evenwel niet aansprakelijk
+						gesteld worden voor het (tijdelijk) uitvallen of eventueel disfunctioneren
+						van het systeem.</p>
+
+					<p>MatchTracker.be is niet verantwoordelijk voor links naar sites die
+						beheerd worden door derden. MatchTracker.be oefent geen enkele controle uit
+						over de voorgenoemde websites en aanvaarden geen enkele aansprakelijkheid
+						met betrekking tot de inhoud ervan. De opname van links naar deze websites
+						betekent niet dat MatchTracker.be de elementen goedkeurt die deze sites
+						bevatten, en impliceert niet noodzakelijk een samenwerking tussen
+						MatchTracker.be en de eigenaars van deze sites. De informatie op de site
+						wordt periodiek gewijzigd. MatchTracker.be behoudt zich het recht voor op
+						elk moment verbeteringen en/of wijzigingen door te voeren op de site.</p>
+
+					<h2>3. Intellectuele eigendom en copyright</h2>
+
+					<p>De gebruiker erkent uitdrukkelijk dat de op de site verstrekte gegevens
+						(teksten, grafische elementen,...) eigendom zijn en blijven van
+						MatchTracker.be. Niets van de site mag gebruikt worden voor reproductie,
+						aanpassing, verspreiding, verkoop, publicatie of commerciële doeleinden
+						zonder voorafgaande schriftelijke toestemming van MatchTracker.be. Het is
+						ook verboden om deze informatie elektronisch op te slaan of te gebruiken
+						voor onwettige doeleinden. Het opslaan van informatie vanop de site in een
+						database is niet toegestaan, met uitzondering van het automatisch 'cachen'
+						van de informatie door een browser.</p>
+
+					<h2>4. Privacyregeling en bescherming van de persoonlijke levenssfeer</h2>
+
+					<p>MatchTracker.be verzamelt persoonlijke informatie die noodzakelijk is om
+						een optimale werking van de site te garanderen. Deze informatie kan door
+						MatchTracker.be gebruikt worden voor acties of berichten van commerciële
+						aard. MatchTracker.be verbindt er zich echter toe deze gegevens nooit vrij
+						te geven aan derden zonder de expliciete toestemming van de betrokken
+						partij. MatchTracker.be verzamelt ook informatie in logfiles. Deze
+						informatie wordt gebruikt voor interne doeleinden, zoals trafiek- en
+						profielanalyse om op die manier het dienstenaanbod van de site verder op
+						punt te stellen. MatchTracker.be maakt gebruik van zogenaamde 'cookies'
+						(kleine stukjes informatie die op de harde schijf van de gebruiker
+						weggeschreven worden) om het gebruik van de website te
+						vergemakkelijken.</p>
+
+					<p>Wijzigingen aan de MatchTracker.be Disclaimer zijn te allen tijde
+						mogelijk, maar zullen aan de gebruikers meegedeeld worden via de website.
+						In overeenstemming met de wet van 8 december 1992 tot bescherming van de
+						persoonlijke levenssfeer, worden alle gegevens die de gebruiker op de site
+						invult op verzoek medegedeeld en, indien de gebruiker dit wenst, binnen een
+						redelijke termijn gratis gecorrigeerd. MatchTracker.be is verantwoordelijk
+						voor het verwerken, opslaan en beheren van deze persoonlijke gegevens.</p>
+
+					<p>Alleen de individuele e-mail adressen die de bezoekers ons bezorgt
+						worden opgeslagen. Om uit de database verwijderd te worden volstaat het een
+						e-mail te sturen. De gebruiker kan persoonlijke gegevens ten allen tijde op
+						eenvoudig verzoek kosteloos inkijken. De bezoeker kan steeds verzet
+						aantekenen tegen het gebruik van zijn gegevens voor doeleinden van direct
+						marketing.</p>
+
+					<h2>5. Bewijs en toepasselijk recht</h2>
+
+					<p>Het Belgische recht is van toepassing. Partijen aanvaarden dat de
+						elektronische communicatie tussen hen beiden rechtskracht bezit van
+						schriftelijk bewijs. In geval van geschillen of betwisting zijn enkel de
+						rechtbanken van Antwerpen bevoegd.</p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Ga terug</button>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

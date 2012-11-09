@@ -1,0 +1,4 @@
+parameters:
+#    match_tracker_app.example.class: MatchTracker\Bundle\AppBundle\Example
+
+services:

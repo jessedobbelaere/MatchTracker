@@ -1,0 +1,41 @@
+{% extends 'MatchTrackerAppBundle::layout.html.twig' %}
+
+{% set active_page = "dashboard" %}
+
+{% block title %}
+Competitie Maker
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/matchtrackerapp/css/datepicker.css') }}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+
+{% block body %}
+
+ <h1>Competitie maker</h1>
+ 
+<form  novalidate action="{{ path('competition_maker') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
+    {{ form_widget(form) }}
+
+    <input type="submit" value="Volgende stap" class="btn btn-primary btn-large"/>
+</form>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/matchtrackerapp/js/bootstrap-datepicker.js') }}"></script>
+    <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <script>
+        <script>
+        $(function(){
+            window.prettyPrint && prettyPrint();
+            $('#form_startdate').datepicker({
+                format: 'dd-mm-yyyy'
+            });
+        });
+
+
+    </script>
+{% endblock %}

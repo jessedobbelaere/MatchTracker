@@ -1,0 +1,21 @@
+parameters:
+#    match_tracker_user.example.class: MatchTracker\Bundle\UserBundle\Example
+
+services:
+#    match_tracker_user.example:
+#        class: %match_tracker_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    my.facebook.user:
+        class: MatchTracker\Bundle\UserBundle\Security\User\Provider\FacebookProvider
+        arguments:
+            facebook: "@fos_facebook.api"
+            userManager: "@fos_user.user_manager"
+            validator: "@validator"
+            container: "@service_container"
+
+    matchtracker_registration_form:
+        class: MatchTracker\Bundle\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            -  { name: form.type }
