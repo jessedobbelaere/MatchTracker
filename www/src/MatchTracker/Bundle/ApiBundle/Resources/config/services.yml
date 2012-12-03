@@ -1,0 +1,7 @@
+parameters:
+#    match_tracker_api.example.class: MatchTracker\Bundle\ApiBundle\Example
+
+services:
+#    match_tracker_api.example:
+#        class: %match_tracker_api.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

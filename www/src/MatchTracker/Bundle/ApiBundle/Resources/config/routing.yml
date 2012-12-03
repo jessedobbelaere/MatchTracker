@@ -1,0 +1,12 @@
+#match_tracker_api_homepage:
+#    pattern:  /hello/{name}
+#    defaults: { _controller: MatchTrackerApiBundle:Default:index }
+#
+#acme_user_rest:
+#    defaults: { _controller: MatchTrackerApiBundle:UserRest:getUser, _format:json }
+#    pattern: /users/
+#    type: rest
+
+users:
+    type: rest
+    resource: MatchTracker\Bundle\ApiBundle\Controller\UserRestController

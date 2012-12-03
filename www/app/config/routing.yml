@@ -1,3 +1,7 @@
+match_tracker_api:
+    resource: "@MatchTrackerApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+
 match_tracker_app:
     resource: "@MatchTrackerAppBundle/Resources/config/routing.yml"
     prefix:   /

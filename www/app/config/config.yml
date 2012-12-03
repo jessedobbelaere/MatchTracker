@@ -75,3 +75,18 @@ fos_facebook:
     secret: 5e453a116dff635d9d2ad827f5b6fedf
     cookie: true
     permissions: [email]
+
+fos_rest:
+    view:
+        view_response_listener: false
+        failed_validation: HTTP_BAD_REQUEST
+        default_engine: php
+        formats:
+            json: true
+    format_listener:
+        prefer_extension: true
+    body_listener:
+        decoders:
+            json: fos_rest.decoder.json
+    routing_loader:
+        default_format: json

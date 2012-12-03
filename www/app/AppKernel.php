@@ -24,6 +24,9 @@ class AppKernel extends Kernel
             new MatchTracker\Bundle\UserBundle\MatchTrackerUserBundle(),
 			new FOS\UserBundle\FOSUserBundle(),
 	        new FOS\FacebookBundle\FOSFacebookBundle(),
+			new FOS\RestBundle\FOSRestBundle(),
+			new JMS\SerializerBundle\JMSSerializerBundle($this),
+            new MatchTracker\Bundle\ApiBundle\MatchTrackerApiBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
