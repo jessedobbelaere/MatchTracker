@@ -7,63 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8836ECD1166D0332007E6795 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8836ECD0166D0332007E6795 /* UIKit.framework */; };
-		8836ECD3166D0332007E6795 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8836ECD2166D0332007E6795 /* Foundation.framework */; };
-		8836ECD5166D0332007E6795 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8836ECD4166D0332007E6795 /* CoreGraphics.framework */; };
-		8836ECDB166D0332007E6795 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8836ECD9166D0332007E6795 /* InfoPlist.strings */; };
-		8836ECDD166D0332007E6795 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8836ECDC166D0332007E6795 /* main.m */; };
-		8836ECE1166D0332007E6795 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8836ECE0166D0332007E6795 /* AppDelegate.m */; };
-		8836ECE3166D0332007E6795 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8836ECE2166D0332007E6795 /* Default.png */; };
-		8836ECE5166D0332007E6795 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8836ECE4166D0332007E6795 /* Default@2x.png */; };
-		8836ECE7166D0332007E6795 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8836ECE6166D0332007E6795 /* Default-568h@2x.png */; };
-		8836ECEA166D0332007E6795 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8836ECE8166D0332007E6795 /* MainStoryboard.storyboard */; };
-		8836ECED166D0332007E6795 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8836ECEC166D0332007E6795 /* FirstViewController.m */; };
-		8836ECEF166D0332007E6795 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 8836ECEE166D0332007E6795 /* first.png */; };
-		8836ECF1166D0332007E6795 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8836ECF0166D0332007E6795 /* first@2x.png */; };
-		8836ECF4166D0332007E6795 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8836ECF3166D0332007E6795 /* SecondViewController.m */; };
-		8836ECF6166D0332007E6795 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 8836ECF5166D0332007E6795 /* second.png */; };
-		8836ECF8166D0332007E6795 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8836ECF7166D0332007E6795 /* second@2x.png */; };
-		8836ED12166D0B43007E6795 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8836ED09166D09E6007E6795 /* libRestKit.a */; };
-		8836ED14166D0B52007E6795 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8836ED13166D0B52007E6795 /* CFNetwork.framework */; };
-		8836ED16166D0B55007E6795 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8836ED15166D0B55007E6795 /* CoreData.framework */; };
-		8836ED18166D0B5A007E6795 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8836ED17166D0B5A007E6795 /* MobileCoreServices.framework */; };
-		8836ED1A166D0B5D007E6795 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8836ED19166D0B5D007E6795 /* Security.framework */; };
-		8836ED1C166D0B62007E6795 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8836ED1B166D0B62007E6795 /* SystemConfiguration.framework */; };
-		8836ED1F166D157B007E6795 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 8836ED1E166D157B007E6795 /* Article.m */; };
+		8899502F166D73630081AD75 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8899502E166D73630081AD75 /* UIKit.framework */; };
+		88995031166D73630081AD75 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88995030166D73630081AD75 /* Foundation.framework */; };
+		88995033166D73630081AD75 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88995032166D73630081AD75 /* CoreGraphics.framework */; };
+		88995039166D73630081AD75 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88995037166D73630081AD75 /* InfoPlist.strings */; };
+		8899503B166D73630081AD75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899503A166D73630081AD75 /* main.m */; };
+		8899503F166D73630081AD75 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899503E166D73630081AD75 /* AppDelegate.m */; };
+		88995041166D73630081AD75 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 88995040166D73630081AD75 /* Default.png */; };
+		88995043166D73630081AD75 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88995042166D73630081AD75 /* Default@2x.png */; };
+		88995045166D73630081AD75 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88995044166D73630081AD75 /* Default-568h@2x.png */; };
+		88995048166D73630081AD75 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88995046166D73630081AD75 /* MainStoryboard.storyboard */; };
+		8899504B166D73630081AD75 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899504A166D73630081AD75 /* FirstViewController.m */; };
+		8899504D166D73630081AD75 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 8899504C166D73630081AD75 /* first.png */; };
+		8899504F166D73630081AD75 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8899504E166D73630081AD75 /* first@2x.png */; };
+		88995052166D73630081AD75 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88995051166D73630081AD75 /* SecondViewController.m */; };
+		88995054166D73630081AD75 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 88995053166D73630081AD75 /* second.png */; };
+		88995056166D73630081AD75 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88995055166D73630081AD75 /* second@2x.png */; };
+		88995074166D74410081AD75 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88995073166D74410081AD75 /* CFNetwork.framework */; };
+		88995076166D74460081AD75 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88995075166D74460081AD75 /* CoreData.framework */; };
+		88995078166D74490081AD75 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88995077166D74490081AD75 /* Security.framework */; };
+		8899507A166D744E0081AD75 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88995079166D744E0081AD75 /* MobileCoreServices.framework */; };
+		8899507C166D74530081AD75 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8899507B166D74530081AD75 /* SystemConfiguration.framework */; };
+		8899507E166D74580081AD75 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8899507D166D74580081AD75 /* libxml2.dylib */; };
+		88995080166D745C0081AD75 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8899507F166D745C0081AD75 /* QuartzCore.framework */; };
+		88995081166D79A30081AD75 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88995068166D74260081AD75 /* libRestKit.a */; };
+		88995085166D7B8D0081AD75 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 88995084166D7B8D0081AD75 /* Article.m */; };
+		8899508B166D8B1F0081AD75 /* DataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899508A166D8B1F0081AD75 /* DataAccess.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8836ED08166D09E6007E6795 /* PBXContainerItemProxy */ = {
+		88995067166D74260081AD75 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8836ECFE166D09E6007E6795 /* RestKit.xcodeproj */;
+			containerPortal = 8899505C166D74260081AD75 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160D1614564E810060A5C5;
 			remoteInfo = RestKit;
 		};
-		8836ED0A166D09E6007E6795 /* PBXContainerItemProxy */ = {
+		88995069166D74260081AD75 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8836ECFE166D09E6007E6795 /* RestKit.xcodeproj */;
+			containerPortal = 8899505C166D74260081AD75 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160D2614564E820060A5C5;
 			remoteInfo = RestKitTests;
 		};
-		8836ED0C166D09E6007E6795 /* PBXContainerItemProxy */ = {
+		8899506B166D74260081AD75 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8836ECFE166D09E6007E6795 /* RestKit.xcodeproj */;
+			containerPortal = 8899505C166D74260081AD75 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160E62145651060060A5C5;
 			remoteInfo = RestKitFramework;
 		};
-		8836ED0E166D09E6007E6795 /* PBXContainerItemProxy */ = {
+		8899506D166D74260081AD75 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8836ECFE166D09E6007E6795 /* RestKit.xcodeproj */;
+			containerPortal = 8899505C166D74260081AD75 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160E78145651060060A5C5;
 			remoteInfo = RestKitFrameworkTests;
 		};
-		8836ED10166D0AAF007E6795 /* PBXContainerItemProxy */ = {
+		8899506F166D74260081AD75 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8836ECFE166D09E6007E6795 /* RestKit.xcodeproj */;
+			containerPortal = 8899505C166D74260081AD75 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 259C301615128079003066A2;
+			remoteInfo = RestKitResources;
+		};
+		88995071166D742F0081AD75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8899505C166D74260081AD75 /* RestKit.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 25160D1514564E810060A5C5;
 			remoteInfo = RestKit;
@@ -71,133 +81,144 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8836ECCC166D0332007E6795 /* MatchTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8836ECD0166D0332007E6795 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		8836ECD2166D0332007E6795 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8836ECD4166D0332007E6795 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		8836ECD8166D0332007E6795 /* MatchTrackerApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatchTrackerApp-Info.plist"; sourceTree = "<group>"; };
-		8836ECDA166D0332007E6795 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8836ECDC166D0332007E6795 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8836ECDE166D0332007E6795 /* MatchTrackerApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MatchTrackerApp-Prefix.pch"; sourceTree = "<group>"; };
-		8836ECDF166D0332007E6795 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		8836ECE0166D0332007E6795 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8836ECE2166D0332007E6795 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		8836ECE4166D0332007E6795 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		8836ECE6166D0332007E6795 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		8836ECE9166D0332007E6795 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		8836ECEB166D0332007E6795 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		8836ECEC166D0332007E6795 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		8836ECEE166D0332007E6795 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		8836ECF0166D0332007E6795 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		8836ECF2166D0332007E6795 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		8836ECF3166D0332007E6795 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		8836ECF5166D0332007E6795 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		8836ECF7166D0332007E6795 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		8836ECFE166D09E6007E6795 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
-		8836ED13166D0B52007E6795 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		8836ED15166D0B55007E6795 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		8836ED17166D0B5A007E6795 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		8836ED19166D0B5D007E6795 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		8836ED1B166D0B62007E6795 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		8836ED1D166D157B007E6795 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
-		8836ED1E166D157B007E6795 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		8899502A166D73630081AD75 /* MatchTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8899502E166D73630081AD75 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		88995030166D73630081AD75 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		88995032166D73630081AD75 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		88995036166D73630081AD75 /* MatchTrackerApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatchTrackerApp-Info.plist"; sourceTree = "<group>"; };
+		88995038166D73630081AD75 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8899503A166D73630081AD75 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8899503C166D73630081AD75 /* MatchTrackerApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MatchTrackerApp-Prefix.pch"; sourceTree = "<group>"; };
+		8899503D166D73630081AD75 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8899503E166D73630081AD75 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		88995040166D73630081AD75 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		88995042166D73630081AD75 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		88995044166D73630081AD75 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		88995047166D73630081AD75 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		88995049166D73630081AD75 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		8899504A166D73630081AD75 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		8899504C166D73630081AD75 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		8899504E166D73630081AD75 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		88995050166D73630081AD75 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		88995051166D73630081AD75 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		88995053166D73630081AD75 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		88995055166D73630081AD75 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		8899505C166D74260081AD75 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		88995073166D74410081AD75 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		88995075166D74460081AD75 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		88995077166D74490081AD75 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		88995079166D744E0081AD75 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		8899507B166D74530081AD75 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8899507D166D74580081AD75 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		8899507F166D745C0081AD75 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		88995083166D7B8C0081AD75 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
+		88995084166D7B8D0081AD75 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		88995089166D8B1F0081AD75 /* DataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataAccess.h; sourceTree = "<group>"; };
+		8899508A166D8B1F0081AD75 /* DataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAccess.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8836ECC9166D0332007E6795 /* Frameworks */ = {
+		88995027166D73630081AD75 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8836ED1C166D0B62007E6795 /* SystemConfiguration.framework in Frameworks */,
-				8836ED1A166D0B5D007E6795 /* Security.framework in Frameworks */,
-				8836ED18166D0B5A007E6795 /* MobileCoreServices.framework in Frameworks */,
-				8836ED16166D0B55007E6795 /* CoreData.framework in Frameworks */,
-				8836ED14166D0B52007E6795 /* CFNetwork.framework in Frameworks */,
-				8836ED12166D0B43007E6795 /* libRestKit.a in Frameworks */,
-				8836ECD1166D0332007E6795 /* UIKit.framework in Frameworks */,
-				8836ECD3166D0332007E6795 /* Foundation.framework in Frameworks */,
-				8836ECD5166D0332007E6795 /* CoreGraphics.framework in Frameworks */,
+				88995081166D79A30081AD75 /* libRestKit.a in Frameworks */,
+				88995080166D745C0081AD75 /* QuartzCore.framework in Frameworks */,
+				8899507E166D74580081AD75 /* libxml2.dylib in Frameworks */,
+				8899507C166D74530081AD75 /* SystemConfiguration.framework in Frameworks */,
+				8899507A166D744E0081AD75 /* MobileCoreServices.framework in Frameworks */,
+				88995078166D74490081AD75 /* Security.framework in Frameworks */,
+				88995076166D74460081AD75 /* CoreData.framework in Frameworks */,
+				88995074166D74410081AD75 /* CFNetwork.framework in Frameworks */,
+				8899502F166D73630081AD75 /* UIKit.framework in Frameworks */,
+				88995031166D73630081AD75 /* Foundation.framework in Frameworks */,
+				88995033166D73630081AD75 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8836ECC1166D0332007E6795 = {
+		8899501F166D73630081AD75 = {
 			isa = PBXGroup;
 			children = (
-				8836ECFE166D09E6007E6795 /* RestKit.xcodeproj */,
-				8836ECD6166D0332007E6795 /* MatchTrackerApp */,
-				8836ECCF166D0332007E6795 /* Frameworks */,
-				8836ECCD166D0332007E6795 /* Products */,
+				8899505C166D74260081AD75 /* RestKit.xcodeproj */,
+				88995034166D73630081AD75 /* MatchTrackerApp */,
+				8899502D166D73630081AD75 /* Frameworks */,
+				8899502B166D73630081AD75 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8836ECCD166D0332007E6795 /* Products */ = {
+		8899502B166D73630081AD75 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8836ECCC166D0332007E6795 /* MatchTrackerApp.app */,
+				8899502A166D73630081AD75 /* MatchTrackerApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8836ECCF166D0332007E6795 /* Frameworks */ = {
+		8899502D166D73630081AD75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8836ED1B166D0B62007E6795 /* SystemConfiguration.framework */,
-				8836ED19166D0B5D007E6795 /* Security.framework */,
-				8836ED17166D0B5A007E6795 /* MobileCoreServices.framework */,
-				8836ED15166D0B55007E6795 /* CoreData.framework */,
-				8836ED13166D0B52007E6795 /* CFNetwork.framework */,
-				8836ECD0166D0332007E6795 /* UIKit.framework */,
-				8836ECD2166D0332007E6795 /* Foundation.framework */,
-				8836ECD4166D0332007E6795 /* CoreGraphics.framework */,
+				8899507F166D745C0081AD75 /* QuartzCore.framework */,
+				8899507D166D74580081AD75 /* libxml2.dylib */,
+				8899507B166D74530081AD75 /* SystemConfiguration.framework */,
+				88995079166D744E0081AD75 /* MobileCoreServices.framework */,
+				88995077166D74490081AD75 /* Security.framework */,
+				88995075166D74460081AD75 /* CoreData.framework */,
+				88995073166D74410081AD75 /* CFNetwork.framework */,
+				8899502E166D73630081AD75 /* UIKit.framework */,
+				88995030166D73630081AD75 /* Foundation.framework */,
+				88995032166D73630081AD75 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8836ECD6166D0332007E6795 /* MatchTrackerApp */ = {
+		88995034166D73630081AD75 /* MatchTrackerApp */ = {
 			isa = PBXGroup;
 			children = (
-				8836ECDF166D0332007E6795 /* AppDelegate.h */,
-				8836ECE0166D0332007E6795 /* AppDelegate.m */,
-				8836ECE8166D0332007E6795 /* MainStoryboard.storyboard */,
-				8836ECEB166D0332007E6795 /* FirstViewController.h */,
-				8836ECEC166D0332007E6795 /* FirstViewController.m */,
-				8836ECEE166D0332007E6795 /* first.png */,
-				8836ECF0166D0332007E6795 /* first@2x.png */,
-				8836ECF2166D0332007E6795 /* SecondViewController.h */,
-				8836ECF3166D0332007E6795 /* SecondViewController.m */,
-				8836ECF5166D0332007E6795 /* second.png */,
-				8836ECF7166D0332007E6795 /* second@2x.png */,
-				8836ECD7166D0332007E6795 /* Supporting Files */,
-				8836ED1D166D157B007E6795 /* Article.h */,
-				8836ED1E166D157B007E6795 /* Article.m */,
+				8899503D166D73630081AD75 /* AppDelegate.h */,
+				8899503E166D73630081AD75 /* AppDelegate.m */,
+				88995046166D73630081AD75 /* MainStoryboard.storyboard */,
+				88995049166D73630081AD75 /* FirstViewController.h */,
+				8899504A166D73630081AD75 /* FirstViewController.m */,
+				8899504C166D73630081AD75 /* first.png */,
+				8899504E166D73630081AD75 /* first@2x.png */,
+				88995050166D73630081AD75 /* SecondViewController.h */,
+				88995051166D73630081AD75 /* SecondViewController.m */,
+				88995053166D73630081AD75 /* second.png */,
+				88995055166D73630081AD75 /* second@2x.png */,
+				88995035166D73630081AD75 /* Supporting Files */,
+				88995083166D7B8C0081AD75 /* Article.h */,
+				88995084166D7B8D0081AD75 /* Article.m */,
+				88995089166D8B1F0081AD75 /* DataAccess.h */,
+				8899508A166D8B1F0081AD75 /* DataAccess.m */,
 			);
 			path = MatchTrackerApp;
 			sourceTree = "<group>";
 		};
-		8836ECD7166D0332007E6795 /* Supporting Files */ = {
+		88995035166D73630081AD75 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8836ECD8166D0332007E6795 /* MatchTrackerApp-Info.plist */,
-				8836ECD9166D0332007E6795 /* InfoPlist.strings */,
-				8836ECDC166D0332007E6795 /* main.m */,
-				8836ECDE166D0332007E6795 /* MatchTrackerApp-Prefix.pch */,
-				8836ECE2166D0332007E6795 /* Default.png */,
-				8836ECE4166D0332007E6795 /* Default@2x.png */,
-				8836ECE6166D0332007E6795 /* Default-568h@2x.png */,
+				88995036166D73630081AD75 /* MatchTrackerApp-Info.plist */,
+				88995037166D73630081AD75 /* InfoPlist.strings */,
+				8899503A166D73630081AD75 /* main.m */,
+				8899503C166D73630081AD75 /* MatchTrackerApp-Prefix.pch */,
+				88995040166D73630081AD75 /* Default.png */,
+				88995042166D73630081AD75 /* Default@2x.png */,
+				88995044166D73630081AD75 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8836ECFF166D09E6007E6795 /* Products */ = {
+		8899505D166D74260081AD75 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8836ED09166D09E6007E6795 /* libRestKit.a */,
-				8836ED0B166D09E6007E6795 /* RestKitTests.octest */,
-				8836ED0D166D09E6007E6795 /* RestKit.framework */,
-				8836ED0F166D09E6007E6795 /* RestKitFrameworkTests.octest */,
+				88995068166D74260081AD75 /* libRestKit.a */,
+				8899506A166D74260081AD75 /* RestKitTests.octest */,
+				8899506C166D74260081AD75 /* RestKit.framework */,
+				8899506E166D74260081AD75 /* RestKitFrameworkTests.octest */,
+				88995070166D74260081AD75 /* RestKitResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,142 +226,150 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8836ECCB166D0332007E6795 /* MatchTrackerApp */ = {
+		88995029166D73630081AD75 /* MatchTrackerApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8836ECFB166D0332007E6795 /* Build configuration list for PBXNativeTarget "MatchTrackerApp" */;
+			buildConfigurationList = 88995059166D73630081AD75 /* Build configuration list for PBXNativeTarget "MatchTrackerApp" */;
 			buildPhases = (
-				8836ECC8166D0332007E6795 /* Sources */,
-				8836ECC9166D0332007E6795 /* Frameworks */,
-				8836ECCA166D0332007E6795 /* Resources */,
+				88995026166D73630081AD75 /* Sources */,
+				88995027166D73630081AD75 /* Frameworks */,
+				88995028166D73630081AD75 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8836ED11166D0AAF007E6795 /* PBXTargetDependency */,
+				88995072166D742F0081AD75 /* PBXTargetDependency */,
 			);
 			name = MatchTrackerApp;
 			productName = MatchTrackerApp;
-			productReference = 8836ECCC166D0332007E6795 /* MatchTrackerApp.app */;
+			productReference = 8899502A166D73630081AD75 /* MatchTrackerApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8836ECC3166D0332007E6795 /* Project object */ = {
+		88995021166D73630081AD75 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Jesse;
 			};
-			buildConfigurationList = 8836ECC6166D0332007E6795 /* Build configuration list for PBXProject "MatchTrackerApp" */;
+			buildConfigurationList = 88995024166D73630081AD75 /* Build configuration list for PBXProject "MatchTrackerApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 8836ECC1166D0332007E6795;
-			productRefGroup = 8836ECCD166D0332007E6795 /* Products */;
+			mainGroup = 8899501F166D73630081AD75;
+			productRefGroup = 8899502B166D73630081AD75 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 8836ECFF166D09E6007E6795 /* Products */;
-					ProjectRef = 8836ECFE166D09E6007E6795 /* RestKit.xcodeproj */;
+					ProductGroup = 8899505D166D74260081AD75 /* Products */;
+					ProjectRef = 8899505C166D74260081AD75 /* RestKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				8836ECCB166D0332007E6795 /* MatchTrackerApp */,
+				88995029166D73630081AD75 /* MatchTrackerApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		8836ED09166D09E6007E6795 /* libRestKit.a */ = {
+		88995068166D74260081AD75 /* libRestKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRestKit.a;
-			remoteRef = 8836ED08166D09E6007E6795 /* PBXContainerItemProxy */;
+			remoteRef = 88995067166D74260081AD75 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8836ED0B166D09E6007E6795 /* RestKitTests.octest */ = {
+		8899506A166D74260081AD75 /* RestKitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = RestKitTests.octest;
-			remoteRef = 8836ED0A166D09E6007E6795 /* PBXContainerItemProxy */;
+			remoteRef = 88995069166D74260081AD75 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8836ED0D166D09E6007E6795 /* RestKit.framework */ = {
+		8899506C166D74260081AD75 /* RestKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = RestKit.framework;
-			remoteRef = 8836ED0C166D09E6007E6795 /* PBXContainerItemProxy */;
+			remoteRef = 8899506B166D74260081AD75 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8836ED0F166D09E6007E6795 /* RestKitFrameworkTests.octest */ = {
+		8899506E166D74260081AD75 /* RestKitFrameworkTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = RestKitFrameworkTests.octest;
-			remoteRef = 8836ED0E166D09E6007E6795 /* PBXContainerItemProxy */;
+			remoteRef = 8899506D166D74260081AD75 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		88995070166D74260081AD75 /* RestKitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitResources.bundle;
+			remoteRef = 8899506F166D74260081AD75 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8836ECCA166D0332007E6795 /* Resources */ = {
+		88995028166D73630081AD75 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8836ECDB166D0332007E6795 /* InfoPlist.strings in Resources */,
-				8836ECE3166D0332007E6795 /* Default.png in Resources */,
-				8836ECE5166D0332007E6795 /* Default@2x.png in Resources */,
-				8836ECE7166D0332007E6795 /* Default-568h@2x.png in Resources */,
-				8836ECEA166D0332007E6795 /* MainStoryboard.storyboard in Resources */,
-				8836ECEF166D0332007E6795 /* first.png in Resources */,
-				8836ECF1166D0332007E6795 /* first@2x.png in Resources */,
-				8836ECF6166D0332007E6795 /* second.png in Resources */,
-				8836ECF8166D0332007E6795 /* second@2x.png in Resources */,
+				88995039166D73630081AD75 /* InfoPlist.strings in Resources */,
+				88995041166D73630081AD75 /* Default.png in Resources */,
+				88995043166D73630081AD75 /* Default@2x.png in Resources */,
+				88995045166D73630081AD75 /* Default-568h@2x.png in Resources */,
+				88995048166D73630081AD75 /* MainStoryboard.storyboard in Resources */,
+				8899504D166D73630081AD75 /* first.png in Resources */,
+				8899504F166D73630081AD75 /* first@2x.png in Resources */,
+				88995054166D73630081AD75 /* second.png in Resources */,
+				88995056166D73630081AD75 /* second@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8836ECC8166D0332007E6795 /* Sources */ = {
+		88995026166D73630081AD75 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8836ECDD166D0332007E6795 /* main.m in Sources */,
-				8836ECE1166D0332007E6795 /* AppDelegate.m in Sources */,
-				8836ECED166D0332007E6795 /* FirstViewController.m in Sources */,
-				8836ECF4166D0332007E6795 /* SecondViewController.m in Sources */,
-				8836ED1F166D157B007E6795 /* Article.m in Sources */,
+				8899503B166D73630081AD75 /* main.m in Sources */,
+				8899503F166D73630081AD75 /* AppDelegate.m in Sources */,
+				8899504B166D73630081AD75 /* FirstViewController.m in Sources */,
+				88995052166D73630081AD75 /* SecondViewController.m in Sources */,
+				88995085166D7B8D0081AD75 /* Article.m in Sources */,
+				8899508B166D8B1F0081AD75 /* DataAccess.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8836ED11166D0AAF007E6795 /* PBXTargetDependency */ = {
+		88995072166D742F0081AD75 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RestKit;
-			targetProxy = 8836ED10166D0AAF007E6795 /* PBXContainerItemProxy */;
+			targetProxy = 88995071166D742F0081AD75 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8836ECD9166D0332007E6795 /* InfoPlist.strings */ = {
+		88995037166D73630081AD75 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8836ECDA166D0332007E6795 /* en */,
+				88995038166D73630081AD75 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		8836ECE8166D0332007E6795 /* MainStoryboard.storyboard */ = {
+		88995046166D73630081AD75 /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8836ECE9166D0332007E6795 /* en */,
+				88995047166D73630081AD75 /* en */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -348,7 +377,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8836ECF9166D0332007E6795 /* Debug */ = {
+		88995057166D73630081AD75 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -371,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -381,7 +410,7 @@
 			};
 			name = Debug;
 		};
-		8836ECFA166D0332007E6795 /* Release */ = {
+		88995058166D73630081AD75 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -397,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -408,23 +437,25 @@
 			};
 			name = Release;
 		};
-		8836ECFC166D0332007E6795 /* Debug */ = {
+		8899505A166D73630081AD75 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MatchTrackerApp/MatchTrackerApp-Prefix.pch";
 				INFOPLIST_FILE = "MatchTrackerApp/MatchTrackerApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		8836ECFD166D0332007E6795 /* Release */ = {
+		8899505B166D73630081AD75 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MatchTrackerApp/MatchTrackerApp-Prefix.pch";
 				INFOPLIST_FILE = "MatchTrackerApp/MatchTrackerApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -433,25 +464,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8836ECC6166D0332007E6795 /* Build configuration list for PBXProject "MatchTrackerApp" */ = {
+		88995024166D73630081AD75 /* Build configuration list for PBXProject "MatchTrackerApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8836ECF9166D0332007E6795 /* Debug */,
-				8836ECFA166D0332007E6795 /* Release */,
+				88995057166D73630081AD75 /* Debug */,
+				88995058166D73630081AD75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8836ECFB166D0332007E6795 /* Build configuration list for PBXNativeTarget "MatchTrackerApp" */ = {
+		88995059166D73630081AD75 /* Build configuration list for PBXNativeTarget "MatchTrackerApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8836ECFC166D0332007E6795 /* Debug */,
-				8836ECFD166D0332007E6795 /* Release */,
+				8899505A166D73630081AD75 /* Debug */,
+				8899505B166D73630081AD75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8836ECC3166D0332007E6795 /* Project object */;
+	rootObject = 88995021166D73630081AD75 /* Project object */;
 }

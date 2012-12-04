@@ -1,3 +1,0 @@
-[submodule "dev/iOS/MatchTrackerApp/RestKit"]
-	path = dev/iOS/MatchTrackerApp/RestKit
-	url = git://github.com/RestKit/RestKit.git

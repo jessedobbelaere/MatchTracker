@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  MatchTrackerApp
 //
-//  Created by Jesse on 3/12/12.
+//  Created by Jesse on 4/12/12.
 //  Copyright (c) 2012 Jesse. All rights reserved.
 //
 
@@ -14,6 +14,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // RestKit Singleton
+    //[RKClient clientWithBaseURLString:@"http://matchtracker.localhost/app_dev.php/api"];
+    [RKClient clientWithBaseURLString:@"http://localhost"];
+    NSLog(@"I am your RKClient singleton : %@", [RKClient sharedClient]);
+    
     return YES;
 }
 							
