@@ -24,10 +24,11 @@ static DataAccess *sharedDataAccess = nil;
     return sharedDataAccess;
 }
 
+// GET some example JSON data
 -(void)getData
 {
     NSLog(@"get data...");
-    [[RKClient sharedClient] get:@"/apitest.php" delegate:self];
+    [[RKClient sharedClient] get:@"/sports.json" delegate:self];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {

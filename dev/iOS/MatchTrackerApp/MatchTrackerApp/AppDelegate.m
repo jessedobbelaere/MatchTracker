@@ -16,8 +16,7 @@
     // Override point for customization after application launch.
     
     // RestKit Singleton
-    //[RKClient clientWithBaseURLString:@"http://matchtracker.localhost/app_dev.php/api"];
-    [RKClient clientWithBaseURLString:@"http://localhost"];
+    [RKClient clientWithBaseURLString:@"http://matchtracker.localhost/app_dev.php/api"];
     NSLog(@"I am your RKClient singleton : %@", [RKClient sharedClient]);
     
     return YES;
