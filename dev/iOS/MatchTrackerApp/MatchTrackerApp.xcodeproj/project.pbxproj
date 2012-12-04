@@ -31,7 +31,6 @@
 		8899507E166D74580081AD75 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8899507D166D74580081AD75 /* libxml2.dylib */; };
 		88995080166D745C0081AD75 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8899507F166D745C0081AD75 /* QuartzCore.framework */; };
 		88995081166D79A30081AD75 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88995068166D74260081AD75 /* libRestKit.a */; };
-		88995085166D7B8D0081AD75 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 88995084166D7B8D0081AD75 /* Article.m */; };
 		8899508B166D8B1F0081AD75 /* DataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899508A166D8B1F0081AD75 /* DataAccess.m */; };
 /* End PBXBuildFile section */
 
@@ -111,8 +110,6 @@
 		8899507B166D74530081AD75 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8899507D166D74580081AD75 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		8899507F166D745C0081AD75 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		88995083166D7B8C0081AD75 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
-		88995084166D7B8D0081AD75 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
 		88995089166D8B1F0081AD75 /* DataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataAccess.h; sourceTree = "<group>"; };
 		8899508A166D8B1F0081AD75 /* DataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAccess.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,8 +186,6 @@
 				88995053166D73630081AD75 /* second.png */,
 				88995055166D73630081AD75 /* second@2x.png */,
 				88995035166D73630081AD75 /* Supporting Files */,
-				88995083166D7B8C0081AD75 /* Article.h */,
-				88995084166D7B8D0081AD75 /* Article.m */,
 				88995089166D8B1F0081AD75 /* DataAccess.h */,
 				8899508A166D8B1F0081AD75 /* DataAccess.m */,
 			);
@@ -342,7 +337,6 @@
 				8899503F166D73630081AD75 /* AppDelegate.m in Sources */,
 				8899504B166D73630081AD75 /* FirstViewController.m in Sources */,
 				88995052166D73630081AD75 /* SecondViewController.m in Sources */,
-				88995085166D7B8D0081AD75 /* Article.m in Sources */,
 				8899508B166D8B1F0081AD75 /* DataAccess.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +474,7 @@
 				8899505B166D73630081AD75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
