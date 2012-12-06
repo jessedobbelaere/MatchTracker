@@ -32,6 +32,10 @@
 		88995080166D745C0081AD75 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8899507F166D745C0081AD75 /* QuartzCore.framework */; };
 		88995081166D79A30081AD75 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88995068166D74260081AD75 /* libRestKit.a */; };
 		8899508B166D8B1F0081AD75 /* DataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 8899508A166D8B1F0081AD75 /* DataAccess.m */; };
+		889FF342166FF9860026D088 /* Sport.m in Sources */ = {isa = PBXBuildFile; fileRef = 889FF341166FF9860026D088 /* Sport.m */; };
+		889FF34916701DCB0026D088 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 889FF34816701DCB0026D088 /* Article.m */; };
+		88C2F50F166E6C4D00FC6B2E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 88C2F50D166E6C4D00FC6B2E /* logo.png */; };
+		88C2F510166E6C4D00FC6B2E /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88C2F50E166E6C4D00FC6B2E /* logo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +116,12 @@
 		8899507F166D745C0081AD75 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		88995089166D8B1F0081AD75 /* DataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataAccess.h; sourceTree = "<group>"; };
 		8899508A166D8B1F0081AD75 /* DataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAccess.m; sourceTree = "<group>"; };
+		889FF340166FF9860026D088 /* Sport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sport.h; sourceTree = "<group>"; };
+		889FF341166FF9860026D088 /* Sport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sport.m; sourceTree = "<group>"; };
+		889FF34716701DCB0026D088 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
+		889FF34816701DCB0026D088 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		88C2F50D166E6C4D00FC6B2E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		88C2F50E166E6C4D00FC6B2E /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +146,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88134C41166E472500FDAFDB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8899504C166D73630081AD75 /* first.png */,
+				8899504E166D73630081AD75 /* first@2x.png */,
+				88995053166D73630081AD75 /* second.png */,
+				88995055166D73630081AD75 /* second@2x.png */,
+				88C2F50D166E6C4D00FC6B2E /* logo.png */,
+				88C2F50E166E6C4D00FC6B2E /* logo@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		8899501F166D73630081AD75 = {
 			isa = PBXGroup;
 			children = (
@@ -174,20 +197,18 @@
 		88995034166D73630081AD75 /* MatchTrackerApp */ = {
 			isa = PBXGroup;
 			children = (
+				889FF33F166FF94B0026D088 /* Model */,
 				8899503D166D73630081AD75 /* AppDelegate.h */,
 				8899503E166D73630081AD75 /* AppDelegate.m */,
-				88995046166D73630081AD75 /* MainStoryboard.storyboard */,
-				88995049166D73630081AD75 /* FirstViewController.h */,
-				8899504A166D73630081AD75 /* FirstViewController.m */,
-				8899504C166D73630081AD75 /* first.png */,
-				8899504E166D73630081AD75 /* first@2x.png */,
-				88995050166D73630081AD75 /* SecondViewController.h */,
-				88995051166D73630081AD75 /* SecondViewController.m */,
-				88995053166D73630081AD75 /* second.png */,
-				88995055166D73630081AD75 /* second@2x.png */,
-				88995035166D73630081AD75 /* Supporting Files */,
 				88995089166D8B1F0081AD75 /* DataAccess.h */,
 				8899508A166D8B1F0081AD75 /* DataAccess.m */,
+				88995049166D73630081AD75 /* FirstViewController.h */,
+				8899504A166D73630081AD75 /* FirstViewController.m */,
+				88134C41166E472500FDAFDB /* Images */,
+				88995046166D73630081AD75 /* MainStoryboard.storyboard */,
+				88995050166D73630081AD75 /* SecondViewController.h */,
+				88995051166D73630081AD75 /* SecondViewController.m */,
+				88995035166D73630081AD75 /* Supporting Files */,
 			);
 			path = MatchTrackerApp;
 			sourceTree = "<group>";
@@ -216,6 +237,17 @@
 				88995070166D74260081AD75 /* RestKitResources.bundle */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		889FF33F166FF94B0026D088 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				889FF340166FF9860026D088 /* Sport.h */,
+				889FF341166FF9860026D088 /* Sport.m */,
+				889FF34716701DCB0026D088 /* Article.h */,
+				889FF34816701DCB0026D088 /* Article.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +355,8 @@
 				8899504F166D73630081AD75 /* first@2x.png in Resources */,
 				88995054166D73630081AD75 /* second.png in Resources */,
 				88995056166D73630081AD75 /* second@2x.png in Resources */,
+				88C2F50F166E6C4D00FC6B2E /* logo.png in Resources */,
+				88C2F510166E6C4D00FC6B2E /* logo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +372,8 @@
 				8899504B166D73630081AD75 /* FirstViewController.m in Sources */,
 				88995052166D73630081AD75 /* SecondViewController.m in Sources */,
 				8899508B166D8B1F0081AD75 /* DataAccess.m in Sources */,
+				889FF342166FF9860026D088 /* Sport.m in Sources */,
+				889FF34916701DCB0026D088 /* Article.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +416,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = FakeCode;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = FakeCode;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -394,13 +431,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos6.0;
 			};
 			name = Debug;
 		};
@@ -413,20 +452,23 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = FakeCode;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = FakeCode;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos6.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -434,11 +476,13 @@
 		8899505A166D73630081AD75 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = FakeCode;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MatchTrackerApp/MatchTrackerApp-Prefix.pch";
 				INFOPLIST_FILE = "MatchTrackerApp/MatchTrackerApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -446,11 +490,13 @@
 		8899505B166D73630081AD75 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = FakeCode;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MatchTrackerApp/MatchTrackerApp-Prefix.pch";
 				INFOPLIST_FILE = "MatchTrackerApp/MatchTrackerApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
