@@ -3,7 +3,7 @@ MatchTracker
 
 What is MatchTracker?
 ---------------------
-MachTracker is an online competition creator and match tracker tool created by 3 ICT students during the course Projecten2 at [KAHO Sint-Lieven](http://www.kaho.be).
+MatchTracker is an online competition creator and match tracker tool created by 3 ICT students during the course Projecten2 at [KAHO Sint-Lieven](http://www.kaho.be). Follow our [development blog](http://www.matchtracker.be/blog) for the latest news and development articles.
 
 Installation
 -----------
