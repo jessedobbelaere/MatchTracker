@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\SecurityContext;
 
+use Symfony\Component\Validator\Validation;
+use Symfony\Component\Validator\Constraints as Assert;
+
 use Doctrine\ORM\EntityRepository;
 
 class DashboardController extends Controller {
@@ -23,8 +26,6 @@ class DashboardController extends Controller {
 
 
         // fetch the competitions related to the user
-
-
         $user = null;
         return $this->render('MatchTrackerAppBundle:Dashboard:index.html.twig',
             array('users' => $user)
@@ -32,16 +33,47 @@ class DashboardController extends Controller {
 
     }
 
-
 	/**
 	 * Profile page
 	 *
+	 * @param \Symfony\Component\HttpFoundation\Request $request
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
-	public function profileAction(){
-        return $this->render('MatchTrackerAppBundle:Dashboard:profile.html.twig');
-    }
+	public function profileAction(Request $request) {
+		// Get user
+		$userData = $this->get('security.context')->getToken()->getUser();
 
+		// Create profile form
+		$form = $this->createFormBuilder($userData)
+			->add('firstname', 'text', array('label' => 'Voornaam', 'label_attr' => array('class' => 'control-label'), 'attr' => array('placeholder' => 'Voornaam', 'class' => 'input-medium')))
+			->add('lastname', 'text', array('label' => 'Familienaam', 'label_attr' => array('class' => 'control-label'), 'attr' => array('placeholder' => 'Achternaam', 'class' => 'input-large')))
+			->add('email', 'text', array('label' => 'E-mailadres', 'label_attr' => array('class' => 'control-label'), 'attr' => array('placeholder' => 'E-mail', 'class' => 'input-large')))
+			->add('password', 'password', array('label' => "Paswoord", 'label_attr' => array('class' => 'control-label'), 'attr' => array('placeholder' => 'Paswoord', 'class' => 'input-large')))
+//			->add('passwordRepeat', 'password', array('label' => 'Paswoord (herhaling)', 'label_attr' => array('class' => 'control-label'), 'attr' => array('placeholder' => 'Paswoord (herhaling)', 'class' => 'input-large')))
+			->getForm();
+
+
+		// If profile form is submitted...
+		if ($request->isMethod('POST')) {
+			$form->bind($request);
+			$data = $form->getData();
+
+			// Form data is correct, so start your engines!
+			if ($form->isValid()) {
+				$em = $this->getDoctrine()->getManager();
+				$em->persist($userData);
+				$em->flush();
+
+				// Redirect
+				return $this->redirect($this->generateUrl('dashboard'));
+			}
+
+		}
+
+		// Render the view
+		return $this->render('MatchTrackerAppBundle:Dashboard:profile.html.twig', array(
+			"form" => $form->createView()));
+	}
 
 	
 	

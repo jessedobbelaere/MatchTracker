@@ -21,8 +21,41 @@
 				</div>
 			</div>
 
-			<div class="span8">
-				<p>Test</p>
+			<div class="span8 content">
+				<h3>Uw profielgegevens</h3>
+
+				<form action="{{ path('profile') }}" method="post" {{ form_enctype(form) }} class="form-horizontal" novalidate>
+					{{ form_errors(form) }}
+
+					<div class="control-group">
+						{{ form_label(form.firstname, 'Naam') }}
+						<div class="controls">
+							{{ form_widget(form.firstname) }}
+							{{ form_widget(form.lastname) }}
+						</div>
+						{{ form_errors(form.firstname) }}
+						{{ form_errors(form.lastname) }}
+					</div>
+
+					<div class="control-group">
+						{{ form_label(form.email) }}
+						<div class="controls">
+							{{ form_widget(form.email) }}
+						</div>
+						{{ form_errors(form.email) }}
+					</div>
+
+					<div class="control-group">
+						{{ form_label(form.password) }}
+						<div class="controls">
+							{{ form_widget(form.password) }}
+						</div>
+						{{ form_errors(form.password) }}
+					</div>
+
+					{{ form_rest(form) }}
+					<input type="submit" class="button-green-mid" value="Wijzigingen bewaren" />
+				</form>
 			</div>
 		</div>
 

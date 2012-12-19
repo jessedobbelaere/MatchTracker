@@ -108,11 +108,6 @@ input[type="submit"].btn { cursor: pointer; }
 	color: #555555;
 }
 
-/* Icon */
-i {
-	font-style: normal !important;
-}
-
 .alignLeft {
 	float: left !important;
 }
@@ -125,6 +120,10 @@ i {
 	margin: 0 auto;
 	display: inline-block !important;
 	float: none !important;
+}
+
+.content h3 {
+	margin-top: 0;
 }
 
 
