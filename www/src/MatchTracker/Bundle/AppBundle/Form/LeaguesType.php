@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\Collection;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Min;
 use Symfony\Component\Validator\Constraints\Date;
 use MatchTracker\Bundle\AppBundle\Form\EventListener\LeaguesSubscriber;
 

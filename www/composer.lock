@@ -1453,21 +1453,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-<<<<<<< HEAD
                 "reference": "03f1ccc956324215572b9f95744c587861701b09"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/symfony/symfony/archive/03f1ccc956324215572b9f95744c587861701b09.zip",
                 "reference": "03f1ccc956324215572b9f95744c587861701b09",
-=======
                 "reference": "ed6a345162bbfcae9b23ddbd0ec47b295832d9eb"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/symfony/symfony/archive/ed6a345162bbfcae9b23ddbd0ec47b295832d9eb.zip",
                 "reference": "ed6a345162bbfcae9b23ddbd0ec47b295832d9eb",
->>>>>>> origin/master
                 "shasum": ""
             },
             "require": {
@@ -1516,11 +1513,8 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "1.*"
             },
-<<<<<<< HEAD
             "time": "1352270845",
-=======
             "time": "1353925640",
->>>>>>> origin/master
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1606,31 +1600,25 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-<<<<<<< HEAD
                 "reference": "c248887296dbe660ea8600615eb8a55a1556c5a0"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/fabpot/Twig/archive/c248887296dbe660ea8600615eb8a55a1556c5a0.zip",
                 "reference": "c248887296dbe660ea8600615eb8a55a1556c5a0",
-=======
                 "reference": "b58df0e1ae4b664f561bfaeffdb673829daa6b79"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/fabpot/Twig/archive/b58df0e1ae4b664f561bfaeffdb673829daa6b79.zip",
                 "reference": "b58df0e1ae4b664f561bfaeffdb673829daa6b79",
->>>>>>> origin/master
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-<<<<<<< HEAD
             "time": "1352287355",
-=======
             "time": "1353925549",
->>>>>>> origin/master
             "type": "library",
             "extra": {
                 "branch-alias": {
