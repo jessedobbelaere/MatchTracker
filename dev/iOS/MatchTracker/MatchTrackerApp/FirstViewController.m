@@ -30,12 +30,10 @@
     [sportsMapping mapKeyPath:@"id" toAttribute:@"identifier"];
     [sportsMapping mapKeyPath:@"name" toAttribute:@"name"];
     
-    // Set manager
-    RKObjectManager *manager = [RKObjectManager managerWithBaseURLString:@"http://matchtracker.localhost/api"];
 
     // Load objects
     sportsMapping.rootKeyPath = @"sports";
-    [manager loadObjectsAtResourcePath:@"/sports" usingBlock:^(RKObjectLoader *loader) {
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/sports" usingBlock:^(RKObjectLoader *loader) {
         loader.objectMapping = sportsMapping;
         loader.onDidLoadObjects = ^(NSArray* objects) {
             //RKLogInfo(@"Load collection of Sports: %@", objects);

@@ -40,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="261" y="-52"/>
+            <point key="canvasLocation" x="255" y="-96"/>
         </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="13">
@@ -78,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="261" y="544"/>
+            <point key="canvasLocation" x="255" y="484"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">

@@ -40,8 +40,10 @@
 					<li {% if active_page == "leagues" %} class="active"{% endif %}><a href="">Wedstrijden</a></li>
 
 					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-					<li {% if active_page == "dashboard" %} class="active"{% endif %}><a href="{{ path('dashboard') }}">Dashboard</a></li>
-					<li><a href="{{ path('authentication_logout') }}">Log out</a></li>
+					{#<li {% if active_page == "dashboard" %} class="active"{% endif %}><a href="{{ path('dashboard') }}">Dashboard</a></li>#}
+					{#<li><a href="{{ path('authentication_logout') }}">Log out</a></li>#}
+
+						{% render "MatchTrackerUserBundle:Menu:userMenuDropdown" %}
 					{% else %}
 					<li {% if active_page == "login" %} class="active"{% endif %}><a href="{{ path('authentication_login') }}">Login</a></li>
 					<li {% if active_page == "register" %} class="active"{% endif %}><a class="button-green-small" href="{{ path('authentication_register') }}">Registreren</a></li>

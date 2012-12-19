@@ -1,0 +1,14 @@
+<li class="dropdown">
+	<a href="#" title="Producten" class="dropdown-toggle profileName" data-toggle="dropdown"><img src="{{ profilePicture }}" class="profilePicture"/> {% if app.user.firstname is empty %}Gebruiker {% else %} {{ app.user.firstname |capitalize }} {% endif %}<i class="icon-down-dir"></i></a>
+	<ul class="dropdown-menu">
+		<li>
+			<a href="{{ path('dashboard') }}" title="Dashboard">Dashboard</a>
+			<ul>
+				<li><a href="#">Mijn competities</a></li>
+				<li><a href="#">Mijn wedstrijden</a></li>
+			</ul>
+		</li>
+		<li><a href="{{ path('profile') }}" title="Dashboard">Profiel</a></li>
+		<li><a href="{{ path('authentication_logout') }}" title="Log out">Uitloggen</a></li>
+	</ul>
+</li>

@@ -19,8 +19,8 @@
     //[RKClient clientWithBaseURLString:@"http://matchtracker.localhost/app_dev.php/api"];
     //NSLog(@"I am your RKClient singleton : %@", [RKClient sharedClient]);
     
-    //[RKObjectManager objectManagerWithBaseURLString:@"http://matchtracker.localhost/app_dev.php/api"];
-    //NSLog(@"I am your RKObjectManager singleton: %@", [RKObjectManager sharedManager]);
+    [RKObjectManager objectManagerWithBaseURLString:@"http://matchtracker.localhost/app_dev.php/api"];
+    NSLog(@"I am your RKObjectManager singleton: %@", [RKObjectManager sharedManager]);
     
     return YES;
 }

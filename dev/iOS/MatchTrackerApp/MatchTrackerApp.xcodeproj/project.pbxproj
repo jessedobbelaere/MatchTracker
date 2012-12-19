@@ -36,6 +36,7 @@
 		8810E18416719BF500DC7F0E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8810E18216719BF500DC7F0E /* logo.png */; };
 		8810E18516719BF500DC7F0E /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8810E18316719BF500DC7F0E /* logo@2x.png */; };
 		8810E18816719E9B00DC7F0E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8810E18716719E9B00DC7F0E /* User.m */; };
+		88CBEDBC1671A6CC00A03F17 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CBEDBB1671A6CC00A03F17 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		8810E18316719BF500DC7F0E /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		8810E18616719E9B00DC7F0E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		8810E18716719E9B00DC7F0E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		88CBEDBB1671A6CC00A03F17 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,19 +208,20 @@
 			children = (
 				8810E17E16719BE200DC7F0E /* Model */,
 				8810E15F167199B600DC7F0E /* Images */,
+				8810E1521671966C00DC7F0E /* Forms */,
 				8810E0EA1671548300DC7F0E /* AppDelegate.h */,
 				8810E0EB1671548300DC7F0E /* AppDelegate.m */,
-				8810E0F31671548300DC7F0E /* MainStoryboard.storyboard */,
+				88CBEDBB1671A6CC00A03F17 /* Default-568h@2x.png */,
 				8810E0F61671548300DC7F0E /* FirstViewController.h */,
 				8810E0F71671548300DC7F0E /* FirstViewController.m */,
-				8810E0FD1671548300DC7F0E /* SecondViewController.h */,
-				8810E0FE1671548300DC7F0E /* SecondViewController.m */,
-				8810E0E21671548300DC7F0E /* Supporting Files */,
-				8810E13C16716DBE00DC7F0E /* SettingsController.h */,
-				8810E13D16716DBE00DC7F0E /* SettingsController.m */,
 				8810E14B1671870D00DC7F0E /* LoginViewController.h */,
 				8810E14C1671870D00DC7F0E /* LoginViewController.m */,
-				8810E1521671966C00DC7F0E /* Forms */,
+				8810E0F31671548300DC7F0E /* MainStoryboard.storyboard */,
+				8810E0FD1671548300DC7F0E /* SecondViewController.h */,
+				8810E0FE1671548300DC7F0E /* SecondViewController.m */,
+				8810E13C16716DBE00DC7F0E /* SettingsController.h */,
+				8810E13D16716DBE00DC7F0E /* SettingsController.m */,
+				8810E0E21671548300DC7F0E /* Supporting Files */,
 			);
 			path = MatchTrackerApp;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				8810E16716719A2800DC7F0E /* second@2x.png in Resources */,
 				8810E18416719BF500DC7F0E /* logo.png in Resources */,
 				8810E18516719BF500DC7F0E /* logo@2x.png in Resources */,
+				88CBEDBC1671A6CC00A03F17 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,17 +1,30 @@
 {% extends 'MatchTrackerAppBundle::layout.html.twig' %}
 
-{% set active_page = "home" %}
+{% set active_page = "dashboard" %}
 
 {% block title %}
-    Dashboard
+    Profiel
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1>Profiel instellingen</h1>
+	<div class="container">
+		<h1>Profiel</h1>
 
+		<div class="row-fluid">
 
-        </div>
+			<div class="span3">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="active"><a href="#">Uw profiel</a></li>
+						<li><a href="#">Delen met andere netwerken</a></li>
+					</ul>
+				</div>
+			</div>
 
-    </div>
+			<div class="span8">
+				<p>Test</p>
+			</div>
+		</div>
+
+	</div>
 {% endblock %}
