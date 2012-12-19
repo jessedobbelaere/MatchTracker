@@ -32,16 +32,28 @@ Competitie Maker
                 <h1>Competitie maker</h1>
 
                 {% if type != null %}
-                <h2>Details</h2>
+
                 <form  novalidate action="{{ path('competition_maker_details', {'sport': sport|lower|replace({' ':''}), 'type':type|lower|replace({' ':''})})  }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
+                    <h2>Locatie</h2>
                     {{ form_row(form.location) }}
+
                     <div id="location">
-                    {{ form_row(form.field) }}
                     {{ form_row(form.place) }}
+                    {{ form_row(form.field) }}
                     </div>
+
+                    <h2>Formule</h2>
+                    {{ form_row(form.formula) }}
                     {{ form_row(form.numberOfTeams) }}
+                    <div id="rankKnockout">
+                    {{ form_row(form.groups) }}
+                    {{ form_row(form.goingThrough) }}
+                    </div>
                     {{ form_widget(form) }}
-                    <input type="submit" value="Aanmaken" class="btn btn-primary btn-large"/>
+
+                    <p class="formBottom clearfix">
+                        <input type="submit" value="Aanmaken" class="span2 button-green-mid"/>
+                    </p>
                 </form>
 
                 {% else %}
@@ -52,19 +64,23 @@ Competitie Maker
 
         </div><!--/span-->
     </div><!--/row-->
-
+</div>
 {% endblock %}
 
 {% block javascripts %}
     <script>
         window.onload=function(){
+            if (document.getElementById("matchtracker_appbundle_leaguestype_formula").value != 3) {
+                document.getElementById("rankKnockout").style.display = 'none';
+            }
             if (document.getElementById("matchtracker_appbundle_leaguestype_location").value == "more") {
                 document.getElementById("location").style.display = 'none';
+                document.getElementById("matchtracker_appbundle_leaguestype_field").value = "0";
+                document.getElementById("matchtracker_appbundle_leaguestype_place").value = "null";
             }
         };
 
-        function myFunction()
-        {
+        function locationFunction() {
             if (document.getElementById("matchtracker_appbundle_leaguestype_location").value == "more") {
                 document.getElementById("location").style.display = 'none';
 
@@ -74,6 +90,36 @@ Competitie Maker
                 document.getElementById("location").style.display = 'block';
                 document.getElementById("matchtracker_appbundle_leaguestype_field").value = "";
                 document.getElementById("matchtracker_appbundle_leaguestype_place").value = "";
+            }
+        }
+
+        function formulaFunction() {
+            var formula = document.getElementById("matchtracker_appbundle_leaguestype_formula");
+            var teams = document.getElementById("matchtracker_appbundle_leaguestype_numberOfTeams");
+
+            if (formula.value == "1") {
+                document.getElementById("rankKnockout").style.display = 'none';
+                teams.options.length = 0;
+                for (var i = 2; i <= 20; i++) teams.options.add(new Option(i,i));
+            } else if (formula.value  == "2") {
+                document.getElementById("rankKnockout").style.display = 'none';
+                teams.options.length = 0;
+                for (var i = 2; i <= 36; i*=2) teams.options.add(new Option(i,i));
+            } else if (formula.value  == "3") {
+                document.getElementById("rankKnockout").style.display = 'block';
+                teams.options.length = 0;
+                for (var i = 2; i <= 40; i+=2) teams.options.add(new Option(i,i));
+            }
+        }
+
+        function goingThroughFunction() {
+            var teams = document.getElementById("matchtracker_appbundle_leaguestype_numberOfTeams");
+            var groups = document.getElementById("matchtracker_appbundle_leaguestype_groups");
+
+            if (document.getElementById("matchtracker_appbundle_leaguestype_formula").value == 3) {
+                if (teams * groups) {
+
+                }
             }
         }
     </script>

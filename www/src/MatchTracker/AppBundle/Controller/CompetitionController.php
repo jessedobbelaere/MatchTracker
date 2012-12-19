@@ -66,10 +66,10 @@ class CompetitionController extends Controller {
 
         // Create form with constraints
         $form = $this->createFormBuilder(null, array('validation_constraint' => $constraint))
-            ->add('name', 'text', array('label' => 'Naam'))
-            ->add('description', 'textarea', array('label' => 'Beschrijving'))
-            ->add('startdate', 'date', array('widget' => 'single_text', 'label' => 'Start datum (dd-mm-jjjj)', 'format' => 'dd-MM-yyyy'))
-            ->add('enddate', 'date', array('widget' => 'single_text', 'label' => 'Eind datum (dd-mm-jjjj)', 'format' => 'dd-MM-yyyy'))
+            ->add('name', 'text', array('label' => 'Naam', 'attr' => array()))
+            ->add('description', 'textarea', array('label' => 'Beschrijving', 'attr' => array()))
+            ->add('startdate', 'date', array('widget' => 'single_text', 'label' => 'Start datum (dd-mm-jjjj)', 'format' => 'dd-MM-yyyy', 'attr' => array('data-date-format' => 'dd/mm/yyyy', 'value' => (date('d-m-Y')))))
+            ->add('enddate', 'date', array('widget' => 'single_text', 'label' => 'Eind datum (dd-mm-jjjj)', 'format' => 'dd-MM-yyyy', 'attr' => array('value' => (date('d-m-Y', time() + 86400)))))
             ->getForm();
 
 

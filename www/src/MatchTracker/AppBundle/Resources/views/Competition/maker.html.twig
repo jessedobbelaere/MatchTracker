@@ -15,25 +15,28 @@ Competitie Maker
 
 {% block body %}
 
- <h1>Competitie maker</h1>
- 
-<form  novalidate action="{{ path('competition_maker') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
-    {{ form_widget(form) }}
 
-    <input type="submit" value="Volgende stap" class="btn btn-primary btn-large"/>
-</form>
+    <h1>Competitie maker</h1>
+
+    <form  novalidate action="{{ path('competition_maker') }}" method="post" {{ form_enctype(form) }} class="">
+        {{ form_widget(form) }}
+        <p class="formBottom clearfix">
+            <input type="submit" value="Volgende stap" class="span2 button-green-mid"/>
+        </p>
+    </form>
+
+
+
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('bundles/matchtrackerapp/js/bootstrap-datepicker.js') }}"></script>
     <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <script src="{{ asset('bundles/matchtrackerapp/js/bootstrap-datepicker.js') }}"></script>
     <script>
         <script>
         $(function(){
-            window.prettyPrint && prettyPrint();
-            $('#form_startdate').datepicker({
-                format: 'dd-mm-yyyy'
-            });
+
+            $('#form_startdate').datepicker();
         });
 
 
