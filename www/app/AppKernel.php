@@ -20,14 +20,16 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 
-	        new MatchTracker\AppBundle\MatchTrackerAppBundle(),
+            new MatchTracker\Bundle\AppBundle\MatchTrackerAppBundle(),
+            new MatchTracker\Bundle\UserBundle\MatchTrackerUserBundle(),
 			new FOS\UserBundle\FOSUserBundle(),
 	        new FOS\FacebookBundle\FOSFacebookBundle(),
-	        new FOS\TwitterBundle\FOSTwitterBundle(),
+			new FOS\RestBundle\FOSRestBundle(),
+			new JMS\SerializerBundle\JMSSerializerBundle($this),
+            new MatchTracker\Bundle\ApiBundle\MatchTrackerApiBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

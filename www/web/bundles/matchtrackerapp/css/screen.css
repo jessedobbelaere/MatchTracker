@@ -22,7 +22,7 @@ h1,h2,h3,h4,h5 {
 	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
-a, input[type="submit"] {
+a {
 	text-decoration: none !important;
 	-webkit-transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 	-moz-transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
@@ -32,6 +32,8 @@ a, input[type="submit"] {
 	color: #447FAA;
 	cursor: pointer;
 }
+
+input[type="submit"].btn { cursor: pointer; }
 
 .button-green-small {
 	background-color: #86C400;
@@ -79,6 +81,18 @@ a, input[type="submit"] {
 	text-align: center;
 	font-size: 20px;
 }
+
+.button-green-small, .button-green-mid, .button-green-large {
+	text-decoration: none !important;
+	-webkit-transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+	-moz-transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+	-ms-transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+	-o-transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+	transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+	color: #FFF;
+	cursor: pointer;
+}
+
 .button-green-small:hover, .button-green-mid:hover, .button-green-large:hover { 
 	background-color: #5ab303 !important;
 	text-decoration: none;

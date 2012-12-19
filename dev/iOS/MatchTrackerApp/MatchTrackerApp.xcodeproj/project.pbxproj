@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8810E0DC1671548300DC7F0E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8810E0DB1671548300DC7F0E /* UIKit.framework */; };
+		8810E0DE1671548300DC7F0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8810E0DD1671548300DC7F0E /* Foundation.framework */; };
+		8810E0E01671548300DC7F0E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8810E0DF1671548300DC7F0E /* CoreGraphics.framework */; };
+		8810E0E61671548300DC7F0E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8810E0E41671548300DC7F0E /* InfoPlist.strings */; };
+		8810E0E81671548300DC7F0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8810E0E71671548300DC7F0E /* main.m */; };
+		8810E0EC1671548300DC7F0E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8810E0EB1671548300DC7F0E /* AppDelegate.m */; };
+		8810E0F51671548300DC7F0E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8810E0F31671548300DC7F0E /* MainStoryboard.storyboard */; };
+		8810E0F81671548300DC7F0E /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8810E0F71671548300DC7F0E /* FirstViewController.m */; };
+		8810E0FF1671548300DC7F0E /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8810E0FE1671548300DC7F0E /* SecondViewController.m */; };
+		8810E11D1671584700DC7F0E /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8810E114167157EB00DC7F0E /* libRestKit.a */; };
+		8810E11F1671584F00DC7F0E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8810E11E1671584F00DC7F0E /* CFNetwork.framework */; };
+		8810E1211671585300DC7F0E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8810E1201671585300DC7F0E /* CoreData.framework */; };
+		8810E1231671585700DC7F0E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8810E1221671585700DC7F0E /* MobileCoreServices.framework */; };
+		8810E1251671585B00DC7F0E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8810E1241671585B00DC7F0E /* Security.framework */; };
+		8810E1271671585F00DC7F0E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8810E1261671585F00DC7F0E /* SystemConfiguration.framework */; };
+		8810E138167160BF00DC7F0E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8810E137167160BF00DC7F0E /* MapKit.framework */; };
+		8810E13A167160C600DC7F0E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8810E139167160C600DC7F0E /* CoreLocation.framework */; };
+		8810E13B167160DA00DC7F0E /* libQuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8810E1341671608F00DC7F0E /* libQuickDialog.a */; };
+		8810E13E16716DBE00DC7F0E /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8810E13D16716DBE00DC7F0E /* SettingsController.m */; };
+		8810E14D1671870D00DC7F0E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8810E14C1671870D00DC7F0E /* LoginViewController.m */; };
+		8810E1501671949000DC7F0E /* LoginForm.json in Resources */ = {isa = PBXBuildFile; fileRef = 8810E14F1671949000DC7F0E /* LoginForm.json */; };
+		8810E16416719A2800DC7F0E /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 8810E16016719A2800DC7F0E /* first.png */; };
+		8810E16516719A2800DC7F0E /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8810E16116719A2800DC7F0E /* first@2x.png */; };
+		8810E16616719A2800DC7F0E /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 8810E16216719A2800DC7F0E /* second.png */; };
+		8810E16716719A2800DC7F0E /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8810E16316719A2800DC7F0E /* second@2x.png */; };
+		8810E18116719BE200DC7F0E /* Sport.m in Sources */ = {isa = PBXBuildFile; fileRef = 8810E18016719BE200DC7F0E /* Sport.m */; };
+		8810E18416719BF500DC7F0E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8810E18216719BF500DC7F0E /* logo.png */; };
+		8810E18516719BF500DC7F0E /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8810E18316719BF500DC7F0E /* logo@2x.png */; };
+		8810E18816719E9B00DC7F0E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8810E18716719E9B00DC7F0E /* User.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8810E113167157EB00DC7F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8810E109167157EB00DC7F0E /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		8810E115167157EB00DC7F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8810E109167157EB00DC7F0E /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		8810E117167157EB00DC7F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8810E109167157EB00DC7F0E /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		8810E119167157EB00DC7F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8810E109167157EB00DC7F0E /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		8810E11B1671582C00DC7F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8810E109167157EB00DC7F0E /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		8810E1311671608F00DC7F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8810E1281671608F00DC7F0E /* QuickDialog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D80B0E3313E052DF00FA85CA;
+			remoteInfo = QuickDialogExample;
+		};
+		8810E1331671608F00DC7F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8810E1281671608F00DC7F0E /* QuickDialog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2C542393145ADEBD0026A152;
+			remoteInfo = QuickDialog;
+		};
+		8810E135167160B300DC7F0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8810E1281671608F00DC7F0E /* QuickDialog.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C542392145ADEBD0026A152;
+			remoteInfo = QuickDialog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8810E0D71671548300DC7F0E /* MatchTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8810E0DB1671548300DC7F0E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8810E0DD1671548300DC7F0E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8810E0DF1671548300DC7F0E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8810E0E31671548300DC7F0E /* MatchTrackerApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatchTrackerApp-Info.plist"; sourceTree = "<group>"; };
+		8810E0E51671548300DC7F0E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8810E0E71671548300DC7F0E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8810E0E91671548300DC7F0E /* MatchTrackerApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MatchTrackerApp-Prefix.pch"; sourceTree = "<group>"; };
+		8810E0EA1671548300DC7F0E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8810E0EB1671548300DC7F0E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8810E0ED1671548300DC7F0E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8810E0EF1671548300DC7F0E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		8810E0F11671548300DC7F0E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8810E0F41671548300DC7F0E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		8810E0F61671548300DC7F0E /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		8810E0F71671548300DC7F0E /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		8810E0FD1671548300DC7F0E /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		8810E0FE1671548300DC7F0E /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		8810E109167157EB00DC7F0E /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		8810E11E1671584F00DC7F0E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8810E1201671585300DC7F0E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8810E1221671585700DC7F0E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		8810E1241671585B00DC7F0E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8810E1261671585F00DC7F0E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8810E1281671608F00DC7F0E /* QuickDialog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QuickDialog.xcodeproj; path = QuickDialog/QuickDialog.xcodeproj; sourceTree = "<group>"; };
+		8810E137167160BF00DC7F0E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8810E139167160C600DC7F0E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8810E13C16716DBE00DC7F0E /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
+		8810E13D16716DBE00DC7F0E /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
+		8810E14B1671870D00DC7F0E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		8810E14C1671870D00DC7F0E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		8810E14F1671949000DC7F0E /* LoginForm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoginForm.json; sourceTree = "<group>"; };
+		8810E16016719A2800DC7F0E /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		8810E16116719A2800DC7F0E /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		8810E16216719A2800DC7F0E /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		8810E16316719A2800DC7F0E /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		8810E17F16719BE200DC7F0E /* Sport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sport.h; sourceTree = "<group>"; };
+		8810E18016719BE200DC7F0E /* Sport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sport.m; sourceTree = "<group>"; };
+		8810E18216719BF500DC7F0E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		8810E18316719BF500DC7F0E /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		8810E18616719E9B00DC7F0E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		8810E18716719E9B00DC7F0E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8810E0D41671548300DC7F0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8810E13B167160DA00DC7F0E /* libQuickDialog.a in Frameworks */,
+				8810E13A167160C600DC7F0E /* CoreLocation.framework in Frameworks */,
+				8810E138167160BF00DC7F0E /* MapKit.framework in Frameworks */,
+				8810E1271671585F00DC7F0E /* SystemConfiguration.framework in Frameworks */,
+				8810E1251671585B00DC7F0E /* Security.framework in Frameworks */,
+				8810E1231671585700DC7F0E /* MobileCoreServices.framework in Frameworks */,
+				8810E1211671585300DC7F0E /* CoreData.framework in Frameworks */,
+				8810E11F1671584F00DC7F0E /* CFNetwork.framework in Frameworks */,
+				8810E11D1671584700DC7F0E /* libRestKit.a in Frameworks */,
+				8810E0DC1671548300DC7F0E /* UIKit.framework in Frameworks */,
+				8810E0DE1671548300DC7F0E /* Foundation.framework in Frameworks */,
+				8810E0E01671548300DC7F0E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8810E0CC1671548300DC7F0E = {
+			isa = PBXGroup;
+			children = (
+				8810E1281671608F00DC7F0E /* QuickDialog.xcodeproj */,
+				8810E109167157EB00DC7F0E /* RestKit.xcodeproj */,
+				8810E0E11671548300DC7F0E /* MatchTrackerApp */,
+				8810E0DA1671548300DC7F0E /* Frameworks */,
+				8810E0D81671548300DC7F0E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8810E0D81671548300DC7F0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8810E0D71671548300DC7F0E /* MatchTrackerApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8810E0DA1671548300DC7F0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8810E139167160C600DC7F0E /* CoreLocation.framework */,
+				8810E137167160BF00DC7F0E /* MapKit.framework */,
+				8810E1261671585F00DC7F0E /* SystemConfiguration.framework */,
+				8810E1241671585B00DC7F0E /* Security.framework */,
+				8810E1221671585700DC7F0E /* MobileCoreServices.framework */,
+				8810E1201671585300DC7F0E /* CoreData.framework */,
+				8810E11E1671584F00DC7F0E /* CFNetwork.framework */,
+				8810E0DB1671548300DC7F0E /* UIKit.framework */,
+				8810E0DD1671548300DC7F0E /* Foundation.framework */,
+				8810E0DF1671548300DC7F0E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8810E0E11671548300DC7F0E /* MatchTrackerApp */ = {
+			isa = PBXGroup;
+			children = (
+				8810E17E16719BE200DC7F0E /* Model */,
+				8810E15F167199B600DC7F0E /* Images */,
+				8810E0EA1671548300DC7F0E /* AppDelegate.h */,
+				8810E0EB1671548300DC7F0E /* AppDelegate.m */,
+				8810E0F31671548300DC7F0E /* MainStoryboard.storyboard */,
+				8810E0F61671548300DC7F0E /* FirstViewController.h */,
+				8810E0F71671548300DC7F0E /* FirstViewController.m */,
+				8810E0FD1671548300DC7F0E /* SecondViewController.h */,
+				8810E0FE1671548300DC7F0E /* SecondViewController.m */,
+				8810E0E21671548300DC7F0E /* Supporting Files */,
+				8810E13C16716DBE00DC7F0E /* SettingsController.h */,
+				8810E13D16716DBE00DC7F0E /* SettingsController.m */,
+				8810E14B1671870D00DC7F0E /* LoginViewController.h */,
+				8810E14C1671870D00DC7F0E /* LoginViewController.m */,
+				8810E1521671966C00DC7F0E /* Forms */,
+			);
+			path = MatchTrackerApp;
+			sourceTree = "<group>";
+		};
+		8810E0E21671548300DC7F0E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8810E0E31671548300DC7F0E /* MatchTrackerApp-Info.plist */,
+				8810E0E41671548300DC7F0E /* InfoPlist.strings */,
+				8810E0E71671548300DC7F0E /* main.m */,
+				8810E0E91671548300DC7F0E /* MatchTrackerApp-Prefix.pch */,
+				8810E0ED1671548300DC7F0E /* Default.png */,
+				8810E0EF1671548300DC7F0E /* Default@2x.png */,
+				8810E0F11671548300DC7F0E /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8810E10A167157EB00DC7F0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8810E114167157EB00DC7F0E /* libRestKit.a */,
+				8810E116167157EB00DC7F0E /* RestKitTests.octest */,
+				8810E118167157EB00DC7F0E /* RestKit.framework */,
+				8810E11A167157EB00DC7F0E /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8810E1291671608F00DC7F0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8810E1321671608F00DC7F0E /* QuickDialogExample.app */,
+				8810E1341671608F00DC7F0E /* libQuickDialog.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8810E1521671966C00DC7F0E /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				8810E14F1671949000DC7F0E /* LoginForm.json */,
+			);
+			name = Forms;
+			sourceTree = "<group>";
+		};
+		8810E15F167199B600DC7F0E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8810E18216719BF500DC7F0E /* logo.png */,
+				8810E18316719BF500DC7F0E /* logo@2x.png */,
+				8810E16016719A2800DC7F0E /* first.png */,
+				8810E16116719A2800DC7F0E /* first@2x.png */,
+				8810E16216719A2800DC7F0E /* second.png */,
+				8810E16316719A2800DC7F0E /* second@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		8810E17E16719BE200DC7F0E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8810E17F16719BE200DC7F0E /* Sport.h */,
+				8810E18016719BE200DC7F0E /* Sport.m */,
+				8810E18616719E9B00DC7F0E /* User.h */,
+				8810E18716719E9B00DC7F0E /* User.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8810E0D61671548300DC7F0E /* MatchTrackerApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8810E1061671548300DC7F0E /* Build configuration list for PBXNativeTarget "MatchTrackerApp" */;
+			buildPhases = (
+				8810E0D31671548300DC7F0E /* Sources */,
+				8810E0D41671548300DC7F0E /* Frameworks */,
+				8810E0D51671548300DC7F0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8810E136167160B300DC7F0E /* PBXTargetDependency */,
+				8810E11C1671582C00DC7F0E /* PBXTargetDependency */,
+			);
+			name = MatchTrackerApp;
+			productName = MatchTrackerApp;
+			productReference = 8810E0D71671548300DC7F0E /* MatchTrackerApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8810E0CE1671548300DC7F0E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Jesse;
+			};
+			buildConfigurationList = 8810E0D11671548300DC7F0E /* Build configuration list for PBXProject "MatchTrackerApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8810E0CC1671548300DC7F0E;
+			productRefGroup = 8810E0D81671548300DC7F0E /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8810E1291671608F00DC7F0E /* Products */;
+					ProjectRef = 8810E1281671608F00DC7F0E /* QuickDialog.xcodeproj */;
+				},
+				{
+					ProductGroup = 8810E10A167157EB00DC7F0E /* Products */;
+					ProjectRef = 8810E109167157EB00DC7F0E /* RestKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8810E0D61671548300DC7F0E /* MatchTrackerApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8810E114167157EB00DC7F0E /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 8810E113167157EB00DC7F0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8810E116167157EB00DC7F0E /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = 8810E115167157EB00DC7F0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8810E118167157EB00DC7F0E /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 8810E117167157EB00DC7F0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8810E11A167157EB00DC7F0E /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = 8810E119167157EB00DC7F0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8810E1321671608F00DC7F0E /* QuickDialogExample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = QuickDialogExample.app;
+			remoteRef = 8810E1311671608F00DC7F0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8810E1341671608F00DC7F0E /* libQuickDialog.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libQuickDialog.a;
+			remoteRef = 8810E1331671608F00DC7F0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8810E0D51671548300DC7F0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8810E0E61671548300DC7F0E /* InfoPlist.strings in Resources */,
+				8810E0F51671548300DC7F0E /* MainStoryboard.storyboard in Resources */,
+				8810E1501671949000DC7F0E /* LoginForm.json in Resources */,
+				8810E16416719A2800DC7F0E /* first.png in Resources */,
+				8810E16516719A2800DC7F0E /* first@2x.png in Resources */,
+				8810E16616719A2800DC7F0E /* second.png in Resources */,
+				8810E16716719A2800DC7F0E /* second@2x.png in Resources */,
+				8810E18416719BF500DC7F0E /* logo.png in Resources */,
+				8810E18516719BF500DC7F0E /* logo@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8810E0D31671548300DC7F0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8810E0E81671548300DC7F0E /* main.m in Sources */,
+				8810E0EC1671548300DC7F0E /* AppDelegate.m in Sources */,
+				8810E0F81671548300DC7F0E /* FirstViewController.m in Sources */,
+				8810E0FF1671548300DC7F0E /* SecondViewController.m in Sources */,
+				8810E13E16716DBE00DC7F0E /* SettingsController.m in Sources */,
+				8810E14D1671870D00DC7F0E /* LoginViewController.m in Sources */,
+				8810E18116719BE200DC7F0E /* Sport.m in Sources */,
+				8810E18816719E9B00DC7F0E /* User.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8810E11C1671582C00DC7F0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 8810E11B1671582C00DC7F0E /* PBXContainerItemProxy */;
+		};
+		8810E136167160B300DC7F0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = QuickDialog;
+			targetProxy = 8810E135167160B300DC7F0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8810E0E41671548300DC7F0E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8810E0E51671548300DC7F0E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8810E0F31671548300DC7F0E /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8810E0F41671548300DC7F0E /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8810E1041671548300DC7F0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/QuickDialog\"/**";
+			};
+			name = Debug;
+		};
+		8810E1051671548300DC7F0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/QuickDialog\"/**";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8810E1071671548300DC7F0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MatchTrackerApp/MatchTrackerApp-Prefix.pch";
+				INFOPLIST_FILE = "MatchTrackerApp/MatchTrackerApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8810E1081671548300DC7F0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MatchTrackerApp/MatchTrackerApp-Prefix.pch";
+				INFOPLIST_FILE = "MatchTrackerApp/MatchTrackerApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8810E0D11671548300DC7F0E /* Build configuration list for PBXProject "MatchTrackerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8810E1041671548300DC7F0E /* Debug */,
+				8810E1051671548300DC7F0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8810E1061671548300DC7F0E /* Build configuration list for PBXNativeTarget "MatchTrackerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8810E1071671548300DC7F0E /* Debug */,
+				8810E1081671548300DC7F0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8810E0CE1671548300DC7F0E /* Project object */;
+}

@@ -57,12 +57,12 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
+    
 # User configuration
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: MatchTracker\AppBundle\Entity\Users
+    user_class: MatchTracker\Bundle\AppBundle\Entity\Users
     registration:
         form:
             type: matchtracker_registration_form
@@ -76,9 +76,18 @@ fos_facebook:
     cookie: true
     permissions: [email]
 
-# Twitter configuration
-fos_twitter:
-    file: %kernel.root_dir%/../vendor/kertz/twitteroauth/twitteroauth/twitteroauth.php
-    consumer_key: wPL8volCNy3jVGMyGDGPg
-    consumer_secret: l9JjgA85lYmooc6wrXzDh42iRJ62ZTUDyZYxhUdJHA
-    callback_url: http://matchtracker.localhost/app_dev.php/login_twitter_check
+fos_rest:
+    param_fetcher_listener: true
+    view:
+        view_response_listener: false
+        failed_validation: HTTP_BAD_REQUEST
+        default_engine: php
+        formats:
+            json: true
+    format_listener:
+        prefer_extension: true
+    body_listener:
+        decoders:
+            json: fos_rest.decoder.json
+    routing_loader:
+        default_format: json

@@ -1,0 +1,41 @@
+# Other pages
+homepage:
+    pattern:  /
+    defaults: { _controller: MatchTrackerAppBundle:Page:index }
+    requirements:
+        _method:  GET
+
+competition_show:
+    pattern: /competities/detail/{name}
+    defaults: { _controller: MatchTrackerAppBundle:Competition:detail }
+    requirements:
+        _method:  GET
+
+competition_maker:
+    pattern: /competities/maker
+    defaults: { _controller: MatchTrackerAppBundle:Competition:maker }
+    requirements:
+        _method:  GET|POST
+
+competition_maker_details:
+    pattern: /competities/maker/{sport}/{type}
+    defaults: { _controller: MatchTrackerAppBundle:Competition:makerDetail, sport: null, type: null }
+    requirements:
+        _method:  GET|POST
+
+competition:
+    pattern: /competities/{sport}
+    defaults: { _controller: MatchTrackerAppBundle:Competition:index, sport: alles }
+    requirements:
+        _method:  GET
+
+dashboard:
+    pattern:  /dashboard
+    defaults: { _controller: MatchTrackerAppBundle:Dashboard:index }
+
+
+accountSettings:
+    pattern:  /dashboard/settings
+    defaults: { _controller: MatchTrackerAppBundle:Dashboard:settings }
+
+

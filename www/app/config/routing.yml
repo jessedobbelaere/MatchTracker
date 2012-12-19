@@ -1,5 +1,13 @@
+match_tracker_api:
+    resource: "@MatchTrackerApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+
 match_tracker_app:
     resource: "@MatchTrackerAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+match_tracker_user:
+    resource: "@MatchTrackerUserBundle/Resources/config/routing.yml"
     prefix:   /
 
 # Internal routing configuration to handle ESI

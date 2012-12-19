@@ -13,13 +13,11 @@ security:
     providers:
         chain_provider:
             chain:
-                providers: [fos_userbundle, my_fos_twitter_provider]
+                providers: [fos_userbundle]
         fos_userbundle:
             id: fos_user.user_provider.username_email
         my_fos_facebook_provider:
             id: my.facebook.user
-        my_fos_twitter_provider:
-            id: my.twitter.user
 
     firewalls:
         dev:
@@ -44,11 +42,6 @@ security:
                 check_path: /login_facebook_check
                 default_target_path: /dashboard
                 provider: my_fos_facebook_provider
-            fos_twitter:
-                login_path: /twitter/login
-                check_path: /twitter/login_check
-                default_target_path: /dashboard
-                provider: my_fos_twitter_provider
             security: true
             anonymous: ~
             #http_basic:

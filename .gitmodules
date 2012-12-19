@@ -1,0 +1,6 @@
+[submodule "dev/iOS/MatchTrackerApp/RestKit"]
+	path = dev/iOS/MatchTrackerApp/RestKit
+	url = git://github.com/RestKit/RestKit.git
+[submodule "dev/iOS/MatchTrackerApp/QuickDialog"]
+	path = dev/iOS/MatchTrackerApp/QuickDialog
+	url = https://github.com/escoz/QuickDialog.git
