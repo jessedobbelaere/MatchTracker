@@ -35,36 +35,47 @@ class LeaguesType extends AbstractType {
         }
 
         // form
-        $builder
-            ->add('location', 'choice', array('choices' => array('one' => 'Eén locatie', 'more' => 'Elke ploeg eigen terrein'),'label' => 'Locatie', 'attr' => array("onchange" => 'Javascript:myFunction();')))
-            ->add('field', 'integer', array('label' => 'Aantal velden'))
-            ->add('numberOfTeams', 'integer', array('label' => 'Aantal teams'))
-            ->add('place', 'text', array('label' => 'Plaats'))
+		        $builder
+		            ->add('location', 'choice', array('choices' => array('one' => 'Eén locatie', 'more' => 'Elke ploeg eigen terrein'),'label' => 'Locatie', 'attr' => array("onchange" => 'Javascript:locationFunction();')))
+		            ->add('field', 'integer', array('label' => 'Aantal velden', 'attr' => array()))
+		            ->add('numberOfTeams', 'choice', array('empty_value' => 'Kies aantal ploegen', 'label' => 'Aantal ploegen', 'attr' => array("onchange" => 'Javascript:goingThroughFunction();')))
+		            ->add('place', 'text', array('label' => 'Adres'))
+		            ->add('groups', 'number', array('label' => 'Aantal groepen','attr' => array("onchange" => 'Javascript:goingThroughFunction();')))
+		            ->add('goingThrough', 'choice', array('label' => 'Wie gaat door'))
+		            ->add('formula', 'choice', array('empty_value' => 'Kies formule', 'choices' => array('1' => 'Klassement', '2' => 'Knock-out', '3' => 'Klassement + Knock-out' ),'label' => 'Formule', 'attr' => array("onchange" => 'Javascript:formulaFunction();')))
+		            ->add('return', 'choice', array('expanded' => true, 'choices' => array(true => 'ja', false => 'nee'), 'label' => 'Heen en terug'))
+
         ;
 
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
-        $constraintCollection = array(
-            'place' => new NotBlank(array('message' => 'Gelieve een plaats in te vullen')),
-            'field' => new NotBlank(array('message' => 'Gelieve aantal velden in te geven')),
-            'location' => new NotBlank(array('message' => 'Gelieve een locatie in te geven')),
-            'numberOfTeams' => new NotBlank(array('message' => 'Gelieve een sport aan te duiden')));
+	        $constraintCollection = array(
+	            'field' => array(
+	                new NotBlank(array('message' => 'Gelieve aantal velden in te vullen')),
+	                new Min(array('limit' => '0', 'message' => 'Gelieve een positief getal in te vullen'))),
+	            'place' => new NotBlank(array('message' => 'Gelieve een plaats in te vullen')),
+	            'location' => new NotBlank(array('message' => 'Gelieve een locatie in te geven')),
+	            'numberOfTeams' => array(
+	                new NotBlank(array('message' => 'Gelieve een sport aan te duiden')),
+	                new Min(array('limit' => '0', 'message' => 'Gelieve een positief getal in te vullen'))));
 
-        if ($this->type !== null) {
-            if ($this->type->getPlayersOnField() == null) {
-                $constraintCollection['playersOnField'] = new NotBlank(array('message' => 'Gelieve een sport aan te duiden'));
-            }
-        }
+	        if ($this->type !== null) {
+	            if ($this->type->getPlayersOnField() == null) {
+	                $constraintCollection['playersOnField'] = array(
+	                    new NotBlank(array('message' => 'Gelieve een sport aan te duiden')),
+	                    new Min(array('limit' => '0', 'message' => 'Gelieve een positief getal in te vullen')));
+	            }
+	        }
 
-        $constraint = new Collection($constraintCollection);
+	        $constraint = new Collection($constraintCollection);
 
-        $resolver->setDefaults(array(
-            'constraints' => $constraint
-        ));
-    }
+	        $resolver->setDefaults(array(
+	            'constraints' => $constraint
+	        ));
+	    }
 
-    public function getName() {
-        return 'matchtracker_appbundle_leaguestype';
+	    public function getName() {
+	        return 'matchtracker_appbundle_leaguestype';
     }
 }
