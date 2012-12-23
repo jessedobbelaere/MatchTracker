@@ -1,0 +1,90 @@
+{% extends 'MatchTrackerAppBundle::layout.html.twig' %}
+
+{% set active_page = "dashboard" %}
+
+{% block title %}
+Competitie Maker
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Competitie maker</h1>
+        <h4>Info - Sport - Formule - Locatie - Teams</h4>
+        <div class="row-fluid">
+
+            <div class="span3">
+
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li class="nav-header">Formules</li>
+                        <li><a href="{{ path('competition_maker_formula', { 'formula': "klassement" }) }}">Klassement</a></li>
+                        <li><a href="{{ path('competition_maker_formula', { 'formula': "knockout" }) }}">Knock-out</a></li>
+                        <li><a href="{{ path('competition_maker_formula', { 'formula': "beide" }) }}">Klassement + Knock-out</a></li>
+                    </ul>
+
+                </div><!--/.well -->
+            </div>
+
+            <div class="span8 content">
+
+                {% if formula != null %}
+
+                <form  novalidate action="{{ path('competition_maker_formula', { 'formula': formula })  }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
+
+                    {{ form_widget(form) }}
+
+                    <p class="formBottom clearfix">
+                        <input type="submit" value="Volgende stap" class="span2 button-green-mid"/>
+                    </p>
+                </form>
+
+                {% else %}
+                <p>Gelieve een formule te kiezen</p>
+
+                {% endif %}
+            </div><!--/row-->
+
+        </div><!--/span-->
+    </div><!--/row-->
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        window.onload=function(){
+            formulaFunction();
+            if (document.getElementById("matchtracker_appbundle_leaguestype_formula").value != 3) {
+                document.getElementById("rankKnockout").style.display = 'none';
+            }
+        };
+
+        function formulaFunction() {
+            var formula = document.getElementById("matchtracker_appbundle_leaguestype_formula");
+            var teams = document.getElementById("matchtracker_appbundle_leaguestype_numberOfTeams");
+
+            if (formula.value == "1") {
+                document.getElementById("rankKnockout").style.display = 'none';
+                teams.options.length = 0;
+                for (var i = 2; i <= 20; i++) teams.options.add(new Option(i,i));
+            } else if (formula.value  == "2") {
+                document.getElementById("rankKnockout").style.display = 'none';
+                teams.options.length = 0;
+                for (var i = 2; i <= 36; i*=2) teams.options.add(new Option(i,i));
+            } else if (formula.value  == "3") {
+                document.getElementById("rankKnockout").style.display = 'block';
+                teams.options.length = 0;
+                for (var i = 2; i <= 40; i+=2) teams.options.add(new Option(i,i));
+            }
+        }
+
+        function goingThroughFunction() {
+            var teams = document.getElementById("matchtracker_appbundle_leaguestype_numberOfTeams");
+            var groups = document.getElementById("matchtracker_appbundle_leaguestype_groups");
+
+            if (document.getElementById("matchtracker_appbundle_leaguestype_formula").value == 3) {
+                if (teams * groups) {
+
+                }
+            }
+        }
+    </script>
+{% endblock %}

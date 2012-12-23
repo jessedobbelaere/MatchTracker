@@ -13,72 +13,93 @@ use Doctrine\ORM\Mapping as ORM;
 class Leagues
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var string $name
+     * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=true)
      */
-    private $name;
+    protected $name;
 
     /**
-     * @var integer $fields
+     * @var integer
      *
      * @ORM\Column(name="fields", type="integer", nullable=true)
      */
-    private $fields;
+    protected $fields;
 
     /**
-     * @var string $description
+     * @var string
      *
      * @ORM\Column(name="description", type="text", nullable=true)
      */
-    private $description;
+    protected $description;
 
     /**
-     * @var integer $numberOfTeams
+     * @var integer
      *
      * @ORM\Column(name="number_of_teams", type="integer", nullable=true)
      */
-    private $numberOfTeams;
+    protected $numberOfTeams;
 
     /**
-     * @var \DateTime $startdate
+     * @var \DateTime
      *
      * @ORM\Column(name="startdate", type="date", nullable=true)
      */
-    private $startdate;
+    protected $startdate;
 
     /**
-     * @var \DateTime $enddate
+     * @var \DateTime
      *
      * @ORM\Column(name="enddate", type="date", nullable=true)
      */
-    private $enddate;
+    protected $enddate;
 
     /**
-     * @var integer $playersOnField
+     * @var integer
      *
      * @ORM\Column(name="players_on_field", type="integer", nullable=true)
      */
-    private $playersOnField;
+    protected $playersOnField;
 
     /**
-     * @var string $place
+     * @var string
      *
      * @ORM\Column(name="place", type="string", length=255, nullable=true)
      */
-    private $place;
+    protected $place;
 
     /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @var boolean
+     *
+     * @ORM\Column(name="return", type="boolean", nullable=true)
+     */
+    protected $return;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="groups", type="integer", nullable=true)
+     */
+    protected $groups;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="goesOn", type="integer", nullable=true)
+     */
+    protected $goeson;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Teams", inversedBy="leagues")
      * @ORM\JoinTable(name="leagues_has_teams",
@@ -90,27 +111,27 @@ class Leagues
      *   }
      * )
      */
-    private $teams;
+    protected $teams;
 
     /**
-     * @var Users
-     *
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * })
-     */
-    private $user;
-
-    /**
-     * @var SportTypes
+     * @var \SportTypes
      *
      * @ORM\ManyToOne(targetEntity="SportTypes")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="sport_types_id", referencedColumnName="id")
      * })
      */
-    private $sportTypes;
+    protected $sportTypes;
+
+    /**
+     * @var \Users
+     *
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    protected $user;
 
     /**
      * Constructor
@@ -316,9 +337,78 @@ class Leagues
     }
 
     /**
+     * Set return
+     *
+     * @param boolean $return
+     * @return Leagues
+     */
+    public function setReturn($return)
+    {
+        $this->return = $return;
+    
+        return $this;
+    }
+
+    /**
+     * Get return
+     *
+     * @return boolean 
+     */
+    public function getReturn()
+    {
+        return $this->return;
+    }
+
+    /**
+     * Set groups
+     *
+     * @param integer $groups
+     * @return Leagues
+     */
+    public function setGroups($groups)
+    {
+        $this->groups = $groups;
+    
+        return $this;
+    }
+
+    /**
+     * Get groups
+     *
+     * @return integer 
+     */
+    public function getGroups()
+    {
+        return $this->groups;
+    }
+
+    /**
+     * Set goeson
+     *
+     * @param integer $goeson
+     * @return Leagues
+     */
+    public function setGoeson($goeson)
+    {
+        $this->goeson = $goeson;
+    
+        return $this;
+    }
+
+    /**
+     * Get goeson
+     *
+     * @return integer 
+     */
+    public function getGoeson()
+    {
+        return $this->goeson;
+    }
+
+    /**
      * Add teams
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Teams $teams
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $teams
      * @return Leagues
      */
     public function addTeam(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams)
@@ -331,7 +421,7 @@ class Leagues
     /**
      * Remove teams
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Teams $teams
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $teams
      */
     public function removeTeam(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams)
     {
@@ -341,7 +431,7 @@ class Leagues
     /**
      * Get teams
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getTeams()
     {
@@ -349,32 +439,9 @@ class Leagues
     }
 
     /**
-     * Set user
-     *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Users $user
-     * @return Leagues
-     */
-    public function setUser(\MatchTracker\Bundle\AppBundle\Entity\Users $user = null)
-    {
-        $this->user = $user;
-    
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return MatchTracker\Bundle\AppBundle\Entity\Users
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
      * Set sportTypes
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\SportTypes $sportTypes
+     * @param \MatchTracker\Bundle\AppBundle\Entity\SportTypes $sportTypes
      * @return Leagues
      */
     public function setSportTypes(\MatchTracker\Bundle\AppBundle\Entity\SportTypes $sportTypes = null)
@@ -387,10 +454,33 @@ class Leagues
     /**
      * Get sportTypes
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\SportTypes
+     * @return \MatchTracker\Bundle\AppBundle\Entity\SportTypes 
      */
     public function getSportTypes()
     {
         return $this->sportTypes;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Users $user
+     * @return Leagues
+     */
+    public function setUser(\MatchTracker\Bundle\AppBundle\Entity\Users $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Users 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace MatchTracker\AppBundle\Entity;
+namespace MatchTracker\Bundle\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\AppBundle\Entity\Leagues
+ * Leagues
  *
  * @ORM\Table(name="leagues")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Leagues
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -22,63 +22,84 @@ class Leagues
     private $id;
 
     /**
-     * @var string $name
+     * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=true)
      */
     private $name;
 
     /**
-     * @var integer $fields
+     * @var integer
      *
      * @ORM\Column(name="fields", type="integer", nullable=true)
      */
     private $fields;
 
     /**
-     * @var string $description
+     * @var string
      *
      * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
     /**
-     * @var integer $numberOfTeams
+     * @var integer
      *
      * @ORM\Column(name="number_of_teams", type="integer", nullable=true)
      */
     private $numberOfTeams;
 
     /**
-     * @var \DateTime $startdate
+     * @var \DateTime
      *
      * @ORM\Column(name="startdate", type="date", nullable=true)
      */
     private $startdate;
 
     /**
-     * @var \DateTime $enddate
+     * @var \DateTime
      *
      * @ORM\Column(name="enddate", type="date", nullable=true)
      */
     private $enddate;
 
     /**
-     * @var integer $playersOnField
+     * @var integer
      *
      * @ORM\Column(name="players_on_field", type="integer", nullable=true)
      */
     private $playersOnField;
 
     /**
-     * @var string $place
+     * @var string
      *
      * @ORM\Column(name="place", type="string", length=255, nullable=true)
      */
     private $place;
 
     /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @var boolean
+     *
+     * @ORM\Column(name="return", type="boolean", nullable=true)
+     */
+    private $return;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="groups", type="integer", nullable=true)
+     */
+    private $groups;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="goesOn", type="integer", nullable=true)
+     */
+    private $goeson;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Teams", inversedBy="leagues")
      * @ORM\JoinTable(name="leagues_has_teams",
@@ -93,17 +114,7 @@ class Leagues
     private $teams;
 
     /**
-     * @var Users
-     *
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * })
-     */
-    private $user;
-
-    /**
-     * @var SportTypes
+     * @var \SportTypes
      *
      * @ORM\ManyToOne(targetEntity="SportTypes")
      * @ORM\JoinColumns({
@@ -111,6 +122,16 @@ class Leagues
      * })
      */
     private $sportTypes;
+
+    /**
+     * @var \Users
+     *
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
 
     /**
      * Constructor

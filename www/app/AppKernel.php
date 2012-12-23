@@ -19,13 +19,12 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-
+            new JMS\SerializerBundle\JMSSerializerBundle(),
             new MatchTracker\Bundle\AppBundle\MatchTrackerAppBundle(),
             new MatchTracker\Bundle\UserBundle\MatchTrackerUserBundle(),
 			new FOS\UserBundle\FOSUserBundle(),
 	        new FOS\FacebookBundle\FOSFacebookBundle(),
 			new FOS\RestBundle\FOSRestBundle(),
-			new JMS\SerializerBundle\JMSSerializerBundle($this),
             new MatchTracker\Bundle\ApiBundle\MatchTrackerApiBundle(),
         );
 

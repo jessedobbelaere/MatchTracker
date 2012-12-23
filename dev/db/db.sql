@@ -2,7 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-DROP SCHEMA IF EXISTS `MatchTracker` ;
 CREATE SCHEMA IF NOT EXISTS `MatchTracker` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 USE `MatchTracker` ;
 
@@ -32,8 +31,8 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`users` (
   `roles` LONGTEXT NOT NULL COMMENT '(DC2Type:array)' ,
   `credentials_expired` TINYINT(1) NOT NULL ,
   `credentials_expire_at` DATETIME NULL DEFAULT NULL ,
-  `twitterID` VARCHAR(45) NULL DEFAULT NULL ,
-  `twitterUsername` VARCHAR(45) NULL DEFAULT NULL ,
+  `twitterID` VARCHAR(255) NULL DEFAULT NULL ,
+  `twitter_username` VARCHAR(255) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `UNIQ_957A647992FC23A8` (`username_canonical` ASC) ,
   UNIQUE INDEX `UNIQ_957A6479A0D96FBF` (`email_canonical` ASC) )
@@ -89,6 +88,9 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`leagues` (
   `players_on_field` INT NULL ,
   `place` VARCHAR(255) NULL ,
   `sport_types_id` INT NOT NULL ,
+  `return` TINYINT(1)  NULL ,
+  `groups` INT NULL ,
+  `goesOn` INT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_leagues_users1` (`user_id` ASC) ,
   INDEX `fk_leagues_sport_types1` (`sport_types_id` ASC) ,

@@ -1,0 +1,34 @@
+{% extends 'MatchTrackerAppBundle::layout.html.twig' %}
+
+{% set active_page = "dashboard" %}
+
+{% block title %}
+Competitie Maker
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Competitie maker</h1>
+        <h4>Info - Sport - Formule - Locatie - Teams</h4>
+        <div class="row-fluid">
+
+            <div class="span3">
+
+                {%  for key, sportType in sportTypes %}
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li class="nav-header">{{ key }}</li>
+
+                            {% for value in sportType %}
+                                <li><a href="{{ path('competition_maker_sport', {'sport': key|lower|replace({' ':''}), 'type':value|lower|replace({' ':''})}) }}">{{ value }}</a></li>
+                            {% endfor %}
+                    </ul>
+                </div><!--/.well -->
+                {% endfor %}
+
+            </div>
+
+
+        </div><!--/span-->
+    </div><!--/row-->
+{% endblock %}

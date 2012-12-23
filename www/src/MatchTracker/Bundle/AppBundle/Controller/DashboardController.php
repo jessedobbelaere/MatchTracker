@@ -24,11 +24,15 @@ class DashboardController extends Controller {
             return $this->redirect($this->generateUrl('authentication_login'));
         }
 
+        $userData = $this->get('security.context')->getToken()->getUser();
 
         // fetch the competitions related to the user
-        $user = null;
+       $leagues = $this->getDoctrine()
+            ->getRepository('MatchTrackerAppBundle:Leagues')
+            ->findBy(array('user' => $userData));
+
         return $this->render('MatchTrackerAppBundle:Dashboard:index.html.twig',
-            array('users' => $user)
+            array('leagues' => $leagues)
         );
 
     }
@@ -41,7 +45,7 @@ class DashboardController extends Controller {
 	 */
 	public function profileAction(Request $request) {
 		// Get user
-		$userData = $this->get('security.context')->getToken()->getUser();
+        $userData = $this->get('security.context')->getToken()->getUser();
 
 		// Create profile form
 		$form = $this->createFormBuilder($userData)
@@ -75,6 +79,20 @@ class DashboardController extends Controller {
 			"form" => $form->createView()));
 	}
 
+
+    public function competitionsAction() {
+        $userData = $this->get('security.context')->getToken()->getUser();
+
+        // fetch the competitions related to the user
+        $leagues = $this->getDoctrine()
+            ->getRepository('MatchTrackerAppBundle:Leagues')
+            ->findBy(array('user' => $userData));
+
+        return $this->render('MatchTrackerAppBundle:Dashboard:competitions.html.twig',
+            array('leagues' => $leagues)
+        );
+
+    }
 	
 	
 

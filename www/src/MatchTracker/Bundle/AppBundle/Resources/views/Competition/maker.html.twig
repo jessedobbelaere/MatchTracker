@@ -14,9 +14,8 @@ Competitie Maker
 
 
 {% block body %}
-
-
     <h1>Competitie maker</h1>
+    <h4>Info - Sport - Formule - Locatie - Teams</h4>
 
     <form  novalidate action="{{ path('competition_maker') }}" method="post" {{ form_enctype(form) }} class="">
         {{ form_widget(form) }}
