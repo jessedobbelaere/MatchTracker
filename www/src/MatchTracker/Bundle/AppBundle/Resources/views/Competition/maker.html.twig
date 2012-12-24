@@ -3,7 +3,7 @@
 {% set active_page = "dashboard" %}
 
 {% block title %}
-Competitie Maker
+Nieuwe competitie
 {% endblock %}
 
 
@@ -14,17 +14,64 @@ Competitie Maker
 
 
 {% block body %}
-    <h1>Competitie maker</h1>
-    <h4>Info - Sport - Formule - Locatie - Teams</h4>
+    <h1>Nieuwe competitie</h1>
 
-    <form  novalidate action="{{ path('competition_maker') }}" method="post" {{ form_enctype(form) }} class="">
-        {{ form_widget(form) }}
-        <p class="formBottom clearfix">
-            <input type="submit" value="Volgende stap" class="span2 button-green-mid"/>
-        </p>
+	<div id="competition-steps">
+		<ol class="clearfix">
+			<li class="active">Info</li>
+			<li>Sport</li>
+			<li>Formule</li>
+			<li>Locatie</li>
+			<li>Teams</li>
+		</ol>
+		<span class="dottedLine"></span>
+	</div>
+
+    <form action="{{ path('competition_maker') }}" method="post" {{ form_enctype(form) }} class="form-horizontal competitionMaker" novalidate>
+        {#{{ form_widget(form) }}#}
+
+	    {{ form_errors(form) }}
+
+	    <div class="control-group">
+		    {{ form_label(form.name) }}
+		    <div class="controls">
+			    {{ form_widget(form.name) }}
+			    <div class="error-tooltip animated fadeInRight">{{ form_errors(form.name) }}</div>
+		    </div>
+	    </div>
+
+	    <div class="control-group">
+		    {{ form_label(form.description)  }}
+		    <div class="controls">
+			    {{ form_widget(form.description) }}
+			    <div class="error-tooltip animated fadeInRight">{{ form_errors(form.description) }}</div>
+		    </div>
+	    </div>
+
+	    <div class="control-group">
+		    {{ form_label(form.startdate)  }}
+		    <div class="controls">
+			    {{ form_widget(form.startdate) }}
+			    <div class="error-tooltip animated fadeInRight">{{ form_errors(form.startdate) }}</div>
+		    </div>
+	    </div>
+
+	    <div class="control-group">
+		    {{ form_label(form.enddate)  }}
+		    <div class="controls">
+			    {{ form_widget(form.enddate) }}
+			    <div class="error-tooltip animated fadeInRight">{{ form_errors(form.enddate) }}</div>
+		    </div>
+	    </div>
+
+	    {{ form_rest(form) }}
+
+        <div class="control-group">
+	        <div class="controls">
+                <input type="submit" value="Volgende stap" class="span2 button-green-mid"/>
+	        </div>
+        </div>
     </form>
-
-
 
 {% endblock %}
 

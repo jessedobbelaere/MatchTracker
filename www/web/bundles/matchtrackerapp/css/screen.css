@@ -486,7 +486,95 @@ input:focus:required:invalid:focus, textarea:focus:required:invalid:focus, selec
 
 
 
+/* Competition creator
+=================================================== */
+form.competitionMaker label.control-label {
+	text-align: left;
+}
 
+
+
+#competition-steps {
+	position: relative;
+}
+#competition-steps ol {
+	counter-reset: item; /* Initiate a counter */
+	list-style: none; /* Remove default numbering */
+	*list-style: decimal; /* Keep using default numbering for IE6/7 */
+	margin: 30px 0 70px 0;
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+	font-weight: 600;
+	z-index: 999;
+	text-align: center;
+}
+#competition-steps ol li:before {
+	content: counter(item) "  ";
+	counter-increment: item;
+	color: #FFF;
+	font-size: 18px;
+	height: 30px;
+	display: block;
+}
+#competition-steps ol li {
+	float: left;
+	display: block;
+	background-color: #C4D7ED;
+	height: 30px;
+	width: 30px;
+	-moz-border-radius:15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	margin-right: 150px;
+	font-size: 16px;
+	color: #9CB7CF;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding-top: 4px;
+}
+#competition-steps ol li.active {
+	background-color: #375D81;
+	color: #375D80;
+}
+#competition-steps ol li.done:before {
+	content: '\2713';
+}
+#competition-steps ol li.done {
+	background-color: #84C200;
+	color: #84C200;
+}
+span.dottedLine {
+	border-bottom: 1px dotted #A5B6B9;
+	width: 750px;
+	display: block;
+	z-index: -5;
+	position: absolute;
+	top: 15px;
+}
+
+div.error-tooltip {
+	display: inline-block;
+	position: relative;
+	margin: 0 0 0 20px;
+}
+div.error-tooltip ul {
+	list-style: none;
+	background-color: #EF5E59;
+	padding: 10px 10px;
+	margin: 0;
+}
+div.error-tooltip ul:before {
+	content: '\25c2';
+	float: left;
+	font-size: 40px;
+	color: #EF5E59;
+	position: absolute;
+	left: -11px;
+}
+div.error-tooltip ul li {
+	font-size: 11px;
+	color: #FFF;
+}
 
 
 
@@ -603,24 +691,3 @@ footer#footer {
 
 /* Font-Face
 ================================================== */
-/*@font-face {*/
-    /*font-family: 'entypo';*/
-    /*src: url('../fonts/entypo.eot');*/
-    /*src: url('../fonts/entypo.eot?#iefix') format('embedded-opentype'),*/
-         /*url('../fonts/entypo.woff') format('woff'),*/
-         /*url('../fonts/entypo.ttf') format('truetype'),*/
-         /*url('../fonts/entypo.svg#entypo') format('svg');*/
-    /*font-weight: normal;*/
-    /*font-style: normal;*/
-/*}*/
-
-/*@font-face {*/
-    /*font-family: 'entypo-social';*/
-    /*src: url('../fonts/entypo-social.eot');*/
-    /*src: url('../fonts/entypo-social.eot?#iefix') format('embedded-opentype'),*/
-         /*url('../fonts/entypo-social.woff') format('woff'),*/
-         /*url('../fonts/entypo-social.ttf') format('truetype'),*/
-         /*url('../fonts/entypo-social.svg#entypo-social') format('svg');*/
-    /*font-weight: normal;*/
-    /*font-style: normal;*/
-/*}*/
