@@ -1,0 +1,58 @@
+{% extends 'MatchTrackerAppBundle::layout.html.twig' %}
+
+{% set active_page = "dashboard" %}
+
+{% block title %}
+Competitie Maker
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Competitie maker</h1>
+
+        <h4>Info - Sport - Formule - Locatie - Teams</h4>
+
+        <div class="row-fluid">
+            <form  novalidate action="{{ path('competition_maker_location')  }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
+                <h2>Locatie</h2>
+                {{ form_row(form.location) }}
+
+                <div id="location">
+                {{ form_row(form.place) }}
+                {{ form_row(form.field) }}
+                </div>
+
+                <p class="formBottom clearfix">
+                    <input type="submit" value="Aanmaken" class="span2 button-green-mid"/>
+                </p>
+            </form>
+
+
+        </div><!--/span-->
+    </div><!--/row-->
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        window.onload=function(){
+            if (document.getElementById("form_location").value == "more") {
+                document.getElementById("location").style.display = 'none';
+                document.getElementById("form_field").value = "0";
+                document.getElementById("form_place").value = "null";
+            }
+        };
+
+        function locationFunction() {
+            if (document.getElementById("form_location").value == "more") {
+                document.getElementById("location").style.display = 'none';
+
+                document.getElementById("form_field").value = "0";
+                document.getElementById("form_place").value = "null";
+            } else {
+                document.getElementById("location").style.display = 'block';
+                document.getElementById("form_field").value = "";
+                document.getElementById("form_place").value = "";
+            }
+        }
+    </script>
+{% endblock %}

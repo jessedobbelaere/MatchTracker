@@ -17,9 +17,21 @@ competition_maker:
     requirements:
         _method:  GET|POST
 
-competition_maker_details:
+competition_maker_formula:
+    pattern: /competities/maker/formule/{formula}
+    defaults: { _controller: MatchTrackerAppBundle:Competition:makerFormula, formula: null}
+    requirements:
+        _method:  GET|POST
+
+competition_maker_location:
+    pattern: /competities/maker/locatie
+    defaults: { _controller: MatchTrackerAppBundle:Competition:makerLocation}
+    requirements:
+        _method:  GET|POST
+
+competition_maker_sport:
     pattern: /competities/maker/{sport}/{type}
-    defaults: { _controller: MatchTrackerAppBundle:Competition:makerDetail, sport: null, type: null }
+    defaults: { _controller: MatchTrackerAppBundle:Competition:makerSport, sport: null, type: null }
     requirements:
         _method:  GET|POST
 
@@ -36,5 +48,9 @@ dashboard:
 profile:
     pattern:  /dashboard/profile
     defaults: { _controller: MatchTrackerAppBundle:Dashboard:profile }
+
+mycompetitions:
+        pattern:  /dashboard/mijncompetities
+        defaults: { _controller: MatchTrackerAppBundle:Dashboard:competitions }
 
 

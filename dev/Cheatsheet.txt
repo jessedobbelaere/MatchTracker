@@ -19,14 +19,14 @@
 	./app/console router:debug
 
 # Generate the XML metadata files
-	php app/console doctrine:mapping:convert xml ./src/MatchTracker/AppBundle/Resources/config/doctrine/metadata/orm --from-database --force
+	php app/console doctrine:mapping:convert xml ./src/MatchTracker/Bundle/AppBundle/Resources/config/doctrine/metadata/orm --from-database --force
 
 # Import the schema and build related entity classes
-	php app/console doctrine:mapping:import MatchTrackerAppBundle annotation
-	php app/console doctrine:generate:entities MatchTrackerAppBundle
+	php app/console doctrine:mapping:import MatchTrackerBundleAppBundle annotation
+	php app/console doctrine:generate:entities MatchTrackerBundleAppBundle
 
 # Make form from entity
-    php app/console generate:doctrine:form MatchTrackerAppBundle:Leagues
+    php app/console generate:doctrine:form MatchTrackerBundleAppBundle:Leagues
 
 
 *************************************************

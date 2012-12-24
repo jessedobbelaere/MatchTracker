@@ -1,0 +1,53 @@
+{% extends 'MatchTrackerAppBundle::layout.html.twig' %}
+
+{% set active_page = "dashboard" %}
+
+{% block title %}
+	Mijn competities
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Mijn competities</h1>
+
+        <div class="row-fluid">
+            <div class="span8">
+                {% if leagues != null %}
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>Naam</th>
+                            <th>Sport</th>
+                            <th>Type</th>
+                            <th>Datum</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                        <tr>
+                            {% for league in leagues %}
+                            <td>{{ league.name }}</td>
+                            <td>{{ league.sportTypes.sports.name }}</td>
+                            <td>{{ league.sportTypes.name }}</td>
+                            <td>{{ league.startdate|date('d-m-Y') }} - {{ league.enddate|date('d-m-Y') }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+
+                </table>
+                {% else %}
+                    <div class="alert alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <h4>Ga van Start!</h4>
+                        U hebt nog geen competities gemaakt. <a href="{{ path('competition_maker') }}">Maak Competitie</a>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="span4">
+                <!--Sidebar-->
+                <a class="btn btn-primary" href="{{ path('competition_maker') }}">Maak Competitie</a>
+            </div>
+        </div>
+
+	</div>
+{% endblock %}
