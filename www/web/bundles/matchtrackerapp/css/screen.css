@@ -314,7 +314,7 @@ ul.features li a:hover {
 ul.features li a.featuresIcons { background:url(../img/features.png) top left no-repeat; }
 .icon-match { background-position:-10px -0px !important; }
 .icon-track { background-position:-10px -80px !important; }
-.icon-share { background-position:-10px -155px !important; }
+.icon-envelop { background-position:-10px -155px !important; }
 
 ul.features li h4 {
 	font-size: 14px;

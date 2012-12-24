@@ -10,26 +10,31 @@ use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use Symfony\Component\HttpFoundation\Session\Session;
+use MatchTracker\Bundle\AppBundle\Entity\Players;
+
 use Doctrine\ORM\EntityRepository;
 
 class DashboardController extends Controller {
 
-    public function indexAction() {
+	/**
+	 * Currently logged in user
+	 *
+	 * @var $user \MatchTracker\Bundle\AppBundle\Entity\Players
+	 */
+	private $user;
 
+	/**
+	 * Show the dashboard page
+	 *
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function indexAction() {
 
-        if( $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
-            // user is authenticated
-        }
-        else{
-            return $this->redirect($this->generateUrl('authentication_login'));
-        }
+        // fetch the user
+        $this->user = $this->get('security.context')->getToken()->getUser();
 
-
-        // fetch the competitions related to the user
-        $user = null;
-        return $this->render('MatchTrackerAppBundle:Dashboard:index.html.twig',
-            array('users' => $user)
-        );
+        return $this->render('MatchTrackerAppBundle:Dashboard:index.html.twig');
 
     }
 
@@ -41,14 +46,14 @@ class DashboardController extends Controller {
 	 */
 	public function profileAction(Request $request) {
 		// Get user
-		$userData = $this->get('security.context')->getToken()->getUser();
+		$this->user = $this->get('security.context')->getToken()->getUser();
 
 		// Create profile form
-		$form = $this->createFormBuilder($userData)
+		$form = $this->createFormBuilder($this->user)
 			->add('firstname', 'text', array('label' => 'Voornaam', 'label_attr' => array('class' => 'control-label'), 'attr' => array('placeholder' => 'Voornaam', 'class' => 'input-medium')))
 			->add('lastname', 'text', array('label' => 'Familienaam', 'label_attr' => array('class' => 'control-label'), 'attr' => array('placeholder' => 'Achternaam', 'class' => 'input-large')))
 			->add('email', 'text', array('label' => 'E-mailadres', 'label_attr' => array('class' => 'control-label'), 'attr' => array('placeholder' => 'E-mail', 'class' => 'input-large')))
-			->add('password', 'password', array('label' => "Paswoord", 'label_attr' => array('class' => 'control-label'), 'attr' => array('placeholder' => 'Paswoord', 'class' => 'input-large')))
+			//->add('password', 'password', array('label' => "Paswoord", 'label_attr' => array('class' => 'control-label'), 'attr' => array('placeholder' => 'Paswoord', 'class' => 'input-large')))
 //			->add('passwordRepeat', 'password', array('label' => 'Paswoord (herhaling)', 'label_attr' => array('class' => 'control-label'), 'attr' => array('placeholder' => 'Paswoord (herhaling)', 'class' => 'input-large')))
 			->getForm();
 
@@ -61,7 +66,7 @@ class DashboardController extends Controller {
 			// Form data is correct, so start your engines!
 			if ($form->isValid()) {
 				$em = $this->getDoctrine()->getManager();
-				$em->persist($userData);
+				$em->persist($this->user);
 				$em->flush();
 
 				// Redirect

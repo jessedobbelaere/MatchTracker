@@ -19,21 +19,21 @@ class Players
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string $name
      *
      * @ORM\Column(name="name", type="string", length=65, nullable=true)
      */
-    private $name;
+    protected $name;
 
     /**
      * @var integer $age
      *
      * @ORM\Column(name="age", type="integer", nullable=true)
      */
-    private $age;
+	protected $age;
 
     /**
      * @var Teams
@@ -43,7 +43,7 @@ class Players
      *   @ORM\JoinColumn(name="teams_id", referencedColumnName="id")
      * })
      */
-    private $teams;
+	protected $teams;
 
 
 
