@@ -68,6 +68,8 @@ Competitie Maker
 {% endblock %}
 
 {% block javascripts %}
+	{{ parent() }}
+
     <script>
         window.onload=function(){
             if (document.getElementById("matchtracker_appbundle_leaguestype_formula").value != 3) {

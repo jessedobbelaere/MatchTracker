@@ -80,6 +80,21 @@ class DashboardController extends Controller {
 			"form" => $form->createView()));
 	}
 
+	public function competitionsAction() {
+		// Get user
+		$this->user = $this->get('security.context')->getToken()->getUser();
+
+		// fetch the competitions related to the user
+		$leagues = $this->getDoctrine()
+			->getRepository('MatchTrackerAppBundle:Leagues')
+			->findBy(array('user' => $this->user));
+
+		return $this->render('MatchTrackerAppBundle:Dashboard:competitions.html.twig',
+			array('leagues' => $leagues)
+		);
+
+	}
+
 	
 	
 

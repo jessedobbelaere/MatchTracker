@@ -29,15 +29,13 @@ Competitie Maker
 {% endblock %}
 
 {% block javascripts %}
-    <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
-    <script src="{{ asset('bundles/matchtrackerapp/js/bootstrap-datepicker.js') }}"></script>
-    <script>
-        <script>
-        $(function(){
-
-            $('#form_startdate').datepicker();
-        });
-
-
-    </script>
+	{{ parent() }}
+	<script src="{{ asset('bundles/matchtrackerapp/js/bootstrap-datepicker.js') }}"></script>
+	<script>
+		$(document).ready(function(){
+			$('#form_startdate, #form_enddate').datepicker({
+				format: 'dd-mm-yyyy'
+			});
+		});
+	</script>
 {% endblock %}
