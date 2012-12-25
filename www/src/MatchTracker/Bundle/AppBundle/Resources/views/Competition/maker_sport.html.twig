@@ -42,22 +42,9 @@ Competitie Maker
 					{% endfor %}
 				</div>
 			</div>
-
+		    
 	    </div>
 
-
-                {#{%  for key, sportType in sportTypes %}#}
-                {#<div class="well sidebar-nav">#}
-                    {#<ul class="nav nav-list">#}
-                        {#<li class="nav-header">{{ key }}</li>#}
-
-                            {#{% for value in sportType %}#}
-                                {#<li><a href="{{ path('competition_maker_sport', {'sport': key|lower|replace({' ':''}), 'type':value|lower|replace({' ':''})}) }}">{{ value }}</a></li>#}
-                            {#{% endfor %}#}
-                    {#</ul>#}
-                {#</div><!--/.well -->#}
-                {#{% endfor %}#}
-
-            </div>
+	</div>
 
 {% endblock %}

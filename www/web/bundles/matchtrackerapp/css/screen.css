@@ -492,6 +492,14 @@ input:focus:required:invalid:focus, textarea:focus:required:invalid:focus, selec
 	text-align: left;
 }
 
+.competitionMaker .controls a.smallTxt {
+	font-size: 11px;
+}
+
+.spacer {
+	margin-top: 40px;
+}
+
 
 
 #competition-steps {
@@ -552,7 +560,6 @@ span.dottedLine {
 	top: 15px;
 }
 
-
 /* Error tooltip */
 div.error-tooltip {
 	display: inline-block;
@@ -579,7 +586,7 @@ div.error-tooltip ul li {
 }
 
 
-/* Radio buttons */
+/* Sport boxes */
 .competitionMaker article.sportType {
 	width: 235px;
 	display: block;
