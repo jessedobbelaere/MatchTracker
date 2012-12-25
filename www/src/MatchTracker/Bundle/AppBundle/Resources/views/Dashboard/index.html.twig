@@ -11,17 +11,17 @@
 		<h1>Dashboard</h1>
 
         <div class="row-fluid">
-            <div class="span8">
+            <div class="span9">
                 <div class="alert alert-block">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    <h4>Ga van Start!</h4>
-                    U hebt nog geen competities gemaakt. <a href="{{ path('competition_maker') }}">Maak Competitie</a>
+                    <h4>U heeft nog geen competities...</h4>
+                    Maak een competitie aan en deel deze informatie met de spelers en fans! <a href="{{ path('competition_maker') }}">Maak een competitie aan</a>
                 </div>
             </div>
-            <div class="span4">
+            <div class="span3">
                 <!--Sidebar-->
-                <a class="btn btn-primary" href="{{ path('competition_maker') }}">Maak Competitie</a>
-                <a class="btn" href="{{ path('profile') }}">Je account wijzigen</a>
+                <p><a class="btn btn-primary span12" href="{{ path('competition_maker') }}">Nieuwe competitie</a></p><br><br>
+	            <p><a class="btn span12" href="{{ path('profile') }}">Je account wijzigen</a></p>
             </div>
         </div>
 
