@@ -88,7 +88,7 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`leagues` (
   `players_on_field` INT NULL ,
   `place` VARCHAR(255) NULL ,
   `sport_types_id` INT NOT NULL ,
-  `return` INT NULL ,
+  `return_match` TINYINT(1)  NULL ,
   `groups` INT NULL ,
   `goesOn` INT NULL ,
   PRIMARY KEY (`id`) ,

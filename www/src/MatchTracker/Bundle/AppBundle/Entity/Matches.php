@@ -5,7 +5,7 @@ namespace MatchTracker\Bundle\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\Bundle\AppBundle\Entity\Matches
+ * Matches
  *
  * @ORM\Table(name="matches")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Matches
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -22,21 +22,21 @@ class Matches
     private $id;
 
     /**
-     * @var \DateTime $date
+     * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime", nullable=true)
      */
     private $date;
 
     /**
-     * @var \DateTime $startTime
+     * @var \DateTime
      *
      * @ORM\Column(name="start_time", type="datetime", nullable=true)
      */
     private $startTime;
 
     /**
-     * @var Teams
+     * @var \Teams
      *
      * @ORM\ManyToOne(targetEntity="Teams")
      * @ORM\JoinColumns({
@@ -46,7 +46,7 @@ class Matches
     private $homeTeam;
 
     /**
-     * @var Teams
+     * @var \Teams
      *
      * @ORM\ManyToOne(targetEntity="Teams")
      * @ORM\JoinColumns({
@@ -56,7 +56,7 @@ class Matches
     private $awayTeam;
 
     /**
-     * @var Leagues
+     * @var \Leagues
      *
      * @ORM\ManyToOne(targetEntity="Leagues")
      * @ORM\JoinColumns({
@@ -126,7 +126,7 @@ class Matches
     /**
      * Set homeTeam
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Teams $homeTeam
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $homeTeam
      * @return Matches
      */
     public function setHomeTeam(\MatchTracker\Bundle\AppBundle\Entity\Teams $homeTeam = null)
@@ -139,7 +139,7 @@ class Matches
     /**
      * Get homeTeam
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\Teams
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Teams 
      */
     public function getHomeTeam()
     {
@@ -149,7 +149,7 @@ class Matches
     /**
      * Set awayTeam
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Teams $awayTeam
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $awayTeam
      * @return Matches
      */
     public function setAwayTeam(\MatchTracker\Bundle\AppBundle\Entity\Teams $awayTeam = null)
@@ -162,7 +162,7 @@ class Matches
     /**
      * Get awayTeam
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\Teams
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Teams 
      */
     public function getAwayTeam()
     {
@@ -172,7 +172,7 @@ class Matches
     /**
      * Set leagues
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
      * @return Matches
      */
     public function setLeagues(\MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues = null)
@@ -185,7 +185,7 @@ class Matches
     /**
      * Get leagues
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\Leagues
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Leagues 
      */
     public function getLeagues()
     {

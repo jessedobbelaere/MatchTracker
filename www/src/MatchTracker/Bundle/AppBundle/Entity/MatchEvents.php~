@@ -1,11 +1,11 @@
 <?php
 
-namespace MatchTracker\AppBundle\Entity;
+namespace MatchTracker\Bundle\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\AppBundle\Entity\MatchEvents
+ * MatchEvents
  *
  * @ORM\Table(name="match_events")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class MatchEvents
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -22,14 +22,14 @@ class MatchEvents
     private $id;
 
     /**
-     * @var string $name
+     * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=true)
      */
     private $name;
 
     /**
-     * @var string $text
+     * @var string
      *
      * @ORM\Column(name="text", type="text", nullable=true)
      */

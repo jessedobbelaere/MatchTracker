@@ -80,9 +80,9 @@ class Leagues
     /**
      * @var boolean
      *
-     * @ORM\Column(name="return", type="boolean", nullable=true)
+     * @ORM\Column(name="return_match", type="boolean", nullable=true)
      */
-    private $return;
+    private $returnMatch;
 
     /**
      * @var integer
@@ -97,6 +97,21 @@ class Leagues
      * @ORM\Column(name="goesOn", type="integer", nullable=true)
      */
     private $goeson;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Standings", inversedBy="leagues")
+     * @ORM\JoinTable(name="leagues_has_standings",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="leagues_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="standings_idstandings", referencedColumnName="idstandings")
+     *   }
+     * )
+     */
+    private $standingsstandings;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -138,6 +153,7 @@ class Leagues
      */
     public function __construct()
     {
+        $this->standingsstandings = new \Doctrine\Common\Collections\ArrayCollection();
         $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
     }
     

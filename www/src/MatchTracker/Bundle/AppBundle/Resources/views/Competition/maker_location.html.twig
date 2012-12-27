@@ -33,22 +33,23 @@ Nieuwe competitie
 		            </div>
 	            </div>
 
-	            <div class="control-group">
-		            {{ form_label(form.place, null, { 'label_attr': {'class': 'control-label'} }) }}
-		            <div class="controls">
-			            {{ form_widget(form.place) }}
-			            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.place) }}</div>
-		            </div>
-	            </div>
+                <div id="location">
+                    <div class="control-group">
+                        {{ form_label(form.place, null, { 'label_attr': {'class': 'control-label'} }) }}
+                        <div class="controls">
+                            {{ form_widget(form.place) }}
+                            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.place) }}</div>
+                        </div>
+                    </div>
 
-	            <div class="control-group">
-		            {{ form_label(form.field, null, { 'label_attr': {'class': 'control-label'} }) }}
-		            <div class="controls">
-			            {{ form_widget(form.field, { 'attr': { 'value': '1'} }) }}
-			            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.field) }}</div>
-		            </div>
-	            </div>
-
+                    <div class="control-group">
+                        {{ form_label(form.field, null, { 'label_attr': {'class': 'control-label'} }) }}
+                        <div class="controls">
+                            {{ form_widget(form.field, { 'attr': { 'value': '1'} }) }}
+                            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.field) }}</div>
+                        </div>
+                    </div>
+                </div>
 	            {{ form_rest(form) }}
 
 	            <div class="control-group spacer">
@@ -88,4 +89,5 @@ Nieuwe competitie
             }
         }
     </script>
+
 {% endblock %}

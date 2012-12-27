@@ -1,11 +1,11 @@
 <?php
 
-namespace MatchTracker\AppBundle\Entity;
+namespace MatchTracker\Bundle\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\AppBundle\Entity\MatchesHasMatchEvents
+ * MatchesHasMatchEvents
  *
  * @ORM\Table(name="matches_has_match_events")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class MatchesHasMatchEvents
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -22,14 +22,14 @@ class MatchesHasMatchEvents
     private $id;
 
     /**
-     * @var \DateTime $time
+     * @var \DateTime
      *
      * @ORM\Column(name="time", type="datetime", nullable=true)
      */
     private $time;
 
     /**
-     * @var Matches
+     * @var \Matches
      *
      * @ORM\ManyToOne(targetEntity="Matches")
      * @ORM\JoinColumns({
@@ -39,7 +39,7 @@ class MatchesHasMatchEvents
     private $matches;
 
     /**
-     * @var MatchEvents
+     * @var \MatchEvents
      *
      * @ORM\ManyToOne(targetEntity="MatchEvents")
      * @ORM\JoinColumns({
@@ -49,7 +49,7 @@ class MatchesHasMatchEvents
     private $matchEvents;
 
     /**
-     * @var Players
+     * @var \Players
      *
      * @ORM\ManyToOne(targetEntity="Players")
      * @ORM\JoinColumns({
@@ -59,7 +59,7 @@ class MatchesHasMatchEvents
     private $players;
 
     /**
-     * @var Teams
+     * @var \Teams
      *
      * @ORM\ManyToOne(targetEntity="Teams")
      * @ORM\JoinColumns({

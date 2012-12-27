@@ -5,7 +5,7 @@ namespace MatchTracker\Bundle\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\Bundle\AppBundle\Entity\Teams
+ * Teams
  *
  * @ORM\Table(name="teams")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Teams
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -22,42 +22,42 @@ class Teams
     private $id;
 
     /**
-     * @var string $name
+     * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=true)
      */
     private $name;
 
     /**
-     * @var string $gameday
+     * @var string
      *
      * @ORM\Column(name="gameday", type="string", length=45, nullable=true)
      */
     private $gameday;
 
     /**
-     * @var string $gamehour
+     * @var string
      *
      * @ORM\Column(name="gamehour", type="string", length=45, nullable=true)
      */
     private $gamehour;
 
     /**
-     * @var string $gameplace
+     * @var string
      *
      * @ORM\Column(name="gameplace", type="string", length=255, nullable=true)
      */
     private $gameplace;
 
     /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Leagues", mappedBy="teams")
      */
     private $leagues;
 
     /**
-     * @var Users
+     * @var \Users
      *
      * @ORM\ManyToOne(targetEntity="Users")
      * @ORM\JoinColumns({
@@ -180,7 +180,7 @@ class Teams
     /**
      * Add leagues
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
      * @return Teams
      */
     public function addLeague(\MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues)
@@ -193,7 +193,7 @@ class Teams
     /**
      * Remove leagues
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
      */
     public function removeLeague(\MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues)
     {
@@ -203,7 +203,7 @@ class Teams
     /**
      * Get leagues
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getLeagues()
     {
@@ -213,7 +213,7 @@ class Teams
     /**
      * Set users
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Users $users
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Users $users
      * @return Teams
      */
     public function setUsers(\MatchTracker\Bundle\AppBundle\Entity\Users $users = null)
@@ -226,7 +226,7 @@ class Teams
     /**
      * Get users
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\Users
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Users 
      */
     public function getUsers()
     {

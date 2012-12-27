@@ -5,7 +5,7 @@ namespace MatchTracker\Bundle\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\Bundle\AppBundle\Entity\Sports
+ * Sports
  *
  * @ORM\Table(name="sports")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Sports
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -22,7 +22,7 @@ class Sports
     protected $id;
 
     /**
-     * @var string $name
+     * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=true)
      */

@@ -5,7 +5,7 @@ namespace MatchTracker\Bundle\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\Bundle\AppBundle\Entity\Leagues
+ * Leagues
  *
  * @ORM\Table(name="leagues")
  * @ORM\Entity
@@ -80,7 +80,7 @@ class Leagues
     /**
      * @var boolean
      *
-     * @ORM\Column(name="return", type="boolean", nullable=true)
+     * @ORM\Column(name="return_match", type="boolean", nullable=true)
      */
     protected $return;
 
@@ -97,6 +97,21 @@ class Leagues
      * @ORM\Column(name="goesOn", type="integer", nullable=true)
      */
     protected $goeson;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Standings", inversedBy="leagues")
+     * @ORM\JoinTable(name="leagues_has_standings",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="leagues_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="standings_idstandings", referencedColumnName="idstandings")
+     *   }
+     * )
+     */
+    private $standingsstandings;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -138,6 +153,7 @@ class Leagues
      */
     public function __construct()
     {
+        $this->standingsstandings = new \Doctrine\Common\Collections\ArrayCollection();
         $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
@@ -337,26 +353,26 @@ class Leagues
     }
 
     /**
-     * Set return
+     * Set returnMatch
      *
-     * @param boolean $return
+     * @param boolean $returnMatch
      * @return Leagues
      */
-    public function setReturn($return)
+    public function setReturnMatch($returnMatch)
     {
-        $this->return = $return;
+        $this->returnMatch = $returnMatch;
     
         return $this;
     }
 
     /**
-     * Get return
+     * Get returnMatch
      *
      * @return boolean 
      */
-    public function getReturn()
+    public function getReturnMatch()
     {
-        return $this->return;
+        return $this->returnMatch;
     }
 
     /**
@@ -403,6 +419,39 @@ class Leagues
     public function getGoeson()
     {
         return $this->goeson;
+    }
+
+    /**
+     * Add standingsstandings
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standingsstandings
+     * @return Leagues
+     */
+    public function addStandingsstanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standingsstandings)
+    {
+        $this->standingsstandings[] = $standingsstandings;
+    
+        return $this;
+    }
+
+    /**
+     * Remove standingsstandings
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standingsstandings
+     */
+    public function removeStandingsstanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standingsstandings)
+    {
+        $this->standingsstandings->removeElement($standingsstandings);
+    }
+
+    /**
+     * Get standingsstandings
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStandingsstandings()
+    {
+        return $this->standingsstandings;
     }
 
     /**

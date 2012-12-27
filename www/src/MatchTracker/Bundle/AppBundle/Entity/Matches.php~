@@ -1,11 +1,11 @@
 <?php
 
-namespace MatchTracker\AppBundle\Entity;
+namespace MatchTracker\Bundle\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\AppBundle\Entity\Matches
+ * Matches
  *
  * @ORM\Table(name="matches")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Matches
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -22,21 +22,21 @@ class Matches
     private $id;
 
     /**
-     * @var \DateTime $date
+     * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime", nullable=true)
      */
     private $date;
 
     /**
-     * @var \DateTime $startTime
+     * @var \DateTime
      *
      * @ORM\Column(name="start_time", type="datetime", nullable=true)
      */
     private $startTime;
 
     /**
-     * @var Teams
+     * @var \Teams
      *
      * @ORM\ManyToOne(targetEntity="Teams")
      * @ORM\JoinColumns({
@@ -46,7 +46,7 @@ class Matches
     private $homeTeam;
 
     /**
-     * @var Teams
+     * @var \Teams
      *
      * @ORM\ManyToOne(targetEntity="Teams")
      * @ORM\JoinColumns({
@@ -56,7 +56,7 @@ class Matches
     private $awayTeam;
 
     /**
-     * @var Leagues
+     * @var \Leagues
      *
      * @ORM\ManyToOne(targetEntity="Leagues")
      * @ORM\JoinColumns({
