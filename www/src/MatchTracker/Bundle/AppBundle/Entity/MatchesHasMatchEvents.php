@@ -5,7 +5,7 @@ namespace MatchTracker\Bundle\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\Bundle\AppBundle\Entity\MatchesHasMatchEvents
+ * MatchesHasMatchEvents
  *
  * @ORM\Table(name="matches_has_match_events")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class MatchesHasMatchEvents
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -22,14 +22,14 @@ class MatchesHasMatchEvents
     private $id;
 
     /**
-     * @var \DateTime $time
+     * @var \DateTime
      *
      * @ORM\Column(name="time", type="datetime", nullable=true)
      */
     private $time;
 
     /**
-     * @var Matches
+     * @var \Matches
      *
      * @ORM\ManyToOne(targetEntity="Matches")
      * @ORM\JoinColumns({
@@ -39,7 +39,7 @@ class MatchesHasMatchEvents
     private $matches;
 
     /**
-     * @var MatchEvents
+     * @var \MatchEvents
      *
      * @ORM\ManyToOne(targetEntity="MatchEvents")
      * @ORM\JoinColumns({
@@ -49,7 +49,7 @@ class MatchesHasMatchEvents
     private $matchEvents;
 
     /**
-     * @var Players
+     * @var \Players
      *
      * @ORM\ManyToOne(targetEntity="Players")
      * @ORM\JoinColumns({
@@ -59,7 +59,7 @@ class MatchesHasMatchEvents
     private $players;
 
     /**
-     * @var Teams
+     * @var \Teams
      *
      * @ORM\ManyToOne(targetEntity="Teams")
      * @ORM\JoinColumns({
@@ -106,7 +106,7 @@ class MatchesHasMatchEvents
     /**
      * Set matches
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Matches $matches
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Matches $matches
      * @return MatchesHasMatchEvents
      */
     public function setMatches(\MatchTracker\Bundle\AppBundle\Entity\Matches $matches = null)
@@ -119,7 +119,7 @@ class MatchesHasMatchEvents
     /**
      * Get matches
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\Matches
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Matches 
      */
     public function getMatches()
     {
@@ -129,7 +129,7 @@ class MatchesHasMatchEvents
     /**
      * Set matchEvents
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\MatchEvents $matchEvents
+     * @param \MatchTracker\Bundle\AppBundle\Entity\MatchEvents $matchEvents
      * @return MatchesHasMatchEvents
      */
     public function setMatchEvents(\MatchTracker\Bundle\AppBundle\Entity\MatchEvents $matchEvents = null)
@@ -142,7 +142,7 @@ class MatchesHasMatchEvents
     /**
      * Get matchEvents
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\MatchEvents
+     * @return \MatchTracker\Bundle\AppBundle\Entity\MatchEvents 
      */
     public function getMatchEvents()
     {
@@ -152,7 +152,7 @@ class MatchesHasMatchEvents
     /**
      * Set players
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Players $players
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Players $players
      * @return MatchesHasMatchEvents
      */
     public function setPlayers(\MatchTracker\Bundle\AppBundle\Entity\Players $players = null)
@@ -165,7 +165,7 @@ class MatchesHasMatchEvents
     /**
      * Get players
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\Players
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Players 
      */
     public function getPlayers()
     {
@@ -175,7 +175,7 @@ class MatchesHasMatchEvents
     /**
      * Set teams
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Teams $teams
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $teams
      * @return MatchesHasMatchEvents
      */
     public function setTeams(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams = null)
@@ -188,7 +188,7 @@ class MatchesHasMatchEvents
     /**
      * Get teams
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\Teams
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Teams 
      */
     public function getTeams()
     {

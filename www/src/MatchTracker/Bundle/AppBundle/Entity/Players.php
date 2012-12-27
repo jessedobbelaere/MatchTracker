@@ -5,7 +5,7 @@ namespace MatchTracker\Bundle\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\Bundle\AppBundle\Entity\Players
+ * Players
  *
  * @ORM\Table(name="players")
  * @ORM\Entity
@@ -13,37 +13,37 @@ use Doctrine\ORM\Mapping as ORM;
 class Players
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @var string $name
+     * @var string
      *
      * @ORM\Column(name="name", type="string", length=65, nullable=true)
      */
-    protected $name;
+    private $name;
 
     /**
-     * @var integer $age
+     * @var integer
      *
      * @ORM\Column(name="age", type="integer", nullable=true)
      */
-	protected $age;
+    private $age;
 
     /**
-     * @var Teams
+     * @var \Teams
      *
      * @ORM\ManyToOne(targetEntity="Teams")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="teams_id", referencedColumnName="id")
      * })
      */
-	protected $teams;
+    private $teams;
 
 
 
@@ -106,7 +106,7 @@ class Players
     /**
      * Set teams
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Teams $teams
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $teams
      * @return Players
      */
     public function setTeams(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams = null)
@@ -119,7 +119,7 @@ class Players
     /**
      * Get teams
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\Teams
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Teams 
      */
     public function getTeams()
     {

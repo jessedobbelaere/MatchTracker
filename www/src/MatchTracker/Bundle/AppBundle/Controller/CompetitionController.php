@@ -29,10 +29,6 @@ class CompetitionController extends Controller {
 				array('sport' => $sport));
 	}
 
-
-
-
-
     /**
      * Detail view of a competition
      *
@@ -40,18 +36,14 @@ class CompetitionController extends Controller {
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function detailAction($name) {
-
-        $league = $this->getDoctrine()
+    	
+    	$league = $this->getDoctrine()
     	->getRepository('MatchTrackerAppBundle:Leagues')
-    	->findOneByName($name);
+    	->find($name);
     	
         return $this->render('MatchTrackerAppBundle:Competition:detail.html.twig', 
         		array('league' => $league));
     }
-
-
-
-
 
     /**
      * Competition maker step1: general info
@@ -60,6 +52,11 @@ class CompetitionController extends Controller {
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function makerAction(Request $request) {
+        $competition = $this->get('session')->get('competition');
+        if ($competition !== null) {
+            $this->get('session')->remove('competition');
+        }
+
         // Form constraints
         $constraint = new Assert\Collection(array(
             'name' => new Assert\NotBlank(array('message' => 'Gelieve naam in te vullen')),
@@ -112,6 +109,15 @@ class CompetitionController extends Controller {
             "form" => $form->createView()));
     }
 
+
+    /**
+     * Competition maker step2: choose sport
+     *
+     * @param $sport
+     * @param $type
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function makerSportAction($sport, $type, Request $request) {
         // Redirect if there's no competition in session
         $competition = $this->get('session')->get('competition');
@@ -120,10 +126,9 @@ class CompetitionController extends Controller {
         }
 
         if ($type != null) {
-            //$this->get('session')->remove('competition');
 
-            $sportType = $this->getDoctrine()
-                ->getRepository('MatchTrackerAppBundle:SportTypes')->findOneByName($type);
+            $sportType = ($this->getDoctrine()
+                ->getRepository('MatchTrackerAppBundle:SportTypes')->findOneByName($type));
             $competition->setSportTypes($sportType);
 
             $this->get('session')->set('competition', $competition);
@@ -145,83 +150,13 @@ class CompetitionController extends Controller {
 
     }
 
-
-
     /**
-     * Competition maker step 2: detailed info
+     * Competition maker step3: choose formula
      *
-     * @param $sport
-     * @param $type
+     * @param $formula
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function makerDetailAction($sport, $type, Request $request) {
-        // Redirect if there's no competition in session
-        $competition = $this->get('session')->get('competition');
-        if ($competition === null) {
-            return $this->redirect($this->generateUrl('competition_maker'));
-        }
-
-        // Get sportTypes
-        $sportTypes = $this->getDoctrine()
-            ->getRepository('MatchTrackerAppBundle:SportTypes')->findAll();
-
-        // Create sports structure
-        $sportTypesArray = array();
-        foreach ($sportTypes as $sportType) {
-            $sportTypesArray[$sportType->getSports()->getName()][] = $sportType->getName();
-        }
-
-        // Form will not be created until a sport type is selected
-        if ($type !== 'null') {
-            $sportType = $this->getDoctrine()
-                ->getRepository('MatchTrackerAppBundle:SportTypes')->findOneByName($type);
-
-            // Create LeaguesType form
-            $form = $this->createForm(new LeaguesType($sport, $sportType));
-
-            if ($request->isMethod('POST')) {
-                $form->bind($request);
-                $data = $form->getData();
-
-                if ($form->isValid()) {
-                    $this->get('session')->remove('competition');
-
-                    $competition->setUser($this->getUser());
-                    $competition->setSportTypes($sportType);
-                    $competition->setNumberOfTeams($data['numberOfTeams']);
-
-                    //TODO: new db record HomeAndAway = true
-
-                    if ($sportType->getPlayersOnField() != null) {
-                        $competition->setPlayersOnField($sportType->getPlayersOnField());
-                    } else {
-                        $competition->setPlayersOnField($data['playersOnField']);
-                    }
-
-                    if($data['formula'] == 3) {
-                        //TODO: new db record GROUPS and WIEGAATDOOR
-
-                    }
-                    $this->get('session')->set('competition', $competition);
-
-
-                    return $this->redirect($this->generateUrl('competition_maker_location'));
-                }
-            }
-
-        }
-
-        // Items to render with template
-        $toRender = array('sportTypes' => $sportTypesArray,
-            'sport' => $sport,
-            'type' => $type);
-        if ($type !== 'null') {
-            $toRender['form'] = $form->createView();
-        }
-        return $this->render('MatchTrackerAppBundle:Competition:maker_details.html.twig', $toRender);
-    }
-
     public function makerFormulaAction($formula, Request $request) {
         // Redirect if there's no competition in session
         $competition = $this->get('session')->get('competition');
@@ -231,9 +166,8 @@ class CompetitionController extends Controller {
 
         // Form will not be created until a sport type is selected
         if ($formula !== 'null') {
+
             // Create LeaguesType form
-
-
             $form = $this->createForm(new LeaguesType($formula, ($competition->getSportTypes()->getPlayersOnField() == null)));
 
             if ($request->isMethod('POST')) {
@@ -241,26 +175,26 @@ class CompetitionController extends Controller {
                 $data = $form->getData();
 
                 if ($form->isValid()) {
-                    $this->get('session')->remove('competition');
 
-                    $competition->setUser($this->getUser());
-                    $competition->setSportTypes($sportType);
                     $competition->setNumberOfTeams($data['numberOfTeams']);
+                    $competition->setReturnMatch($data['return']);
+                    // $competition->setReturn(($data['return'] === '1' ? 'true': 'false'));
 
-                    //TODO: new db record HomeAndAway = true
 
-                    if ($sportType->getPlayersOnField() != null) {
-                        $competition->setPlayersOnField($sportType->getPlayersOnField());
+                    // If players on field isn't set in sporttype use data from form
+                    if ($competition->getSportTypes()->getPlayersOnField() != null) {
+                        $competition->setPlayersOnField($competition->getSportTypes()->getPlayersOnField());
                     } else {
                         $competition->setPlayersOnField($data['playersOnField']);
                     }
 
-                    if($data['formula'] == 3) {
-                        //TODO: new db record GROUPS and WIEGAATDOOR
-
+                    // If formula is classement and knockout
+                    if($formula == 'beide') {
+                        $competition->setGroups($data['numGroups']);
+                        $competition->setGoeson($data['goingThrough']);
                     }
-                    $this->get('session')->set('competition', $competition);
 
+                    $this->get('session')->set('competition', $competition);
 
                     return $this->redirect($this->generateUrl('competition_maker_location'));
                 }
@@ -272,9 +206,9 @@ class CompetitionController extends Controller {
     }
 
 
-
-
     /**
+     * Competition maker step4: choose location
+     *
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
@@ -308,12 +242,16 @@ class CompetitionController extends Controller {
 
             if ($form->isValid()) {
 
-                return $this->redirect($this->generateUrl('mycompetitions'));
-
                 if ($data['location'] === 'one') {
                     $competition->setFields($data['field']);
                     $competition->setPlace($data['place']);
                 }
+
+                $sportType = ($this->getDoctrine()
+                    ->getRepository('MatchTrackerAppBundle:SportTypes')->findOneByName($competition->getSportTypes()->getName()));
+                $competition->setSportTypes($sportType);
+
+                $competition->setUser($this->container->get('security.context')->getToken()->getUser());
 
                 // perform some action, such as saving the task to the database
                 $em = $this->getDoctrine()->getManager();

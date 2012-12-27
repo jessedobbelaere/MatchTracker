@@ -1,11 +1,11 @@
 <?php
 
-namespace MatchTracker\AppBundle\Entity;
+namespace MatchTracker\Bundle\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\AppBundle\Entity\Users
+ * Users
  *
  * @ORM\Table(name="users")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Users
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -22,147 +22,147 @@ class Users
     private $id;
 
     /**
-     * @var string $username
+     * @var string
      *
      * @ORM\Column(name="username", type="string", length=255, nullable=false)
      */
     private $username;
 
     /**
-     * @var string $usernameCanonical
+     * @var string
      *
      * @ORM\Column(name="username_canonical", type="string", length=255, nullable=false)
      */
     private $usernameCanonical;
 
     /**
-     * @var string $firstname
+     * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
      */
     private $firstname;
 
     /**
-     * @var string $lastname
+     * @var string
      *
      * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
      */
     private $lastname;
 
     /**
-     * @var string $facebookid
+     * @var string
      *
      * @ORM\Column(name="facebookId", type="string", length=255, nullable=true)
      */
     private $facebookid;
 
     /**
-     * @var string $email
+     * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
      */
     private $email;
 
     /**
-     * @var string $emailCanonical
+     * @var string
      *
      * @ORM\Column(name="email_canonical", type="string", length=255, nullable=false)
      */
     private $emailCanonical;
 
     /**
-     * @var boolean $enabled
+     * @var boolean
      *
      * @ORM\Column(name="enabled", type="boolean", nullable=false)
      */
     private $enabled;
 
     /**
-     * @var string $salt
+     * @var string
      *
      * @ORM\Column(name="salt", type="string", length=255, nullable=false)
      */
     private $salt;
 
     /**
-     * @var string $password
+     * @var string
      *
      * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
     private $password;
 
     /**
-     * @var \DateTime $lastLogin
+     * @var \DateTime
      *
      * @ORM\Column(name="last_login", type="datetime", nullable=true)
      */
     private $lastLogin;
 
     /**
-     * @var boolean $locked
+     * @var boolean
      *
      * @ORM\Column(name="locked", type="boolean", nullable=false)
      */
     private $locked;
 
     /**
-     * @var boolean $expired
+     * @var boolean
      *
      * @ORM\Column(name="expired", type="boolean", nullable=false)
      */
     private $expired;
 
     /**
-     * @var \DateTime $expiresAt
+     * @var \DateTime
      *
      * @ORM\Column(name="expires_at", type="datetime", nullable=true)
      */
     private $expiresAt;
 
     /**
-     * @var string $confirmationToken
+     * @var string
      *
      * @ORM\Column(name="confirmation_token", type="string", length=255, nullable=true)
      */
     private $confirmationToken;
 
     /**
-     * @var \DateTime $passwordRequestedAt
+     * @var \DateTime
      *
      * @ORM\Column(name="password_requested_at", type="datetime", nullable=true)
      */
     private $passwordRequestedAt;
 
     /**
-     * @var array $roles
+     * @var array
      *
      * @ORM\Column(name="roles", type="array", nullable=false)
      */
     private $roles;
 
     /**
-     * @var boolean $credentialsExpired
+     * @var boolean
      *
      * @ORM\Column(name="credentials_expired", type="boolean", nullable=false)
      */
     private $credentialsExpired;
 
     /**
-     * @var \DateTime $credentialsExpireAt
+     * @var \DateTime
      *
      * @ORM\Column(name="credentials_expire_at", type="datetime", nullable=true)
      */
     private $credentialsExpireAt;
 
     /**
-     * @var string $twitterid
+     * @var string
      *
      * @ORM\Column(name="twitterID", type="string", length=255, nullable=true)
      */
     private $twitterid;
 
     /**
-     * @var string $twitterUsername
+     * @var string
      *
      * @ORM\Column(name="twitter_username", type="string", length=255, nullable=true)
      */

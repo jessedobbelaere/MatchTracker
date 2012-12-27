@@ -5,7 +5,7 @@ namespace MatchTracker\Bundle\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\Bundle\AppBundle\Entity\Messages
+ * Messages
  *
  * @ORM\Table(name="messages")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Messages
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -22,14 +22,14 @@ class Messages
     private $id;
 
     /**
-     * @var string $text
+     * @var string
      *
      * @ORM\Column(name="text", type="text", nullable=true)
      */
     private $text;
 
     /**
-     * @var Users
+     * @var \Users
      *
      * @ORM\ManyToOne(targetEntity="Users")
      * @ORM\JoinColumns({
@@ -39,7 +39,7 @@ class Messages
     private $receiver;
 
     /**
-     * @var Users
+     * @var \Users
      *
      * @ORM\ManyToOne(targetEntity="Users")
      * @ORM\JoinColumns({
@@ -86,7 +86,7 @@ class Messages
     /**
      * Set receiver
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Users $receiver
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Users $receiver
      * @return Messages
      */
     public function setReceiver(\MatchTracker\Bundle\AppBundle\Entity\Users $receiver = null)
@@ -99,7 +99,7 @@ class Messages
     /**
      * Get receiver
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\Users
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Users 
      */
     public function getReceiver()
     {
@@ -109,7 +109,7 @@ class Messages
     /**
      * Set sender
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Users $sender
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Users $sender
      * @return Messages
      */
     public function setSender(\MatchTracker\Bundle\AppBundle\Entity\Users $sender = null)
@@ -122,7 +122,7 @@ class Messages
     /**
      * Get sender
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\Users
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Users 
      */
     public function getSender()
     {

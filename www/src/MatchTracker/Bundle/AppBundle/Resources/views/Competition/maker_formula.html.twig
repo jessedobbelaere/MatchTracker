@@ -29,13 +29,83 @@ Competitie Maker
 
                 {% if formula != null %}
 
-                <form  novalidate action="{{ path('competition_maker_formula', { 'formula': formula })  }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
+                <form  novalidate action="{{ path('competition_maker_formula', { 'formula': formula })  }}" method="post" {{ form_enctype(form) }} class="form-horizontal  competitionMaker" novalidate>
+                    {{ form_errors(form) }}
 
-                    {{ form_widget(form) }}
+                    <h4>
+                    {% if formula == 'klassement' %}
+                        Klassement
+                    {% elseif formula == 'knockout'  %}
+                        Knock-out
+                    {% elseif formula == 'beide'  %}
+                        Klassement + Knock-out
+                    {% endif %}
+                     info</h4>
 
-                    <p class="formBottom clearfix">
-                        <input type="submit" value="Volgende stap" class="span2 button-green-mid"/>
-                    </p>
+
+                    <div class="control-group">
+                        {{ form_label(form.numberOfTeams, null, { 'label_attr': {'class': 'control-label'} }) }}
+                        <div class="controls">
+                            {{ form_widget(form.numberOfTeams) }}
+                            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.numberOfTeams) }}</div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        {{ form_label(form.return, null, { 'label_attr': {'class': 'control-label'} }) }}
+                        <div class="controls">
+                            {{ form_widget(form.return) }}
+                            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.return) }}</div>
+                        </div>
+                    </div>
+
+                    {% if form.numGroups is defined %}
+                    <div class="control-group">
+                        {{ form_label(form.numGroups, null, { 'label_attr': {'class': 'control-label'} }) }}
+                        <div class="controls">
+                            {{ form_widget(form.numGroups) }}
+                            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.numGroups) }}</div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if form.goingThrough is defined %}
+                        <div class="control-group">
+                            {{ form_label(form.goingThrough, null, { 'label_attr': {'class': 'control-label'} }) }}
+                            <div class="controls">
+                                {{ form_widget(form.goingThrough) }}
+                                <div class="error-tooltip animated fadeInRight">{{ form_errors(form.goingThrough) }}</div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if form.playersOnField is defined and form.playTime is defined %}
+                        <h4>Wedstrijd info</h4>
+                        <div class="control-group">
+                            {{ form_label(form.playersOnField, null, { 'label_attr': {'class': 'control-label'} }) }}
+                            <div class="controls">
+                                {{ form_widget(form.playersOnField) }}
+                                <div class="error-tooltip animated fadeInRight">{{ form_errors(form.playersOnField) }}</div>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            {{ form_label(form.playTime, null, { 'label_attr': {'class': 'control-label'} }) }}
+                            <div class="controls">
+                                {{ form_widget(form.playTime) }}
+                                <div class="error-tooltip animated fadeInRight">{{ form_errors(form.playTime) }}</div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {{ form_rest(form) }}
+
+                    <div class="control-group spacer">
+                        <div class="controls">
+                            <a href="#" class="smallTxt">Ga terug</a>
+                            <input type="submit" value="Volgende stap" class="span2 button-green-mid"/>
+                        </div>
+                    </div>
                 </form>
 
                 {% else %}
@@ -46,46 +116,4 @@ Competitie Maker
 
         </div><!--/span-->
     </div><!--/row-->
-{% endblock %}
-
-{% block javascripts %}
-	{{ parent() }}
-    <script>
-        window.onload=function(){
-            formulaFunction();
-            if (document.getElementById("matchtracker_appbundle_leaguestype_formula").value != 3) {
-                document.getElementById("rankKnockout").style.display = 'none';
-            }
-        };
-
-        function formulaFunction() {
-            var formula = document.getElementById("matchtracker_appbundle_leaguestype_formula");
-            var teams = document.getElementById("matchtracker_appbundle_leaguestype_numberOfTeams");
-
-            if (formula.value == "1") {
-                document.getElementById("rankKnockout").style.display = 'none';
-                teams.options.length = 0;
-                for (var i = 2; i <= 20; i++) teams.options.add(new Option(i,i));
-            } else if (formula.value  == "2") {
-                document.getElementById("rankKnockout").style.display = 'none';
-                teams.options.length = 0;
-                for (var i = 2; i <= 36; i*=2) teams.options.add(new Option(i,i));
-            } else if (formula.value  == "3") {
-                document.getElementById("rankKnockout").style.display = 'block';
-                teams.options.length = 0;
-                for (var i = 2; i <= 40; i+=2) teams.options.add(new Option(i,i));
-            }
-        }
-
-        function goingThroughFunction() {
-            var teams = document.getElementById("matchtracker_appbundle_leaguestype_numberOfTeams");
-            var groups = document.getElementById("matchtracker_appbundle_leaguestype_groups");
-
-            if (document.getElementById("matchtracker_appbundle_leaguestype_formula").value == 3) {
-                if (teams * groups) {
-
-                }
-            }
-        }
-    </script>
 {% endblock %}

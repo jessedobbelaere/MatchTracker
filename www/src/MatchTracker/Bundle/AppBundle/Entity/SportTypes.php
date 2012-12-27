@@ -5,7 +5,7 @@ namespace MatchTracker\Bundle\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MatchTracker\Bundle\AppBundle\Entity\SportTypes
+ * SportTypes
  *
  * @ORM\Table(name="sport_types")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class SportTypes
 {
     /**
-     * @var integer $id
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -22,21 +22,21 @@ class SportTypes
     private $id;
 
     /**
-     * @var string $name
+     * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=true)
      */
     private $name;
 
     /**
-     * @var integer $playersOnField
+     * @var integer
      *
      * @ORM\Column(name="players_on_field", type="integer", nullable=true)
      */
     private $playersOnField;
 
     /**
-     * @var Sports
+     * @var \Sports
      *
      * @ORM\ManyToOne(targetEntity="Sports")
      * @ORM\JoinColumns({
@@ -106,7 +106,7 @@ class SportTypes
     /**
      * Set sports
      *
-     * @param MatchTracker\Bundle\AppBundle\Entity\Sports $sports
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Sports $sports
      * @return SportTypes
      */
     public function setSports(\MatchTracker\Bundle\AppBundle\Entity\Sports $sports = null)
@@ -119,7 +119,7 @@ class SportTypes
     /**
      * Get sports
      *
-     * @return MatchTracker\Bundle\AppBundle\Entity\Sports
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Sports 
      */
     public function getSports()
     {
