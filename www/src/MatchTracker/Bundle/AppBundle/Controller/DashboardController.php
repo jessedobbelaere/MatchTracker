@@ -17,25 +17,12 @@ use Doctrine\ORM\EntityRepository;
 
 class DashboardController extends Controller {
 
-<<<<<<< Updated upstream
 	/**
 	 * Currently logged in user
 	 *
 	 * @var $user \MatchTracker\Bundle\AppBundle\Entity\Players
 	 */
 	private $user;
-=======
-    public function indexAction() {
-
-
-        if( $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
-            // user is authenticated
-
-        }
-        else{
-            return $this->redirect($this->generateUrl('authentication_login'));
-        }
->>>>>>> Stashed changes
 
 	/**
 	 * Show the dashboard page
