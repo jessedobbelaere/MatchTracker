@@ -88,7 +88,7 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`leagues` (
   `players_on_field` INT NULL ,
   `place` VARCHAR(255) NULL ,
   `sport_types_id` INT NOT NULL ,
-  `return` TINYINT(1)  NULL ,
+  `return` INT NULL ,
   `groups` INT NULL ,
   `goesOn` INT NULL ,
   PRIMARY KEY (`id`) ,
@@ -281,6 +281,52 @@ CREATE  TABLE IF NOT EXISTS `MatchTracker`.`messages` (
   CONSTRAINT `fk_messages_users2`
     FOREIGN KEY (`sender_id` )
     REFERENCES `MatchTracker`.`users` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MatchTracker`.`standings`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `MatchTracker`.`standings` ;
+
+CREATE  TABLE IF NOT EXISTS `MatchTracker`.`standings` (
+  `idstandings` INT NOT NULL ,
+  `teams_id` INT NOT NULL ,
+  `wins` VARCHAR(45) NULL ,
+  `draws` VARCHAR(45) NULL ,
+  `losses` VARCHAR(45) NULL ,
+  `points` VARCHAR(45) NULL ,
+  PRIMARY KEY (`idstandings`) ,
+  INDEX `fk_standings_teams1` (`teams_id` ASC) ,
+  CONSTRAINT `fk_standings_teams1`
+    FOREIGN KEY (`teams_id` )
+    REFERENCES `MatchTracker`.`teams` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `MatchTracker`.`leagues_has_standings`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `MatchTracker`.`leagues_has_standings` ;
+
+CREATE  TABLE IF NOT EXISTS `MatchTracker`.`leagues_has_standings` (
+  `leagues_id` INT NOT NULL ,
+  `standings_idstandings` INT NOT NULL ,
+  PRIMARY KEY (`leagues_id`, `standings_idstandings`) ,
+  INDEX `fk_leagues_has_standings_standings1` (`standings_idstandings` ASC) ,
+  INDEX `fk_leagues_has_standings_leagues1` (`leagues_id` ASC) ,
+  CONSTRAINT `fk_leagues_has_standings_leagues1`
+    FOREIGN KEY (`leagues_id` )
+    REFERENCES `MatchTracker`.`leagues` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_leagues_has_standings_standings1`
+    FOREIGN KEY (`standings_idstandings` )
+    REFERENCES `MatchTracker`.`standings` (`idstandings` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

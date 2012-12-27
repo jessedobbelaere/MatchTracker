@@ -29,6 +29,10 @@ class CompetitionController extends Controller {
 				array('sport' => $sport));
 	}
 
+
+
+
+
     /**
      * Detail view of a competition
      *
@@ -36,14 +40,18 @@ class CompetitionController extends Controller {
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function detailAction($name) {
-    	
-    	$league = $this->getDoctrine()
+
+        $league = $this->getDoctrine()
     	->getRepository('MatchTrackerAppBundle:Leagues')
-    	->find($name);
+    	->findOneByName($name);
     	
         return $this->render('MatchTrackerAppBundle:Competition:detail.html.twig', 
         		array('league' => $league));
     }
+
+
+
+
 
     /**
      * Competition maker step1: general info
