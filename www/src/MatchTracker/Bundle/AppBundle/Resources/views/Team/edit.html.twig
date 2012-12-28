@@ -7,17 +7,27 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container">
-		<h1>Teamdetails</h1>
+	<h1>{{ team.name }}</h1>
 
-		<div class="row-fluid">
-			<div class="span9">
-				Test
-			</div>
-			<div class="span3">
+	<form action="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}" method="post" {{ form_enctype(form) }} class="form-horizontal formAlignLeft" novalidate>
+		{{ form_errors(form) }}
 
+		<div class="control-group">
+			{{ form_label(form.name) }}
+			<div class="controls">
+				{{ form_widget(form.name) }}
+				<div class="error-tooltip animated fadeInRight">{{ form_errors(form.name) }}</div>
 			</div>
 		</div>
 
-	</div>
+		{#<input type="text" id="form_name2" name="form[nametwee]" required="required" placeholder="Naam" value="lol">#}
+
+		{{ form_rest(form) }}
+
+		<div class="control-group spacer">
+			<div class="controls">
+				<input type="submit" value="Wijzigingen bewaren" class="button-green-mid"/>
+			</div>
+		</div>
+	</form>
 {% endblock %}
