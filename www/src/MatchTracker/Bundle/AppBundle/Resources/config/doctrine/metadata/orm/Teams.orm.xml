@@ -4,17 +4,13 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="name" type="string" column="name" length="45" nullable="true"/>
+    <field name="name" type="string" column="name" length="100" nullable="true"/>
+    <field name="nameCanonical" type="string" column="name_canonical" length="100" nullable="false"/>
     <field name="gameday" type="string" column="gameday" length="45" nullable="true"/>
     <field name="gamehour" type="string" column="gamehour" length="45" nullable="true"/>
     <field name="gameplace" type="string" column="gameplace" length="255" nullable="true"/>
     <field name="code" type="string" column="code" length="20" nullable="true"/>
     <field name="email" type="string" column="email" length="45" nullable="true"/>
-    <many-to-one field="users" target-entity="Users">
-      <join-columns>
-        <join-column name="users_id" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
     <many-to-many field="leagues" target-entity="Leagues" mapped-by="teams"/>
   </entity>
 </doctrine-mapping>
