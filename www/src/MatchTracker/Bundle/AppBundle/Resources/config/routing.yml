@@ -48,8 +48,17 @@ profile:
     defaults: { _controller: MatchTrackerAppBundle:Dashboard:profile }
 
 mycompetitions:
-        pattern:  /dashboard/mijncompetities
-        defaults: { _controller: MatchTrackerAppBundle:Dashboard:competitions }
+    pattern:  /dashboard/mijncompetities
+    defaults: { _controller: MatchTrackerAppBundle:Dashboard:competitions }
+
+team:
+    pattern: /team/{nameCanonical}
+    defaults: { _controller: MatchTrackerAppBundle:Team:index }
+
+teamEdit:
+    pattern: /team/{nameCanonical}/edit/{code}
+    defaults: { _controller: MatchTrackerAppBundle:Team:edit }
+
 
 
 

@@ -24,9 +24,16 @@ class Teams
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     * @ORM\Column(name="name", type="string", length=100, nullable=true)
      */
     private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_canonical", type="string", length=100, nullable=false)
+     */
+    private $nameCanonical;
 
     /**
      * @var string
@@ -71,16 +78,6 @@ class Teams
     private $leagues;
 
     /**
-     * @var \Users
-     *
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="users_id", referencedColumnName="id")
-     * })
-     */
-    private $users;
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -88,4 +85,208 @@ class Teams
         $this->leagues = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Teams
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set nameCanonical
+     *
+     * @param string $nameCanonical
+     * @return Teams
+     */
+    public function setNameCanonical($nameCanonical)
+    {
+        $this->nameCanonical = $nameCanonical;
+    
+        return $this;
+    }
+
+    /**
+     * Get nameCanonical
+     *
+     * @return string 
+     */
+    public function getNameCanonical()
+    {
+        return $this->nameCanonical;
+    }
+
+    /**
+     * Set gameday
+     *
+     * @param string $gameday
+     * @return Teams
+     */
+    public function setGameday($gameday)
+    {
+        $this->gameday = $gameday;
+    
+        return $this;
+    }
+
+    /**
+     * Get gameday
+     *
+     * @return string 
+     */
+    public function getGameday()
+    {
+        return $this->gameday;
+    }
+
+    /**
+     * Set gamehour
+     *
+     * @param string $gamehour
+     * @return Teams
+     */
+    public function setGamehour($gamehour)
+    {
+        $this->gamehour = $gamehour;
+    
+        return $this;
+    }
+
+    /**
+     * Get gamehour
+     *
+     * @return string 
+     */
+    public function getGamehour()
+    {
+        return $this->gamehour;
+    }
+
+    /**
+     * Set gameplace
+     *
+     * @param string $gameplace
+     * @return Teams
+     */
+    public function setGameplace($gameplace)
+    {
+        $this->gameplace = $gameplace;
+    
+        return $this;
+    }
+
+    /**
+     * Get gameplace
+     *
+     * @return string 
+     */
+    public function getGameplace()
+    {
+        return $this->gameplace;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     * @return Teams
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string 
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Teams
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Add leagues
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
+     * @return Teams
+     */
+    public function addLeague(\MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues)
+    {
+        $this->leagues[] = $leagues;
+    
+        return $this;
+    }
+
+    /**
+     * Remove leagues
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
+     */
+    public function removeLeague(\MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues)
+    {
+        $this->leagues->removeElement($leagues);
+    }
+
+    /**
+     * Get leagues
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLeagues()
+    {
+        return $this->leagues;
+    }
 }

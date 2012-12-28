@@ -532,4 +532,27 @@ class Leagues
     {
         return $this->user;
     }
+
+    /**
+     * Set return
+     *
+     * @param boolean $return
+     * @return Leagues
+     */
+    public function setReturn($return)
+    {
+        $this->return = $return;
+    
+        return $this;
+    }
+
+    /**
+     * Get return
+     *
+     * @return boolean 
+     */
+    public function getReturn()
+    {
+        return $this->return;
+    }
 }
