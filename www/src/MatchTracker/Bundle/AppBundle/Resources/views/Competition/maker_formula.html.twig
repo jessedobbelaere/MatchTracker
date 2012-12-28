@@ -3,117 +3,150 @@
 {% set active_page = "dashboard" %}
 
 {% block title %}
-Competitie Maker
+	Competitie Maker
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1>Competitie maker</h1>
-        <h4>Info - Sport - Formule - Locatie - Teams</h4>
-        <div class="row-fluid">
+	<h1>Nieuwe competitie: Formule</h1>
 
-            <div class="span3">
+	<div id="competition-steps">
+		<ol class="clearfix">
+			<li class="done">Info</li>
+			<li class="done">Sport</li>
+			<li class="active">Formule</li>
+			<li>Locatie</li>
+			<li>Teams</li>
+		</ol>
+		<span class="dottedLine"></span>
+	</div>
 
-                <div class="well sidebar-nav">
-                    <ul class="nav nav-list">
-                        <li class="nav-header">Formules</li>
-                        <li><a href="{{ path('competition_maker_formula', { 'formula': "klassement" }) }}">Klassement</a></li>
-                        <li><a href="{{ path('competition_maker_formula', { 'formula': "knockout" }) }}">Knock-out</a></li>
-                        <li><a href="{{ path('competition_maker_formula', { 'formula': "beide" }) }}">Klassement + Knock-out</a></li>
-                    </ul>
+	<div class="form-horizontal competitionMaker">
+		<div class="control-group">
+			<label class="control-label" for="">Formule</label>
 
-                </div><!--/.well -->
-            </div>
+			<div class="controls">
+				<a href="{{ path('competition_maker_formula', { 'formula': "klassement" }) }}" class="active">
+					<article class="competitionFormula">
+						{% if formula == 'klassement' %}<div class="ribbon animated fadeIn"><i class="icon-check"></i></div>{% endif %}
+						<img src="{{ asset('bundles/matchtrackerapp/img/icon-klassement.png') }}" alt="Klassement"/>
 
-            <div class="span8 content">
+						<h3>Klassement</h3>
+					</article>
+				</a>
 
-                {% if formula != null %}
+				<a href="{{ path('competition_maker_formula', { 'formula': "knockout" }) }}">
+					<article class="competitionFormula">
+						{% if formula == 'knockout' %}<div class="ribbon animated fadeIn"><i class="icon-check"></i></div>{% endif %}
+						<img src="{{ asset('bundles/matchtrackerapp/img/icon-KO.png') }}" alt="Klassement"/>
+						<h3>Knock-Out (KO)</h3>
+					</article>
+				</a>
 
-                <form  novalidate action="{{ path('competition_maker_formula', { 'formula': formula })  }}" method="post" {{ form_enctype(form) }} class="form-horizontal  competitionMaker" novalidate>
-                    {{ form_errors(form) }}
+				<a href="{{ path('competition_maker_formula', { 'formula': "beide" }) }}">
+					<article class="competitionFormula">
+						{% if formula == 'beide' %}<div class="ribbon animated fadeIn"><i class="icon-check"></i></div>{% endif %}
+						<img src="{{ asset('bundles/matchtrackerapp/img/icon-klassementKO.png') }}" alt="Klassement"/>
+						<h3>Klassement + KO</h3>
+					</article>
+				</a>
 
-                    <h4>
-                    {% if formula == 'klassement' %}
-                        Klassement
-                    {% elseif formula == 'knockout'  %}
-                        Knock-out
-                    {% elseif formula == 'beide'  %}
-                        Klassement + Knock-out
-                    {% endif %}
-                     info</h4>
+			</div>
+		</div>
+
+		<div class="row-fluid">
+
+			<div class="span8 content">
+
+				{% if formula != null %}
+
+					<form action="{{ path('competition_maker_formula', { 'formula': formula }) }}" method="post" {{ form_enctype(form) }} class="form-horizontal  competitionMaker" novalidate>
+						{{ form_errors(form) }}
+
+						{#<h4>#}
+							{#{% if formula == 'klassement' %}#}
+							{#Klassement#}
+							{#{% elseif formula == 'knockout' %}#}
+								{#Knock-out#}
+							{#{% elseif formula == 'beide' %}#}
+								{#Klassement + Knock-out#}
+							{#{% endif %}#}
+							{#info</h4>#}
 
 
-                    <div class="control-group">
-                        {{ form_label(form.numberOfTeams, null, { 'label_attr': {'class': 'control-label'} }) }}
-                        <div class="controls">
-                            {{ form_widget(form.numberOfTeams) }}
-                            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.numberOfTeams) }}</div>
-                        </div>
-                    </div>
+						<div class="control-group">
+							{{ form_label(form.numberOfTeams, null, { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls">
+								{{ form_widget(form.numberOfTeams) }}
+								<div class="error-tooltip animated fadeInRight">{{ form_errors(form.numberOfTeams) }}</div>
+							</div>
+						</div>
 
-                    <div class="control-group">
-                        {{ form_label(form.return, null, { 'label_attr': {'class': 'control-label'} }) }}
-                        <div class="controls">
-                            {{ form_widget(form.return) }}
-                            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.return) }}</div>
-                        </div>
-                    </div>
+						<div class="control-group">
+							{{ form_label(form.return, null, { 'label_attr': {'class': 'control-label'} }) }}
+							<div class="controls radioFloat">
+								{{ form_widget(form.return) }}
+								<div class="error-tooltip animated fadeInRight">{{ form_errors(form.return) }}</div>
+							</div>
+						</div>
 
-                    {% if form.numGroups is defined %}
-                    <div class="control-group">
-                        {{ form_label(form.numGroups, null, { 'label_attr': {'class': 'control-label'} }) }}
-                        <div class="controls">
-                            {{ form_widget(form.numGroups) }}
-                            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.numGroups) }}</div>
-                        </div>
-                    </div>
-                    {% endif %}
+						{% if form.numGroups is defined %}
+							<div class="control-group">
+								{{ form_label(form.numGroups, null, { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.numGroups) }}
+									<div class="error-tooltip animated fadeInRight">{{ form_errors(form.numGroups) }}</div>
+								</div>
+							</div>
+						{% endif %}
 
-                    {% if form.goingThrough is defined %}
-                        <div class="control-group">
-                            {{ form_label(form.goingThrough, null, { 'label_attr': {'class': 'control-label'} }) }}
-                            <div class="controls">
-                                {{ form_widget(form.goingThrough) }}
-                                <div class="error-tooltip animated fadeInRight">{{ form_errors(form.goingThrough) }}</div>
-                            </div>
-                        </div>
-                    {% endif %}
+						{% if form.goingThrough is defined %}
+							<div class="control-group">
+								{{ form_label(form.goingThrough, null, { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.goingThrough) }}
+									<div class="error-tooltip animated fadeInRight">{{ form_errors(form.goingThrough) }}</div>
+								</div>
+							</div>
+						{% endif %}
 
-                    {% if form.playersOnField is defined and form.playTime is defined %}
-                        <h4>Wedstrijd info</h4>
-                        <div class="control-group">
-                            {{ form_label(form.playersOnField, null, { 'label_attr': {'class': 'control-label'} }) }}
-                            <div class="controls">
-                                {{ form_widget(form.playersOnField) }}
-                                <div class="error-tooltip animated fadeInRight">{{ form_errors(form.playersOnField) }}</div>
-                            </div>
-                        </div>
+						{% if form.playersOnField is defined and form.playTime is defined %}
+							<h4>Wedstrijd info</h4>
+							<div class="control-group">
+								{{ form_label(form.playersOnField, null, { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.playersOnField) }}
+									<div class="error-tooltip animated fadeInRight">{{ form_errors(form.playersOnField) }}</div>
+								</div>
+							</div>
 
-                        <div class="control-group">
-                            {{ form_label(form.playTime, null, { 'label_attr': {'class': 'control-label'} }) }}
-                            <div class="controls">
-                                {{ form_widget(form.playTime) }}
-                                <div class="error-tooltip animated fadeInRight">{{ form_errors(form.playTime) }}</div>
-                            </div>
-                        </div>
-                    {% endif %}
+							<div class="control-group">
+								{{ form_label(form.playTime, null, { 'label_attr': {'class': 'control-label'} }) }}
+								<div class="controls">
+									{{ form_widget(form.playTime) }}
+									<div class="error-tooltip animated fadeInRight">{{ form_errors(form.playTime) }}</div>
+								</div>
+							</div>
+						{% endif %}
 
-                    {{ form_rest(form) }}
+						{{ form_rest(form) }}
 
-                    <div class="control-group spacer">
-                        <div class="controls">
-                            <a href="#" class="smallTxt">Ga terug</a>
-                            <input type="submit" value="Volgende stap" class="span2 button-green-mid"/>
-                        </div>
-                    </div>
-                </form>
+						<div class="control-group spacer">
+							<div class="controls">
+								<a href="#" class="smallTxt">Ga terug</a>
+								<input type="submit" value="Volgende stap" class="button-green-mid"/>
+							</div>
+						</div>
+					</form>
 
-                {% else %}
-                <p>Gelieve een formule te kiezen</p>
+				{% else %}
+					{#<p>Gelieve een formule te kiezen</p>#}
 
-                {% endif %}
-            </div><!--/row-->
+				{% endif %}
 
-        </div><!--/span-->
-    </div><!--/row-->
+			</div>
+		</div>
+
+
+	</div><!-- End form -->
+
 {% endblock %}

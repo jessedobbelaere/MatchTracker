@@ -7,62 +7,60 @@ Nieuwe competitie
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-	    <h1>Nieuwe competitie: Locatie</h1>
+    <h1>Nieuwe competitie: Locatie</h1>
 
-	    <div id="competition-steps">
-		    <ol class="clearfix">
-			    <li class="done">Info</li>
-			    <li class="done">Sport</li>
-			    <li class="done">Formule</li>
-			    <li class="active">Locatie</li>
-			    <li>Teams</li>
-		    </ol>
-		    <span class="dottedLine"></span>
-	    </div>
+    <div id="competition-steps">
+	    <ol class="clearfix">
+		    <li class="done">Info</li>
+		    <li class="done">Sport</li>
+		    <li class="done">Formule</li>
+		    <li class="active">Locatie</li>
+		    <li>Teams</li>
+	    </ol>
+	    <span class="dottedLine"></span>
+    </div>
 
-        <div class="row-fluid">
-            <form action="{{ path('competition_maker_location')  }}" method="post" {{ form_enctype(form) }} class="form-horizontal competitionMaker" novalidate>
-	            {{ form_errors(form) }}
+    <div class="row-fluid">
+        <form action="{{ path('competition_maker_location')  }}" method="post" {{ form_enctype(form) }} class="form-horizontal competitionMaker" novalidate>
+            {{ form_errors(form) }}
 
-	            <div class="control-group">
-		            {{ form_label(form.location, null, { 'label_attr': {'class': 'control-label'} }) }}
-		            <div class="controls">
-			            {{ form_widget(form.location) }}
-			            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.location) }}</div>
-		            </div>
+            <div class="control-group">
+	            {{ form_label(form.location, null, { 'label_attr': {'class': 'control-label'} }) }}
+	            <div class="controls">
+		            {{ form_widget(form.location) }}
+		            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.location) }}</div>
 	            </div>
+            </div>
 
-                <div id="location">
-                    <div class="control-group">
-                        {{ form_label(form.place, null, { 'label_attr': {'class': 'control-label'} }) }}
-                        <div class="controls">
-                            {{ form_widget(form.place) }}
-                            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.place) }}</div>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        {{ form_label(form.field, null, { 'label_attr': {'class': 'control-label'} }) }}
-                        <div class="controls">
-                            {{ form_widget(form.field, { 'attr': { 'value': '1'} }) }}
-                            <div class="error-tooltip animated fadeInRight">{{ form_errors(form.field) }}</div>
-                        </div>
+            <div id="location">
+                <div class="control-group">
+                    {{ form_label(form.place, null, { 'label_attr': {'class': 'control-label'} }) }}
+                    <div class="controls">
+                        {{ form_widget(form.place) }}
+                        <div class="error-tooltip animated fadeInRight">{{ form_errors(form.place) }}</div>
                     </div>
                 </div>
-	            {{ form_rest(form) }}
 
-	            <div class="control-group spacer">
-		            <div class="controls">
-			            <a href="#" class="smallTxt">Ga terug</a>
-			            <input type="submit" value="Volgende stap" class="span2 button-green-mid"/>
-		            </div>
+                <div class="control-group">
+                    {{ form_label(form.field, null, { 'label_attr': {'class': 'control-label'} }) }}
+                    <div class="controls">
+                        {{ form_widget(form.field, { 'attr': { 'value': '1'} }) }}
+                        <div class="error-tooltip animated fadeInRight">{{ form_errors(form.field) }}</div>
+                    </div>
+                </div>
+            </div>
+            {{ form_rest(form) }}
+
+            <div class="control-group spacer">
+	            <div class="controls">
+		            <a href="#" class="smallTxt">Ga terug</a>
+		            <input type="submit" value="Volgende stap" class="span2 button-green-mid"/>
 	            </div>
-            </form>
+            </div>
+        </form>
 
 
-        </div><!--/span-->
-    </div><!--/row-->
+    </div>
 {% endblock %}
 
 {% block javascripts %}

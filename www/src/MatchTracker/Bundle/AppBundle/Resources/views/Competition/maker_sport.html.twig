@@ -7,44 +7,41 @@ Competitie Maker
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1>Nieuwe competitie: Sport</h1>
+    <h1>Nieuwe competitie: Sport</h1>
 
-	    <div id="competition-steps">
-		    <ol class="clearfix">
-			    <li class="done">Info</li>
-			    <li class="active">Sport</li>
-			    <li>Formule</li>
-			    <li>Locatie</li>
-			    <li>Teams</li>
-		    </ol>
-		    <span class="dottedLine"></span>
-	    </div>
+    <div id="competition-steps">
+	    <ol class="clearfix">
+		    <li class="done">Info</li>
+		    <li class="active">Sport</li>
+		    <li>Formule</li>
+		    <li>Locatie</li>
+		    <li>Teams</li>
+	    </ol>
+	    <span class="dottedLine"></span>
+    </div>
 
-	    <div class="form-horizontal competitionMaker">
-			<div class="control-group">
-				<label class="control-label" for="">Sport</label>
-				<div class="controls">
+    <div class="form-horizontal competitionMaker">
+		<div class="control-group">
+			<label class="control-label" for="">Sport</label>
+			<div class="controls">
 
-					{%  for key, sportType in sportTypes %}
-					<article class="sportType">
-						<header class="clearfix">
-							<img src="{{ asset('bundles/matchtrackerapp/img/'~ key|lower|replace({' ':''}) ~ '.png') }}" alt="{{ key }}" />
-							<h1>{{ key }}</h1>
-						</header>
-						<ul>
-							{% for value in sportType %}
-							<li><a href="{{ path('competition_maker_sport', {'sport': key|lower|replace({' ':''}), 'type':value|lower|replace({' ':''})}) }}">{{ value }}</a></li>
-							{% endfor %}
-						</ul>
+				{%  for key, sportType in sportTypes %}
+				<article class="sportType">
+					<header class="clearfix">
+						<img src="{{ asset('bundles/matchtrackerapp/img/'~ key|lower|replace({' ':''}) ~ '.png') }}" alt="{{ key }}" />
+						<h1>{{ key }}</h1>
+					</header>
+					<ul>
+						{% for value in sportType %}
+						<li><a href="{{ path('competition_maker_sport', {'sport': key|lower|replace({' ':''}), 'type':value|lower|replace({' ':''})}) }}">{{ value }}</a></li>
+						{% endfor %}
+					</ul>
 
-					</article>
-					{% endfor %}
-				</div>
+				</article>
+				{% endfor %}
 			</div>
-		    
-	    </div>
+		</div>
 
-	</div>
+    </div>
 
 {% endblock %}
