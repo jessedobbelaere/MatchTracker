@@ -25,15 +25,15 @@ Nieuwe competitie
 			<label class="control-label" for="">Sport</label>
 			<div class="controls">
 
-				{%  for key, sportType in sportTypes %}
+				{%  for sport, sportType in sportTypes %}
 				<article class="sportType">
 					<header class="clearfix">
-						<img src="{{ asset('bundles/matchtrackerapp/img/'~ key|lower|replace({' ':''}) ~ '.png') }}" alt="{{ key }}" />
-						<h1>{{ key }}</h1>
+						<img src="{{ asset('bundles/matchtrackerapp/img/'~ sport|lower|replace({' ':''}) ~ '.png') }}" alt="{{ sport }}" />
+						<h1>{{ sport }}</h1>
 					</header>
 					<ul>
-						{% for value in sportType %}
-						<li><a href="{{ path('competition_maker_sport', {'type':value|lower|replace({' ':''})}) }}">{{ value }}</a></li>
+						{% for typeName, typeId in sportType %}
+						<li><a href="{{ path('competition_maker_sport', {'type':typeId}) }}">{{ typeName }}</a></li>
 						{% endfor %}
 					</ul>
 
