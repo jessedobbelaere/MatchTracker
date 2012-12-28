@@ -24,11 +24,7 @@ php app/console doctrine:mapping:convert xml ./src/MatchTracker/Bundle/AppBundle
 php app/console doctrine:mapping:import MatchTrackerAppBundle annotation --filter="$tableName"
 
 # Generate entity getters/setters
-<<<<<<< HEAD
 php app/console doctrine:generate:entities MatchTrackerAppBundle:$tableName --no-backup
-=======
-php app/console doctrine:generate:entities MatchTrackerAppBundle --no-backup
->>>>>>> 57d3a4354fa4a871c23f293b6d88d928d05a8c21
 
 echo ... Done!
 
