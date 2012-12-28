@@ -50,6 +50,20 @@ class Teams
     private $gameplace;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=20, nullable=true)
+     */
+    private $code;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=45, nullable=true)
+     */
+    private $email;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Leagues", mappedBy="teams")
@@ -74,162 +88,4 @@ class Teams
         $this->leagues = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Teams
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set gameday
-     *
-     * @param string $gameday
-     * @return Teams
-     */
-    public function setGameday($gameday)
-    {
-        $this->gameday = $gameday;
-    
-        return $this;
-    }
-
-    /**
-     * Get gameday
-     *
-     * @return string 
-     */
-    public function getGameday()
-    {
-        return $this->gameday;
-    }
-
-    /**
-     * Set gamehour
-     *
-     * @param string $gamehour
-     * @return Teams
-     */
-    public function setGamehour($gamehour)
-    {
-        $this->gamehour = $gamehour;
-    
-        return $this;
-    }
-
-    /**
-     * Get gamehour
-     *
-     * @return string 
-     */
-    public function getGamehour()
-    {
-        return $this->gamehour;
-    }
-
-    /**
-     * Set gameplace
-     *
-     * @param string $gameplace
-     * @return Teams
-     */
-    public function setGameplace($gameplace)
-    {
-        $this->gameplace = $gameplace;
-    
-        return $this;
-    }
-
-    /**
-     * Get gameplace
-     *
-     * @return string 
-     */
-    public function getGameplace()
-    {
-        return $this->gameplace;
-    }
-
-    /**
-     * Add leagues
-     *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
-     * @return Teams
-     */
-    public function addLeague(\MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues)
-    {
-        $this->leagues[] = $leagues;
-    
-        return $this;
-    }
-
-    /**
-     * Remove leagues
-     *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
-     */
-    public function removeLeague(\MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues)
-    {
-        $this->leagues->removeElement($leagues);
-    }
-
-    /**
-     * Get leagues
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getLeagues()
-    {
-        return $this->leagues;
-    }
-
-    /**
-     * Set users
-     *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Users $users
-     * @return Teams
-     */
-    public function setUsers(\MatchTracker\Bundle\AppBundle\Entity\Users $users = null)
-    {
-        $this->users = $users;
-    
-        return $this;
-    }
-
-    /**
-     * Get users
-     *
-     * @return \MatchTracker\Bundle\AppBundle\Entity\Users 
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
 }
