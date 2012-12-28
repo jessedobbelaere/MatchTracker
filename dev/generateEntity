@@ -2,7 +2,7 @@
 #
 # This script will generate a single entity in Symfony2
 #
-# @version	1.1
+# @version	1.2
 # @author	Jesse Dobbelaere <jesse@dobbelaere-ae.be>
 
 # Read table name
@@ -22,6 +22,9 @@ php app/console doctrine:mapping:convert xml ./src/MatchTracker/Bundle/AppBundle
 # Generate single entity
 #php ../www/app/console doctrine:mapping:import MatchTrackerAppBundle annotation --filter="$tableName"
 php app/console doctrine:mapping:import MatchTrackerAppBundle annotation --filter="$tableName"
+
+# Generate entity getters/setters
+php app/console doctrine:generate:entities MatchTrackerAppBundle:$tableName --no-backup
 
 echo ... Done!
 
