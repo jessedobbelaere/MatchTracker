@@ -24,14 +24,14 @@
                         </tr>
                     </thead>
                         <tbody>
-                        <tr>
                             {% for league in leagues %}
-                            <td>{{ league.name }}</td>
-                            <td>{{ league.sportTypes.sports.name }}</td>
-                            <td>{{ league.sportTypes.name }}</td>
-                            <td>{{ league.startdate|date('d-m-Y') }} - {{ league.enddate|date('d-m-Y') }}</td>
+                            <tr>
+	                            <td>{{ league.name }}</td>
+	                            <td>{{ league.sportTypes.sports.name }}</td>
+	                            <td>{{ league.sportTypes.name }}</td>
+	                            <td>{{ league.startdate|date('d-m-Y') }} - {{ league.enddate|date('d-m-Y') }}</td>
+                            </tr>
                             {% endfor %}
-                        </tr>
                     </tbody>
 
                 </table>

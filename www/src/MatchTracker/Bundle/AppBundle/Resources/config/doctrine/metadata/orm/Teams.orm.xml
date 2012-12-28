@@ -8,6 +8,8 @@
     <field name="gameday" type="string" column="gameday" length="45" nullable="true"/>
     <field name="gamehour" type="string" column="gamehour" length="45" nullable="true"/>
     <field name="gameplace" type="string" column="gameplace" length="255" nullable="true"/>
+    <field name="code" type="string" column="code" length="20" nullable="true"/>
+    <field name="email" type="string" column="email" length="45" nullable="true"/>
     <many-to-one field="users" target-entity="Users">
       <join-columns>
         <join-column name="users_id" referenced-column-name="id"/>
