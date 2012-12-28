@@ -60,6 +60,15 @@ class CompetitionMakerController extends Controller {
                  $form->get('enddate')->addError(new FormError('Eind datum moet na de start datum zijn'));
              }
 
+            // Check if name is valid
+            $league = $this->getDoctrine()
+                ->getRepository('MatchTrackerAppBundle:Leagues')
+                ->findOneByName($data["name"]);
+
+            if ($league !== null){
+                $form->get('name')->addError(new FormError('Naam is al in gebruik'));
+            }
+
             if ($form->isValid()) {
 
                 // New competition
@@ -98,9 +107,9 @@ class CompetitionMakerController extends Controller {
         }
 
         if ($type != null) {
-
+            // find sportType by id
             $sportType = ($this->getDoctrine()
-                ->getRepository('MatchTrackerAppBundle:SportTypes')->findOneByName($type));
+                ->getRepository('MatchTrackerAppBundle:SportTypes')->find($type));
             $competition->setSportTypes($sportType);
 
             $this->get('session')->set('competition', $competition);
@@ -115,7 +124,7 @@ class CompetitionMakerController extends Controller {
         // Create sports structure
         $sportTypesArray = array();
         foreach ($sportTypes as $sportType) {
-            $sportTypesArray[$sportType->getSports()->getName()][] = $sportType->getName();
+            $sportTypesArray[$sportType->getSports()->getName()][$sportType->getName()] = $sportType->getId();
         }
 
         return $this->render('MatchTrackerAppBundle:CompetitionMaker:sport.html.twig', array('sportTypes' => $sportTypesArray));
@@ -136,6 +145,11 @@ class CompetitionMakerController extends Controller {
             return $this->redirect($this->generateUrl('competition_maker'));
         }
 
+        // Redirect if sportType isn't set
+        if ($competition->getSportTypes() === null) {
+            return $this->redirect($this->generateUrl('competition_maker_sport'));
+        }
+
         // Form will not be created until a sport type is selected
         if ($formula !== 'null') {
 
@@ -146,11 +160,26 @@ class CompetitionMakerController extends Controller {
                 $form->bind($request);
                 $data = $form->getData();
 
+                // Check invalid combination
+                if ($formula === 'beide') {
+
+                    // No odd-numbered groups
+                    if ((double)((double)$data['numberOfTeams'] % (double)$data['numGroups']) != 0) {
+                        $form->get('numGroups')->addError(new FormError('Oneven aantal ploegen per groep'));
+                        $form->get('numberOfTeams')->addError(new FormError('Oneven aantal ploegen per groep'));
+                    }
+
+                    // More than 2 teams per group
+                    if ((double)((double)$data['numberOfTeams'] / (double)$data['numGroups']) <= 2) {
+                        $form->get('numGroups')->addError(new FormError('Te weinig ploegen per groep'));
+                        $form->get('numberOfTeams')->addError(new FormError('Te weinig ploegen per groep'));
+                    }
+                }
+
                 if ($form->isValid()) {
 
                     $competition->setNumberOfTeams($data['numberOfTeams']);
-                    $competition->setReturnMatch(($data['returnMatch'] ? '1': '0'));
-
+                    $competition->setReturnMatch(($data['returnMatch'] === 'true' ? 1 : 0));
 
                     // If players on field isn't set in sporttype use data from form
                     if ($competition->getSportTypes()->getPlayersOnField() != null) {
@@ -163,6 +192,9 @@ class CompetitionMakerController extends Controller {
                     if($formula == 'beide') {
                         $competition->setGroups($data['numGroups']);
                         $competition->setGoeson($data['goingThrough']);
+                    } else {
+                        $competition->setGroups(null);
+                        $competition->setGoeson(null);
                     }
 
                     $this->get('session')->set('competition', $competition);
@@ -216,6 +248,9 @@ class CompetitionMakerController extends Controller {
                 if ($data['location'] === 'one') {
                     $competition->setFields($data['field']);
                     $competition->setPlace($data['place']);
+                } else {
+                    $competition->setFields(null);
+                    $competition->setPlace(null);
                 }
 
                 $sportType = ($this->getDoctrine()
