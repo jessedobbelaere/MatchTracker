@@ -1,0 +1,27 @@
+#! /bin/bash
+#
+# This script will generate a single entity in Symfony2
+#
+# @version	1.1
+# @author	Jesse Dobbelaere <jesse@dobbelaere-ae.be>
+
+# Read table name
+read -p "Enter your database table name: " name
+echo Creating Symfony2 entity...
+
+cd ../www
+
+# Set first character to uppercase
+#tableName=`awk '{ print toupper(substr($0, 1, 1)) substr($0, 2) }' <<< "$name"`
+tableName="$(tr '[:lower:]' '[:upper:]' <<< ${name:0:1})${name:1}"
+
+# Generate metadata
+#php ../www/app/console doctrine:mapping:convert xml ../www/src/MatchTracker/Bundle/AppBundle/Resources/config/doctrine/metadata/orm --from-database --filter="$tableName" --force
+php app/console doctrine:mapping:convert xml ./src/MatchTracker/Bundle/AppBundle/Resources/config/doctrine/metadata/orm --from-database --filter="$tableName" --force
+
+# Generate single entity
+#php ../www/app/console doctrine:mapping:import MatchTrackerAppBundle annotation --filter="$tableName"
+php app/console doctrine:mapping:import MatchTrackerAppBundle annotation --filter="$tableName"
+
+echo ... Done!
+
