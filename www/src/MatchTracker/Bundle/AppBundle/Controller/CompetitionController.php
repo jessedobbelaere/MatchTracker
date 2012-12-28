@@ -39,7 +39,7 @@ class CompetitionController extends Controller {
     	
     	$league = $this->getDoctrine()
     	->getRepository('MatchTrackerAppBundle:Leagues')
-    	->find($name);
+    	->findOneByName($name);
     	
         return $this->render('MatchTrackerAppBundle:Competition:detail.html.twig', 
         		array('league' => $league));
