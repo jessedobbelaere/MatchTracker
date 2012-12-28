@@ -13,25 +13,23 @@ competition_show:
 
 competition_maker:
     pattern: /competities/nieuw
-    defaults: { _controller: MatchTrackerAppBundle:Competition:maker }
+    defaults: { _controller: MatchTrackerAppBundle:CompetitionMaker:index }
     requirements:
         _method:  GET|POST
 
 competition_maker_formula:
     pattern: /competities/nieuw/formule/{formula}
-    defaults: { _controller: MatchTrackerAppBundle:Competition:makerFormula, formula: null}
-    requirements:
-        _method:  GET|POST
-
-competition_maker_location:
-    pattern: /competities/nieuw/locatie
-    defaults: { _controller: MatchTrackerAppBundle:Competition:makerLocation}
+    defaults: { _controller: MatchTrackerAppBundle:CompetitionMaker:formula, formula: null}
     requirements:
         _method:  GET|POST
 
 competition_maker_sport:
-    pattern: /competities/nieuw/{sport}/{type}
-    defaults: { _controller: MatchTrackerAppBundle:Competition:makerSport, sport: null, type: null }
+    pattern: /competities/nieuw/sport/{type}
+    defaults: { _controller: MatchTrackerAppBundle:CompetitionMaker:sport, type: null }
+
+competition_maker_location:
+    pattern: /competities/nieuw/locatie
+    defaults: { _controller: MatchTrackerAppBundle:CompetitionMaker:location}
     requirements:
         _method:  GET|POST
 

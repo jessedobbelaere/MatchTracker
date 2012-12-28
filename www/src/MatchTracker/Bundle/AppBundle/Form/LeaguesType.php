@@ -31,7 +31,7 @@ class LeaguesType extends AbstractType {
         // form
         $builder
             ->add('numberOfTeams', 'choice', array('empty_value' => 'Kies aantal ploegen', 'label' => 'Aantal ploegen', 'choices' => $this->generateNumberOfTeams()))
-            ->add('return', 'choice', array('expanded' => true, 'choices' => array(true => 'ja', false => 'nee'), 'label' => 'Heen en terug'))
+            ->add('returnMatch', 'choice', array('expanded' => true, 'choices' => array(true => 'ja', false => 'nee'), 'label' => 'Heen en terug'))
         ;
 
         // if formula is classement with knockout
@@ -58,7 +58,7 @@ class LeaguesType extends AbstractType {
             'numberOfTeams' => array(
                 new NotBlank(array('message' => 'Gelieve het aantal ploegen aan te duiden')),
                 new Min(array('limit' => '0', 'message' => 'Gelieve een positief getal in te vullen'))),
-            'return' => array(
+            'returnMatch' => array(
                 new NotBlank(array('message' => 'Gelieve een keuze te maken'))
             )
         );

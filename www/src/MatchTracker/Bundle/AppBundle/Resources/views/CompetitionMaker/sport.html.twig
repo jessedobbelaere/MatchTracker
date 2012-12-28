@@ -3,7 +3,7 @@
 {% set active_page = "dashboard" %}
 
 {% block title %}
-Competitie Maker
+Nieuwe competitie
 {% endblock %}
 
 {% block body %}
@@ -33,7 +33,7 @@ Competitie Maker
 					</header>
 					<ul>
 						{% for value in sportType %}
-						<li><a href="{{ path('competition_maker_sport', {'sport': key|lower|replace({' ':''}), 'type':value|lower|replace({' ':''})}) }}">{{ value }}</a></li>
+						<li><a href="{{ path('competition_maker_sport', {'type':value|lower|replace({' ':''})}) }}">{{ value }}</a></li>
 						{% endfor %}
 					</ul>
 
