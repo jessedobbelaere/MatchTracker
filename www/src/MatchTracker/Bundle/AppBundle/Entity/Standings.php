@@ -24,45 +24,37 @@ class Standings
     /**
      * @var string
      *
-     * @ORM\Column(name="wins", type="string", length=45, nullable=true)
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
      */
-    private $wins;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="draws", type="string", length=45, nullable=true)
-     */
-    private $draws;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="losses", type="string", length=45, nullable=true)
-     */
-    private $losses;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="points", type="string", length=45, nullable=true)
-     */
-    private $points;
+    private $name;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Leagues", mappedBy="standingsstandings")
+     * @ORM\ManyToMany(targetEntity="Leagues", inversedBy="standingsstandings")
+     * @ORM\JoinTable(name="leagues_has_standings",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="standings_idstandings", referencedColumnName="idstandings")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="leagues_id", referencedColumnName="id")
+     *   }
+     * )
      */
     private $leagues;
 
     /**
-     * @var \Teams
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToOne(targetEntity="Teams")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="teams_id", referencedColumnName="id")
-     * })
+     * @ORM\ManyToMany(targetEntity="Teams", inversedBy="standings")
+     * @ORM\JoinTable(name="standings_has_teams",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="standings_id", referencedColumnName="idstandings")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="teams_id", referencedColumnName="id")
+     *   }
+     * )
      */
     private $teams;
 
@@ -72,6 +64,7 @@ class Standings
     public function __construct()
     {
         $this->leagues = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
 
@@ -86,95 +79,26 @@ class Standings
     }
 
     /**
-     * Set wins
+     * Set name
      *
-     * @param string $wins
+     * @param string $name
      * @return Standings
      */
-    public function setWins($wins)
+    public function setName($name)
     {
-        $this->wins = $wins;
+        $this->name = $name;
     
         return $this;
     }
 
     /**
-     * Get wins
+     * Get name
      *
      * @return string 
      */
-    public function getWins()
+    public function getName()
     {
-        return $this->wins;
-    }
-
-    /**
-     * Set draws
-     *
-     * @param string $draws
-     * @return Standings
-     */
-    public function setDraws($draws)
-    {
-        $this->draws = $draws;
-    
-        return $this;
-    }
-
-    /**
-     * Get draws
-     *
-     * @return string 
-     */
-    public function getDraws()
-    {
-        return $this->draws;
-    }
-
-    /**
-     * Set losses
-     *
-     * @param string $losses
-     * @return Standings
-     */
-    public function setLosses($losses)
-    {
-        $this->losses = $losses;
-    
-        return $this;
-    }
-
-    /**
-     * Get losses
-     *
-     * @return string 
-     */
-    public function getLosses()
-    {
-        return $this->losses;
-    }
-
-    /**
-     * Set points
-     *
-     * @param string $points
-     * @return Standings
-     */
-    public function setPoints($points)
-    {
-        $this->points = $points;
-    
-        return $this;
-    }
-
-    /**
-     * Get points
-     *
-     * @return string 
-     */
-    public function getPoints()
-    {
-        return $this->points;
+        return $this->name;
     }
 
     /**
@@ -211,22 +135,32 @@ class Standings
     }
 
     /**
-     * Set teams
+     * Add teams
      *
      * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $teams
      * @return Standings
      */
-    public function setTeams(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams = null)
+    public function addTeam(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams)
     {
-        $this->teams = $teams;
+        $this->teams[] = $teams;
     
         return $this;
     }
 
     /**
+     * Remove teams
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $teams
+     */
+    public function removeTeam(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams)
+    {
+        $this->teams->removeElement($teams);
+    }
+
+    /**
      * Get teams
      *
-     * @return \MatchTracker\Bundle\AppBundle\Entity\Teams 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getTeams()
     {

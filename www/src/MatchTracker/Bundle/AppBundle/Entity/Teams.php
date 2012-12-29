@@ -83,6 +83,31 @@ class Teams
      * @ORM\ManyToMany(targetEntity="Standings", mappedBy="teams")
      */
     private $standings;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Players", inversedBy="teams")
+     * @ORM\JoinTable(name="teams_has_players",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="teams_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="players_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $players;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->leagues = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->standings = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->players = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     
 
     /**
@@ -322,25 +347,36 @@ class Teams
         return $this->standings;
     }
 
+    /**
+     * Add players
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Players $players
+     * @return Teams
+     */
+    public function addPlayer(\MatchTracker\Bundle\AppBundle\Entity\Players $players)
+    {
+        $this->players[] = $players;
+    
+        return $this;
+    }
 
-	/**
-	 * Constructor
-	 */
-	public function __construct($name = null)
-	{
-		$this->leagues = new \Doctrine\Common\Collections\ArrayCollection();
-		$this->standings = new \Doctrine\Common\Collections\ArrayCollection();
+    /**
+     * Remove players
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Players $players
+     */
+    public function removePlayer(\MatchTracker\Bundle\AppBundle\Entity\Players $players)
+    {
+        $this->players->removeElement($players);
+    }
 
-		$this->code = substr(md5(uniqid(rand(), true)), 0, 20);
-		if($name != null) {
-			$this->nameCanonical = \MatchTracker\Bundle\AppBundle\Utils\Utils::canonicalize($name);
-		}
-	}
-
-	/**
-	 * Generate new canonical name
-	 */
-	public function generateNameCanonical() {
-		$this->nameCanonical = \MatchTracker\Bundle\AppBundle\Utils\Utils::canonicalize($this->name);
-	}
+    /**
+     * Get players
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPlayers()
+    {
+        return $this->players;
+    }
 }

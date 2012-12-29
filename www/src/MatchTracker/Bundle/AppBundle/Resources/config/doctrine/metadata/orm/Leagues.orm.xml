@@ -15,14 +15,14 @@
     <field name="returnMatch" type="boolean" column="return_match" nullable="true"/>
     <field name="groups" type="integer" column="groups" nullable="true"/>
     <field name="goeson" type="integer" column="goesOn" nullable="true"/>
-    <many-to-one field="user" target-entity="Users">
-      <join-columns>
-        <join-column name="user_id" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="sportTypes" target-entity="SportTypes">
       <join-columns>
         <join-column name="sport_types_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="user" target-entity="Users">
+      <join-columns>
+        <join-column name="user_id" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
     <many-to-many field="teams" target-entity="Teams" inversed-by="leagues">
@@ -35,15 +35,6 @@
         </inverse-join-columns>
       </join-table>
     </many-to-many>
-    <many-to-many field="standingsstandings" target-entity="Standings" inversed-by="leagues">
-      <join-table name="leagues_has_standings">
-        <join-columns>
-          <join-column name="leagues_id" referenced-column-name="id"/>
-        </join-columns>
-        <inverse-join-columns>
-          <join-column name="standings_idstandings" referenced-column-name="idstandings"/>
-        </inverse-join-columns>
-      </join-table>
-    </many-to-many>
+    <many-to-many field="standingsstandings" target-entity="Standings" mapped-by="leagues"/>
   </entity>
 </doctrine-mapping>

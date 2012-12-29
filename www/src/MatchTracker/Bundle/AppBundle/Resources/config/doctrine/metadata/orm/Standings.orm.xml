@@ -4,15 +4,26 @@
     <id name="idstandings" type="integer" column="idstandings">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="wins" type="string" column="wins" length="45" nullable="true"/>
-    <field name="draws" type="string" column="draws" length="45" nullable="true"/>
-    <field name="losses" type="string" column="losses" length="45" nullable="true"/>
-    <field name="points" type="string" column="points" length="45" nullable="true"/>
-    <many-to-one field="teams" target-entity="Teams">
-      <join-columns>
-        <join-column name="teams_id" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-many field="leagues" target-entity="Leagues" mapped-by="standingsstandings"/>
+    <field name="name" type="string" column="name" length="50" nullable="false"/>
+    <many-to-many field="teams" target-entity="Teams" inversed-by="standings">
+      <join-table name="standings_has_teams">
+        <join-columns>
+          <join-column name="standings_id" referenced-column-name="idstandings"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="teams_id" referenced-column-name="id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="leagues" target-entity="Leagues" inversed-by="standingsstandings">
+      <join-table name="leagues_has_standings">
+        <join-columns>
+          <join-column name="standings_idstandings" referenced-column-name="idstandings"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="leagues_id" referenced-column-name="id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

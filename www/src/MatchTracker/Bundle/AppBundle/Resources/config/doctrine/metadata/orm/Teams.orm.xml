@@ -11,6 +11,16 @@
     <field name="gameplace" type="string" column="gameplace" length="255" nullable="true"/>
     <field name="email" type="string" column="email" length="70" nullable="true"/>
     <field name="code" type="string" column="code" length="45" nullable="true"/>
+    <many-to-many field="players" target-entity="Players" inversed-by="teams">
+      <join-table name="teams_has_players">
+        <join-columns>
+          <join-column name="teams_id" referenced-column-name="id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="players_id" referenced-column-name="id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
     <many-to-many field="standings" target-entity="Standings" mapped-by="teams"/>
     <many-to-many field="leagues" target-entity="Leagues" mapped-by="teams"/>
   </entity>
