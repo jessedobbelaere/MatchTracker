@@ -31,7 +31,7 @@ class Teams
     /**
      * @var string
      *
-     * @ORM\Column(name="name_canonical", type="string", length=100, nullable=false)
+     * @ORM\Column(name="name_canonical", type="string", length=100, nullable=true)
      */
     private $nameCanonical;
 
@@ -59,16 +59,16 @@ class Teams
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=20, nullable=true)
+     * @ORM\Column(name="email", type="string", length=70, nullable=true)
      */
-    private $code;
+    private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=45, nullable=true)
+     * @ORM\Column(name="code", type="string", length=45, nullable=true)
      */
-    private $email;
+    private $code;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -78,12 +78,11 @@ class Teams
     private $leagues;
 
     /**
-     * Constructor
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Standings", mappedBy="teams")
      */
-    public function __construct()
-    {
-        $this->leagues = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $standings;
     
 
     /**
@@ -212,29 +211,6 @@ class Teams
     }
 
     /**
-     * Set code
-     *
-     * @param string $code
-     * @return Teams
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
-    
-        return $this;
-    }
-
-    /**
-     * Get code
-     *
-     * @return string 
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
-
-    /**
      * Set email
      *
      * @param string $email
@@ -255,6 +231,29 @@ class Teams
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     * @return Teams
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string 
+     */
+    public function getCode()
+    {
+        return $this->code;
     }
 
     /**
@@ -289,4 +288,59 @@ class Teams
     {
         return $this->leagues;
     }
+
+    /**
+     * Add standings
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standings
+     * @return Teams
+     */
+    public function addStanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standings)
+    {
+        $this->standings[] = $standings;
+    
+        return $this;
+    }
+
+    /**
+     * Remove standings
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standings
+     */
+    public function removeStanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standings)
+    {
+        $this->standings->removeElement($standings);
+    }
+
+    /**
+     * Get standings
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStandings()
+    {
+        return $this->standings;
+    }
+
+
+	/**
+	 * Constructor
+	 */
+	public function __construct($name = null)
+	{
+		$this->leagues = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->standings = new \Doctrine\Common\Collections\ArrayCollection();
+
+		$this->code = substr(md5(uniqid(rand(), true)), 0, 20);
+		if($name != null) {
+			$this->nameCanonical = \MatchTracker\Bundle\AppBundle\Utils\Utils::canonicalize($name);
+		}
+	}
+
+	/**
+	 * Generate new canonical name
+	 */
+	public function generateNameCanonical() {
+		$this->nameCanonical = \MatchTracker\Bundle\AppBundle\Utils\Utils::canonicalize($this->name);
+	}
 }
