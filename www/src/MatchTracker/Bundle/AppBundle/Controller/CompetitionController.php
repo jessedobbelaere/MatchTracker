@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Session;
 use MatchTracker\Bundle\AppBundle\Entity\Leagues;
 use MatchTracker\Bundle\AppBundle\Form\LeaguesType;
 use Symfony\Component\Form\FormError;
+use MatchTracker\Bundle\AppBundle\Entity\Standings;
 
 /**
  * Competition Controller
@@ -25,7 +26,7 @@ class CompetitionController extends Controller {
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction($sport) {
-		return $this->render('MatchTrackerAppBundle:Competition:index.html.twig', 
+		return $this->render('MatchTrackerAppBundle:Competition:index.html.twig',
 				array('sport' => $sport));
 	}
 
@@ -36,13 +37,20 @@ class CompetitionController extends Controller {
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function detailAction($name) {
-    	
+
     	$league = $this->getDoctrine()
-    	->getRepository('MatchTrackerAppBundle:Leagues')
-    	->findOneByName($name);
-    	
-        return $this->render('MatchTrackerAppBundle:Competition:detail.html.twig', 
-        		array('league' => $league));
+    	    ->getRepository('MatchTrackerAppBundle:Leagues')
+    	    ->findOneByName($name);
+
+
+
+        $standing = $league->getStandingsstandings();
+
+
+
+        return $this->render('MatchTrackerAppBundle:Competition:detail.html.twig',
+        		array('league' => $league,
+                    'standings' => $standing));
     }
 
 }

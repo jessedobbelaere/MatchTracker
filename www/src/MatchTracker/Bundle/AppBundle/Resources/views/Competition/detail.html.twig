@@ -20,7 +20,27 @@
     </article>
 
     <article id="standing">
+        {% for standing in standings %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Team</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for team in standing %}
+                        <tr>
+                            <td>{{ team.wins }}</td>
 
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
     </article>
 
     <article id="coming_matches">
