@@ -553,7 +553,7 @@ input:focus:required:invalid:focus, textarea:focus:required:invalid:focus, selec
 }
 span.dottedLine {
 	border-bottom: 1px dotted #A5B6B9;
-	width: 750px;
+	width: 560px;
 	display: block;
 	z-index: -5;
 	position: absolute;

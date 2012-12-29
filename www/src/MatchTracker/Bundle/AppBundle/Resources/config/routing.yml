@@ -55,7 +55,7 @@ team:
     pattern: /team/{nameCanonical}
     defaults: { _controller: MatchTrackerAppBundle:Team:index }
 
-teamEdit:
+team_edit:
     pattern: /team/{nameCanonical}/edit/{code}
     defaults: { _controller: MatchTrackerAppBundle:Team:edit }
 
