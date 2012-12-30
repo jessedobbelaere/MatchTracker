@@ -11,13 +11,15 @@
     <ul id="competitionInfo">
         <li>Type: {{ league.sportTypes.name }}</li>
         <li>Beheerder: {{ league.user.firstname }}</li>
-
+        <li>Startdatum: {{ league.getStartdate |date("m/d/Y") }}</li>
+        <li>Einddatum: {{ league.getEnddate |date("m/d/Y") }}</li>
+        {% if league.place %}
+            <li>Plaats: {{ league.place }}</li>
+        {% endif %}
     </ul>
 
-    <article id="description">
-        <h1>Omschrijving:</h1>
-        {{ league.description }}
-    </article>
+    <h3>Omschrijving:</h3>
+    {{ league.description }}
 
     <article id="standing">
 
