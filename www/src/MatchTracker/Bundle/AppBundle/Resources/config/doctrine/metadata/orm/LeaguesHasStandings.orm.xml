@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="LeaguesHasStandings" table="leagues_has_standings">
+    <id name="standingsId" type="integer" column="standings_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <one-to-one field="leagues" target-entity="Leagues">
+      <join-columns>
+        <join-column name="leagues_id" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

@@ -24,17 +24,24 @@ class Standings
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     * @ORM\Column(name="name", type="string", length=50, nullable=true)
      */
     private $name;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="statistics_id", type="integer", nullable=true)
+     */
+    private $statisticsId;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Leagues", inversedBy="standingsstandings")
+     * @ORM\ManyToMany(targetEntity="Leagues", inversedBy="standings")
      * @ORM\JoinTable(name="leagues_has_standings",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="standings_idstandings", referencedColumnName="idstandings")
+     *     @ORM\JoinColumn(name="standings_id", referencedColumnName="idstandings")
      *   },
      *   inverseJoinColumns={
      *     @ORM\JoinColumn(name="leagues_id", referencedColumnName="id")
@@ -46,17 +53,17 @@ class Standings
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Teams", inversedBy="standings")
-     * @ORM\JoinTable(name="standings_has_teams",
+     * @ORM\ManyToMany(targetEntity="Statistics", inversedBy="standings")
+     * @ORM\JoinTable(name="standings_has_statistics",
      *   joinColumns={
      *     @ORM\JoinColumn(name="standings_id", referencedColumnName="idstandings")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="teams_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="statistics_id", referencedColumnName="idstatistics")
      *   }
      * )
      */
-    private $teams;
+    private $statistics;
 
     /**
      * Constructor
@@ -64,7 +71,7 @@ class Standings
     public function __construct()
     {
         $this->leagues = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->statistics = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
 
@@ -102,6 +109,29 @@ class Standings
     }
 
     /**
+     * Set statisticsId
+     *
+     * @param integer $statisticsId
+     * @return Standings
+     */
+    public function setStatisticsId($statisticsId)
+    {
+        $this->statisticsId = $statisticsId;
+    
+        return $this;
+    }
+
+    /**
+     * Get statisticsId
+     *
+     * @return integer 
+     */
+    public function getStatisticsId()
+    {
+        return $this->statisticsId;
+    }
+
+    /**
      * Add leagues
      *
      * @param \MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
@@ -135,35 +165,66 @@ class Standings
     }
 
     /**
-     * Add teams
+     * Add statistics
      *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $teams
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Statistics $statistics
      * @return Standings
      */
-    public function addTeam(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams)
+    public function addStatistic(\MatchTracker\Bundle\AppBundle\Entity\Statistics $statistics)
     {
-        $this->teams[] = $teams;
+        $this->statistics[] = $statistics;
     
         return $this;
     }
 
     /**
-     * Remove teams
+     * Remove statistics
      *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $teams
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Statistics $statistics
      */
-    public function removeTeam(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams)
+    public function removeStatistic(\MatchTracker\Bundle\AppBundle\Entity\Statistics $statistics)
     {
-        $this->teams->removeElement($teams);
+        $this->statistics->removeElement($statistics);
     }
 
     /**
-     * Get teams
+     * Get statistics
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getTeams()
+    public function getStatistics()
     {
-        return $this->teams;
+        return $this->statistics;
     }
+
+
+    /**
+     * Get the sorted statistics
+     *
+     * @return array
+     */
+    public function getSortedStatistics(){
+
+        $statistics = $this->statistics->toArray();;
+        usort($statistics,array($this,'cmpPositions'));
+
+        return $statistics;
+
+    }
+
+
+    /**
+     * Compare the positions
+     *
+     * @param $a
+     * @param $b
+     * @return int
+     */
+    function cmpPositions($a, $b)
+    {
+        if ($a->getPosition() > $b->getPosition()) return 1;
+        if ($a->getPosition() < $b->getPosition()) return -1;
+        return 0;
+    }
+
 }

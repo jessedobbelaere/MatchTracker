@@ -69,4 +69,129 @@ class MatchesHasMatchEvents
     private $teams;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set time
+     *
+     * @param \DateTime $time
+     * @return MatchesHasMatchEvents
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+    
+        return $this;
+    }
+
+    /**
+     * Get time
+     *
+     * @return \DateTime 
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * Set matches
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Matches $matches
+     * @return MatchesHasMatchEvents
+     */
+    public function setMatches(\MatchTracker\Bundle\AppBundle\Entity\Matches $matches = null)
+    {
+        $this->matches = $matches;
+    
+        return $this;
+    }
+
+    /**
+     * Get matches
+     *
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Matches 
+     */
+    public function getMatches()
+    {
+        return $this->matches;
+    }
+
+    /**
+     * Set matchEvents
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\MatchEvents $matchEvents
+     * @return MatchesHasMatchEvents
+     */
+    public function setMatchEvents(\MatchTracker\Bundle\AppBundle\Entity\MatchEvents $matchEvents = null)
+    {
+        $this->matchEvents = $matchEvents;
+    
+        return $this;
+    }
+
+    /**
+     * Get matchEvents
+     *
+     * @return \MatchTracker\Bundle\AppBundle\Entity\MatchEvents 
+     */
+    public function getMatchEvents()
+    {
+        return $this->matchEvents;
+    }
+
+    /**
+     * Set players
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Players $players
+     * @return MatchesHasMatchEvents
+     */
+    public function setPlayers(\MatchTracker\Bundle\AppBundle\Entity\Players $players = null)
+    {
+        $this->players = $players;
+    
+        return $this;
+    }
+
+    /**
+     * Get players
+     *
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Players 
+     */
+    public function getPlayers()
+    {
+        return $this->players;
+    }
+
+    /**
+     * Set teams
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $teams
+     * @return MatchesHasMatchEvents
+     */
+    public function setTeams(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams = null)
+    {
+        $this->teams = $teams;
+    
+        return $this;
+    }
+
+    /**
+     * Get teams
+     *
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Teams 
+     */
+    public function getTeams()
+    {
+        return $this->teams;
+    }
 }

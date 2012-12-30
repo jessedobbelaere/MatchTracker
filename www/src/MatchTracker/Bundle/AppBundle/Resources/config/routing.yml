@@ -6,7 +6,7 @@ homepage:
         _method:  GET
 
 competition_show:
-    pattern: /competities/detail/{name}
+    pattern: /competities/detail/{nameCanonical}
     defaults: { _controller: MatchTrackerAppBundle:Competition:detail }
     requirements:
         _method:  GET

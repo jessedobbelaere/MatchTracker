@@ -29,11 +29,11 @@ class Leagues
     private $name;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="fields", type="integer", nullable=true)
+     * @ORM\Column(name="name_canonical", type="string", length=45, nullable=true)
      */
-    private $fields;
+    private $nameCanonical;
 
     /**
      * @var string
@@ -71,6 +71,13 @@ class Leagues
     private $playersOnField;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="fields", type="integer", nullable=true)
+     */
+    private $fields;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="place", type="string", length=255, nullable=true)
@@ -103,7 +110,7 @@ class Leagues
      *
      * @ORM\ManyToMany(targetEntity="Standings", mappedBy="leagues")
      */
-    private $standingsstandings;
+    private $standings;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -121,16 +128,6 @@ class Leagues
     private $teams;
 
     /**
-     * @var \Users
-     *
-     * @ORM\ManyToOne(targetEntity="Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * })
-     */
-    private $user;
-
-    /**
      * @var \SportTypes
      *
      * @ORM\ManyToOne(targetEntity="SportTypes")
@@ -141,12 +138,27 @@ class Leagues
     private $sportTypes;
 
     /**
+     * @var \Users
+     *
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+    /**
      * Constructor
      */
-    public function __construct()
+    public function __construct($name = null)
     {
-        $this->standingsstandings = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->standings = new \Doctrine\Common\Collections\ArrayCollection();
         $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
+
+        if($name != null) {
+            $this->nameCanonical = \MatchTracker\Bundle\AppBundle\Utils\Utils::canonicalize($name);
+        }
+
     }
     
 
@@ -184,26 +196,26 @@ class Leagues
     }
 
     /**
-     * Set fields
+     * Set nameCanonical
      *
-     * @param integer $fields
+     * @param string $nameCanonical
      * @return Leagues
      */
-    public function setFields($fields)
+    public function setNameCanonical($nameCanonical)
     {
-        $this->fields = $fields;
+        $this->nameCanonical = $nameCanonical;
     
         return $this;
     }
 
     /**
-     * Get fields
+     * Get nameCanonical
      *
-     * @return integer 
+     * @return string 
      */
-    public function getFields()
+    public function getNameCanonical()
     {
-        return $this->fields;
+        return $this->nameCanonical;
     }
 
     /**
@@ -322,6 +334,29 @@ class Leagues
     }
 
     /**
+     * Set fields
+     *
+     * @param integer $fields
+     * @return Leagues
+     */
+    public function setFields($fields)
+    {
+        $this->fields = $fields;
+    
+        return $this;
+    }
+
+    /**
+     * Get fields
+     *
+     * @return integer 
+     */
+    public function getFields()
+    {
+        return $this->fields;
+    }
+
+    /**
      * Set place
      *
      * @param string $place
@@ -414,36 +449,36 @@ class Leagues
     }
 
     /**
-     * Add standingsstandings
+     * Add standings
      *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standingsstandings
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standings
      * @return Leagues
      */
-    public function addStandingsstanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standingsstandings)
+    public function addStanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standings)
     {
-        $this->standingsstandings[] = $standingsstandings;
+        $this->standings[] = $standings;
     
         return $this;
     }
 
     /**
-     * Remove standingsstandings
+     * Remove standings
      *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standingsstandings
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standings
      */
-    public function removeStandingsstanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standingsstandings)
+    public function removeStanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standings)
     {
-        $this->standingsstandings->removeElement($standingsstandings);
+        $this->standings->removeElement($standings);
     }
 
     /**
-     * Get standingsstandings
+     * Get standings
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getStandingsstandings()
+    public function getStandings()
     {
-        return $this->standingsstandings;
+        return $this->standings;
     }
 
     /**
@@ -480,29 +515,6 @@ class Leagues
     }
 
     /**
-     * Set user
-     *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Users $user
-     * @return Leagues
-     */
-    public function setUser(\MatchTracker\Bundle\AppBundle\Entity\Users $user = null)
-    {
-        $this->user = $user;
-    
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \MatchTracker\Bundle\AppBundle\Entity\Users 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
      * Set sportTypes
      *
      * @param \MatchTracker\Bundle\AppBundle\Entity\SportTypes $sportTypes
@@ -523,5 +535,28 @@ class Leagues
     public function getSportTypes()
     {
         return $this->sportTypes;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Users $user
+     * @return Leagues
+     */
+    public function setUser(\MatchTracker\Bundle\AppBundle\Entity\Users $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Users 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
