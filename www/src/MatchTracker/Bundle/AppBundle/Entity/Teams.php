@@ -87,7 +87,7 @@ class Teams
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Players", inversedBy="teams")
+     * @ORM\ManyToMany(targetEntity="Players", inversedBy="teams", cascade={"persist"})
      * @ORM\JoinTable(name="teams_has_players",
      *   joinColumns={
      *     @ORM\JoinColumn(name="teams_id", referencedColumnName="id")
@@ -98,16 +98,6 @@ class Teams
      * )
      */
     private $players;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->leagues = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->standings = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->players = new \Doctrine\Common\Collections\ArrayCollection();
-    }
     
 
     /**
@@ -379,4 +369,26 @@ class Teams
     {
         return $this->players;
     }
+
+	/**
+	 * Constructor
+	 */
+	public function __construct($name = null)
+	{
+		$this->leagues = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->standings = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->players = new \Doctrine\Common\Collections\ArrayCollection();
+
+		$this->code = substr(md5(uniqid(rand(), true)), 0, 20);
+		if($name != null) {
+			$this->nameCanonical = \MatchTracker\Bundle\AppBundle\Utils\Utils::canonicalize($name);
+		}
+	}
+
+	/**
+	 * Generate new canonical name
+	 */
+	public function generateNameCanonical() {
+		$this->nameCanonical = \MatchTracker\Bundle\AppBundle\Utils\Utils::canonicalize($this->name);
+	}
 }

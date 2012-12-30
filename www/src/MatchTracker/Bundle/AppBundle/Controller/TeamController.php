@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use MatchTracker\Bundle\AppBundle\Form\PlayersType;
+
 class TeamController extends Controller {
 
 	/**
@@ -39,21 +41,33 @@ class TeamController extends Controller {
 			return $this->redirect($this->generateUrl('homepage'));
 		}
 
-		// Create form with constraints
-		$form = $this->createFormBuilder(null)
-			->add('name', 'text', array('label' => 'Naam', 'label_attr' => array('class' => 'control-label'), 'attr' => array('placeholder' => 'Naam'), 'data' => $team->getName()))
+		// Create form with team data
+		$form = $this->createFormBuilder($team)
+			->add('name', 'text', array(
+				'label' => 'Naam',
+				'label_attr' => array('class' => 'control-label'),
+				'attr' => array('placeholder' => 'Naam')
+			))
+			->add('players', 'collection', array(
+				'label' => 'Spelers',
+				'label_attr' => array('class' => 'control-label'),
+				'type' => new PlayersType(),
+				'allow_add' => true,
+				'allow_delete' => true,
+                'by_reference' => false
+			))
 			->getForm();
 
+		// Form is submitted
 		if ($request->isMethod('POST')) {
 			$form->bind($request);
-			$data = $form->getData();
 
-			// Form is valid?
+			// Form is valid? Start your engines!
 			if ($form->isValid()) {
-				$team->setName($data['name']);
+				// Generate a new canonical name...
 				$team->generateNameCanonical();
 
-				// Save changes
+				// Save changes to db
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($team);
 				$em->flush();
