@@ -67,12 +67,21 @@ class CompetitionMakerController extends Controller {
 
             if ($league !== null){
                 $form->get('name')->addError(new FormError('Naam is al in gebruik'));
+            } else {
+                // Check if canonical of name is valid
+                $league = $this->getDoctrine()
+                    ->getRepository('MatchTrackerAppBundle:Leagues')
+                    ->findOneBy(array('nameCanonical' => \MatchTracker\Bundle\AppBundle\Utils\Utils::canonicalize($data["name"])));
+
+                if ($league !== null){
+                    $form->get('name')->addError(new FormError('Naam is al in gebruik'));
+                }
             }
 
             if ($form->isValid()) {
 
                 // New competition
-                $competition = new Leagues();
+                $competition = new Leagues($data["name"]);
                 $competition->setName($data["name"]);
                 $competition->setDescription($data["description"]);
                 $competition->setStartdate($data['startdate']);
@@ -162,17 +171,18 @@ class CompetitionMakerController extends Controller {
 
                 // Check invalid combination
                 if ($formula === 'beide') {
-
                     // No odd-numbered groups
-                    if ((double)((double)$data['numberOfTeams'] % (double)$data['numGroups']) != 0) {
-                        $form->get('numGroups')->addError(new FormError('Oneven aantal ploegen per groep'));
-                        $form->get('numberOfTeams')->addError(new FormError('Oneven aantal ploegen per groep'));
-                    }
+                    if ((int)$data['numGroups'] !== 0 && (int)$data['numberOfTeams'] !== 0) {
+                        if ((double)((double)$data['numberOfTeams'] % (double)$data['numGroups']) != 0) {
+                            $form->get('numGroups')->addError(new FormError('Oneven aantal ploegen per groep'));
+                            $form->get('numberOfTeams')->addError(new FormError('Oneven aantal ploegen per groep'));
+                        }
 
-                    // More than 2 teams per group
-                    if ((double)((double)$data['numberOfTeams'] / (double)$data['numGroups']) <= 2) {
-                        $form->get('numGroups')->addError(new FormError('Te weinig ploegen per groep'));
-                        $form->get('numberOfTeams')->addError(new FormError('Te weinig ploegen per groep'));
+                        // More than 2 teams per group
+                        if ((double)((double)$data['numberOfTeams'] / (double)$data['numGroups']) <= 2) {
+                            $form->get('numGroups')->addError(new FormError('Te weinig ploegen per groep'));
+                            $form->get('numberOfTeams')->addError(new FormError('Te weinig ploegen per groep'));
+                        }
                     }
                 }
 
