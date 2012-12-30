@@ -31,23 +31,7 @@
 				<ul class="players" data-prototype="{% filter escape %}{% include 'MatchTrackerAppBundle:Team:playerPrototype.html.twig' with {'player': form.players.vars.prototype} %}{% endfilter %}">
 					{% for player in form.players %}
 					<li>
-						<div class="input-prepend">
-							<span class="add-on"><i class="icon-user"></i></span>
-							{{ form_widget(player.name) }}
-							{{ form_errors(player.name) }}
-						</div>
-
-						<div class="input-prepend">
-							<span class="add-on"><i class="icon-calendar-1"></i></span>
-							{{ form_errors(player.age) }}
-							{{ form_widget(player.age, { 'attr': {'class': 'input-mini'} }) }}
-						</div>
-
-						<div class="input-prepend">
-							<span class="add-on"><i class="icon">#</i></span>
-							{{ form_errors(player.number) }}
-							{{ form_widget(player.number, { 'attr': {'class': 'input-small'} }) }}
-						</div>
+						{% include 'MatchTrackerAppBundle:Team:playerPrototype.html.twig' with {'player': player} %}
 					</li>
 					{% endfor %}
 				</ul>
@@ -71,7 +55,7 @@
 	var collectionHolder = $('ul.players');
 
 	// setup an "add a player" link
-	var $addPlayerLink = $('<a href="#" class="add-player-link icon-user-add">Voeg speler toe</a>');
+	var $addPlayerLink = $('<a href="#" class="btn btn-info icon-user-add">Voeg speler toe</a>');
 	var $newLinkLi = $('<li></li>').append($addPlayerLink);
 
 	jQuery(document).ready(function() {
