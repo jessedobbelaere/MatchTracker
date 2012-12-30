@@ -103,7 +103,7 @@ class Leagues
      *
      * @ORM\ManyToMany(targetEntity="Standings", mappedBy="leagues")
      */
-    private $standingsstandings;
+    private $standings;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -145,7 +145,7 @@ class Leagues
      */
     public function __construct()
     {
-        $this->standingsstandings = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->standings = new \Doctrine\Common\Collections\ArrayCollection();
         $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
@@ -414,36 +414,36 @@ class Leagues
     }
 
     /**
-     * Add standingsstandings
+     * Add standings
      *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standingsstandings
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standings
      * @return Leagues
      */
-    public function addStandingsstanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standingsstandings)
+    public function addStanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standings)
     {
-        $this->standingsstandings[] = $standingsstandings;
+        $this->standings[] = $standings;
     
         return $this;
     }
 
     /**
-     * Remove standingsstandings
+     * Remove standings
      *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standingsstandings
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standings
      */
-    public function removeStandingsstanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standingsstandings)
+    public function removeStanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standings)
     {
-        $this->standingsstandings->removeElement($standingsstandings);
+        $this->standings->removeElement($standings);
     }
 
     /**
-     * Get standingsstandings
+     * Get standings
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getStandingsstandings()
+    public function getStandings()
     {
-        return $this->standingsstandings;
+        return $this->standings;
     }
 
     /**

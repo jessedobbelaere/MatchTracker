@@ -46,4 +46,83 @@ class Players
     private $teams;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Players
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set age
+     *
+     * @param integer $age
+     * @return Players
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+    
+        return $this;
+    }
+
+    /**
+     * Get age
+     *
+     * @return integer 
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * Set teams
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $teams
+     * @return Players
+     */
+    public function setTeams(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams = null)
+    {
+        $this->teams = $teams;
+    
+        return $this;
+    }
+
+    /**
+     * Get teams
+     *
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Teams 
+     */
+    public function getTeams()
+    {
+        return $this->teams;
+    }
 }

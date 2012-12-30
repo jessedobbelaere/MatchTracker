@@ -20,22 +20,29 @@
     </article>
 
     <article id="standing">
+
         {% for standing in standings %}
+            <h2>{{ standing.name }}</h2>
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Team</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
+                        <th>W</th>
+                        <th>G</th>
+                        <th>V</th>
+                        <th>P</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for team in standing %}
+                    {% for statistic in standing.getSortedStatistics %}
                         <tr>
-                            <td>test</td>
-
-
+                            <td>{{ statistic.position }}</td>
+                            <td>{{ statistic.teams.getName }}</td>
+                            <td>{{ statistic.wins }}</td>
+                            <td>{{ statistic.draws }}</td>
+                            <td>{{ statistic.losses }}</td>
+                            <td>{{ statistic.points }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -43,8 +50,12 @@
         {% endfor %}
     </article>
 
-    <article id="coming_matches">
+    <article id="previousMatches">
+        <h3>Laatst gespeelde wedstrijden</h3>
+    </article>
 
+    <article id="nextMatches">
+        <h3>Volgende wedstrijden</h3>
     </article>
 
 

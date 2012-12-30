@@ -4,21 +4,22 @@
     <id name="idstandings" type="integer" column="idstandings">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="name" type="string" column="name" length="50" nullable="false"/>
-    <many-to-many field="teams" target-entity="Teams" inversed-by="standings">
-      <join-table name="standings_has_teams">
+    <field name="name" type="string" column="name" length="50" nullable="true"/>
+    <field name="statisticsId" type="integer" column="statistics_id" nullable="true"/>
+    <many-to-many field="statistics" target-entity="Statistics" inversed-by="standings">
+      <join-table name="standings_has_statistics">
         <join-columns>
           <join-column name="standings_id" referenced-column-name="idstandings"/>
         </join-columns>
         <inverse-join-columns>
-          <join-column name="teams_id" referenced-column-name="id"/>
+          <join-column name="statistics_id" referenced-column-name="idstatistics"/>
         </inverse-join-columns>
       </join-table>
     </many-to-many>
-    <many-to-many field="leagues" target-entity="Leagues" inversed-by="standingsstandings">
+    <many-to-many field="leagues" target-entity="Leagues" inversed-by="standings">
       <join-table name="leagues_has_standings">
         <join-columns>
-          <join-column name="standings_idstandings" referenced-column-name="idstandings"/>
+          <join-column name="standings_id" referenced-column-name="idstandings"/>
         </join-columns>
         <inverse-join-columns>
           <join-column name="leagues_id" referenced-column-name="id"/>

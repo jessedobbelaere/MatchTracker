@@ -35,6 +35,6 @@
         </inverse-join-columns>
       </join-table>
     </many-to-many>
-    <many-to-many field="standingsstandings" target-entity="Standings" mapped-by="leagues"/>
+    <many-to-many field="standings" target-entity="Standings" mapped-by="leagues"/>
   </entity>
 </doctrine-mapping>

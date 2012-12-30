@@ -66,4 +66,129 @@ class Matches
     private $leagues;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Matches
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set startTime
+     *
+     * @param \DateTime $startTime
+     * @return Matches
+     */
+    public function setStartTime($startTime)
+    {
+        $this->startTime = $startTime;
+    
+        return $this;
+    }
+
+    /**
+     * Get startTime
+     *
+     * @return \DateTime 
+     */
+    public function getStartTime()
+    {
+        return $this->startTime;
+    }
+
+    /**
+     * Set homeTeam
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $homeTeam
+     * @return Matches
+     */
+    public function setHomeTeam(\MatchTracker\Bundle\AppBundle\Entity\Teams $homeTeam = null)
+    {
+        $this->homeTeam = $homeTeam;
+    
+        return $this;
+    }
+
+    /**
+     * Get homeTeam
+     *
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Teams 
+     */
+    public function getHomeTeam()
+    {
+        return $this->homeTeam;
+    }
+
+    /**
+     * Set awayTeam
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $awayTeam
+     * @return Matches
+     */
+    public function setAwayTeam(\MatchTracker\Bundle\AppBundle\Entity\Teams $awayTeam = null)
+    {
+        $this->awayTeam = $awayTeam;
+    
+        return $this;
+    }
+
+    /**
+     * Get awayTeam
+     *
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Teams 
+     */
+    public function getAwayTeam()
+    {
+        return $this->awayTeam;
+    }
+
+    /**
+     * Set leagues
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
+     * @return Matches
+     */
+    public function setLeagues(\MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues = null)
+    {
+        $this->leagues = $leagues;
+    
+        return $this;
+    }
+
+    /**
+     * Get leagues
+     *
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Leagues 
+     */
+    public function getLeagues()
+    {
+        return $this->leagues;
+    }
 }
