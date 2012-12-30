@@ -36,15 +36,15 @@ class CompetitionController extends Controller {
      * @param $name
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function detailAction($name) {
+    public function detailAction($nameCanonical) {
 
     	$league = $this->getDoctrine()
     	    ->getRepository('MatchTrackerAppBundle:Leagues')
-    	    ->findOneByName($name);
+    	    ->findOneBy(array('nameCanonical' => $nameCanonical));
 
 
 
-        $standing = $league->getStandingsstandings();
+        $standing = $league->getStandings();
 
 
 

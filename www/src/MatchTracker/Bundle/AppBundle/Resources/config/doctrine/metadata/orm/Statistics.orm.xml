@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Statistics" table="statistics">
+    <id name="idstatistics" type="integer" column="idstatistics">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="wins" type="integer" column="wins" nullable="true"/>
+    <field name="draws" type="integer" column="draws" nullable="true"/>
+    <field name="losses" type="integer" column="losses" nullable="true"/>
+    <field name="points" type="integer" column="points" nullable="true"/>
+    <field name="position" type="integer" column="position" nullable="true"/>
+    <many-to-one field="teams" target-entity="Teams">
+      <join-columns>
+        <join-column name="teams_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="standings" target-entity="Standings" mapped-by="statistics"/>
+  </entity>
+</doctrine-mapping>

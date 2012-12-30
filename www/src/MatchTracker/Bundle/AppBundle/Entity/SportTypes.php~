@@ -46,4 +46,83 @@ class SportTypes
     private $sports;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return SportTypes
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set playersOnField
+     *
+     * @param integer $playersOnField
+     * @return SportTypes
+     */
+    public function setPlayersOnField($playersOnField)
+    {
+        $this->playersOnField = $playersOnField;
+    
+        return $this;
+    }
+
+    /**
+     * Get playersOnField
+     *
+     * @return integer 
+     */
+    public function getPlayersOnField()
+    {
+        return $this->playersOnField;
+    }
+
+    /**
+     * Set sports
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Sports $sports
+     * @return SportTypes
+     */
+    public function setSports(\MatchTracker\Bundle\AppBundle\Entity\Sports $sports = null)
+    {
+        $this->sports = $sports;
+    
+        return $this;
+    }
+
+    /**
+     * Get sports
+     *
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Sports 
+     */
+    public function getSports()
+    {
+        return $this->sports;
+    }
 }
