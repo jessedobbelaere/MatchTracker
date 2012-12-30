@@ -36,16 +36,20 @@ class Players
     private $age;
 
     /**
-     * @var \Teams
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToOne(targetEntity="Teams")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="teams_id", referencedColumnName="id")
-     * })
+     * @ORM\ManyToMany(targetEntity="Teams", mappedBy="players")
      */
     private $teams;
 
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
 
     /**
      * Get id
@@ -104,22 +108,32 @@ class Players
     }
 
     /**
-     * Set teams
+     * Add teams
      *
      * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $teams
      * @return Players
      */
-    public function setTeams(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams = null)
+    public function addTeam(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams)
     {
-        $this->teams = $teams;
+        $this->teams[] = $teams;
     
         return $this;
     }
 
     /**
+     * Remove teams
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $teams
+     */
+    public function removeTeam(\MatchTracker\Bundle\AppBundle\Entity\Teams $teams)
+    {
+        $this->teams->removeElement($teams);
+    }
+
+    /**
      * Get teams
      *
-     * @return \MatchTracker\Bundle\AppBundle\Entity\Teams 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getTeams()
     {

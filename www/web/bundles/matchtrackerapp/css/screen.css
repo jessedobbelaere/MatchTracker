@@ -488,7 +488,7 @@ input:focus:required:invalid:focus, textarea:focus:required:invalid:focus, selec
 
 /* Competition creator
 =================================================== */
-.competitionMaker label.control-label {
+.competitionMaker label.control-label, .formAlignLeft label.control-label {
 	text-align: left;
 }
 
@@ -715,6 +715,37 @@ div.error-tooltip ul li {
 	display: block;
 }
 
+
+
+/* Players form */
+ul.players {
+	list-style: none;
+	margin-left: 0;
+}
+ul.players label { display: none; }
+ul.players li > div > div { display: block; float: left; }
+/*ul.players li > div::before, ul.players li > div::after {*/
+	/*display: table;*/
+	/*line-height: 0;*/
+	/*content: "";*/
+/*}*/
+/*ul.players li > div::after { clear: both; }*/
+
+ul.players li {
+	clear: both;
+	margin-bottom: 25px;
+}
+
+ul.players li input {
+	margin-right: 10px;
+}
+ul.players li input[type="number"] {
+	width: 50px;
+}
+
+.delete-player-link { color: #f20000; line-height: 23px;  }
+.delete-player-link:hover { color: #a80000; }
+.add-player-link::before { margin-right: 10px; }
 
 
 
