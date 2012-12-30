@@ -36,6 +36,20 @@ class Players
     private $age;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="number", type="integer", nullable=true)
+     */
+    private $number;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fieldPosition", type="string", length=65, nullable=true)
+     */
+    private $fieldposition;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Teams", mappedBy="players")
@@ -105,6 +119,52 @@ class Players
     public function getAge()
     {
         return $this->age;
+    }
+
+    /**
+     * Set number
+     *
+     * @param integer $number
+     * @return Players
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+    
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return integer 
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
+     * Set fieldposition
+     *
+     * @param string $fieldposition
+     * @return Players
+     */
+    public function setFieldposition($fieldposition)
+    {
+        $this->fieldposition = $fieldposition;
+    
+        return $this;
+    }
+
+    /**
+     * Get fieldposition
+     *
+     * @return string 
+     */
+    public function getFieldposition()
+    {
+        return $this->fieldposition;
     }
 
     /**

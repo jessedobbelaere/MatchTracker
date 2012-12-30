@@ -21,7 +21,6 @@
         </inverse-join-columns>
       </join-table>
     </many-to-many>
-    <many-to-many field="standings" target-entity="Standings" mapped-by="teams"/>
     <many-to-many field="leagues" target-entity="Leagues" mapped-by="teams"/>
   </entity>
 </doctrine-mapping>

@@ -9,8 +9,9 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class PlayersType extends AbstractType {
 
 	public function buildForm(FormBuilderInterface $builder, array $options) {
-		$builder->add('name', 'text', array('label' => null, 'attr' => array('placeholder' => 'Naam')));
-		$builder->add('age', 'integer', array('attr' => array('placeholder' => 'Leeftijd')));
+		$builder->add('name', 'text', array('attr' => array('placeholder' => 'Naam')))
+				->add('age', 'integer', array('attr' => array('placeholder' => 'Leeftijd')))
+				->add('number', 'integer', array('attr' => array('placeholder' => 'RugNr.')));
 	}
 
 	public function setDefaultOptions(OptionsResolverInterface $resolver) {

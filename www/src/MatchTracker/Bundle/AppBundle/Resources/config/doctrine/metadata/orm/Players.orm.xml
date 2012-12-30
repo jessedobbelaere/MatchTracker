@@ -6,6 +6,8 @@
     </id>
     <field name="name" type="string" column="name" length="65" nullable="true"/>
     <field name="age" type="integer" column="age" nullable="true"/>
+    <field name="number" type="integer" column="number" nullable="true"/>
+    <field name="fieldposition" type="string" column="fieldPosition" length="65" nullable="true"/>
     <many-to-many field="teams" target-entity="Teams" mapped-by="players"/>
   </entity>
 </doctrine-mapping>

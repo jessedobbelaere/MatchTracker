@@ -80,14 +80,7 @@ class Teams
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Standings", mappedBy="teams")
-     */
-    private $standings;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Players", inversedBy="teams", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Players", inversedBy="teams")
      * @ORM\JoinTable(name="teams_has_players",
      *   joinColumns={
      *     @ORM\JoinColumn(name="teams_id", referencedColumnName="id")
@@ -98,7 +91,6 @@ class Teams
      * )
      */
     private $players;
-    
 
     /**
      * Get id
@@ -305,39 +297,6 @@ class Teams
     }
 
     /**
-     * Add standings
-     *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standings
-     * @return Teams
-     */
-    public function addStanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standings)
-    {
-        $this->standings[] = $standings;
-    
-        return $this;
-    }
-
-    /**
-     * Remove standings
-     *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Standings $standings
-     */
-    public function removeStanding(\MatchTracker\Bundle\AppBundle\Entity\Standings $standings)
-    {
-        $this->standings->removeElement($standings);
-    }
-
-    /**
-     * Get standings
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getStandings()
-    {
-        return $this->standings;
-    }
-
-    /**
      * Add players
      *
      * @param \MatchTracker\Bundle\AppBundle\Entity\Players $players
@@ -376,7 +335,6 @@ class Teams
 	public function __construct($name = null)
 	{
 		$this->leagues = new \Doctrine\Common\Collections\ArrayCollection();
-		$this->standings = new \Doctrine\Common\Collections\ArrayCollection();
 		$this->players = new \Doctrine\Common\Collections\ArrayCollection();
 
 		$this->code = substr(md5(uniqid(rand(), true)), 0, 20);

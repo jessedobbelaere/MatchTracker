@@ -723,7 +723,7 @@ ul.players {
 	margin-left: 0;
 }
 ul.players label { display: none; }
-ul.players li > div > div { display: block; float: left; }
+/*ul.players li > div > div { display: block; float: left; }*/
 /*ul.players li > div::before, ul.players li > div::after {*/
 	/*display: table;*/
 	/*line-height: 0;*/
@@ -736,11 +736,8 @@ ul.players li {
 	margin-bottom: 25px;
 }
 
-ul.players li input {
+ul.players li div.input-prepend {
 	margin-right: 10px;
-}
-ul.players li input[type="number"] {
-	width: 50px;
 }
 
 .delete-player-link { color: #f20000; line-height: 23px;  }
