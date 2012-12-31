@@ -150,15 +150,10 @@ class Leagues
     /**
      * Constructor
      */
-    public function __construct($name = null)
+    public function __construct()
     {
         $this->standings = new \Doctrine\Common\Collections\ArrayCollection();
         $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
-
-        if($name != null) {
-            $this->nameCanonical = \MatchTracker\Bundle\AppBundle\Utils\Utils::canonicalize($name);
-        }
-
     }
     
 

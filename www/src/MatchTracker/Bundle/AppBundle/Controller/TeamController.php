@@ -41,22 +41,60 @@ class TeamController extends Controller {
 			return $this->redirect($this->generateUrl('homepage'));
 		}
 
+		// Get league
+		$leagues = $team->getLeagues();
+		$league = $leagues[0];
+
 		// Create form with team data
-		$form = $this->createFormBuilder($team)
+		$builder = $this->createFormBuilder($team);
+		$builder
 			->add('name', 'text', array(
 				'label' => 'Naam',
 				'label_attr' => array('class' => 'control-label'),
 				'attr' => array('placeholder' => 'Naam')
-			))
+			));
+
+		// If league has no place or fields, then ask the team for a place & time
+		if($league->getPlace() == null && $league->getFields() == null) {
+			$builder
+				->add('place', 'text', array(
+					'label' => 'Adres',
+					'label_attr' => array('class' => 'control-label'),
+					'attr' => array('placeholder' => 'Adres')
+				))
+				->add('weekday', 'choice', array(
+					'choices' => array(
+						'ma'    => 'Maandag',
+						'di'    => 'Dinsdag',
+						'woe'   => 'Woensdag',
+						'do'    => 'Donderdag',
+						'vr'    => 'Vrijdag',
+						'za'    => 'Zaterdag',
+						'zo'    => 'Zondag',
+					),
+					'multiple' => true,
+					'expanded' => true,
+					'label' => 'Dag van de week',
+					'label_attr' => array('class' => 'control-label'),
+					'attr' => array('placeholder' => 'Dag van den week', 'size' => '7')
+				))
+				->add('hours', 'text', array(
+					'label' => 'Uren',
+					'label_attr' => array('class' => 'control-label'),
+					'attr' => array('placeholder' => 'Uren')
+				));
+		}
+
+		// Add the players to the form
+		$form = $builder
 			->add('players', 'collection', array(
-				'label' => 'Spelers',
-				'label_attr' => array('class' => 'control-label'),
-				'type' => new PlayersType(),
-				'allow_add' => true,
-				'allow_delete' => true,
-                'by_reference' => false
-			))
-			->getForm();
+			'label' => 'Spelers',
+			'label_attr' => array('class' => 'control-label'),
+			'type' => new PlayersType(),
+			'allow_add' => true,
+			'allow_delete' => true,
+			'by_reference' => false
+		))->getForm();
 
 		// Form is submitted
 		if ($request->isMethod('POST')) {

@@ -71,6 +71,27 @@ class Teams
     private $code;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="place", type="string", length=255, nullable=true)
+     */
+    private $place;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="weekday", type="text", nullable=true)
+     */
+    private $weekday;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hours", type="string", length=45, nullable=true)
+     */
+    private $hours;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Leagues", mappedBy="teams")
@@ -91,6 +112,8 @@ class Teams
      * )
      */
     private $players;
+
+    
 
     /**
      * Get id
@@ -264,6 +287,75 @@ class Teams
     }
 
     /**
+     * Set place
+     *
+     * @param string $place
+     * @return Teams
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
+    
+        return $this;
+    }
+
+    /**
+     * Get place
+     *
+     * @return string 
+     */
+    public function getPlace()
+    {
+        return $this->place;
+    }
+
+    /**
+     * Set weekday
+     *
+     * @param string $weekday
+     * @return Teams
+     */
+    public function setWeekday($weekday)
+    {
+        $this->weekday = $weekday;
+    
+        return $this;
+    }
+
+    /**
+     * Get weekday
+     *
+     * @return string 
+     */
+    public function getWeekday()
+    {
+        return $this->weekday;
+    }
+
+    /**
+     * Set hours
+     *
+     * @param string $hours
+     * @return Teams
+     */
+    public function setHours($hours)
+    {
+        $this->hours = $hours;
+    
+        return $this;
+    }
+
+    /**
+     * Get hours
+     *
+     * @return string 
+     */
+    public function getHours()
+    {
+        return $this->hours;
+    }
+
+    /**
      * Add leagues
      *
      * @param \MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
@@ -348,5 +440,10 @@ class Teams
 	 */
 	public function generateNameCanonical() {
 		$this->nameCanonical = \MatchTracker\Bundle\AppBundle\Utils\Utils::canonicalize($this->name);
+	}
+
+	public function __toString()
+	{
+		return strval($this->id);
 	}
 }

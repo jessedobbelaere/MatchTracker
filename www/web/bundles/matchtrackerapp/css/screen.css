@@ -718,18 +718,25 @@ div.error-tooltip ul li {
 
 
 /* Players form */
+#form_weekday input {
+	display: inline;
+	margin-top: 0;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+#form_weekday label {
+	display: inline;
+	margin-bottom: 10px;
+}
+#form_weekday label:after {
+	content:"\A"; white-space:pre;
+}
+
 ul.players {
 	list-style: none;
 	margin-left: 0;
 }
 ul.players label { display: none; }
-/*ul.players li > div > div { display: block; float: left; }*/
-/*ul.players li > div::before, ul.players li > div::after {*/
-	/*display: table;*/
-	/*line-height: 0;*/
-	/*content: "";*/
-/*}*/
-/*ul.players li > div::after { clear: both; }*/
 
 ul.players li {
 	clear: both;

@@ -20,7 +20,35 @@
 			</div>
 		</div>
 
+		{% if form.place is defined %}
+		<div class="control-group">
+			{{ form_label(form.place) }}
+			<div class="controls">
+				{{ form_widget(form.place) }}
+				<div class="error-tooltip animated fadeInRight">{{ form_errors(form.place) }}</div>
+			</div>
+		</div>
+		{% endif %}
 
+		{% if form.weekday is defined %}
+			<div class="control-group">
+				{{ form_label(form.weekday) }}
+				<div class="controls">
+					{{ form_widget(form.weekday) }}
+					<div class="error-tooltip animated fadeInRight">{{ form_errors(form.weekday) }}</div>
+				</div>
+			</div>
+		{% endif %}
+
+		{% if form.hours is defined %}
+			<div class="control-group">
+				{{ form_label(form.hours) }}
+				<div class="controls">
+					{{ form_widget(form.hours) }}
+					<div class="error-tooltip animated fadeInRight">{{ form_errors(form.hours) }}</div>
+				</div>
+			</div>
+		{% endif %}
 
 		{{ form_errors(form.players) }}
 
@@ -106,11 +134,18 @@
 
 			// remove the li for the tag form
 			$tagFormLi.fadeOut(400, function() { $(this).remove(); });
-			//$tagFormLi.remove();
 		});
 	}
+</script>
 
-
+<script src="http://maps.google.com/maps/api/js?libraries=places&key=AIzaSyA1LaD1jV_HDKyqNu0srOm024uh3dFDhD4&sensor=false"></script>
+<script>
+	$(function() {
+		var input = document.getElementById('form_place');
+		var autocomplete = new google.maps.places.Autocomplete(input, {
+			types: ["geocode"]
+		});
+	});
 </script>
 
 {% endblock %}

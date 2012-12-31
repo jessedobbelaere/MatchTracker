@@ -11,6 +11,9 @@
     <field name="gameplace" type="string" column="gameplace" length="255" nullable="true"/>
     <field name="email" type="string" column="email" length="70" nullable="true"/>
     <field name="code" type="string" column="code" length="45" nullable="true"/>
+    <field name="place" type="string" column="place" length="255" nullable="true"/>
+    <field name="weekday" type="text" column="weekday" nullable="true"/>
+    <field name="hours" type="string" column="hours" length="45" nullable="true"/>
     <many-to-many field="players" target-entity="Players" inversed-by="teams">
       <join-table name="teams_has_players">
         <join-columns>
