@@ -44,6 +44,7 @@ class CompetitionController extends Controller {
 
 
 
+
         $standing = $league->getStandings();
 
 
