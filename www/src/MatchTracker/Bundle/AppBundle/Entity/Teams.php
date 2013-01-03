@@ -80,7 +80,7 @@ class Teams
     /**
      * @var string
      *
-     * @ORM\Column(name="weekday", type="text", nullable=true)
+     * @ORM\Column(name="weekday", type="array", nullable=true)
      */
     private $weekday;
 
@@ -442,8 +442,4 @@ class Teams
 		$this->nameCanonical = \MatchTracker\Bundle\AppBundle\Utils\Utils::canonicalize($this->name);
 	}
 
-	public function __toString()
-	{
-		return strval($this->id);
-	}
 }

@@ -64,13 +64,13 @@ class TeamController extends Controller {
 				))
 				->add('weekday', 'choice', array(
 					'choices' => array(
-						'ma'    => 'Maandag',
-						'di'    => 'Dinsdag',
-						'woe'   => 'Woensdag',
-						'do'    => 'Donderdag',
-						'vr'    => 'Vrijdag',
-						'za'    => 'Zaterdag',
-						'zo'    => 'Zondag',
+						'mon'    => 'Maandag',
+						'tue'    => 'Dinsdag',
+						'wed'    => 'Woensdag',
+						'thu'    => 'Donderdag',
+						'fri'    => 'Vrijdag',
+						'sat'    => 'Zaterdag',
+						'sun'    => 'Zondag',
 					),
 					'multiple' => true,
 					'expanded' => true,
@@ -97,22 +97,22 @@ class TeamController extends Controller {
 		))->getForm();
 
 		// Form is submitted
-		if ($request->isMethod('POST')) {
-			$form->bind($request);
+	if ($request->isMethod('POST')) {
+		$form->bind($request);
 
-			// Form is valid? Start your engines!
-			if ($form->isValid()) {
-				// Generate a new canonical name...
-				$team->generateNameCanonical();
+		// Form is valid? Start your engines!
+		if ($form->isValid()) {
+			// Generate a new canonical name...
+			$team->generateNameCanonical();
 
-				// Save changes to db
-				$em = $this->getDoctrine()->getManager();
-				$em->persist($team);
-				$em->flush();
+			// Save changes to db
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($team);
+			$em->flush();
 
-				// Redirect to new canonical url
-				return $this->redirect($this->generateUrl('team_edit', array('nameCanonical' => $team->getNameCanonical(), 'code' => $team->getCode())));
-			}
+			// Redirect to new canonical url
+			return $this->redirect($this->generateUrl('team_edit', array('nameCanonical' => $team->getNameCanonical(), 'code' => $team->getCode())));
+		}
 
 		}
 
