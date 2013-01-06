@@ -34,7 +34,7 @@ security:
             logout:
                 path:   /logout
                 target: /
-                handlers: ["fos_facebook.logout_handler"]
+#                handlers: ["fos_facebook.logout_handler"]
             fos_facebook:
                 app_url: "http://apps.facebook.com/matchtracker/"
                 server_url: "http://matchtracker.localhost/"

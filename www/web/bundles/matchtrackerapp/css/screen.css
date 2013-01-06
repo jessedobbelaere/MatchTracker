@@ -245,6 +245,27 @@ div#headline .buttonHeadline {
 	margin: 60px 0;
 }
 
+nav#breadcrumbs {
+	font-size: 12px;
+}
+ul#xi-breadcrumbs {
+	list-style: none;
+	margin-left: 0;
+	margin-top: 10px;
+	margin-bottom: 0;
+	display: inline-block;
+}
+ul#xi-breadcrumbs li {
+	display: inline-block;
+	padding-right: 1px;
+}
+ul#xi-breadcrumbs li:first-letter { text-transform: uppercase; }
+ul#xi-breadcrumbs li:after {
+	content: '\00BB';
+	padding-left: 4px;
+}
+ul#xi-breadcrumbs li:last-child:after { content: ''; }
+
 
 /* Hero
 ================================================== */

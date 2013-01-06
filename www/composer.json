@@ -21,7 +21,8 @@
         "jms/serializer-bundle": "dev-master",
 		"friendsofsymfony/user-bundle": "*",
 	    "friendsofsymfony/facebook-bundle": "dev-master",
-		"friendsofsymfony/rest-bundle": "*"
+		"friendsofsymfony/rest-bundle": "*",
+		"xi/breadcrumbs-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [

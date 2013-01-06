@@ -20,12 +20,14 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+
             new MatchTracker\Bundle\AppBundle\MatchTrackerAppBundle(),
             new MatchTracker\Bundle\UserBundle\MatchTrackerUserBundle(),
 			new FOS\UserBundle\FOSUserBundle(),
 	        new FOS\FacebookBundle\FOSFacebookBundle(),
 			new FOS\RestBundle\FOSRestBundle(),
             new MatchTracker\Bundle\ApiBundle\MatchTrackerApiBundle(),
+	        new Xi\Bundle\BreadcrumbsBundle\XiBreadcrumbsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
