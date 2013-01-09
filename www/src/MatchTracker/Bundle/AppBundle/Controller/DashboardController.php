@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 use Symfony\Component\HttpFoundation\Session\Session;
 use MatchTracker\Bundle\AppBundle\Entity\Players;
+use MatchTracker\Bundle\AppBundle\Form\TeamsType;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -95,7 +96,54 @@ class DashboardController extends Controller {
 
 	}
 
-	
+    /**
+     * Invite teams to your competition
+     *
+     * @param $nameCanonical
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function teamsAction($nameCanonical, Request $request) {
+        $competition = $this->getDoctrine()
+            ->getRepository('MatchTrackerAppBundle:Leagues')
+            ->findOneBy(array('nameCanonical' => $nameCanonical));
+
+        $builder = $this->createFormBuilder($competition);
+        $form = $builder->add('teams', 'collection', array(
+            'label' => 'Teams',
+            'label_attr' => array('class' => 'control-label'),
+            'type' => new TeamsType(),
+            'allow_add' => true,
+            'allow_delete' => true,
+            'by_reference' => false
+        ))->getForm();
+
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+
+                $competition->getTeams();
+
+                // Send email with correct link!
+
+                // Save changes to db
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($competition);
+                $em->flush();
+
+                // Redirect to new canonical url
+                return $this->redirect($this->generateUrl('mycompetitions'));
+            }
+
+        }
+
+        return $this->render('MatchTrackerAppBundle:Dashboard:teams.html.twig',
+            array(
+                'competition' => $competition,
+                'form' => $form->createView()
+            )
+        );
+    }
 	
 
 

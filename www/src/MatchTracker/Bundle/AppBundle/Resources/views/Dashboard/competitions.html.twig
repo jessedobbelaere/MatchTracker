@@ -22,15 +22,17 @@
                             <th>Sport</th>
                             <th>Type</th>
                             <th>Datum</th>
+                            <th></th>
                         </tr>
                     </thead>
                         <tbody>
                             {% for league in leagues %}
                             <tr>
-	                            <td>{{ league.name }}</td>
+	                            <td><a href="{{ path('competition_show', { 'nameCanonical' : league.nameCanonical  }) }}">{{ league.name }} </a></td>
 	                            <td>{{ league.sportTypes.sports.name }}</td>
 	                            <td>{{ league.sportTypes.name }}</td>
 	                            <td>{{ league.startdate|date('d-m-Y') }} - {{ league.enddate|date('d-m-Y') }}</td>
+                                <td><a href="{{ path('mycompetitions_teams', { 'nameCanonical' : league.nameCanonical  }) }}" class="icon-user-add">  </a></td>
                             </tr>
                             {% endfor %}
                     </tbody>

@@ -86,6 +86,13 @@ mycompetitions:
         parent: "dashboard"
         label: "Mijn competities"
 
+mycompetitions_teams:
+    pattern: /dashboard/mijncompetities/{nameCanonical}/teams
+    defaults:
+      _controller: MatchTrackerAppBundle:Dashboard:teams
+      parent: "mycompetitions"
+      label: "Teams"
+
 
 # Team page and editor
 team:
