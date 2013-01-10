@@ -776,8 +776,58 @@ ul.players li div.input-prepend {
 
 
 
-/* Competion detail */
+/* MatchCenter */
+.competitionTable {
+	border: 1px solid #DDD;
+}
 
+.competitionTable .head {
+	border-bottom: 1px solid #DDD;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	text-align: center;
+	font-weight: 400;
+	margin: 0;
+	font-size: 20px;
+	color: #FFF;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #006DCC;
+	background-image: -moz-linear-gradient(top, #08C, #04C);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08C), to(#04C));
+	background-image: -webkit-linear-gradient(top, #08C, #04C);
+	background-image: -o-linear-gradient(top, #08C, #04C);
+	background-image: linear-gradient(to bottom, #08C, #04C);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+
+.competitionTable .teamHost, .competitionTable .teamVisitor, .competitionTable .score {
+	display: block;
+	float: left;
+	padding: 10px;
+	-moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+}
+.competitionTable .teamHost, .competitionTable .teamVisitor {
+	width: 44%;
+}
+
+.competitionTable .score {
+	width: 12%;
+	text-align: center;
+	border-left: 1px solid #DDD;
+	border-right: 1px solid #DDD;
+}
+
+.competitionTable .teamHost {
+	text-align: right;
+}
 
 
 

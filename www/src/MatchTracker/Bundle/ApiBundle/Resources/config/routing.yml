@@ -14,3 +14,7 @@ users:
 sports:
     type: rest
     resource: MatchTracker\Bundle\ApiBundle\Controller\SportRestController
+
+leagues:
+    type: rest
+    resource: MatchTracker\Bundle\ApiBundle\Controller\LeagueRestController

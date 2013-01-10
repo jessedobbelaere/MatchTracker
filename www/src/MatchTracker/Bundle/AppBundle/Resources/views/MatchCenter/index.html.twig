@@ -1,0 +1,33 @@
+{% extends 'MatchTrackerAppBundle::layout.html.twig' %}
+
+{% set active_page = 'matchcenter' %}
+
+{% block title %}
+	MatchCenter
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<nav id="breadcrumbs">U bevindt zich hier: {{ xi_breadcrumbs() }}</nav>
+		<h1>MatchCenter</h1>
+
+		<div class="row-fluid">
+			<div class="span9">
+				<div class="competitionTable table-bordered span12">
+					<h3 class="head">Jupiler League | Speeldag 23</h3>
+					<div class="matches">
+						<div class="matchRow clearfix">
+							<div class="teamHost">AA Gent</div>
+							<div class="score">19/01</div>
+							<div class="teamVisitor">Standard</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="span3">
+
+			</div>
+		</div>
+
+	</div>
+{% endblock %}

@@ -100,3 +100,12 @@ team_edit:
         _controller: MatchTrackerAppBundle:Team:edit
         parent: "team"
         label: "Team bewerken"
+
+
+# MatchCenter
+matchcenter:
+    pattern: /matchcenter
+    defaults:
+        _controller: MatchTrackerAppBundle:MatchCenter:index
+        parent: "homepage"
+        label: "Matchcenter"
