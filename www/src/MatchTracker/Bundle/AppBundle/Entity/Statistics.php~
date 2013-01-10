@@ -1,0 +1,84 @@
+<?php
+
+namespace MatchTracker\Bundle\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Statistics
+ *
+ * @ORM\Table(name="statistics")
+ * @ORM\Entity
+ */
+class Statistics
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idstatistics", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idstatistics;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="wins", type="integer", nullable=true)
+     */
+    private $wins;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="draws", type="integer", nullable=true)
+     */
+    private $draws;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="losses", type="integer", nullable=true)
+     */
+    private $losses;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="points", type="integer", nullable=true)
+     */
+    private $points;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="position", type="integer", nullable=true)
+     */
+    private $position;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Standings", mappedBy="statistics")
+     */
+    private $standings;
+
+    /**
+     * @var \Teams
+     *
+     * @ORM\ManyToOne(targetEntity="Teams")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="teams_id", referencedColumnName="id")
+     * })
+     */
+    private $teams;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->standings = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+}

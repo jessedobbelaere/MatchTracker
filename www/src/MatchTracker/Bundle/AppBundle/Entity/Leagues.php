@@ -115,7 +115,7 @@ class Leagues
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Teams", inversedBy="leagues")
+     * @ORM\ManyToMany(targetEntity="Teams", inversedBy="leagues", cascade={"all"})
      * @ORM\JoinTable(name="leagues_has_teams",
      *   joinColumns={
      *     @ORM\JoinColumn(name="leagues_id", referencedColumnName="id")
