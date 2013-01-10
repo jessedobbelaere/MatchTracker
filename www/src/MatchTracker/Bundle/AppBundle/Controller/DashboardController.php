@@ -122,9 +122,22 @@ class DashboardController extends Controller {
 
             if ($form->isValid()) {
 
-                $competition->getTeams();
+                $teams = $competition->getTeams();
 
-                // Send email with correct link!
+                // Send an invitation to the teams
+                foreach ($teams as $team) {
+                    $message = \Swift_Message::newInstance()
+                        ->setSubject('Hello Email')
+                        ->setFrom('noreply@matchtracker.be')
+                        ->setTo($team->getEmail())
+                        ->setBody($this->renderView(
+                            'MatchTrackerAppBundle:Mails:index.html.twig',
+                            array('team' => $team)
+                        )
+                    );
+                    $this->get('mailer')->send($message);
+                }
+
 
                 // Save changes to db
                 $em = $this->getDoctrine()->getManager();
@@ -132,7 +145,7 @@ class DashboardController extends Controller {
                 $em->flush();
 
                 // Redirect to new canonical url
-                return $this->redirect($this->generateUrl('mycompetitions'));
+                // return $this->redirect($this->generateUrl('mycompetitions'));
             }
 
         }
