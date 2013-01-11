@@ -6,20 +6,20 @@
                     {
                      "title": "MatchTracker login",
                      "headerImage": "logo",
-                     "footer": "Please type your credentials.",
+                     "footer": "Vul aub uw gegevens in.",
                      "elements": [
                                       {
                                           "type": "QEntryElement",
                                           "keyboardType": "EmailAddress",
                                           "title": "Login",
-                                          "placeholder": "Login or email",
+                                          "placeholder": "E-mailadres",
                                           "bind": "textValue:login",
                                           "key": "login"
                                       },
                                       {
                                           "type": "QEntryElement",
                                           "title": "Password",
-                                          "placeholder": "Password",
+                                          "placeholder": "Paswoord",
                                           "secureTextEntry": true,
                                           "bind": "textValue:password"
                                       }

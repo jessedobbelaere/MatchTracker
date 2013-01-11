@@ -37,20 +37,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-+ (QRootElement *)createLoginForm
-{
-    QRootElement *root = [[QRootElement alloc] init ];
-    root.title = @"Test";
-    root.controllerName = @"LoginViewController";
-    root.grouped = YES;
-    QSection *section = [[QSection alloc] init];
-    QLabelElement *label = [[QLabelElement alloc] initWithTitle:@"Kut" Value:@"Xcode!!!!"];
-
-    [root addSection:section];
-    [section addElement:label];
-    
-    return root;
-}
+//+ (QRootElement *)createLoginForm
+//{
+//    QRootElement *root = [[QRootElement alloc] init ];
+//    root.title = @"Test";
+//    root.controllerName = @"LoginViewController";
+//    root.grouped = YES;
+//    QSection *section = [[QSection alloc] init];
+//    QLabelElement *label = [[QLabelElement alloc] initWithTitle:@"Kut" Value:@"Xcode!!!!"];
+//
+//    [root addSection:section];
+//    [section addElement:label];
+//    
+//    return root;
+//}
 
 - (void)setQuickDialogTableView:(QuickDialogTableView *)aQuickDialogTableView
 {
@@ -61,15 +61,30 @@
     self.quickDialogTableView.bounces = NO;
     self.quickDialogTableView.styleProvider = self;
     
+    //Load user preferences
+    NSString *userDefaultLogin = [[NSUserDefaults standardUserDefaults] stringForKey: @"userLogin"];
+    
+    if([userDefaultLogin length] != 0)
+    {
+        NSMutableDictionary *dataDict = [NSMutableDictionary new];
+        [dataDict setValue:userDefaultLogin forKey:@"login"];
+        self.root = [[QRootElement alloc] initWithJSONFile:@"LoginForm" andData:dataDict];
+    }
+    else {
+        self.root = [[QRootElement alloc] initWithJSONFile:@"LoginForm"];
+    }
+    
     // JSON form
-    ((QEntryElement *)[self.root elementWithKey:@"login"]).delegate = self;
+    //((QEntryElement *)[self.root elementWithKey:@"login"]).delegate = self;
+    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     //self.navigationController.navigationBar.tintColor = [UIColor grayColor];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"About" style:UIBarButtonItemStylePlain target:self action:@selector(onAbout)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Over Matchtracker" style:UIBarButtonItemStylePlain target:self action:@selector(onAbout)];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -85,21 +100,40 @@
     [self loading:YES];
     User *info = [[User alloc] init];
     [self.root fetchValueUsingBindingsIntoObject:info];
-    [self performSelector:@selector(loginCompleted:) withObject:info afterDelay:2];
+    
+    if([info.password length] == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fout" message:[NSString stringWithFormat: @"Vul een paswoord in aub"] delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [alert show];
+        [self loading:NO];
+    } else
+    {
+        [self performSelector:@selector(loginCompleted:) withObject:info afterDelay:2];
+    }
 }
 
 - (void)loginCompleted:(User *)user
 {
+    // Save user email to preferences
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:user.login forKey:@"userLogin"];
+    
     [self loading:NO];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome" message:[NSString stringWithFormat: @"Hi %@, you are now logged in! Enjoy MatchTracker!", user.login] delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome" message:[NSString stringWithFormat: @"Dag %@, je bent nu ingelogd! Enjoy MatchTracker!", user.login] delegate:self cancelButtonTitle:nil otherButtonTitles:@"Sluiten",nil];
     [alert show];
 }
 
 // Remove the login
 - (void)alertView:(UIAlertView *)alertV didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"Go back...");
-    [self dismissModalViewControllerAnimated:YES];
+    if(buttonIndex == alertV.cancelButtonIndex)
+    {
+        
+    }
+    else
+    {
+        [self dismissModalViewControllerAnimated:YES];
+    }
 }
 
 
