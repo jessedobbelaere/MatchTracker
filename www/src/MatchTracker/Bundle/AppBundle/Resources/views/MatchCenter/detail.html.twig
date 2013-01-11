@@ -1,0 +1,97 @@
+{% extends 'MatchTrackerAppBundle::layout.html.twig' %}
+
+{% set active_page = 'matchcenter' %}
+
+{% block title %}
+	MatchCenter
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<nav id="breadcrumbs">U bevindt zich hier: {{ xi_breadcrumbs() }}</nav>
+		<h1>MatchCenter</h1>
+
+		<div class="row-fluid">
+			<div class="span9">
+				<div class="competitionTable table-bordered span12">
+					<h3 class="head">{{ match.leagues.name }} - {{ match.date|date('d/m') }} {{ match.startTime|date('H:i') }}</h3>
+					<div class="matches">
+						<div class="matchRow clearfix">
+							<div class="teamHost">{{ match.homeTeam.name }}</div>
+							<div class="score">{% if match.homeScore is null and match.awayScore is null  %}
+                                ... - ...
+                            {% else %}
+                                {{ match.homeScore }} - {{ match.awayScore }}
+                            {% endif %}</div>
+							<div class="teamVisitor">{{ match.awayTeam.name }}</div>
+						</div>
+					</div>
+				</div>
+
+                Status:
+                {% if match.finished  %}
+                    EINDE
+                {% else %}
+                    {% if match.active %}
+                        BEZIG
+                    {% else %}
+                        {{ match.date|date('d/m') }}
+                    {% endif %}
+                {% endif %}
+
+                <p>Fase per fase:</p>
+                <ul>
+
+                    {% for event in events %}
+                    <li><span class="{{ event.matchEvents.icon }}"></span> {{ event.matchEvents.text|replace({'%player%': event.players.name, '%team%': event.teams.name}) }} ({{ event.time }})</li>
+                    {% endfor %}
+
+                </ul>
+
+
+			</div>
+			<div class="span3">
+
+			</div>
+		</div>
+
+	</div>
+{% endblock %}
+
+
+    {% block javascripts %}
+        {{ parent() }}
+
+        {% if match.active == 1 %}
+
+        <script>
+            //enter refresh time in "minutes:seconds" Minutes should range from 0 to inifinity. Seconds should range from 0 to 59
+            var limit="0:05"
+
+            if (document.images){
+                var parselimit=limit.split(":")
+                parselimit=parselimit[0]*60+parselimit[1]*1
+            }
+            function beginrefresh(){
+                if (!document.images)
+                    return
+                if (parselimit==1)
+                    window.location.reload()
+                else{
+                    parselimit-=1
+                    curmin=Math.floor(parselimit/60)
+                    cursec=parselimit%60
+                    if (curmin!=0)
+                        curtime=curmin+" minutes and "+cursec+" seconds left until page refresh!"
+                    else
+                        curtime=cursec+" seconds left until page refresh!"
+                    window.status=curtime
+                    setTimeout("beginrefresh()",1000)
+                }
+            }
+
+            window.onload=beginrefresh
+            //-->
+        </script>
+        {% endif %}
+    {% endblock %}

@@ -13,6 +13,6 @@
 }
 
 + (QRootElement *)createAboutDetailsForm;
-+ (QRootElement *)createLoginForm;
+//+ (QRootElement *)createLoginForm;
 
 @end

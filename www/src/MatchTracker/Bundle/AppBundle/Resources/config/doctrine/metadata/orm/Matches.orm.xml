@@ -4,13 +4,12 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="date" type="datetime" column="date" nullable="true"/>
-    <field name="startTime" type="datetime" column="start_time" nullable="true"/>
-    <many-to-one field="leagues" target-entity="Leagues">
-      <join-columns>
-        <join-column name="leagues_id" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
+    <field name="date" type="date" column="date" nullable="true"/>
+    <field name="startTime" type="time" column="start_time" nullable="true"/>
+    <field name="homeScore" type="integer" column="home_score" nullable="true"/>
+    <field name="awayScore" type="integer" column="away_score" nullable="true"/>
+    <field name="finished" type="integer" column="finished" nullable="true"/>
+    <field name="active" type="integer" column="active" nullable="true"/>
     <many-to-one field="awayTeam" target-entity="Teams">
       <join-columns>
         <join-column name="away_team" referenced-column-name="id"/>
@@ -19,6 +18,11 @@
     <many-to-one field="homeTeam" target-entity="Teams">
       <join-columns>
         <join-column name="home_team" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="leagues" target-entity="Leagues">
+      <join-columns>
+        <join-column name="leagues_id" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>

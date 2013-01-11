@@ -54,15 +54,15 @@ competition:
     defaults:
         _controller: MatchTrackerAppBundle:Competition:index
         sport: alles
-    requirements:
-        _method:  GET
+        parent: "homepage"
+        label: "Competities"
 
 competition_show:
     pattern: /competities/detail/{nameCanonical}
     defaults:
         _controller: MatchTrackerAppBundle:Competition:detail
-    requirements:
-        _method:  GET
+        parent: "competition"
+        label: "Detail"
 
 
 # Dashboard and subpages
@@ -128,5 +128,12 @@ matchcenter:
     pattern: /matchcenter
     defaults:
         _controller: MatchTrackerAppBundle:MatchCenter:index
+        parent: "homepage"
+        label: "Matchcenter"
+
+matchcenter:
+    pattern: /matchcenter/{id}
+    defaults:
+        _controller: MatchTrackerAppBundle:MatchCenter:detail
         parent: "homepage"
         label: "Matchcenter"

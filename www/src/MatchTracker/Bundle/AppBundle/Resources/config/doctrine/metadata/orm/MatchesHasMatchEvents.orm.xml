@@ -4,7 +4,7 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="time" type="datetime" column="time" nullable="true"/>
+    <field name="time" type="integer" column="time" nullable="true"/>
     <many-to-one field="teams" target-entity="Teams">
       <join-columns>
         <join-column name="teams_id" referenced-column-name="id"/>

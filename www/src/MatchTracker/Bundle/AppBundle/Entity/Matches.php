@@ -36,6 +36,44 @@ class Matches
     private $startTime;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="home_score", type="integer", nullable=true)
+     */
+    private $homeScore;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="away_score", type="integer", nullable=true)
+     */
+    private $awayScore;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="finished", type="integer", nullable=true)
+     */
+    private $finished;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="active", type="integer", nullable=true)
+     */
+    private $active;
+
+    /**
+     * @var \Leagues
+     *
+     * @ORM\ManyToOne(targetEntity="Leagues")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="leagues_id", referencedColumnName="id")
+     * })
+     */
+    private $leagues;
+
+    /**
      * @var \Teams
      *
      * @ORM\ManyToOne(targetEntity="Teams")
@@ -54,16 +92,6 @@ class Matches
      * })
      */
     private $awayTeam;
-
-    /**
-     * @var \Leagues
-     *
-     * @ORM\ManyToOne(targetEntity="Leagues")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="leagues_id", referencedColumnName="id")
-     * })
-     */
-    private $leagues;
 
 
 
@@ -124,6 +152,121 @@ class Matches
     }
 
     /**
+     * Set homeScore
+     *
+     * @param integer $homeScore
+     * @return Matches
+     */
+    public function setHomeScore($homeScore)
+    {
+        $this->homeScore = $homeScore;
+    
+        return $this;
+    }
+
+    /**
+     * Get homeScore
+     *
+     * @return integer 
+     */
+    public function getHomeScore()
+    {
+        return $this->homeScore;
+    }
+
+    /**
+     * Set awayScore
+     *
+     * @param integer $awayScore
+     * @return Matches
+     */
+    public function setAwayScore($awayScore)
+    {
+        $this->awayScore = $awayScore;
+    
+        return $this;
+    }
+
+    /**
+     * Get awayScore
+     *
+     * @return integer 
+     */
+    public function getAwayScore()
+    {
+        return $this->awayScore;
+    }
+
+    /**
+     * Set finished
+     *
+     * @param integer $finished
+     * @return Matches
+     */
+    public function setFinished($finished)
+    {
+        $this->finished = $finished;
+    
+        return $this;
+    }
+
+    /**
+     * Get finished
+     *
+     * @return integer 
+     */
+    public function getFinished()
+    {
+        return $this->finished;
+    }
+
+    /**
+     * Set active
+     *
+     * @param integer $active
+     * @return Matches
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return integer 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set leagues
+     *
+     * @param \MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
+     * @return Matches
+     */
+    public function setLeagues(\MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues = null)
+    {
+        $this->leagues = $leagues;
+    
+        return $this;
+    }
+
+    /**
+     * Get leagues
+     *
+     * @return \MatchTracker\Bundle\AppBundle\Entity\Leagues 
+     */
+    public function getLeagues()
+    {
+        return $this->leagues;
+    }
+
+    /**
      * Set homeTeam
      *
      * @param \MatchTracker\Bundle\AppBundle\Entity\Teams $homeTeam
@@ -167,28 +310,5 @@ class Matches
     public function getAwayTeam()
     {
         return $this->awayTeam;
-    }
-
-    /**
-     * Set leagues
-     *
-     * @param \MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues
-     * @return Matches
-     */
-    public function setLeagues(\MatchTracker\Bundle\AppBundle\Entity\Leagues $leagues = null)
-    {
-        $this->leagues = $leagues;
-    
-        return $this;
-    }
-
-    /**
-     * Get leagues
-     *
-     * @return \MatchTracker\Bundle\AppBundle\Entity\Leagues 
-     */
-    public function getLeagues()
-    {
-        return $this->leagues;
     }
 }

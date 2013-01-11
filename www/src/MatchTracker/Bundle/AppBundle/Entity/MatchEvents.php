@@ -35,6 +35,13 @@ class MatchEvents
      */
     private $text;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="icon", type="string", length=45, nullable=true)
+     */
+    private $icon;
+
 
 
     /**
@@ -91,5 +98,28 @@ class MatchEvents
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * Set icon
+     *
+     * @param string $icon
+     * @return MatchEvents
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+    
+        return $this;
+    }
+
+    /**
+     * Get icon
+     *
+     * @return string 
+     */
+    public function getIcon()
+    {
+        return $this->icon;
     }
 }

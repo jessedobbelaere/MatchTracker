@@ -7,19 +7,22 @@
 {% endblock %}
 
 {% block body %}
-    <h1> {{ league.name }}</h1>
-    <ul id="competitionInfo">
-        <li>Type: {{ league.sportTypes.name }}</li>
-        <li>Beheerder: {{ league.user.firstname }} {{ league.user.lastname }}</li>
-        <li>Startdatum: {{ league.getStartdate |date("m/d/Y") }}</li>
-        <li>Einddatum: {{ league.getEnddate |date("m/d/Y") }}</li>
-        {% if league.place %}
-            <li>Plaats: {{ league.place }}</li>
-        {% endif %}
-    </ul>
+    <div class="container">
+        <nav id="breadcrumbs">U bevindt zich hier: {{ xi_breadcrumbs() }} >> {{ league.name }}</nav>
 
-    <h3>Omschrijving:</h3>
-    {{ league.description }}
+        <h1>{{ league.name }}</h1>
+        <ul id="competitionInfo">
+            <li>Type: {{ league.sportTypes.name }}</li>
+            <li>Beheerder: {{ league.user.firstname }} {{ league.user.lastname }}</li>
+            <li>Startdatum: {{ league.getStartdate |date("m/d/Y") }}</li>
+            <li>Einddatum: {{ league.getEnddate |date("m/d/Y") }}</li>
+            {% if league.place %}
+                <li>Plaats: {{ league.place }}</li>
+            {% endif %}
+        </ul>
+
+        <h3>Omschrijving:</h3>
+        {{ league.description }}
 
     <article id="standing">
 
@@ -60,7 +63,7 @@
         <h3>Volgende wedstrijden</h3>
     </article>
 
-
+</div>
 {% endblock %}
 
 
