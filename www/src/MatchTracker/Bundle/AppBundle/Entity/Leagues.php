@@ -168,19 +168,6 @@ class Leagues
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     * @return Leagues
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    
-        return $this;
-    }
-
-    /**
      * Get name
      *
      * @return string 
@@ -554,4 +541,27 @@ class Leagues
     {
         return $this->user;
     }
+
+    /**
+     * Generate new canonical name
+     */
+    public function generateNameCanonical() {
+        $this->nameCanonical = \MatchTracker\Bundle\AppBundle\Utils\Utils::canonicalize($this->name);
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Leagues
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        $this->generateNameCanonical();
+
+        return $this;
+    }
+
+
 }
