@@ -26,8 +26,14 @@ class CompetitionController extends Controller {
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction($sport) {
+
+        $leagues = $this->getDoctrine()
+            ->getRepository('MatchTrackerAppBundle:Leagues')
+            ->findAll();
+
+
 		return $this->render('MatchTrackerAppBundle:Competition:index.html.twig',
-				array('sport' => $sport));
+				array('leagues' => $leagues));
 	}
 
     /**

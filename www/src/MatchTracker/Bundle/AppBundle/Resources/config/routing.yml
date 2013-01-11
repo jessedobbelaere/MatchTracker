@@ -148,7 +148,7 @@ matchcenter_detail:
         label: "Detail"
 
 matchcenter_report:
-    pattern: /matchcenter/{id}/verslag
+    pattern: /matchcenter/verslag/{id}
     defaults:
         _controller: MatchTrackerAppBundle:MatchCenter:report
         parent: "matchcenter"
