@@ -49,5 +49,7 @@ security:
 
     access_control:
         - { path: /dashboard/*, role: ROLE_USER }
-        - { path: /competities/maker.*, role: ROLE_USER }
+        - { path: /competities/nieuw/.*, role: ROLE_USER }
+        - { path: /dashboard/.*, role: ROLE_USER }
+        - { path: /matchcenter/verslag/.*, role: ROLE_USER }
         #- { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }

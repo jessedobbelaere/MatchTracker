@@ -1,18 +1,82 @@
 {% extends 'MatchTrackerAppBundle::layout.html.twig' %}
 
-{% set active_page = 'matchcenter' %}
+{% set active_page = '' %}
 
 {% block title %}
-	MatchCenter
+	MatchCenter verslag
 {% endblock %}
 
 {% block body %}
-	<div class="container">
+    <div class="container" xmlns="http://www.w3.org/1999/html">
 		<nav id="breadcrumbs">U bevindt zich hier: {{ xi_breadcrumbs() }}</nav>
 		<h1>MatchCenter</h1>
 
+        <div class="row-fluid">
+            {% if match.active == 1 %}
+            <div class="span3">
+                <ul class="nav nav-list">
+                    <li class="nav-header"><h4>{{ match.homeTeam.name }}</h4></li>
+                    {% for homePlayer in match.homeTeam.players %}
+                    <li {% if player == homePlayer.id %}class="active"{% endif %}>
+                        <a href="{{ path('matchcenter_report', { 'id' : id, 'player' : homePlayer.id, 'event' : event  }) }}">{{ homePlayer.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
 
-       
+            <div class="span6">
+                <h3>Event</h3>
+
+                <ul class="nav nav-list">
+                    <li {% if event == 1 %}class="active"{% endif %}>
+                        <a href="{{ path('matchcenter_report', { 'id' : id, 'player' : player, 'event' : 1  }) }}">Doelpunt</a>
+                    </li>
+                    <li {% if event == 2 %}class="active"{% endif %}>
+                        <a href="{{ path('matchcenter_report', { 'id' : id, 'player' : player, 'event' : 2  }) }}">Eigen doelpunt</a>
+                    </li>
+                    <li {% if event == 3 %}class="active"{% endif %}>
+                        <a href="{{ path('matchcenter_report', { 'id' : id, 'player' : player, 'event' : 3  }) }}">Rode kaart</a>
+                    </li>
+                    <li {% if event == 4 %}class="active"{% endif %}>
+                        <a href="{{ path('matchcenter_report', { 'id' : id, 'player' : player, 'event' : 4  }) }}">Gele kaart</a>
+                    </li>
+                    <li {% if event == 5 %}class="active"{% endif %}>
+                        <a href="{{ path('matchcenter_report', { 'id' : id, 'player' : player, 'event' : 5  }) }}">Penalty</a>
+                    </li>
+                </ul>
+
+                <div class="control-group spacer">
+                    <div class="controls">
+                        <a class="span4 button-green-mid" href="{{ path('matchcenter_report_add', { 'id' : id, 'player' : player, 'event' : event  }) }}">Voeg event toe</a>
+                        <a class="" href="{{ path('matchcenter_report_end', { 'id' : id}) }}">Einde</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="span3">
+                <ul class="nav nav-list">
+                    <li class="nav-header"><h4>{{ match.awayTeam.name }}</h4></li>
+                    {% for awayPlayer in match.awayTeam.players %}
+                        <li {% if player == awayPlayer.id %}class="active"{% endif %}>
+                            <a href="{{ path('matchcenter_report', { 'id' : id, 'player' : awayPlayer.id, 'event' : event  }) }}">{{ awayPlayer.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+             </div>
+
+
+        {% else %}
+                <p>Gelieve de wedstrijd te starten.</p>
+
+                <div class="control-group spacer">
+                    <div class="controls">
+                        <a class="" href="{{ path('matchcenter_report_start', { 'id' : id}) }}">Start</a>
+                    </div>
+                </div>
+
+        {% endif %}
+
+        </div>
 	</div>
 {% endblock %}
 

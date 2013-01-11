@@ -147,9 +147,33 @@ matchcenter_detail:
         parent: "matchcenter"
         label: "Detail"
 
+
+matchcenter_report_add:
+    pattern: /matchcenter/verslag/voegtoe/{id}/{player}/{event}
+    defaults:
+        _controller: MatchTrackerAppBundle:MatchCenter:addEvent
+        parent: "matchcenter"
+        label: "Live verslag geven"
+
+matchcenter_report_end:
+    pattern: /matchcenter/verslag/einde/{id}
+    defaults:
+        _controller: MatchTrackerAppBundle:MatchCenter:endEvent
+        parent: "matchcenter"
+        label: "Live verslag geven"
+
+matchcenter_report_start:
+    pattern: /matchcenter/verslag/start/{id}
+    defaults:
+        _controller: MatchTrackerAppBundle:MatchCenter:startEvent
+        parent: "matchcenter"
+        label: "Live verslag geven"
+
 matchcenter_report:
-    pattern: /matchcenter/{id}/verslag
+    pattern: /matchcenter/verslag/{id}/{player}/{event}
     defaults:
         _controller: MatchTrackerAppBundle:MatchCenter:report
-        parent: "Matchcenter"
+        parent: "matchcenter"
         label: "Live verslag geven"
+        player: null
+        event: null
