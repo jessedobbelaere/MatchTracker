@@ -663,10 +663,15 @@
 		8810E1071671548300DC7F0E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = FakeCode;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = FakeCode;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MatchTrackerApp/MatchTrackerApp-Prefix.pch";
 				INFOPLIST_FILE = "MatchTrackerApp/MatchTrackerApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -674,10 +679,15 @@
 		8810E1081671548300DC7F0E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = FakeCode;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = FakeCode;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MatchTrackerApp/MatchTrackerApp-Prefix.pch";
 				INFOPLIST_FILE = "MatchTrackerApp/MatchTrackerApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

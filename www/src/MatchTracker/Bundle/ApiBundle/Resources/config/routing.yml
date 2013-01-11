@@ -22,3 +22,7 @@ leagues:
 matches:
     type: rest
     resource: MatchTracker\Bundle\ApiBundle\Controller\MatchRestController
+
+events:
+    type: rest
+    resource: MatchTracker\Bundle\ApiBundle\Controller\EventRestController

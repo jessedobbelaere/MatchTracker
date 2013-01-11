@@ -17,6 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblHomeScore;
 @property (weak, nonatomic) IBOutlet UILabel *lblAwayScore;
+@property (weak, nonatomic) IBOutlet UITextView *txtEvents;
 
 
 @end

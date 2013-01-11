@@ -19,7 +19,13 @@ class LeagueRestController extends Controller {
 		$leagues = $this->getDoctrine()
 			->getRepository('MatchTrackerAppBundle:Leagues')
 			->findAll();
-
+//		$leagues = $this->getDoctrine()
+//			->getEntityManager()
+//			->createQueryBuilder()
+//			->select('l.id, l.name, l.description, l.startdate, l.enddate, l.place')
+//			->from('MatchTrackerAppBundle:Leagues', 'l')
+//			->leftJoin('MatchTrackerAppBundle:Standings', 's')
+//			->getQuery()->getResult();
 		$view = View::create()
 			->setStatusCode(200)
 			->setData(array('leagues' => $leagues));

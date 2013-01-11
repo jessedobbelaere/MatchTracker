@@ -32,7 +32,7 @@
     
     [self loadMatch];
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(loadMatch) userInfo:nil repeats:YES];
+    //self.timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(loadMatch) userInfo:nil repeats:YES];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -177,6 +177,7 @@
     self.timer = nil;
     [self setLblHomeScore:nil];
     [self setLblAwayScore:nil];
+    [self setTxtEvents:nil];
     [super viewDidUnload];
 }
 @end
