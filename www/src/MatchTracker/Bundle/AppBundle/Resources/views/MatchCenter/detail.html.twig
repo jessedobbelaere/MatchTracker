@@ -29,10 +29,10 @@
 				</div>
 
                 Status:
-                {% if match.finished  %}
+                {% if match.finished == 1  %}
                     EINDE
                 {% else %}
-                    {% if match.active %}
+                    {% if match.active == 1 %}
                         BEZIG
                     {% else %}
                         {{ match.date|date('d/m') }}

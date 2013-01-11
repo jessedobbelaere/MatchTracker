@@ -167,7 +167,7 @@ class DashboardController extends Controller {
     }
 
 
-    /*
+    /*  Scheme maker
      *
      *
      * */
@@ -177,40 +177,65 @@ class DashboardController extends Controller {
             ->getRepository('MatchTrackerAppBundle:Leagues')
             ->findOneBy(array('nameCanonical' => $nameCanonical));
 
-        $startDate = strtotime($league.startDate());
-        $endDate =  strtotime($league.endDate());
+        $startDate = $league->getStartDate();
+        $endDate =  $league->getEndDate();
 
         $teams = $league->getTeams();
 
-        while( $startDate <= $endDate ) {
-            $startDate = strtotime( "+1 week", $startDate );
-
-            do {
-                $homeTeam = rand(0, $teams.lengh);
-                $awayTeam = rand(0, $teams.lengh);
-            } while ($homeTeam == $awayTeam);
-
-            $match = new Matches();
-
-            $match->setHomeTeam($teams[$homeTeam]->getId());
-            $match->setAwayTeam($teams[$awayTeam]->getId());
-            $match->setDate($startDate);
+        //how many matches to play?
+        $totalMatches = (count($teams) * 2) - 2;
+        $diff = ($startDate->diff($endDate));
+        $daysToPlay =($diff->d)/7; //every week match
+        $matchesOnDay = $totalMatches/$daysToPlay;
 
 
-            // Save changes to db
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($match);
-            $em->flush();
+        $ok = true;
+
+        //
+        for ($i = 0; $i < $totalMatches; $i++){
+            // matches to play on one day
+            //for ($j = 0; $j < 2; $j++){
+
+                do {
+                    do {
+                        $homeTeam = rand(0, count($teams) - 1);
+                        $awayTeam = rand(0, count($teams) - 1);
+                    } while ($homeTeam == $awayTeam);
+
+                    $tempScheme = $matches = $this->getDoctrine()
+                        ->getRepository('MatchTrackerAppBundle:Matches')
+                        ->findAll(array('league' => $league));
+
+                    //Make a new match
+                    $match = new Matches();
+                    $match->setHomeTeam($teams[$homeTeam]);
+                    $match->setAwayTeam($teams[$awayTeam]);
+                    $match->setDate($startDate);
+                    $match->setLeagues($league);
+
+                    foreach ($tempScheme as $m){
+                        if ($m->getHomeTeam() == $match->getHomeTeam() && $m->getAwayTeam() == $match->getAwayTeam()) {
+                            $ok = false;
+                        }
+                    }
+
+                    if ($ok){
+                        // Save changes to db
+                        $em = $this->getDoctrine()->getManager();
+                        $em->persist($match);
+                        $em->flush();
+                    }
+                } while ($ok != true);
+
+                // going to next week
+                $startDate->modify('+1 week');
+
+            }
 
 
-            array_splice($teams, $homeTeam);
-            array_splice($teams, $awayTeam);
+        //}
 
-
-            return $this->render('MatchTrackerAppBundle:Dashboard:teams.html.twig');
-
-        }
-
+        return $this->render('MatchTrackerAppBundle:Dashboard:index.html.twig');
     }
 
 
@@ -227,7 +252,7 @@ class DashboardController extends Controller {
         $matches = $this->getDoctrine()
             ->getRepository('MatchTrackerAppBundle:Matches')
             ->findBy(
-                array('leagues' => $leagues),
+                array('leagues' => $leagues, 'finished' => '0'),
                 array('date' => 'ASC')
             )
         ;

@@ -8,9 +8,95 @@
 
 {% block body %}
     <div class="container">
-        <nav id="breadcrumbs">U bevindt zich hier: {{ xi_breadcrumbs() }} >> {{ league.name }}</nav>
+        <nav id="breadcrumbs">U bevindt zich hier: {{ xi_breadcrumbs() }}</nav>
 
         <h1>{{ league.name }}</h1>
+
+        <ul class="nav nav-tabs">
+            <li {% if option == "info" %} class="active" {% endif %}>
+                <a href="{{ path('competition_show_option', { 'nameCanonical' : league.nameCanonical, 'option' : 'info'  }) }}">Info</a>
+            </li>
+            <li {% if option == "klassement" %} class="active" {% endif %}>
+                <a href="{{ path('competition_show_option', { 'nameCanonical' : league.nameCanonical, 'option' : 'klassement'  }) }}">Klassement</a>
+            </li>
+            <li{% if option == "wedstrijdschema" %} class="active" {% endif %}>
+                <a href="{{ path('competition_show_option', { 'nameCanonical' : league.nameCanonical, 'option' : 'wedstrijdschema'  }) }}">Wedstrijden</a>
+            </li>
+        </ul>
+
+        {% if option == "klassement" %}
+        <div class="row-fluid">
+            <div class="span6">
+                <article id="standing">
+                    {% for standing in standings %}
+                        <h2>{{ standing.name }}</h2>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Team</th>
+                                    <th>W</th>
+                                    <th>G</th>
+                                    <th>V</th>
+                                    <th>P</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for statistic in standing.getSortedStatistics %}
+                                    <tr>
+                                        <td>{{ statistic.position }}</td>
+                                        <td>{{ statistic.teams.getName }}</td>
+                                        <td>{{ statistic.wins }}</td>
+                                        <td>{{ statistic.draws }}</td>
+                                        <td>{{ statistic.losses }}</td>
+                                        <td>{{ statistic.points }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        {% endfor %}
+                    </article>
+                </div>
+            </div>
+        </div>
+
+
+        {% elseif option == "wedstrijdschema" %}
+
+        <div class="row-fluid">
+            <div class="span6">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Datum</th>
+                            <th>Wedstrijd</th>
+                            <th>Score</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for match in matches %}
+                    <tr>
+                        <td>{{ match.date|date('d-m-Y') }} {{ match.startTime|date('H:i') }}</td>
+                        <td><a href="{{ path('matchcenter_detail', { 'id' : match.id  }) }}">{{ match.homeTeam.name }} - {{ match.awayTeam.name }}</a></td>
+                        <td>{% if match.homeScore is null and match.awayScore is null  %}
+                                ... - ...
+                            {% else %}
+                                {{ match.homeScore }} - {{ match.awayScore }}
+                            {% endif %}
+                        </td>
+                        <td>{% if match.active == 1 %}Live!{% endif %}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+                </table>
+            </div>
+        </div>
+        {% else %}
+
         <ul id="competitionInfo">
             <li>Type: {{ league.sportTypes.name }}</li>
             <li>Beheerder: {{ league.user.firstname }} {{ league.user.lastname }}</li>
@@ -24,45 +110,7 @@
         <h3>Omschrijving:</h3>
         {{ league.description }}
 
-    <article id="standing">
-
-        {% for standing in standings %}
-            <h2>{{ standing.name }}</h2>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Team</th>
-                        <th>W</th>
-                        <th>G</th>
-                        <th>V</th>
-                        <th>P</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for statistic in standing.getSortedStatistics %}
-                        <tr>
-                            <td>{{ statistic.position }}</td>
-                            <td>{{ statistic.teams.getName }}</td>
-                            <td>{{ statistic.wins }}</td>
-                            <td>{{ statistic.draws }}</td>
-                            <td>{{ statistic.losses }}</td>
-                            <td>{{ statistic.points }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        {% endfor %}
-    </article>
-
-    <article id="previousMatches">
-        <h3>Laatst gespeelde wedstrijden</h3>
-    </article>
-
-    <article id="nextMatches">
-        <h3>Volgende wedstrijden</h3>
-    </article>
-
+        {% endif %}
 </div>
 {% endblock %}
 

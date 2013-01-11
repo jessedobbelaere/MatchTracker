@@ -13,19 +13,47 @@
 
 		<div class="row-fluid">
 			<div class="span9">
-				<div class="competitionTable table-bordered span12">
-					<h3 class="head">Jupiler League | Speeldag 23</h3>
-					<div class="matches">
-						<div class="matchRow clearfix">
-							<div class="teamHost">AA Gent</div>
-							<div class="score">19/01</div>
-							<div class="teamVisitor">Standard</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="span3">
 
+                {% if matches != null %}
+                    <table class="table table-striped">
+
+                        <thead>
+                        <tr>
+                            <th>Datum</th>
+                            <th>Wedstrijd</th>
+                            <th>Score</th>
+                            <th></th>
+                            <th>Competitie</th>
+                            <th>Sport</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for match in matches %}
+                            <tr>
+                                <td>{{ match.date|date('d-m-Y') }} {{ match.startTime|date('H:i') }}</td>
+                                <td><a href="{{ path('matchcenter_detail', { 'id' : match.id  }) }}">{{ match.homeTeam.name }} - {{ match.awayTeam.name }}</a></td>
+                                <td>{% if match.homeScore is null and match.awayScore is null  %}
+                                    ... - ...
+                                {% else %}
+                                    {{ match.homeScore }} - {{ match.awayScore }}
+                                {% endif %}</td>
+                                <td>{% if match.active == 1 %}Live!{% endif %}</td>
+                                <td><a href="{{ path('competition_show', { 'nameCanonical' : match.leagues.nameCanonical  }) }}">{{ match.leagues.name}}</a></td>
+                                <th>{{ match.leagues.sportTypes.name }}</th>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+
+                    </table>
+                {% else %}
+                    <div>
+                        <h4>Helaas er werden geen wedstrijden gevonden</h4>
+
+                    </div>
+                {% endif %}
 			</div>
 		</div>
 
