@@ -18,3 +18,7 @@ sports:
 leagues:
     type: rest
     resource: MatchTracker\Bundle\ApiBundle\Controller\LeagueRestController
+
+matches:
+    type: rest
+    resource: MatchTracker\Bundle\ApiBundle\Controller\MatchRestController

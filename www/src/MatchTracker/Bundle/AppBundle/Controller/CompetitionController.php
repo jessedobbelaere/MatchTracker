@@ -26,8 +26,14 @@ class CompetitionController extends Controller {
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction($sport) {
+
+        $leagues = $this->getDoctrine()
+            ->getRepository('MatchTrackerAppBundle:Leagues')
+            ->findAll();
+
+
 		return $this->render('MatchTrackerAppBundle:Competition:index.html.twig',
-				array('sport' => $sport));
+				array('leagues' => $leagues));
 	}
 
     /**
@@ -36,7 +42,7 @@ class CompetitionController extends Controller {
      * @param $name
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function detailAction($nameCanonical) {
+    public function detailAction($nameCanonical, $option) {
 
     	$league = $this->getDoctrine()
     	    ->getRepository('MatchTrackerAppBundle:Leagues')
@@ -44,9 +50,21 @@ class CompetitionController extends Controller {
 
         $standing = $league->getStandings();
 
+        $matches = $this->getDoctrine()
+            ->getRepository('MatchTrackerAppBundle:Matches')
+            ->findBy(
+            array('leagues' => $league),
+            array('date' => 'ASC')
+        )
+        ;
+
         return $this->render('MatchTrackerAppBundle:Competition:detail.html.twig',
-        		array('league' => $league,
-                    'standings' => $standing));
+        		array(
+                    'league' => $league,
+                    'standings' => $standing,
+                    'option' => $option,
+                    'matches' => $matches
+                ));
     }
 
 }

@@ -29,24 +29,25 @@
 				</div>
 
                 Status:
-                {% if match.finished  %}
+                {% if match.finished == 1  %}
                     EINDE
                 {% else %}
-                    {% if match.active %}
+                    {% if match.active == 1 %}
                         BEZIG
                     {% else %}
                         {{ match.date|date('d/m') }}
                     {% endif %}
                 {% endif %}
 
-                <p>Fase per fase:</p>
-                <ul>
+				<div class="phases">
+	                <h4>Fase per fase:</h4>
+	                <ul>
+	                    {% for event in events %}
+	                    <li><span class="{{ event.matchEvents.icon }}"></span> {{ event.matchEvents.text|replace({'%player%': event.players.name, '%team%': event.teams.name}) }} ({{ event.time }})</li>
+	                    {% endfor %}
 
-                    {% for event in events %}
-                    <li><span class="{{ event.matchEvents.icon }}"></span> {{ event.matchEvents.text|replace({'%player%': event.players.name, '%team%': event.teams.name}) }} ({{ event.time }})</li>
-                    {% endfor %}
-
-                </ul>
+	                </ul>
+				</div>
 
 
 			</div>

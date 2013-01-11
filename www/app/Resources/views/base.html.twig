@@ -38,8 +38,7 @@
 				<ul class="nav">
 					<li {% if active_page == "home" %} class="active"{% endif %}><a href="{{ path('homepage') }}">Home</a></li>
 					<li {% if active_page == "competition" %} class="active"{% endif %}><a href="{{ path('competition') }}">Competities</a></li>
-					<li {% if active_page == "leagues" %} class="active"{% endif %}><a href="">Wedstrijden</a></li>
-					<li {% if active_page == "matchcenter" %} class="active"{% endif %}><a href="">MatchCenter</a></li>
+					<li {% if active_page == "matchcenter" %} class="active"{% endif %}><a href="{{ path('matchcenter') }}">MatchCenter</a></li>
 
 					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 						{% render "MatchTrackerUserBundle:Menu:userMenuDropdown" %}

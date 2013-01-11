@@ -84,7 +84,7 @@
 {
     [super viewWillAppear:animated];
     //self.navigationController.navigationBar.tintColor = [UIColor grayColor];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Over Matchtracker" style:UIBarButtonItemStylePlain target:self action:@selector(onAbout)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"About" style:UIBarButtonItemStylePlain target:self action:@selector(onAbout)];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

@@ -57,13 +57,20 @@ competition:
         parent: "homepage"
         label: "Competities"
 
+competition_show_option:
+    pattern: /competities/detail/{nameCanonical}/{option}
+    defaults:
+        _controller: MatchTrackerAppBundle:Competition:detail
+        parent: "competition"
+        label: "Detail"
+
 competition_show:
     pattern: /competities/detail/{nameCanonical}
     defaults:
         _controller: MatchTrackerAppBundle:Competition:detail
         parent: "competition"
         label: "Detail"
-
+        option: "info"
 
 # Dashboard and subpages
 dashboard:
@@ -93,6 +100,7 @@ mycompetitions_teams:
       parent: "mycompetitions"
       label: "Teams"
 
+
 matchSchedule_maker:
       pattern: /dashboard/mijncompetities/{nameCanonical}/schedule
       defaults:
@@ -107,6 +115,7 @@ mymatches:
         _controller: MatchTrackerAppBundle:Dashboard:matches
         parent: "dashboard"
         label: "Mijn wedstrijden"
+
 
 # Team page and editor
 team:
@@ -131,9 +140,16 @@ matchcenter:
         parent: "homepage"
         label: "Matchcenter"
 
-matchcenter:
+matchcenter_detail:
     pattern: /matchcenter/{id}
     defaults:
         _controller: MatchTrackerAppBundle:MatchCenter:detail
-        parent: "homepage"
-        label: "Matchcenter"
+        parent: "matchcenter"
+        label: "Detail"
+
+matchcenter_report:
+    pattern: /matchcenter/verslag/{id}
+    defaults:
+        _controller: MatchTrackerAppBundle:MatchCenter:report
+        parent: "matchcenter"
+        label: "Live verslag geven"

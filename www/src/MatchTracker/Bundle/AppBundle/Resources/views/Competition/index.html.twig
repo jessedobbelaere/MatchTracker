@@ -7,64 +7,49 @@ Home
 {% endblock %}
 
 {% block body %}
+<div class="container">
+    <nav id="breadcrumbs">U bevindt zich hier: {{ xi_breadcrumbs() }}</nav>
 
-      <div class="row-fluid">
-        <div class="span3">
+    <h1>Competities</h1>
 
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li {% if sport == "voetbal" %}class="active"{% endif %}><a href="{{ path('competition', {'sport': "voetbal"}) }}">Voetbal</a></li>
-              <li {% if sport == "tennis" %}class="active"{% endif %}><a href="{{ path('competition', {'sport': "tennis"}) }}">Tennis</a></li>
-              <li {% if sport == "bowling" %}class="active"{% endif %}><a href="{{ path('competition', {'sport': "bowling"}) }}">Bowling</a></li>
+    <div class="row-fluid">
 
-            </ul>
-
-          </div><!--/.well -->
-        </div><!--/span-->
         <div class="span9">
-          
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
 
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
+                    {% if leagues != null %}
+                        <table class="table table-striped">
 
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
+                            <thead>
+                            <tr>
+                                <th>Naam</th>
+                                <th>Sport</th>
+                                <th>Type</th>
+                                <th>Datum</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for league in leagues %}
+                                <tr>
+                                    <td><a href="{{ path('competition_show', { 'nameCanonical' : league.nameCanonical  }) }}">{{ league.name }} </a></td>
+                                    <td>{{ league.sportTypes.sports.name }}</td>
+                                    <td>{{ league.sportTypes.name }}</td>
+                                    <td>{{ league.startdate|date('d-m-Y') }} - {{ league.enddate|date('d-m-Y') }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
 
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
+                        </table>
+                    {% else %}
+                        <div class="alert alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <h4>Ga van Start!</h4>
+                            U hebt nog geen competities gemaakt. <a href="{{ path('competition_maker') }}">Maak Competitie</a>
+                        </div>
+                    {% endif %}
 
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
 
             </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-
-        </div><!--/span-->
-      </div><!--/row-->
-      
+        </div><!--/row-->
+    </div>
+</div>
 {% endblock %}

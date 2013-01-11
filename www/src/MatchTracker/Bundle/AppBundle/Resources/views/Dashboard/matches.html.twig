@@ -12,7 +12,7 @@
 		<h1>Mijn wedstrijden</h1>
 
         <div class="row-fluid">
-            <div class="span6">
+            <div class="span7">
                 {% if matches != null %}
                     <table class="table table-striped">
 
@@ -21,16 +21,18 @@
                             <th>Wedstrijd</th>
                             <th>Datum</th>
                             <th>Competitie</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
 
                         {% for match in matches %}
                             <tr>
-                                <td><a href="#">{{ match.homeTeam.name }} - {{ match.awayTeam.name }}</a></td>
+                                <td><a href="{{ path('matchcenter_detail', { 'id' : match.id  }) }}">{{ match.homeTeam.name }} - {{ match.awayTeam.name }}</a></td>
                                 <td>{{ match.date|date('d-m-Y') }}</td>
                                 <td><a href="{{ path('competition_show', { 'nameCanonical' : match.leagues.nameCanonical  }) }}">{{ match.leagues.name}}</a></td>
-                             </tr>
+                                <td>{% if match.active == 1 %}Live!{% endif %}</td>
+                            </tr>
                         {% endfor %}
                         </tbody>
 
