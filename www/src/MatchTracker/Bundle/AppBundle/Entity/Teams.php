@@ -101,7 +101,7 @@ class Teams
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Players", inversedBy="teams")
+     * @ORM\ManyToMany(targetEntity="Players", inversedBy="teams",cascade={"all"})
      * @ORM\JoinTable(name="teams_has_players",
      *   joinColumns={
      *     @ORM\JoinColumn(name="teams_id", referencedColumnName="id")

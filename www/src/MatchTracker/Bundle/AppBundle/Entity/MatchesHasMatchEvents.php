@@ -22,9 +22,9 @@ class MatchesHasMatchEvents
     private $id;
 
     /**
-     * @var \DateTime
+     * @var integer
      *
-     * @ORM\Column(name="time", type="datetime", nullable=true)
+     * @ORM\Column(name="time", type="integer", nullable=true)
      */
     private $time;
 
@@ -83,7 +83,7 @@ class MatchesHasMatchEvents
     /**
      * Set time
      *
-     * @param \DateTime $time
+     * @param integer $time
      * @return MatchesHasMatchEvents
      */
     public function setTime($time)
@@ -96,7 +96,7 @@ class MatchesHasMatchEvents
     /**
      * Get time
      *
-     * @return \DateTime 
+     * @return integer 
      */
     public function getTime()
     {

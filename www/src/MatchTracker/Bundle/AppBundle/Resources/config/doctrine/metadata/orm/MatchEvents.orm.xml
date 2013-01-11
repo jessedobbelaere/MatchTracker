@@ -6,5 +6,6 @@
     </id>
     <field name="name" type="string" column="name" length="45" nullable="true"/>
     <field name="text" type="text" column="text" nullable="true"/>
+    <field name="icon" type="string" column="icon" length="45" nullable="true"/>
   </entity>
 </doctrine-mapping>

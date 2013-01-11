@@ -81,7 +81,7 @@ class CompetitionMakerController extends Controller {
             if ($form->isValid()) {
 
                 // New competition
-                $competition = new Leagues($data["name"]);
+                $competition = new Leagues();
                 $competition->setName($data["name"]);
                 $competition->setDescription($data["description"]);
                 $competition->setStartdate($data['startdate']);
