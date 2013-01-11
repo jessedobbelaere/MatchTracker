@@ -82,7 +82,13 @@ class DashboardController extends Controller {
 			"form" => $form->createView()));
 	}
 
-	public function competitionsAction() {
+
+    /**
+     * Show my competitions
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function competitionsAction() {
 		// Get user
 		$this->user = $this->get('security.context')->getToken()->getUser();
 
@@ -206,7 +212,32 @@ class DashboardController extends Controller {
         }
 
     }
-	
+
+
+    public function matchesAction() {
+        // Get user
+        $this->user = $this->get('security.context')->getToken()->getUser();
+
+        // fetch the competitions related to the user
+        $leagues = $this->getDoctrine()
+            ->getRepository('MatchTrackerAppBundle:Leagues')
+            ->findBy(array('user' => $this->user));
+
+        // fetch the matches related to the competitions
+        $matches = $this->getDoctrine()
+            ->getRepository('MatchTrackerAppBundle:Matches')
+            ->findBy(
+                array('leagues' => $leagues),
+                array('date' => 'ASC')
+            )
+        ;
+
+
+        return $this->render('MatchTrackerAppBundle:Dashboard:matches.html.twig',
+            array('matches' => $matches)
+        );
+
+    }
 
 
 

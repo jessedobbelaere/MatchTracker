@@ -1,0 +1,49 @@
+{% extends 'MatchTrackerAppBundle::layout.html.twig' %}
+
+{% set active_page = "dashboard" %}
+
+{% block title %}
+	Mijn wedstrijden
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<nav id="breadcrumbs">U bevindt zich hier: {{ xi_breadcrumbs() }}</nav>
+		<h1>Mijn wedstrijden</h1>
+
+        <div class="row-fluid">
+            <div class="span6">
+                {% if matches != null %}
+                    <table class="table table-striped">
+
+                        <thead>
+                        <tr>
+                            <th>Wedstrijd</th>
+                            <th>Datum</th>
+                            <th>Competitie</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for match in matches %}
+                            <tr>
+                                <td><a href="#">{{ match.homeTeam.name }} - {{ match.awayTeam.name }}</a></td>
+                                <td>{{ match.date|date('d-m-Y') }}</td>
+                                <td><a href="{{ path('competition_show', { 'nameCanonical' : match.leagues.nameCanonical  }) }}">{{ match.leagues.name}}</a></td>
+                             </tr>
+                        {% endfor %}
+                        </tbody>
+
+                    </table>
+                {% else %}
+                    <div>
+                        <h4>Helaas er werden geen wedstrijden gevonden</h4>
+
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+
+	</div>
+{% endblock %}
