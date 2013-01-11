@@ -31,7 +31,7 @@
                                 <td><a href="{{ path('matchcenter_detail', { 'id' : match.id  }) }}">{{ match.homeTeam.name }} - {{ match.awayTeam.name }}</a></td>
                                 <td>{{ match.date|date('d-m-Y') }}</td>
                                 <td><a href="{{ path('competition_show', { 'nameCanonical' : match.leagues.nameCanonical  }) }}">{{ match.leagues.name}}</a></td>
-                                <td>{% if match.active == 1 %}Live!{% endif %}</td>
+                                <td><a href="{{ path('matchcenter_report', { 'id' : match.id  }) }}" class="">Geef verslag</a></td>
                             </tr>
                         {% endfor %}
                         </tbody>

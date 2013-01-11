@@ -134,13 +134,13 @@ class DashboardController extends Controller {
                 // Send an invitation to the teams
                 foreach ($teams as $team) {
                     $message = \Swift_Message::newInstance()
-                        ->setSubject('Hello Email')
+                        ->setSubject('Uitnodiging voor ' . $competition->getName())
                         ->setFrom('noreply@matchtracker.be')
                         ->setTo($team->getEmail())
                         ->setBody($this->renderView(
                             'MatchTrackerAppBundle:Mails:index.html.twig',
                             array('team' => $team)
-                        )
+                        ), 'text/html'
                     );
                     $this->get('mailer')->send($message);
                 }

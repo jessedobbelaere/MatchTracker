@@ -1,1 +1,15 @@
-Test mail: {{ team.name }}
+<html>
+<body>
+
+Bewerk jouw ploeg: <a href="{{ path('team_edit', { 'nameCanonical' : team.nameCanonical, 'code' : team.code  }) }}">{{ team.name }}</a>
+<br />
+Link: {{ asset(path('team_edit', { 'nameCanonical' : team.nameCanonical, 'code' : team.code  })) }}
+</body>
+</html>
+
+
+
+
+
+
+
