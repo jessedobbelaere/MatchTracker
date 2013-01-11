@@ -252,7 +252,7 @@ class DashboardController extends Controller {
         $matches = $this->getDoctrine()
             ->getRepository('MatchTrackerAppBundle:Matches')
             ->findBy(
-                array('leagues' => $leagues, 'finished'),
+                array('leagues' => $leagues, 'finished' => '0'),
                 array('date' => 'ASC')
             )
         ;
