@@ -93,7 +93,6 @@ mycompetitions_teams:
       parent: "mycompetitions"
       label: "Teams"
 
-<<<<<<< HEAD
 matchSchedule_maker:
       pattern: /dashboard/mijncompetities/{nameCanonical}/schedule
       defaults:
@@ -102,14 +101,12 @@ matchSchedule_maker:
         label: "schedule"
 
 
-=======
 mymatches:
     pattern:  /dashboard/mijnwedstrijden
     defaults:
         _controller: MatchTrackerAppBundle:Dashboard:matches
         parent: "dashboard"
         label: "Mijn wedstrijden"
->>>>>>> b5cef36414afc266c15c931856e6ae1fc49fce87
 
 # Team page and editor
 team:
