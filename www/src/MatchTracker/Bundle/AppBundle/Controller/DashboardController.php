@@ -14,6 +14,9 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use MatchTracker\Bundle\AppBundle\Entity\Players;
 use MatchTracker\Bundle\AppBundle\Form\TeamsType;
 use MatchTracker\Bundle\AppBundle\Entity\Matches;
+use MatchTracker\Bundle\AppBundle\Entity\Standings;
+use MatchTracker\Bundle\AppBundle\Entity\Statistics;
+
 
 use Doctrine\ORM\EntityRepository;
 
@@ -143,6 +146,7 @@ class DashboardController extends Controller {
                         )
                     );
                     $this->get('mailer')->send($message);
+
                 }
 
 
@@ -150,6 +154,7 @@ class DashboardController extends Controller {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($competition);
                 $em->flush();
+
 
                 // Redirect to new canonical url
                 // return $this->redirect($this->generateUrl('mycompetitions'));
@@ -224,6 +229,8 @@ class DashboardController extends Controller {
                         $em = $this->getDoctrine()->getManager();
                         $em->persist($match);
                         $em->flush();
+
+
                     }
                 } while ($ok != true);
 
@@ -232,8 +239,31 @@ class DashboardController extends Controller {
 
             }
 
-
         //}
+
+        // make a standing
+        $standing = new Standings();
+        $standing->setName("Klassement");
+
+
+        // make statistics for each team
+        foreach ($teams as $team){
+            //statistics
+            $statistic = new Statistics();
+            $statistic->setDraws(0);
+            $statistic->setLosses(0);
+            $statistic->setPoints(0);
+            $statistic->setWins(0);
+            $statistic->setPosition(1);
+            $statistic->setTeams($team);
+            $standing->addStatistic($statistic);
+
+        }
+
+        $league->addStanding($standing);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($league);
+        $em->flush();
 
         return $this->render('MatchTrackerAppBundle:Dashboard:index.html.twig');
     }
