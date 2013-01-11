@@ -42,12 +42,7 @@ class CompetitionController extends Controller {
     	    ->getRepository('MatchTrackerAppBundle:Leagues')
     	    ->findOneBy(array('nameCanonical' => $nameCanonical));
 
-
-
-
         $standing = $league->getStandings();
-
-
 
         return $this->render('MatchTrackerAppBundle:Competition:detail.html.twig',
         		array('league' => $league,

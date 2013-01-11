@@ -10,7 +10,7 @@
     <h1> {{ league.name }}</h1>
     <ul id="competitionInfo">
         <li>Type: {{ league.sportTypes.name }}</li>
-        <li>Beheerder: {{ league.user.firstname }}</li>
+        <li>Beheerder: {{ league.user.firstname }} {{ league.user.lastname }}</li>
         <li>Startdatum: {{ league.getStartdate |date("m/d/Y") }}</li>
         <li>Einddatum: {{ league.getEnddate |date("m/d/Y") }}</li>
         {% if league.place %}
