@@ -151,5 +151,5 @@ matchcenter_report:
     pattern: /matchcenter/{id}/verslag
     defaults:
         _controller: MatchTrackerAppBundle:MatchCenter:report
-        parent: "Matchcenter"
+        parent: "matchcenter"
         label: "Live verslag geven"

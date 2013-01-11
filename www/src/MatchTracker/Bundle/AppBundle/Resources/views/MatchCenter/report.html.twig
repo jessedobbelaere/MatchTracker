@@ -1,9 +1,9 @@
 {% extends 'MatchTrackerAppBundle::layout.html.twig' %}
 
-{% set active_page = 'matchcenter' %}
+{% set active_page = '' %}
 
 {% block title %}
-	MatchCenter
+	MatchCenter verslag
 {% endblock %}
 
 {% block body %}
@@ -11,8 +11,43 @@
 		<nav id="breadcrumbs">U bevindt zich hier: {{ xi_breadcrumbs() }}</nav>
 		<h1>MatchCenter</h1>
 
+        <form action="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}" method="post" {{ form_enctype(form) }} class="form-horizontal formAlignLeft" novalidate>
+            {{ form_errors(form) }}
 
-       
+            <div class="control-group">
+                {{ form_label(form.player, null, { 'label_attr': {'class': 'control-label'} }) }}
+                <div class="controls">
+                    {{ form_widget(form.player) }}
+                    <div class="error-tooltip animated fadeInRight">{{ form_errors(form.player) }}</div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                {{ form_label(form.event, null, { 'label_attr': {'class': 'control-label'} }) }}
+                <div class="controls">
+                    {{ form_widget(form.event) }}
+                    <div class="error-tooltip animated fadeInRight">{{ form_errors(form.event) }}</div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                {{ form_label(form.time, null, { 'label_attr': {'class': 'control-label'} }) }}
+                <div class="controls">
+                    {{ form_widget(form.time) }}
+                    <div class="error-tooltip animated fadeInRight">{{ form_errors(form.time) }}</div>
+                </div>
+            </div>
+
+
+            {{ form_rest(form) }}
+
+            <div class="control-group spacer">
+                <div class="controls">
+                    <input type="submit" value="Wijzigingen bewaren" class="button-green-mid"/>
+                </div>
+            </div>
+        </form>
+
 	</div>
 {% endblock %}
 
