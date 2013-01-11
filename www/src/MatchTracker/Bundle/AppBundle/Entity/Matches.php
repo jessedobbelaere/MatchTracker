@@ -22,16 +22,16 @@ class Matches
     private $id;
 
     /**
-     * @var \DateTime
+     * @var \Date
      *
-     * @ORM\Column(name="date", type="datetime", nullable=true)
+     * @ORM\Column(name="date", type="date", nullable=true)
      */
     private $date;
 
     /**
-     * @var \DateTime
+     * @var \Time
      *
-     * @ORM\Column(name="start_time", type="datetime", nullable=true)
+     * @ORM\Column(name="start_time", type="time", nullable=true)
      */
     private $startTime;
 

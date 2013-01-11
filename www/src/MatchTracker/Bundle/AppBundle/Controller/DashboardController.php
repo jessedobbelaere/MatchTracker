@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\Session\Session;
 use MatchTracker\Bundle\AppBundle\Entity\Players;
 use MatchTracker\Bundle\AppBundle\Form\TeamsType;
+use MatchTracker\Bundle\AppBundle\Entity\Matches;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -81,7 +82,13 @@ class DashboardController extends Controller {
 			"form" => $form->createView()));
 	}
 
-	public function competitionsAction() {
+
+    /**
+     * Show my competitions
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function competitionsAction() {
 		// Get user
 		$this->user = $this->get('security.context')->getToken()->getUser();
 
@@ -156,8 +163,81 @@ class DashboardController extends Controller {
                 'form' => $form->createView()
             )
         );
+
     }
-	
+
+
+    /*
+     *
+     *
+     * */
+    public function scheduleAction($nameCanonical, Request $request) {
+
+        $league = $this->getDoctrine()
+            ->getRepository('MatchTrackerAppBundle:Leagues')
+            ->findOneBy(array('nameCanonical' => $nameCanonical));
+
+        $startDate = strtotime($league.startDate());
+        $endDate =  strtotime($league.endDate());
+
+        $teams = $league->getTeams();
+
+        while( $startDate <= $endDate ) {
+            $startDate = strtotime( "+1 week", $startDate );
+
+            do {
+                $homeTeam = rand(0, $teams.lengh);
+                $awayTeam = rand(0, $teams.lengh);
+            } while ($homeTeam == $awayTeam);
+
+            $match = new Matches();
+
+            $match->setHomeTeam($teams[$homeTeam]->getId());
+            $match->setAwayTeam($teams[$awayTeam]->getId());
+            $match->setDate($startDate);
+
+
+            // Save changes to db
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($match);
+            $em->flush();
+
+
+            array_splice($teams, $homeTeam);
+            array_splice($teams, $awayTeam);
+
+
+            return $this->render('MatchTrackerAppBundle:Dashboard:teams.html.twig');
+
+        }
+
+    }
+
+
+    public function matchesAction() {
+        // Get user
+        $this->user = $this->get('security.context')->getToken()->getUser();
+
+        // fetch the competitions related to the user
+        $leagues = $this->getDoctrine()
+            ->getRepository('MatchTrackerAppBundle:Leagues')
+            ->findBy(array('user' => $this->user));
+
+        // fetch the matches related to the competitions
+        $matches = $this->getDoctrine()
+            ->getRepository('MatchTrackerAppBundle:Matches')
+            ->findBy(
+                array('leagues' => $leagues),
+                array('date' => 'ASC')
+            )
+        ;
+
+
+        return $this->render('MatchTrackerAppBundle:Dashboard:matches.html.twig',
+            array('matches' => $matches)
+        );
+
+    }
 
 
 
