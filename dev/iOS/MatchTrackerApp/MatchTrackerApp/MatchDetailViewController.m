@@ -64,7 +64,7 @@
     
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:articleMapping pathPattern:nil keyPath:@"matches" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
-    NSString *urlString = [NSString stringWithFormat:@"http://matchtracker.localhost/app_dev.php/api/matches/%@", self.identifier];
+    NSString *urlString = [NSString stringWithFormat:@"http://www.matchtracker.be/api/matches/%@", self.identifier];
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", urlString]];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     RKObjectRequestOperation *objectRequestOperation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[ responseDescriptor ]];
